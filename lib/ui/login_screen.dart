@@ -172,6 +172,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: (){
                             UsuarioApi u = UsuarioApi();
                             u.Autenticar(_selectedCount.cpfcnpj, _selectedCount.login, _selectedCount.login).then((value){
+                              print("Retorno...: $value");
+
                                 if (value["id"] == 0) {
                                   Helper.loja = value['loja'];
                                   Helper.usuario = value['usuario'];
