@@ -17,8 +17,7 @@ class UsuarioApi{
     jo['cpfcnpj'] = cpfcnpj;
     jo['login'] = login;
     jo['senha'] = senha;
-    print("Envio...: $jo");
-
+    //print("Envio...: $jo");
     return await api.post("usuario/autenticar", jo);
   }
 
