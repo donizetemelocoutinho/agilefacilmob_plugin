@@ -35,8 +35,8 @@ class _EstadoScreenState extends State<EstadoScreen> {
       ),
       onTap: (){
         Estado estado = Estado();
-        estado.descricao = Estado.getUFDescricao(index);
-        estado.uf = Estado.getEstado(index);
+        estado.descricao = Estado.getEstado(index);
+        estado.uf = Estado.getUF(index);
         estado.codibge = Estado.getCodIbge(index);
         Navigator.pop(context,estado);
       },

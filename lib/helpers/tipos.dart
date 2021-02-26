@@ -78,7 +78,7 @@ class Estado{
 
   Estado();
 
-  static String getUFDescricao(int i){
+  static String getUF(int i){
     return Diversos.UFs[i];
   }
 
