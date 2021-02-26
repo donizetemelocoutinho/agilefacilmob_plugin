@@ -10,7 +10,6 @@ class EnderecoHelper{
     return version;
   }
 
-
   Endereco endereco;
 
   final _cepController = TextEditingController();
