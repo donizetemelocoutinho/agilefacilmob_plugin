@@ -1,4 +1,6 @@
 import 'package:agilefacil_mob/helpers/tipos.dart';
+import 'package:agilefacil_mob/ui/cidade_screen.dart';
+import 'package:agilefacil_mob/ui/estado_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -58,22 +60,64 @@ class EnderecoHelper{
               ],
             ),
           ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "Estado"),
-            controller: _ufController,
-            validator: (value) {
-              if (value.isEmpty ?? value == null) {
-                return "Preencha o Estado";
-              }
-            },
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(labelText: "Estado"),
+                      controller: _ufController,
+                      enabled: false
+                    )),
+                IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () async{
+                      Estado estado = await Navigator.push(context, MaterialPageRoute(builder: (context) => EstadoScreen()));
+                      if (estado.uf != _ufController.text) {
+                        _ufController.text = estado.descricao;
+                        _cidadeController.text = "";
+                        endereco.uf = estado.uf;
+                        endereco.cidade = null;
+                        endereco.codcidade = null;
+                        endereco.codcidadeibge = null;
+                      }
+
+                    })
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(labelText: "Cidade"),
+                      controller: _cidadeController,
+                      enabled: false,
+                    )),
+                IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () async{
+                      Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
+                      _cidadeController.text = cidade.descricao;
+                      _ufController.text = cidade.uf;
+
+                      endereco.uf = cidade.uf;
+                      endereco.cidade = cidade.descricao;
+                      endereco.codcidade = cidade.codcidade;
+                      endereco.codcidadeibge = cidade.codcidadeibge;
+
+                    })
+              ],
+            ),
           ),
           TextFormField(
-            decoration: InputDecoration(labelText: "Cidade"),
-            controller: _cidadeController,
+            decoration: InputDecoration(labelText: "Bairro"),
+            controller: _bairroController,
             validator: (value) {
-              if (value.isEmpty ?? value == null) {
-                return "Preencha a Cidade";
-              }
+              //validar
             },
           ),
           Container(
@@ -102,13 +146,6 @@ class EnderecoHelper{
               if (value.isEmpty ?? value == null) {
                 return "Informe o numero";
               }
-            },
-          ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "Bairro"),
-            controller: _bairroController,
-            validator: (value) {
-              //validar
             },
           ),
           TextFormField(
