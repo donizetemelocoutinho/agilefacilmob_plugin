@@ -66,6 +66,7 @@ class Cidade{
     descricao = map['descricao'];
     codcidadeibge = map['codcidadeibge'];
   }
+
 }
 
 class Estado{
