@@ -32,96 +32,93 @@ class EnderecoHelper{
   }
 
   Widget getEndereco(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                      child: TextFormField(
-                        decoration: InputDecoration(labelText: "Cep"),
-                        controller: _cepController,
-                        validator: (value) {
-                          //validar
-                        },
-                        onChanged: (value){endereco.cep = value;},
-                      )),
-                  IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: () {
-                      })
-                ],
-              ),
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: <Widget>[
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(labelText: "Cep"),
+                      controller: _cepController,
+                      validator: (value) {
+                        //validar
+                      },
+                      onChanged: (value){endereco.cep = value;},
+                    )),
+                IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {
+                    })
+              ],
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Estado"),
-              controller: _ufController,
-              validator: (value) {
-                if (value.isEmpty ?? value == null) {
-                  return "Preencha o Estado";
-                }
-              },
+          ),
+          TextFormField(
+            decoration: InputDecoration(labelText: "Estado"),
+            controller: _ufController,
+            validator: (value) {
+              if (value.isEmpty ?? value == null) {
+                return "Preencha o Estado";
+              }
+            },
+          ),
+          TextFormField(
+            decoration: InputDecoration(labelText: "Cidade"),
+            controller: _cidadeController,
+            validator: (value) {
+              if (value.isEmpty ?? value == null) {
+                return "Preencha a Cidade";
+              }
+            },
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(labelText: "Logradouro"),
+                      controller: _logradouroController,
+                      validator: (value) {
+                        //validar
+                      },
+                    )),
+                IconButton(
+                    icon: Icon(Icons.location_on_outlined),
+                    onPressed: () {
+                    })
+              ],
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Cidade"),
-              controller: _cidadeController,
-              validator: (value) {
-                if (value.isEmpty ?? value == null) {
-                  return "Preencha a Cidade";
-                }
-              },
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                      child: TextFormField(
-                        decoration: InputDecoration(labelText: "Logradouro"),
-                        controller: _logradouroController,
-                        validator: (value) {
-                          //validar
-                        },
-                      )),
-                  IconButton(
-                      icon: Icon(Icons.location_on_outlined),
-                      onPressed: () {
-                      })
-                ],
-              ),
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Nº"),
-              controller: _numeroController,
-              validator: (value) {
-                if (value.isEmpty ?? value == null) {
-                  return "Informe o numero";
-                }
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Bairro"),
-              controller: _bairroController,
-              validator: (value) {
-                //validar
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Referencia"),
-              controller: _referenciaController,
-              validator: (value) {
-              },
-            )
-          ],
-        ),
+          ),
+          TextFormField(
+            decoration: InputDecoration(labelText: "Nº"),
+            controller: _numeroController,
+            validator: (value) {
+              if (value.isEmpty ?? value == null) {
+                return "Informe o numero";
+              }
+            },
+          ),
+          TextFormField(
+            decoration: InputDecoration(labelText: "Bairro"),
+            controller: _bairroController,
+            validator: (value) {
+              //validar
+            },
+          ),
+          TextFormField(
+            decoration: InputDecoration(labelText: "Referencia"),
+            controller: _referenciaController,
+            validator: (value) {
+            },
+          )
+        ],
       ),
     );
   }
-
 
 }
 
