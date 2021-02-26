@@ -59,6 +59,8 @@ class Cidade{
   String descricao;
   int codcidadeibge;
 
+  Cidade();
+
   Cidade.fromMap(Map map){
     codcidade = map['codcidade'];
     guid = map['guid'];
@@ -73,6 +75,8 @@ class Estado{
   String uf = "";
   String descricao = "";
   int codibge = 0;
+
+  Estado();
 
   static String getUFDescricao(int i){
     return Diversos.Estados[i];
