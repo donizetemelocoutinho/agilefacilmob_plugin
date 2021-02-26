@@ -1,8 +1,10 @@
+import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class EnderecoHelper{
 
+
+class EnderecoHelper{
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
 
   static Future<String> get platformVersion async {
@@ -118,54 +120,6 @@ class EnderecoHelper{
         ],
       ),
     );
-  }
-
-}
-
-class Endereco{
-  int codcidade;
-  int codcidadeibge;
-  String cidade;
-  String uf;
-  String bairro;
-  String cep;
-  String logradouro;
-  String numero;
-  String referencia;
-  double lat;
-  double long;
-
-  Endereco();
-
-  Endereco.fromMap(Map map){
-    codcidade = map['codcidade'];
-    codcidadeibge = map['codcidadeibge'];
-    cidade = map['cidade'];
-    uf = map['uf'];
-    bairro = map['bairro'];
-    cep = map['cep'];
-    logradouro = map['logradouro'];
-    numero = map['numero'];
-    referencia = map['referencia'];
-    lat = 0.0;
-    long = 0.0;
-  }
-
-  Map toMap(){
-    Map<String, dynamic> map = {
-      'codcidade': codcidade,
-      'codcidadeibge': codcidadeibge,
-      'cidade': cidade,
-      'uf': uf,
-      'bairro' : bairro,
-      'cep': cep,
-      'logradouro': logradouro,
-      'numero': numero,
-      'referencia' : referencia,
-      'lat' : lat,
-      'long': long
-    };
-    return map;
   }
 
 }

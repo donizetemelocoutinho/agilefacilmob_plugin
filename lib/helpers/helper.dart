@@ -13,13 +13,10 @@ class Helper{
   }
 
 
-  static List<String> UFs = ["","AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS",
-  "MG","PA","PB","PR","PE","PI","RJ","RN","RS", "RO","RR","SC","SP","SE","TO"];
 
-  static List<String> Estados = ["Selecione o seu estado","Acre","Alagoas","Amapá","Amazonas","Bahia","Ceará","Distrito Federal",
-  "Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul","Minas Gerais","Pará","Paraíba",
-  "Paraná","Pernambuco","Piauí","Rio de Janeiro","Rio Grande do Norte","Rio Grande do Sul","Rondônia",
-  "Roraima","Santa Catarina","São Paulo","Sergipe","Tocantins"];
+
+
+
 
   static Map loja;
   static Map usuario;
@@ -40,26 +37,6 @@ class Helper{
     }
     return id;
   }
-
-  static String getUFDescricao(int i){
-    return Estados[i];
-  }
-
-  static String getEstado(int i){
-    return Estados[i];
-  }
-
-  static int getUFPosition(String uf){
-    int pos = -1;
-    for (int i = 0; i < 27; i++) {
-      if (uf.toUpperCase().compareTo(UFs[i]) == 0){
-        pos = i;
-        break;
-      }
-    }
-    return pos;
-  }
-
 
   static DateTime strToDateTime(String date){
     if (!(date.isEmpty || date == null))
