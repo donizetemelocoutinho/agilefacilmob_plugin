@@ -53,7 +53,19 @@ class Endereco{
 }
 
 class Cidade{
+  int codcidade;
+  String guid;
+  String uf;
+  String descricao;
+  int codcidadeibge;
 
+  Cidade.fromMap(Map map){
+    codcidade = map['codcidade'];
+    guid = map['guid'];
+    uf = map['uf'];
+    descricao = map['descricao'];
+    codcidadeibge = map['codcidadeibge'];
+  }
 }
 
 class Estado{
