@@ -60,7 +60,7 @@ class EnderecoHelper{
                       onChanged: (value){endereco.cep = value;},
                     )),
                 IconButton(
-                    icon: Icon(Icons.search),
+                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
                       ApiHelper api = ApiHelper();
                       Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
@@ -98,7 +98,7 @@ class EnderecoHelper{
                       enabled: false
                     )),
                 IconButton(
-                    icon: Icon(Icons.search),
+                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
                       Estado estado = await Navigator.push(context, MaterialPageRoute(builder: (context) => EstadoScreen()));
                       if (estado.uf != _ufController.text) {
@@ -125,7 +125,7 @@ class EnderecoHelper{
                       enabled: false,
                     )),
                 IconButton(
-                    icon: Icon(Icons.search),
+                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
                       Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
                       _cidadeController.text = cidade.descricao;
@@ -179,7 +179,7 @@ class EnderecoHelper{
           ),
           Padding(padding: EdgeInsets.all(12.0),
             child: FlatButton(
-              child: Icon(Icons.location_on_outlined),
+              child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
               onPressed: () async {
                 ApiHelper api = ApiHelper();
                 Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
