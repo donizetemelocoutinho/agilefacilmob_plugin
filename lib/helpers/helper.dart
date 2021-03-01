@@ -54,7 +54,7 @@ class Helper{
   }
 
   static Maps(double lat,double lng) async {
-    String googleUrl = 'comgooglemaps://?center=$lat,$lng}';
+    String googleUrl = 'comgooglemaps://?center=$lat,$lng&zoom=14&views=traffic';
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
     if (Platform.isAndroid){
       await launch(googleUrl);
