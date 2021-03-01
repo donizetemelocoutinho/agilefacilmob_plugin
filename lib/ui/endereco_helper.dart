@@ -1,8 +1,13 @@
+import 'dart:io';
+
+import 'package:agilefacil_mob/helpers/api_helper.dart';
+import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:agilefacil_mob/ui/cidade_screen.dart';
 import 'package:agilefacil_mob/ui/estado_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -51,11 +56,33 @@ class EnderecoHelper{
                       validator: (value) {
                         //validar
                       },
+                      keyboardType: TextInputType.numberWithOptions(decimal: false),
                       onChanged: (value){endereco.cep = value;},
                     )),
                 IconButton(
                     icon: Icon(Icons.search),
-                    onPressed: () {
+                    onPressed: () async{
+                      ApiHelper api = ApiHelper();
+                      Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
+                      if (map["id"] == 0){
+                        endereco.cep = map["cep"];
+                        endereco.logradouro = map["logradouro"];
+                        endereco.referencia = map["complemento"];
+                        endereco.bairro = map["bairro"];
+                        endereco.cidade = map["localidade"];
+                        endereco.codcidade = null;
+                        endereco.uf = map["uf"];
+                        endereco.codcidadeibge = int.parse(map["ibge"]);
+
+                        _logradouroController.text = endereco.logradouro;
+                        _referenciaController.text = endereco.referencia;
+                        _bairroController.text = endereco.bairro;
+                        _cidadeController.text = endereco.cidade;
+                        _ufController.text = endereco.uf;
+                      } else{
+                        SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                        Scaffold.of(context).showSnackBar(snackBar);
+                      }
                     })
               ],
             ),
@@ -131,11 +158,7 @@ class EnderecoHelper{
                       validator: (value) {
                         //validar
                       },
-                    )),
-                IconButton(
-                    icon: Icon(Icons.location_on_outlined),
-                    onPressed: () {
-                    })
+                    ))
               ],
             ),
           ),
@@ -153,10 +176,24 @@ class EnderecoHelper{
             controller: _referenciaController,
             validator: (value) {
             },
+          ),
+          Padding(padding: EdgeInsets.all(12.0),
+            child: FlatButton(
+              child: Icon(Icons.location_on_outlined),
+              onPressed: () async {
+                ApiHelper api = ApiHelper();
+                Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
+                if (ret["id"] == 0){
+                  Helper.Maps(ret["lat"], ret["lng"]);
+                }
+              },
+            ),
           )
         ],
       ),
     );
   }
+
+
 
 }
