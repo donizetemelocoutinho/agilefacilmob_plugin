@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:device_info/device_info.dart';
 
@@ -11,12 +12,6 @@ class Helper{
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
-
-
-
-
-
-
 
   static Map loja;
   static Map usuario;
@@ -48,6 +43,25 @@ class Helper{
   }
 
 
+  static WhatsApp(String number,{String msg}) async {
+    var whatsappUrl = "whatsapp://send?phone=+55$number&text=$msg";
+
+    if (await canLaunch(whatsappUrl)) {
+      await launch(whatsappUrl);
+    } else {
+      throw 'Erro ao tentar abrir o whatsApp';
+    }
+  }
+
+  static GoogleMaps(double lat,double lng) async {
+    String googleUrl = 'comgooglemaps://?center=$lat,$lng}';
+    String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
+    if (Platform.isAndroid){
+      await launch(googleUrl);
+    } else if (Platform.isIOS) {
+      await launch(appleUrl);
+    }
+  }
 
 
 }
