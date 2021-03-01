@@ -43,7 +43,7 @@ class Helper{
   }
 
   static WhatsApp(String number,{String msg}) async {
-    var whatsappUrl = "whatsapp://send?phone=+55$number&text=$msg";
+    var whatsappUrl = "whatsapp://send?phone=+55$number&text=${msg == null ? "": msg}";
 
     if (await canLaunch(whatsappUrl)) {
       await launch(whatsappUrl);
@@ -63,7 +63,7 @@ class Helper{
   }
 
   static Call(String number){
-    launch('tel:+$number');
+    launch('tel:+55$number');
   }
 
 }
