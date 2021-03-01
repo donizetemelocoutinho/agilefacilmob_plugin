@@ -53,7 +53,7 @@ class Helper{
     }
   }
 
-  static GoogleMaps(double lat,double lng) async {
+  static Maps(double lat,double lng) async {
     String googleUrl = 'comgooglemaps://?center=$lat,$lng}';
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
     if (Platform.isAndroid){
