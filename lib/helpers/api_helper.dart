@@ -17,7 +17,7 @@ class ApiHelper{
     return jr;
   }
 
-  Future<Map> post(String service,Map map,{Map<String, dynamic> params}) async {
+  Future<Map> post(String service,Map map,{Map<String, String> params}) async {
     String url = "";
     if (params != null)
       url = Uri.https(_url_api,"/api/v1/" + service,params).toString();
