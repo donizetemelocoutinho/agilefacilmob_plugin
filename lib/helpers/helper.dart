@@ -15,6 +15,7 @@ class Helper{
 
   static Map loja;
   static Map usuario;
+  static String fcm_token;
 
   static String newGuid(){
     return Uuid().v1();
