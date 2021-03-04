@@ -18,7 +18,7 @@ dependencies:
   sqflite: ^1.1.5
   url_launcher: ^5.0.2
   image_picker: ^0.6.0+3
-  uuid: ^2.2.2
+  uuid: ^3.0.1
   device_info: ^1.0.0
   barcode_scan: ^2.0.1
   package_info: ^0.4.3+4
