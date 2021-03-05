@@ -137,8 +137,8 @@ class _LoginRegisterState extends State<LoginRegister> {
                             height: 50.0,
                             child: RaisedButton(
                               onPressed: () async{
-                                String codeSanner = await BarcodeScanner.scan();
-                                Map us = convert.jsonDecode(codeSanner);
+                                ScanResult r = await BarcodeScanner.scan();
+                                Map us = convert.jsonDecode(r.rawContent);
 
                                 _cnpjController.text = us['cnpj'];
                                 _usuarioController.text = us['login'];
