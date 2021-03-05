@@ -24,7 +24,7 @@ class ApiHelper{
     else
       url = Uri.https(_url_api,"/api/v1/" + service);
 
-    var response = await http.post(url,body: map);
+    var response = await http.post(url,body: map,headers: {"content-type": "application/json"});
     return convert.jsonDecode(response.body);
   }
 
