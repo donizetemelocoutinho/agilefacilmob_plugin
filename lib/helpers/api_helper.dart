@@ -1,5 +1,5 @@
+import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class ApiHelper{
 
@@ -13,7 +13,7 @@ class ApiHelper{
       url = Uri.https(_url_api,"/api/v1/" + service);
 
     var response = await http.get(url);
-    var jr = convert.jsonDecode(response.body);
+    var jr = jsonDecode(response.body);
     return jr;
   }
 
@@ -24,8 +24,8 @@ class ApiHelper{
     else
       url = Uri.https(_url_api,"/api/v1/" + service);
 
-    var response = await http.post(url,body: map,headers: {"content-type": "application/json"});
-    return convert.jsonDecode(response.body);
+    var response = await http.post(url,body: jsonEncode(map),headers: {"content-type": "application/json"});
+    return jsonDecode(response.body);
   }
 
 }
