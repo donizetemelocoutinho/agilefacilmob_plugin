@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:html';
 import 'package:agilefacil_mob/helpers/db_counts.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/usuario_helper.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../helpers/helper.dart';
 import 'login_register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -54,8 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           Container(
               padding: EdgeInsets.only(top: 150.0),
-              child: Text("Agile Fácil Master",
-                  style: TextStyle(fontSize: 25.0, color: Colors.blueAccent))),
+              child: Text(Helper.AppTitle, style: TextStyle(fontSize: 25.0, color: Theme.of(context).primaryColor))),
           Expanded(
               child: Center(
                   child: IgnorePointer(
@@ -71,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: Colors.blue,
+          backgroundColor: Theme.of(context).primaryColor,
           onPressed: () {
             _showCount(context);
           },
@@ -146,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
         context: context,
         builder: (BuildContext bc) {
           return  Padding(
-            padding: EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(20.0),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
@@ -169,6 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         height: 50.0,
                         child: RaisedButton(
+                          color: Theme.of(context).primaryColor,
                           onPressed: (){
                             UsuarioApi u = UsuarioApi();
                             u.Autenticar(_selectedCount.cpfcnpj, _selectedCount.login, _senhaController.text).then((value){
