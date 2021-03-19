@@ -143,12 +143,15 @@ class _LoginScreenState extends State<LoginScreen> {
     _senhaController.text = "";
     showModalBottomSheet(
         context: context,
+        isScrollControlled:true,
         builder: (BuildContext bc) {
-          return  Padding(
-            padding: EdgeInsets.all(20.0),
+          return Container(
+            padding: EdgeInsets.all(10.0),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Padding(padding: EdgeInsets.all(20.0),child: Icon(Icons.security_sharp,size: 80,color: Theme.of(context).accentColor)),
                   TextFormField(
                     autofocus: true,
                     obscureText: true,
@@ -174,23 +177,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             u.Autenticar(_selectedCount.cpfcnpj, _selectedCount.login, _senhaController.text).then((value){
                               //print("Retorno...: $value");
 
-                                if (value["id"] == 0) {
-                                  Helper.loja = value['loja'];
-                                  Helper.usuario = value['usuario'];
+                              if (value["id"] == 0) {
+                                Helper.loja = value['loja'];
+                                Helper.usuario = value['usuario'];
 
-                                  Navigator.pop(context);
+                                Navigator.pop(context);
 
-                                  if (widget.route != null)
-                                    Navigator.pushReplacementNamed(context, widget.route);
-                                }
-                                else {
-                                  Navigator.pop(context);
-                                  SnackBar snackBar = SnackBar(content: Text(value["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
-                                  Scaffold.of(context).showSnackBar(snackBar);
-                                }
+                                if (widget.route != null)
+                                  Navigator.pushReplacementNamed(context, widget.route);
+                              }
+                              else {
+                                Navigator.pop(context);
+                                SnackBar snackBar = SnackBar(content: Text(value["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                                Scaffold.of(context).showSnackBar(snackBar);
+                              }
                             });
                           },
-                          child: Text("Entrar"),
+                          child: Text("Entrar",style: TextStyle(color: Colors.white)),
                         ),
                       ))
                 ]),

@@ -72,7 +72,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                 _salvar();
               },
               child: Icon(Icons.verified_user),
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: Theme.of(context).primaryColor,
             ),
             body: SingleChildScrollView(
               padding: EdgeInsets.only(top: 20,left: 12,right: 12),
