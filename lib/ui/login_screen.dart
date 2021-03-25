@@ -101,15 +101,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(top: 10.0),
-                      child: Text(counts[index].login ?? "",
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.bold))),
-                  Padding(
-                      padding: EdgeInsets.only(top: 10.0),
-                      child: Text(counts[index].cpfcnpj ?? "",
-                          style: TextStyle(fontSize: 14.0))),
+                  Padding(padding: EdgeInsets.only(top: 10.0), child: Text(counts[index].login ?? "", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold))),
+                  Padding(padding: EdgeInsets.only(top: 10.0), child: Text(counts[index].cpfcnpj ?? "", style: TextStyle(fontSize: 14.0))),
                 ],
               ),
             )
@@ -127,16 +120,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _showCount(BuildContext context, {DBCount count}) async {
-    final recCount = await Navigator.push(context,
-        MaterialPageRoute(builder: (context) => LoginRegister(count: count)));
-    if (recCount != null) {
-      if (count != null) {
-        await helper.update(recCount);
-      } else {
-        await helper.save(recCount);
-      }
-    }
-    await _getAllCounts();
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => LoginRegister(count: count)));
+    _getAllCounts();
   }
 
   void _CapturarSenha(context) {
@@ -189,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               else {
                                 Navigator.pop(context);
                                 SnackBar snackBar = SnackBar(content: Text(value["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
-                                Scaffold.of(context).showSnackBar(snackBar);
+                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
                               }
                             });
                           },

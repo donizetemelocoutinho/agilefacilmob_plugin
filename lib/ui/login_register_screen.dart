@@ -180,6 +180,9 @@ class _LoginRegisterState extends State<LoginRegister> {
           cr.save(count);
           Navigator.pop(context,_editedCount);
         }
+      } else {
+        SnackBar snackBar = SnackBar(content: Text(mr["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
   }
