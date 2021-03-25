@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 
+import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'db_helper.dart';
@@ -90,7 +91,9 @@ class DBCountsHelper{
   Future<List> getAll() async {
     Database d = await DBHelper().db;
     List listMap = await d.rawQuery("SELECT * FROM $table");
-    List<DBCount> list = List();
+    List<DBCount> list = [];
+
+    print("Count: ${listMap.length}");
 
     for (Map m in listMap){
       DBCount count = DBCount.fromMap(m);
