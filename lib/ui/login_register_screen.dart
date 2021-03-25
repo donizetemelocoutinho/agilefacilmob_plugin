@@ -177,7 +177,7 @@ class _LoginRegisterState extends State<LoginRegister> {
           count.usuario = mr["auth"]["usuario"];
           count.celular = _celularController.text;
           count.descricao = _descricaoController.text;
-          cr.save(count);
+          await cr.save(count);
           Navigator.pop(context,_editedCount);
         }
       } else {
