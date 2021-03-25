@@ -25,7 +25,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   DBCountsHelper helper = DBCountsHelper();
-  List<DBCount> counts = List();
+  List<DBCount> counts = [];
 
   DBCount _selectedCount = null;
 
@@ -38,12 +38,13 @@ class _LoginScreenState extends State<LoginScreen> {
     _getAllCounts();
   }
 
-  void _getAllCounts() {
-    helper.getAll().then((list) {
-      setState(() {
-        counts = list;
-      });
+  void _getAllCounts() async{
+    List<DBCount> ret = await helper.getAll();
+
+    setState(() {
+      counts = ret;
     });
+
   }
 
   @override
