@@ -7,15 +7,15 @@ class Diversos{
 class Endereco{
   int codcidade;
   int codcidadeibge;
-  String cidade;
-  String uf;
-  String bairro;
-  String cep;
-  String logradouro;
-  String numero;
-  String referencia;
-  double lat;
-  double long;
+  String cidade = "";
+  String uf = "";
+  String bairro = "";
+  String cep = "";
+  String logradouro = "";
+  String numero = "";
+  String referencia = "";
+  double lat = 0;
+  double long = 0;
 
   Endereco();
 
