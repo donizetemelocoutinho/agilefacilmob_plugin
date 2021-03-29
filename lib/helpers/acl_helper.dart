@@ -1,7 +1,6 @@
+import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/ui/acl_login.dart';
 import 'package:flutter/material.dart';
-
-import 'api_helper.dart';
 
 class AclHelper{
 
@@ -28,7 +27,6 @@ class AclHelper{
 
   Future<bool> allow() async{
     Map r = await _allow();
-
     if (r["id"] == 0){
       if (r["force_login"] == "N")
         return true;
