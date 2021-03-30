@@ -147,16 +147,13 @@ class ParamsHelper{
   Future<dynamic> getList({@required List<String> paramsList, @required String api_token,@required int codloja}) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> params = {"codloja": codloja.toString(),"api_token":api_token,"params" : jsonEncode(paramsList)};
-    print("Parametros: $params");
-    Map r = await api.get("loja/parametros/list", params: params);
-    print("Result: $params");
+    dynamic r = await api.get("loja/parametros/list", params: params);
     return r;
   }
 
   Future<Map> get({@required String param, @required String api_token,@required int codloja}) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> params = {"codloja": codloja.toString(),"api_token":api_token,"id" : param};
-    print("Parametros: $params");
     Map r = await api.get("loja/parametros/get", params: params);
     return r;
   }
