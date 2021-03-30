@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 
 
@@ -145,7 +146,7 @@ class ParamsHelper{
 
   Future<Map> getList({@required List<String> paramsList, @required String api_token,@required int codloja}) async{
     ApiHelper api = ApiHelper();
-    Map<String,dynamic> params = {"codloja": codloja.toString(),"api_token":api_token,"params" : paramsList.toString()};
+    Map<String,dynamic> params = {"codloja": codloja.toString(),"api_token":api_token,"params" : jsonEncode(paramsList)};
     print("Parametros: $params");
     Map r = await api.get("loja/parametros/list", params: params);
     return r;
