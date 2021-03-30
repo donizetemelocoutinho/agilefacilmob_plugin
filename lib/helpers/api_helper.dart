@@ -5,7 +5,7 @@ class ApiHelper{
 
   static const _url_api = "api.agilefacil.com.br";
 
-  Future<Map> get(String service,{Map<String, dynamic> params}) async {
+  Future<dynamic> get(String service,{Map<String, dynamic> params}) async {
     Uri url;
     if (params != null)
       url = Uri.https(_url_api,"/api/v1/" + service,params);
@@ -17,7 +17,7 @@ class ApiHelper{
     return jr;
   }
 
-  Future<Map> post(String service,Map<String,dynamic> map,{Map<String, String> params}) async {
+  Future<dynamic> post(String service,Map<String,dynamic> map,{Map<String, String> params}) async {
     Uri url;
     if (params != null)
       url = Uri.https(_url_api,"/api/v1/" + service,params);
