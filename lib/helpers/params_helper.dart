@@ -158,7 +158,7 @@ class ParamsHelper{
     return r;
   }
 
-  String getStringFromList({@required Map params, @required String param,String defaultValue}){
+  static String getStringFromList({@required dynamic params, @required String param,String defaultValue}){
     String ret = defaultValue;
     for (var i = 0; i < params.length -1; i++) {
       if (params[i]["id"] == param){
@@ -169,19 +169,19 @@ class ParamsHelper{
     return ret;
   }
 
-  bool getBoolFromList({@required Map params, @required String param}){
+  static bool getBoolFromList({@required dynamic params, @required String param}){
     bool ret = false;
     ret = getStringFromList(params:params,param: param,defaultValue: "N") == "S";
     return ret;
   }
 
-  int getIntFromList({@required Map params,@required String param}){
+  static int getIntFromList({@required dynamic params,@required String param}){
     int ret = 0;
     ret = int.parse(getStringFromList(params: params,param: param,defaultValue: "0"));
     return ret;
   }
 
-  double getDouleFromList({@required Map params, @required String param}){
+  static double getDouleFromList({@required dynamic params, @required String param}){
     double ret = 0;
     ret = double.parse(getStringFromList(params:params,param: param,defaultValue: "0.00"));
     return ret;
