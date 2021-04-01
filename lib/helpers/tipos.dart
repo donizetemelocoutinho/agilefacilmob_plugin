@@ -26,7 +26,7 @@ class Endereco{
     uf = map['uf'] == null ? "" : map['uf'];
     bairro = map['bairro'] == null ? "" : map['bairro'];
     cep = map['cep'] == null ? "" : map['cep'];
-    logradouro = map['logradouro'] ? "" : map['logradouro'];
+    logradouro = map['logradouro']  == null ? "" : map['logradouro'];
     numero = map['numero']  == null ? "" : map['numero'];
     referencia = map['referencia'] == null ? "" : map['referencia'];
     lat = 0.0;
