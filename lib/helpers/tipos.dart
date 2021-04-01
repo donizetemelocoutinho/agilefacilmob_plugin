@@ -22,13 +22,13 @@ class Endereco{
   Endereco.fromMap(Map map){
     codcidade = map['codcidade'];
     codcidadeibge = map['codcidadeibge'];
-    cidade = map['cidade'];
-    uf = map['uf'];
-    bairro = map['bairro'];
-    cep = map['cep'];
-    logradouro = map['logradouro'];
-    numero = map['numero'];
-    referencia = map['referencia'];
+    cidade = map['cidade'] ?? "";
+    uf = map['uf'] ?? "";
+    bairro = map['bairro'] ?? "";
+    cep = map['cep'] ?? "";
+    logradouro = map['logradouro'] ?? "";
+    numero = map['numero'] ?? "";
+    referencia = map['referencia'] ?? "";
     lat = 0.0;
     long = 0.0;
   }
