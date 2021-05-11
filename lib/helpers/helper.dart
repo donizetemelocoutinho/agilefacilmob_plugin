@@ -4,6 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:device_info/device_info.dart';
 
+import 'loja_helper.dart';
+
 
 class Helper{
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
@@ -13,7 +15,7 @@ class Helper{
     return version;
   }
 
-  static Map loja;
+  static Loja loja;
   static Map usuario;
   static String fcm_token;
   static String AppTitle;
