@@ -102,7 +102,7 @@ class _AclLoginState extends State<AclLogin> {
                           child: ElevatedButton(
                               onPressed: () async {
                                 UsuarioApi u = UsuarioApi();
-                                Map ru = await u.Autenticar(Helper.loja["cpfcnpj"], _login.text, _senha.text);
+                                Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
                                 print(ru);
                                 if (ru["id"] == 0) {
                                   bool allow = await _allow(ru["usuario"]["api_token"]);
