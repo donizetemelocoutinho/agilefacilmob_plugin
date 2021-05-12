@@ -28,6 +28,7 @@ class Usuario{
     codloja = map['codloja'];
     idloja = map['idloja'];
     login = map['login'];
+    senha = map['senha'];
     idgrupo = map['idgrupo'];
     codgrupo = map['codgrupo'];
     ativo = map['ativo'];
