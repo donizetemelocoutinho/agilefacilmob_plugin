@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:agilefacil_mob/helpers/usuario_helper.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:device_info/device_info.dart';
 
+import 'funcionario_helper.dart';
 import 'loja_helper.dart';
 
 
@@ -16,7 +18,8 @@ class Helper{
   }
 
   static Loja loja;
-  static Map usuario;
+  static Usuario usuario;
+  static Funcionario funcionario;
   static String fcm_token;
   static String AppTitle;
 
