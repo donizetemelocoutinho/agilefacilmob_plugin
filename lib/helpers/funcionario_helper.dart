@@ -14,7 +14,7 @@ class FuncionarioApi {
     return version;
   }
 
-  Future<Map> get(@required int codloja, @required int codfuncionario, @required String api_token) async{
+  Future<Map> get({@required int codloja, @required int codfuncionario, @required String api_token}) async{
     ApiHelper api = ApiHelper();
     return await api.get("funcionario/edit", params : {"codloja": codloja.toString(),"codfuncionario": codfuncionario.toString(),"api_token": api_token });
   }
