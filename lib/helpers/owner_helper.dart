@@ -12,9 +12,6 @@ class OwnerApi{
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
-}
-
-class Owner{
 
   Future<Map>Checked() async{
     ApiHelper api = ApiHelper();
@@ -45,5 +42,8 @@ class Owner{
     jo['code'] = code;
     return await api.post("owner/validate", jo);
   }
+}
+
+class Owner{
 
 }
