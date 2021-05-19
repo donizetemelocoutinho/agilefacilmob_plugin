@@ -1,5 +1,29 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import '../api_helper.dart';
+
+
+class ProdutoApi {
+  static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+  Future<Map>getList({@required int codloja,@required int codmarca,@required int codcategoria,@required int estoque,@required int startrow,
+    @required String search,@required String api_token,@required bool ativo})async{
+    ApiHelper api = ApiHelper();
+    return await api.get("estoque/produto/list",params: {"codloja":codloja.toString(),"codmarca": codmarca.toString(),"codcategoria":codcategoria.toString(),
+    "estoque":estoque.toString(),"startrow":startrow.toString(),"search":search,"api_token":api_token,"ativo":ativo});
+  }
+
+  Future<Map>get(@required int codloja, @required int codproduto,@required String api_token)async{
+    ApiHelper api = ApiHelper();
+    return await api.get("estoque/produto/edit", params: {"codloja":codloja.toString(),"codproduto":codproduto.toString(),"api_token":api_token});
+  }
+
+}
 
 class ProdutoParcela{
   int numero;
