@@ -1,5 +1,25 @@
 import 'package:agilefacil_mob/helpers/pessoa_helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'api_helper.dart';
+import 'helper.dart';
+
+
+class ClienteApi{
+
+  static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+  Future<Map>GetList({@required int codloja, @required String api_token, String search, int startrow,String ativo, int limit}) async {
+    ApiHelper api = ApiHelper();
+    return await api.get("cliente/list",params: {"codloja": Helper.loja.codloja.toString(),"search": search,"startrow": startrow.toString(),
+      "ativo": ativo,"limit": limit.toString(),"api_token": api_token});
+  }
+}
 
 class ClienteHelper {
   ClienteHelper();
