@@ -14,10 +14,21 @@ class ClienteApi{
     return version;
   }
 
-  Future<Map>GetList({@required int codloja, @required String api_token, String search, int startrow,String ativo, int limit}) async {
+  Future<Map> getList({@required int codloja, @required String api_token, String search, int startrow,bool ativo, int limit}) async {
     ApiHelper api = ApiHelper();
-    return await api.get("cliente/list",params: {"codloja": Helper.loja.codloja.toString(),"search": search,"startrow": startrow.toString(),
-      "ativo": ativo,"limit": limit.toString(),"api_token": api_token});
+    return await api.get("cliente/list",params: {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(),
+      "ativo": ativo ? "S" : "N","limit": limit.toString(),"api_token": api_token});
+  }
+
+  Future<Map>get({@required int codloja,@required int codcliente, @required String api_token})async{
+    ApiHelper api = ApiHelper();
+    return await api.get("cliente/edit", params: {"codloja": codloja.toString(), "codcliente": codcliente.toString(),"api_token":api_token});
+  }
+
+  Future<Map>store(){
+    ApiHelper api = ApiHelper();
+    Map<String,dynamic> jo = Map();
+
   }
 }
 
