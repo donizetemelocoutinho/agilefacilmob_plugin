@@ -25,11 +25,18 @@ class ClienteApi{
     return await api.get("cliente/edit", params: {"codloja": codloja.toString(), "codcliente": codcliente.toString(),"api_token":api_token});
   }
 
-  Future<Map>store(){
+  Future<Map>storeEmpresa({@required int codloja, @required String api_token,@required ClienteEmpresa cliente})async{
     ApiHelper api = ApiHelper();
-    Map<String,dynamic> jo = Map();
-
+    Map<String,dynamic> jo = cliente.toMap();
+    return await api.post("cliente", jo,params: {"codloja": codloja.toString(),"api_token":api_token});
   }
+
+  Future<Map>storeFisica({@required int codloja, @required String api_token,@required ClienteFisica cliente})async{
+    ApiHelper api = ApiHelper();
+    Map<String,dynamic> jo = cliente.toMap();
+    return await api.post("cliente", jo,params: {"codloja": codloja.toString(),"api_token":api_token});
+  }
+
 }
 
 class ClienteHelper {
