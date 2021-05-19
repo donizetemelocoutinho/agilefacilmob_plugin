@@ -14,7 +14,7 @@ class ClienteApi{
     return version;
   }
 
-  Future<Map> getList({@required int codloja, @required String api_token, String search, int startrow,bool ativo, int limit}) async {
+  Future<Map> getList({@required int codloja, @required String api_token, @required String search,@required int startrow,@required bool ativo, @required int limit}) async {
     ApiHelper api = ApiHelper();
     return await api.get("cliente/list",params: {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(),
       "ativo": ativo ? "S" : "N","limit": limit.toString(),"api_token": api_token});
