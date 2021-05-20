@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import '../api_helper.dart';
 
+enum ProdutoFiltroEstoque {todos,comestoque,semestoque}
 
 class ProdutoApi {
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
@@ -11,11 +12,21 @@ class ProdutoApi {
     return version;
   }
 
-  Future<Map>getList({@required int codloja,@required int codmarca,@required int codcategoria,@required int estoque,@required int startrow,
+  Future<Map>getList({@required int codloja,int codmarca,int codsubgrupo,ProdutoFiltroEstoque estoque,@required int startrow,
     @required String search,@required String api_token,@required bool ativo})async{
     ApiHelper api = ApiHelper();
-    return await api.get("estoque/produto/list",params: {"codloja":codloja.toString(),"codmarca": codmarca.toString(),"codcategoria":codcategoria.toString(),
-    "estoque":estoque.toString(),"startrow":startrow.toString(),"search":search,"api_token":api_token,"ativo":ativo});
+
+    Map<String, String> _params = {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(), "ativo": ativo ? "S" : "N","api_token": api_token,
+    "estoque": estoque.index.toString()};
+
+    if (codmarca != 0)
+      _params["codmarca"] = codmarca.toString();
+
+    if (codsubgrupo != 0)
+      _params["codsubgrupo"] = codsubgrupo.toString();
+
+
+    return await api.get("estoque/produto/list",params: _params);
   }
 
   Future<Map>get({@required int codloja, @required int codproduto,@required String api_token})async{
