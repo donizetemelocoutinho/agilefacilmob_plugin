@@ -1,3 +1,29 @@
+import 'package:agilefacil_mob/helpers/api_helper.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+
+class MarcaApi {
+  static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
+
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+  Future<Map>get({@required int codloja, @required int codmarca,@required String api_token})async{
+    ApiHelper api = ApiHelper();
+    return await api.get("estoque/marca/edit", params: {"codloja":codloja.toString(),"codmarca": codmarca.toString(),"api_token":api_token});
+  }
+
+  Future<Map>getList({@required int codloja,@required String api_token, bool diff})async{
+    ApiHelper api = ApiHelper();
+    return await api.get("estoque/marca/list", params:{"codloja":toString(), "api_token": api_token, "diff": diff});
+
+  }
+
+}
+
+
 class Marca{
   int id;
   String guid;

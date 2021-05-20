@@ -18,7 +18,7 @@ class ProdutoApi {
     "estoque":estoque.toString(),"startrow":startrow.toString(),"search":search,"api_token":api_token,"ativo":ativo});
   }
 
-  Future<Map>get(@required int codloja, @required int codproduto,@required String api_token)async{
+  Future<Map>get({@required int codloja, @required int codproduto,@required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/produto/edit", params: {"codloja":codloja.toString(),"codproduto":codproduto.toString(),"api_token":api_token});
   }
