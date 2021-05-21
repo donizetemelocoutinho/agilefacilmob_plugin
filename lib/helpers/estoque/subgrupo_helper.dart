@@ -1,3 +1,21 @@
+import 'package:agilefacil_mob/helpers/api_helper.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+
+class SubGrupoApi{
+  static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+  Future<Map>getList(@required int codloja,@required String api_token,@required String grupo, bool diff)async{
+    ApiHelper api = ApiHelper();
+    return await api.get("estoque/subgrupo/list", params:{"codloja": codloja.toString(),"api_token": api_token,"grupo":grupo,"diff":diff});
+
+  }
+
+}
 
 class SubGrupoComissao{
   double avista;

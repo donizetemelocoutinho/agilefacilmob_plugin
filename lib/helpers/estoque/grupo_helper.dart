@@ -12,11 +12,9 @@ class GrupoApi{
  Future<Map>getList({@required int codloja,@required String api_token, bool diff})async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/grupo/list", params:{"codloja":codloja.toString(), "api_token": api_token, "diff":diff});
-
  }
+
 }
-
-
 
 class Grupo{
   int id;
