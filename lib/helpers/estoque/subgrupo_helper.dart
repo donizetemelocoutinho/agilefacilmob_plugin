@@ -9,7 +9,7 @@ class SubGrupoApi{
     return version;
   }
 
-  Future<Map>getList(@required int codloja,@required String api_token,@required String grupo, bool diff)async{
+  Future<Map>getSubGrupoList(@required int codloja,@required String api_token,@required String grupo, bool diff)async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/subgrupo/list", params:{"codloja": codloja.toString(),"api_token": api_token,"grupo":grupo,"diff":diff});
 
