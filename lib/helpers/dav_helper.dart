@@ -1,6 +1,40 @@
+import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+
+
+class DavApi {
+  static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codclientes, int tipos,@required bool cancelado, int numero,
+     int numeroalternativo,int numeroficha, @required int startrow, @required String api_token})async{
+
+    ApiHelper api = ApiHelper();
+
+    Map<String, String> _params ={"codloja": codloja.toString(),"cancelado": cancelado ? "S" : "N","startrow":startrow.toString(), "api_token" : api_token};
+
+    if (inicio != 0)
+      _params["inicio"] = inicio.toString();
+
+    if (fim != 0)
+      _params["fim"] = inicio.toString();
+
+    if (codclientes != 0)
+      _params["codclientes"] = codclientes.toString();
+
+    if (tipos != 0)
+      _params["tipos"] = tipos.toString();
+
+    return await api.get("dav/list",params:_params);
+  }
+}
 
 class DavHelper {
 
