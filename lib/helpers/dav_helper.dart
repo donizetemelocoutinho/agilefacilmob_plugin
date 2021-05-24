@@ -34,6 +34,13 @@ class DavApi {
 
     return await api.get("dav/list",params:_params);
   }
+
+  Future<Map>get(@required int codloja, @required int coddav,@required String api_token)async{
+    ApiHelper api = ApiHelper();
+    return await api.get("dav/edit", params: {"codloja": codloja.toString(),"coddav":coddav.toString(),"api_token":api_token });
+
+  }
+
 }
 
 class DavHelper {
