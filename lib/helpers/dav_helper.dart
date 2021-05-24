@@ -13,21 +13,21 @@ class DavApi {
     return version;
   }
 
-  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codclientes, int tipos,@required bool cancelado, int numero,
+  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codcliente, int tipos,@required bool cancelado, int numero,
      int numeroalternativo,int numeroficha, @required int startrow, @required String api_token})async{
 
     ApiHelper api = ApiHelper();
 
     Map<String, String> _params ={"codloja": codloja.toString(),"cancelado": cancelado ? "S" : "N","startrow":startrow.toString(), "api_token" : api_token};
 
-    if (inicio != 0)
+    if (inicio != null)
       _params["inicio"] = inicio.toString();
 
-    if (fim != 0)
+    if (fim != null)
       _params["fim"] = inicio.toString();
 
-    if (codclientes != 0)
-      _params["codclientes"] = codclientes.toString();
+    if (codcliente != 0)
+      _params["codcliente"] = codcliente.toString();
 
     if (tipos != 0)
       _params["tipos"] = tipos.toString();
