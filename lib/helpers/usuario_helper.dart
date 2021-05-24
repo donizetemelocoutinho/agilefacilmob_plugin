@@ -8,6 +8,8 @@ class Usuario{
   String guid;
   int codusuario;
   int codloja;
+  String loja;
+  String cnpj;
   String idloja;
   String login;
   String senha;
@@ -28,6 +30,8 @@ class Usuario{
     codusuario = map['codusuario'];
     codloja = map['codloja'];
     idloja = map['idloja'];
+    loja = map['loja'];
+    cnpj = map['cnpj'];
     login = map['login'];
     senha = map['senha'];
     idgrupo = map['idgrupo'];
