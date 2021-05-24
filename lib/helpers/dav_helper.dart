@@ -40,13 +40,12 @@ class DavApi {
     return await api.get("dav/edit", params: {"codloja": codloja.toString(),"coddav":coddav.toString(),"api_token":api_token });
   }
 
-  /*Future<Map>storeDav({@required String api_token, @required Dav dav})async{
+  Future<Map>storeDav({@required String api_token, @required Dav dav})async{
     ApiHelper api = ApiHelper();
-    Map<String,dynamic> jo =  dav.toMap();
+    Map<String,dynamic> jo = dav.toMap();
     return await api.post("dav", jo,params:{"api_token": api_token});
 
-
-  }*/
+  }
 }
 
 class DavHelper {
@@ -132,30 +131,30 @@ class Dav{
     }
   }
 
-  // Map<String,dynamic> toMap(){
-  //   Map<String, dynamic> map = {
-  //
-  //     'coddav': coddav,
-  //     'guid': guid,
-  //     'codusuario': codusuario,
-  //     'codfuncionario': codfuncionario,
-  //     'codloja': codloja,
-  //     'numero': numero,
-  //     'tipo': tipo,
-  //     'digitacao': DateFormat('yyyy-MM-dd').format(digitacao),
-  //     'tabelapreco': tabelapreco,
-  //     'numeroficha': numeroficha,
-  //     'observacao': observacao,
-  //     'numeroalternativo': numeroalternativo,
-  //     'tpcondicional': tpcondicional,
-  //     'total': total.toMap(),
-  //     'cliente': cliente.toMap(),
-  //     'pagamento': pagamento.toMap(),
-  //
-  //   };
-  //   return map;
-  //
-  // }
+   Map<String,dynamic> toMap(){
+     Map<String, dynamic> map = {
+
+       'coddav': coddav,
+       'guid': guid,
+       'codusuario': codusuario,
+       'codfuncionario': codfuncionario,
+       'codloja': codloja,
+       'numero': numero,
+       'tipo': tipo,
+       'digitacao': DateFormat('yyyy-MM-dd').format(digitacao),
+       'tabelapreco': tabelapreco,
+       'numeroficha': numeroficha,
+       'observacao': observacao,
+       'numeroalternativo': numeroalternativo,
+       'tpcondicional': tpcondicional,
+       'total': total.toMap(),
+       'cliente': cliente.toMap(),
+       'pagamento': pagamento.toMap(),
+
+     };
+     return map;
+
+   }
 }
 
 class DavTotal {
