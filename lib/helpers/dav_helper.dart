@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
@@ -6,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 
+enum DavTypes {orcamento,pedido,osmecanica,osinformatica,osgeral,condicional}
+
 class DavApi {
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
   static Future<String> get platformVersion async {
@@ -13,7 +17,7 @@ class DavApi {
     return version;
   }
 
-  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codcliente, int tipos,@required bool cancelado, int numero,
+  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codcliente, DavTypes tipos,@required bool cancelado, int numero,
      int numeroalternativo,int numeroficha, @required int startrow, @required String api_token})async{
 
     ApiHelper api = ApiHelper();
@@ -27,7 +31,7 @@ class DavApi {
       _params["fim"] = inicio.toString();
 
     if (codcliente != 0)
-      _params["codcliente"] = codcliente.toString();
+      _params["codcliente"] = jsonEncode([codcliente]);
 
     if (tipos != 0)
       _params["tipos"] = tipos.toString();
