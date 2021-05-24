@@ -40,7 +40,6 @@ class DavApi {
     return await api.get("dav/edit", params: {"codloja": codloja.toString(),"coddav":coddav.toString(),"api_token":api_token });
 
   }
-
 }
 
 class DavHelper {
