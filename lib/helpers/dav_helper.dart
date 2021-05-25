@@ -389,6 +389,7 @@ class DavItem{
   double seguro;
   double outros;
   DateTime inclusao = DateTime.now();
+  DateTime exclusao = DateTime.now();
   String observacao;
   double pesobruto = 0;
   double pesoliquido = 0;
