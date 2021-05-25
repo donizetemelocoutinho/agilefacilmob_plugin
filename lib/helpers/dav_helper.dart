@@ -412,6 +412,7 @@ class DavItem{
     outros = map['outros'];
     if (map['inclusao'] != null)
       inclusao =  DateTime.parse(map['inclusao']);
+    exclusao = DateTime.parse(map['exclusao']);
     observacao = map['observacao'];
   }
 }
