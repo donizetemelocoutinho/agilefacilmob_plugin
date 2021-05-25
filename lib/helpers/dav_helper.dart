@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-
 
 enum DavTypes {orcamento,pedido,osmecanica,osinformatica,osgeral,condicional}
 
@@ -17,7 +15,7 @@ class DavApi {
     return version;
   }
 
-  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codcliente, DavTypes tipos,@required bool cancelado, int numero,
+  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codcliente, List<DavTypes> tipos,@required bool cancelado, int numero,
      int numeroalternativo,int numeroficha, @required int startrow, @required String api_token})async{
 
     ApiHelper api = ApiHelper();
@@ -33,8 +31,15 @@ class DavApi {
     if (codcliente != 0)
       _params["codcliente"] = jsonEncode([codcliente]);
 
-    if (tipos != 0)
-      _params["tipos"] = tipos.toString();
+    if (tipos != null)
+    {
+      List<int> jtipos= [];
+      for (var i = 0; i <= tipos.length; i++) {
+        jtipos.add(tipos[i].index);
+      }
+      _params["tipos"] = jsonEncode(jtipos);
+    }
+
 
     return await api.get("dav/list",params:_params);
   }
