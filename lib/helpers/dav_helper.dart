@@ -160,6 +160,7 @@ class Dav{
        'cliente': cliente.toMap(),
        'pagamento': pagamento.toMap(),
 
+
      };
      return map;
 
@@ -389,10 +390,10 @@ class DavItem{
   double seguro;
   double outros;
   DateTime inclusao = DateTime.now();
-  DateTime exclusao = DateTime.now();
   String observacao;
   double pesobruto = 0;
   double pesoliquido = 0;
+  DateTime deleted_at;
 
   DavItem();
 
@@ -412,9 +413,33 @@ class DavItem{
     outros = map['outros'];
     if (map['inclusao'] != null)
       inclusao =  DateTime.parse(map['inclusao']);
-    exclusao = DateTime.parse(map['exclusao']);
     observacao = map['observacao'];
   }
+
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
+      'item': item,
+      'produto': produto.toMap(),
+      'codfuncionario':codfuncionario,
+      'desfuncionario':desfuncionario,
+      'quantidade':quantidade,
+      'unitario':unitario,
+      'custocompra':custocompra,
+      'total':total.toMap(),
+      'desconto':desconto.toMap(),
+      'acrescimo':acrescimo.toMap(),
+      'frete':frete,
+      'seguro':seguro,
+      'outros':outros,
+      'inclusao':DateFormat('yyyy-MM-dd').format(inclusao),
+      'observacao':observacao,
+      'pesobruto':pesobruto,
+      'pesoliquido':pesoliquido,
+      'deleted_at':deleted_at,
+    };
+    return map;
+  }
+
 }
 
 class DavItemProduto{
@@ -431,7 +456,6 @@ class DavItemProduto{
 
   DavItemProduto();
 
-
   DavItemProduto.fromMap(Map map){
     codproduto = map['codproduto'];
     codigo = map['codigo'];
@@ -444,6 +468,22 @@ class DavItemProduto{
     grade = DavItemProdutoGrade.fromMap(map["grade"]);
   }
 
+
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
+      'codproduto':codproduto,
+      'codigo':codigo,
+      'codbarra':codbarra,
+      'codalternativo':codalternativo,
+      'descricao':descricao,
+      'marca':marca,
+      'foto':foto,
+      'unidade':unidade,
+      'grade':grade.toMap(),
+
+    };
+    return map;
+  }
 }
 
 class DavItemProdutoGrade{
@@ -461,6 +501,16 @@ class DavItemProdutoGrade{
     value2 = map['value2'];
   }
 
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
+      'codgrade':codgrade,
+      'seq':seq,
+      'value1':value1,
+      'value2':value2,
+    };
+    return map;
+  }
+
 }
 
 class DavItemProdutoTotal{
@@ -476,7 +526,16 @@ class DavItemProdutoTotal{
     liquido = double.parse(map['liquido']);
     peso_bruto = double.parse(map['peso']['bruto']);
     peso_liquido = double.parse(map['peso']['bruto']);
+  }
 
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
+      'bruto':bruto,
+      'liquido':liquido,
+      'peso_bruto':peso_bruto,
+      'peso_liquido':peso_liquido,
+    };
+    return map;
   }
 
 }
@@ -486,14 +545,23 @@ class DavItemProdutoDesconto{
   double rateado;
   double total;
 
-  DavItemProdutoDesconto(){
+  DavItemProdutoDesconto();
 
-  }
+
 
   DavItemProdutoDesconto.fromMap(Map map){
     item = double.parse(map['item']);
     rateado = double.parse(map['rateado']);
     total = double.parse(map['total']);
+  }
+
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
+      'item':item,
+      'rateado':rateado,
+      'total':total,
+    };
+    return map;
   }
 
 }
@@ -511,6 +579,14 @@ class DavItemProdutoAcrescimo{
     total = double.parse(map['total']);
   }
 
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
+      'item':item,
+      'rateado':rateado,
+      'total':total,
+    };
+    return map;
+  }
 }
 
 class DavListItemCliente{
