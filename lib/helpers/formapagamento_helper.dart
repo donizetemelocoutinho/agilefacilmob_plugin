@@ -13,7 +13,7 @@ class FormaPagamentoApi {
     return version;
   }
 
-  Future<Map>getFormaPagamentoList({@required int codloja, @required int tipo, @required String api_token})async{
+  Future<Map>getList({@required int codloja, @required int tipo, @required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("loja/pgto/list", params: {"codloja": codloja.toString(),"tipo": tipo.toString(),"api_token":api_token.toString()});
   }
