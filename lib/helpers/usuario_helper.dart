@@ -16,6 +16,7 @@ class Usuario{
   String idgrupo;
   int codgrupo;
   String ativo;
+  String email;
   String celular;
   String alterarspl;
   String fotolink;
@@ -37,12 +38,12 @@ class Usuario{
     idgrupo = map['idgrupo'];
     codgrupo = map['codgrupo'];
     ativo = map['ativo'];
+    email = map['email'];
     celular = map['celular'];
     alterarspl = map['alterarspl'];
     fotolink = map['fotolink'];
     api_token = map['api_token'];
     codfuncionario = map['codfuncionario'];
-
 
   }
 
