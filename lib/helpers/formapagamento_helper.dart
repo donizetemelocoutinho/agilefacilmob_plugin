@@ -55,7 +55,7 @@ class FormaPagamento{
 }
 
 
-class FormaPagamentoList{
+class FormaPagamentoListItem{
   String guid;
   int codformapagamento;
   int codloja;
@@ -69,9 +69,9 @@ class FormaPagamentoList{
   String descricao;
   String icone;
 
-  FormaPagamentoList();
+  FormaPagamentoListItem();
 
-  FormaPagamentoList.fromMap(Map map){
+  FormaPagamentoListItem.fromMap(Map map){
 
     guid = map['guid'];
     codformapagamento = map['codformapagamento'];
