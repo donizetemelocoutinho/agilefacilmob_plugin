@@ -85,12 +85,14 @@ class Dav{
   int entrega;
   DavPagamento pagamento = DavPagamento();
   int codgprDocumento = 0;
-  List<DavItem> itens = [];
+  List<DavItem> _itens = [];
 
   Dav(){
     codusuario = Helper.usuario.codusuario;
     codloja = Helper.loja.codloja;
   }
+
+
 
   totalizar(){
     total.bruto = 0;
@@ -101,15 +103,42 @@ class Dav{
     total.subtotal = 0;
     total.acrescimo_itens = 0;
 
-    for (int i = 0; i < itens.length -1; i++) {
-      total.bruto = total.bruto + itens[i].total.bruto;
-      total.desconto_itens = total.desconto_itens + itens[i].desconto.item;
-      total.acrescimo_itens = total.acrescimo_itens + itens[i].acrescimo.item;
-      total.peso_liquido = total.peso_liquido + itens[i].pesoliquido;
-      total.peso_bruto = total.peso_bruto + itens[i].total.peso_bruto;
-      total.subtotal = total.bruto - total.desconto_itens + total.acrescimo_itens;
-      total.liquido = total.subtotal - total.desconto_total + total.acrescimo_itens;
+    for (int i = 0; i < _itens.length -1; i++) {
+
+      if (_itens[i].deleted_at == null) {
+        total.bruto = total.bruto + _itens[i].total.bruto;
+        total.desconto_itens = total.desconto_itens + _itens[i].desconto.item;
+        total.acrescimo_itens = total.acrescimo_itens + _itens[i].acrescimo.item;
+        total.peso_liquido = total.peso_liquido + _itens[i].pesoliquido;
+        total.peso_bruto = total.peso_bruto + _itens[i].total.peso_bruto;
+        total.subtotal = total.bruto - total.desconto_itens + total.acrescimo_itens;
+        total.liquido = total.subtotal - total.desconto_total + total.acrescimo_itens;
+      }
     }
+  }
+
+  List<DavItem> getItens(){
+    List<DavItem> itens = [];
+    for (int i = 0; i < _itens.length -1; i++) {
+      if (itens[i].deleted_at == null)
+        itens.add(_itens[i]);
+    }
+    return itens;
+  }
+
+  void DeleteItem(@required int sequencia){
+    for (int i = 0; i < _itens.length -1; i++) {
+      if (_itens[i].item == sequencia){
+        _itens[i].deleted_at = DateTime.now();
+      }
+    }
+    totalizar();
+  }
+
+  void AddItem(@required DavItem item){
+    item.item = _itens.length + 1;
+    _itens.add(item);
+    totalizar();
   }
 
   Dav.fromMap(Map map){
@@ -135,7 +164,7 @@ class Dav{
 
     if (map['itens'] != null) {
       for (int i = 0; i < map['itens'].length; i++) {
-        itens.add(DavItem.fromMap(map['itens'][i]));
+        _itens.add(DavItem.fromMap(map['itens'][i]));
       }
     }
   }
