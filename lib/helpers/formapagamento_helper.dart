@@ -1,13 +1,9 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-
 import 'api_helper.dart';
 
 class FormaPagamentoApi {
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
-
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
