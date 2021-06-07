@@ -31,6 +31,15 @@ class DavApi {
     if (codcliente != 0)
       _params["codcliente"] = jsonEncode([codcliente]);
 
+    if (numero != 0)
+      _params["numero"] = numero.toString();
+
+    if (numero != 0)
+      _params["numeroalternativo"] = numeroalternativo.toString();
+
+    if (numero != 0)
+      _params["numeroficha"] = numeroficha.toString();
+
     if (tipos != null)
     {
       List<int> jtipos= [];
