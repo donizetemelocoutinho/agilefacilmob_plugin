@@ -19,10 +19,10 @@ class ProdutoApi {
     Map<String, String> _params = {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(), "ativo": ativo ? "S" : "N","api_token": api_token,
     "estoque": estoque.index.toString()};
 
-    if (codmarca != 0)
+    if ((codmarca != 0) && (codmarca != null))
       _params["codmarca"] = codmarca.toString();
 
-    if (codsubgrupo != 0)
+    if ((codsubgrupo != 0) && (codsubgrupo != null))
       _params["codsubgrupo"] = codsubgrupo.toString();
 
 
