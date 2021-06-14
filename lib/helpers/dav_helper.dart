@@ -157,9 +157,10 @@ class Dav{
       digitacao =  DateTime.parse(map['digitacao']);
 
     tabelapreco = map['tabelapreco'];
-    numeroficha = map['numeroficha'];
+
     observacao = map['observacao'];
-    numeroalternativo = map['numeroalternativo'];
+    numeroficha = int.parse(map['numeroficha'],radix: 0);
+    numeroalternativo = int.parse(map['numeroalternativo'],radix: 0);
     tpcondicional = map['tpcondicional'];
     total = DavTotal.fromMap(map["total"]);
     cliente = DavCliente.fromMap(map["cliente"]);
