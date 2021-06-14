@@ -26,7 +26,7 @@ class DavApi {
       _params["inicio"] = inicio.toString();
 
     if (fim != null)
-      _params["fim"] = inicio.toString();
+      _params["fim"] = fim.toString();
 
     if (codcliente != 0)
       _params["codcliente"] = jsonEncode([codcliente]);
