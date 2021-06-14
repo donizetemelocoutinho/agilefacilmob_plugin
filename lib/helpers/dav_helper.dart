@@ -28,10 +28,10 @@ class DavApi {
     if (fim != null)
       _params["fim"] = fim.toString();
 
-    if (codcliente != 0)
+    if ((codcliente != 0) && (codcliente != null))
       _params["codcliente"] = jsonEncode([codcliente]);
 
-    if (numero != 0)
+    if ((numero != 0) && (numero != null))
       _params["numero"] = numero.toString();
 
     if (tipos != null)
