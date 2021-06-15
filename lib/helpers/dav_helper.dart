@@ -680,6 +680,7 @@ class DavListItem{
   String cidade;
   String vendedor;
   int numero;
+  DavTypes tipo;
   String numeroalternativo;
   int numeroficha;
   DavListItemTotal total;
@@ -695,6 +696,7 @@ class DavListItem{
     cliente = DavListItemCliente.fromMap(map['cliente']);
     cancelado = map['cancelado'];
     origem = map['origem'];
+    tipo = DavTypes.values[map['tipo']];
     validade = map['validade'];
     entrega = map['entrega'];
     cidade = map['cidade'];
