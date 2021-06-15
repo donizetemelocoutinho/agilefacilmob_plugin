@@ -38,7 +38,7 @@ class DavApi {
     {
       print(tipos);
       List<int> jtipos= [];
-      for (var i = 0; i <= tipos.length; i++) {
+      for (var i = 0; i <= tipos.length -1; i++) {
         jtipos.add(tipos[i].index);
       }
       _params["tipos"] = jsonEncode(jtipos);
@@ -700,8 +700,10 @@ class DavListItem{
     cidade = map['cidade'];
     vendedor = map['vendedor'];
     numero = map['numero'];
-    numeroalternativo = map['numeroalternativo'];
-    numeroficha = map['numeroficha'];
+    if(numeroficha != null)
+      numeroficha = int.parse(map['numeroficha'], radix: 0);
+    if(numeroalternativo != null)
+      numeroalternativo = map['numeroalternativo'];
     total = DavListItemTotal.fromMap(map['total']);
     data = DateTime.parse(map['data']);
     tabelapreco = map['tabelapreco'] == null ? 0 : map['tabelapreco'];
