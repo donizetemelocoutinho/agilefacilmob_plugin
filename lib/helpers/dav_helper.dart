@@ -36,6 +36,7 @@ class DavApi {
 
     if (tipos != null)
     {
+      print(tipos);
       List<int> jtipos= [];
       for (var i = 0; i <= tipos.length; i++) {
         jtipos.add(tipos[i].index);
@@ -43,7 +44,7 @@ class DavApi {
       _params["tipos"] = jsonEncode(jtipos);
     }
 
-
+    print(jsonEncode(_params));
     return await api.get("dav/list",params:_params);
   }
 
@@ -76,7 +77,7 @@ class Dav{
   DateTime digitacao = DateTime.now();
   int tabelapreco;
   String observacao;
-  int numeroalternativo;
+  String numeroalternativo;
   int numeroficha;
   int tpcondicional;
   DavTotal total = DavTotal();
@@ -159,8 +160,10 @@ class Dav{
     tabelapreco = map['tabelapreco'];
 
     observacao = map['observacao'];
+    if(numeroficha != null)
     numeroficha = int.parse(map['numeroficha'],radix: 0);
-    numeroalternativo = int.parse(map['numeroalternativo'],radix: 0);
+    if(numeroalternativo != null)
+    numeroalternativo = (map['numeroalternativo']);
     tpcondicional = map['tpcondicional'];
     total = DavTotal.fromMap(map["total"]);
     cliente = DavCliente.fromMap(map["cliente"]);
