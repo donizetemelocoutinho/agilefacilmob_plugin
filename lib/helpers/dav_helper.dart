@@ -157,7 +157,8 @@ class Dav{
     if (map['digitacao'] != null)
       digitacao =  DateTime.parse(map['digitacao']);
 
-    tabelapreco = map['tabelapreco'];
+    if(tabelapreco != null)
+    tabelapreco = int.parse(map['tabelapreco'],radix:0);
 
     observacao = map['observacao'];
     if(numeroficha != null)
