@@ -73,7 +73,7 @@ class Dav{
   int codfuncionario;
   int codloja;
   int numero;
-  int tipo;
+  DavTypes tipo;
   DateTime digitacao = DateTime.now();
   int tabelapreco;
   String observacao;
