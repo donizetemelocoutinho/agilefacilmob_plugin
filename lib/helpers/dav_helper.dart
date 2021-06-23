@@ -709,7 +709,8 @@ class DavListItem{
       numeroalternativo = map['numeroalternativo'];
     total = DavListItemTotal.fromMap(map['total']);
     data = DateTime.parse(map['data']);
-    tabelapreco = map['tabelapreco'] == null ? 0 : map['tabelapreco'];
+    if(tabelapreco != null)
+      tabelapreco = int.parse(map['tabelapreco'],radix:0);
     obs = map['obs'];
   }
 
