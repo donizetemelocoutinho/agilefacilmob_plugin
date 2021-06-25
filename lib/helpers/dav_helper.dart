@@ -205,23 +205,23 @@ class Dav{
 }
 
 class DavTotal {
-  double bruto;
-  double liquido;
-  double entrada;
-  double peso_bruto;
-  double peso_liquido;
-  double desconto_itens;
-  double desconto_subtotal;
-  double desconto_total;
-  double acrescimo_itens;
-  double acrescimo_subtotal;
-  double acrescimo_total;
-  double subtotal;
-  double tributos_icmsst;
-  double tributos_ipi;
-  double outros_fretes;
-  double outros_segurro;
-  double outros_outros;
+  double bruto = 0;
+  double liquido = 0;
+  double entrada = 0;
+  double peso_bruto = 0;
+  double peso_liquido = 0;
+  double desconto_itens =0;
+  double desconto_subtotal=0;
+  double desconto_total=0;
+  double acrescimo_itens=0;
+  double acrescimo_subtotal=0;
+  double acrescimo_total=0;
+  double subtotal=0;
+  double tributos_icmsst=0;
+  double tributos_ipi=0;
+  double outros_fretes=0;
+  double outros_segurro=0;
+  double outros_outros=0;
 
   DavTotal();
 
