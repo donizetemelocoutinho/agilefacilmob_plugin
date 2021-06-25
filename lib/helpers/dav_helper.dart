@@ -124,7 +124,7 @@ class Dav{
   List<DavItem> getItens(){
     List<DavItem> itens = [];
     for (int i = 0; i < _itens.length -1; i++) {
-      if (itens[i].deleted_at == null)
+      if (_itens[i].deleted_at == null)
         itens.add(_itens[i]);
     }
     return itens;
