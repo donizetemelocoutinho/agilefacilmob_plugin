@@ -605,7 +605,7 @@ class DavItemProdutoDesconto{
 
 class DavItemProdutoAcrescimo{
   double item = 0;
-  double rateado =0 ;
+  double rateado =0;
   double total = 0;
 
   DavItemProdutoAcrescimo();
