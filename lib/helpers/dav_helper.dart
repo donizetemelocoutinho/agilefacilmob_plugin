@@ -312,7 +312,7 @@ class DavCliente {
 }
 
 class DavPagamento{
-  double pagamento_dinheiro;
+  double pagamento_dinheiro = 0;
   DavAprazo aprazo = DavAprazo();
   DavCheque cheque = DavCheque();
   DavOutros outros = DavOutros();
@@ -416,16 +416,16 @@ class DavItem{
   DavItemProduto produto = DavItemProduto();
   int codfuncionario;
   String desfuncionario;
-  double quantidade;
-  double unitario;
+  double quantidade = 1;
+  double unitario = 0;
   double unitarioliquido = 0;
-  double custocompra;
+  double custocompra = 0;
   DavItemProdutoTotal total = DavItemProdutoTotal();
   DavItemProdutoDesconto desconto = DavItemProdutoDesconto();
   DavItemProdutoAcrescimo acrescimo = DavItemProdutoAcrescimo();
-  double frete;
-  double seguro;
-  double outros;
+  double frete = 0;
+  double seguro = 0;
+  double outros = 0;
   DateTime inclusao = DateTime.now();
   String observacao;
   double pesobruto = 0;
@@ -551,10 +551,10 @@ class DavItemProdutoGrade{
 }
 
 class DavItemProdutoTotal{
-  double bruto;
-  double liquido;
-  double peso_bruto;
-  double peso_liquido;
+  double bruto = 0;
+  double liquido = 0;
+  double peso_bruto = 0 ;
+  double peso_liquido =0;
 
   DavItemProdutoTotal();
 
@@ -578,9 +578,9 @@ class DavItemProdutoTotal{
 }
 
 class DavItemProdutoDesconto{
-  double item;
-  double rateado;
-  double total;
+  double item = 0 ;
+  double rateado = 0;
+  double total = 0;
 
   DavItemProdutoDesconto();
 
@@ -604,9 +604,9 @@ class DavItemProdutoDesconto{
 }
 
 class DavItemProdutoAcrescimo{
-  double item;
-  double rateado;
-  double total;
+  double item = 0;
+  double rateado =0 ;
+  double total = 0;
 
   DavItemProdutoAcrescimo();
 
@@ -644,15 +644,15 @@ class DavListItemCliente{
 }
 
 class DavListItemTotal{
-  double bruto;
-  double desconto;
-  double acrescimo;
-  double icmsst;
-  double ipi;
-  double frete;
-  double seguro;
-  double outros;
-  double liquido;
+  double bruto = 0;
+  double desconto =0;
+  double acrescimo =0;
+  double icmsst =0;
+  double ipi =0;
+  double frete = 0;
+  double seguro = 0;
+  double outros = 0;
+  double liquido = 0;
 
   DavListItemTotal();
 
