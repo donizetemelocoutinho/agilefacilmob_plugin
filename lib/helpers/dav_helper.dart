@@ -38,7 +38,7 @@ class DavApi {
     {
       print(tipos);
       List<int> jtipos= [];
-      for (var i = 0; i <= tipos.length -1; i++) {
+      for (var i = 0; i < tipos.length; i++) {
         jtipos.add(tipos[i].index);
       }
       _params["tipos"] = jsonEncode(jtipos);
@@ -107,7 +107,7 @@ class Dav{
     total.subtotal = 0;
     total.acrescimo_itens = 0;
 
-    for (int i = 0; i < _itens.length -1; i++) {
+    for (int i = 0; i < _itens.length; i++) {
 
       if (_itens[i].deleted_at == null) {
         total.bruto = total.bruto + _itens[i].total.bruto;
@@ -123,7 +123,7 @@ class Dav{
 
   List<DavItem> getItens(){
     List<DavItem> itens = [];
-    for (int i = 0; i < _itens.length -1; i++) {
+    for (int i = 0; i < _itens.length; i++) {
       if (_itens[i].deleted_at == null)
         itens.add(_itens[i]);
     }
@@ -131,7 +131,7 @@ class Dav{
   }
 
   void DeleteItem(@required int sequencia){
-    for (int i = 0; i < _itens.length -1; i++) {
+    for (int i = 0; i < _itens.length; i++) {
       if (_itens[i].item == sequencia){
         _itens[i].deleted_at = DateTime.now();
       }
