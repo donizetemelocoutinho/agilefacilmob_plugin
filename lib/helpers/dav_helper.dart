@@ -36,7 +36,7 @@ class DavApi {
 
     if (tipos != null)
     {
-      print(tipos);
+      //print(tipos);
       List<int> jtipos= [];
       for (var i = 0; i < tipos.length; i++) {
         jtipos.add(tipos[i].index);
@@ -44,7 +44,7 @@ class DavApi {
       _params["tipos"] = jsonEncode(jtipos);
     }
 
-    print(jsonEncode(_params));
+    //print(jsonEncode(_params));
     return await api.get("dav/list",params:_params);
   }
 
