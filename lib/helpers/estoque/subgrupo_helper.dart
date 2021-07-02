@@ -9,9 +9,15 @@ class SubGrupoApi{
     return version;
   }
 
-  Future<List>getSubGrupoList({@required int codloja,@required String api_token,@required String grupo})async{
+  Future<List>getSubGrupoList({@required int codloja,@required String api_token,int codgrupo})async{
     ApiHelper api = ApiHelper();
-    return await api.get("estoque/subgrupo/list", params:{"codloja": codloja.toString(),"api_token": api_token,"grupo":grupo});
+
+    _params = {"codloja": codloja.toString(),"api_token": api_token};
+
+    if (codgrupo != null)
+      _params["codgrupo"] = codgrupo.toString();
+
+    return await api.get("estoque/subgrupo/list",params : _params);
   }
 
 }
