@@ -29,8 +29,8 @@ class SubGrupoComissao{
   SubGrupoComissao();
 
   SubGrupoComissao.fromMap(Map map){
-    avista = map['avista'];
-    aprazo = map['aprazo'];
+    avista = double.parse(map['avista']);
+    aprazo = double.parse(map['aprazo']);
   }
 }
 
