@@ -12,12 +12,12 @@ class SubGrupoApi{
   Future<List>getSubGrupoList({@required int codloja,@required String api_token,int codgrupo})async{
     ApiHelper api = ApiHelper();
 
-    _params = {"codloja": codloja.toString(),"api_token": api_token};
+    Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token};
 
     if (codgrupo != null)
       _params["codgrupo"] = codgrupo.toString();
 
-    return await api.get("estoque/subgrupo/list",params : _params);
+    return await api.get("estoque/subgrupo/list", params : _params);
   }
 
 }
