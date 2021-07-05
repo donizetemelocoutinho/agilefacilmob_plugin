@@ -23,7 +23,7 @@ class ProdutoApi {
       _params["codmarca"] = codmarca.toString();
 
     if ((codsubgrupo != 0) && (codsubgrupo != null))
-      _params["codsubgrupo"] = codsubgrupo.toString();
+      _params["codcategoria"] = codsubgrupo.toString();
 
 
     return await api.get("estoque/produto/list",params: _params);
