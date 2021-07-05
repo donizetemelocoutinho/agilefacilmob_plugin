@@ -12,7 +12,7 @@ class SubGrupoApi{
   Future<List>getSubGrupoList({@required int codloja,@required String api_token,int codgrupo})async{
     ApiHelper api = ApiHelper();
 
-    Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token};
+    Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token, "codgrupo": codgrupo.toString()};
 
     if (codgrupo != null)
       _params["codgrupo"] = codgrupo.toString();
