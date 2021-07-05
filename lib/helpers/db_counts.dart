@@ -54,7 +54,7 @@ class DBCountsHelper{
     else
       await update(count);
 
-    print(count.toString());
+    //print(count.toString());
 
     return count;
   }
@@ -93,7 +93,7 @@ class DBCountsHelper{
     List listMap = await d.rawQuery("SELECT * FROM $table");
     List<DBCount> list = [];
 
-    print("Count: ${listMap.length}");
+    //print("Count: ${listMap.length}");
 
     for (Map m in listMap){
       DBCount count = DBCount.fromMap(m);

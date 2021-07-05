@@ -103,7 +103,7 @@ class _AclLoginState extends State<AclLogin> {
                               onPressed: () async {
                                 UsuarioApi u = UsuarioApi();
                                 Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
-                                print(ru);
+                                //print(ru);
                                 if (ru["id"] == 0) {
                                   bool allow = await _allow(ru["usuario"]["api_token"]);
                                   if (allow)
@@ -141,7 +141,7 @@ class _AclLoginState extends State<AclLogin> {
     ApiHelper api = ApiHelper();
     Map<String,dynamic> params = {"codloja": widget.codloja.toString(),"api_token": api_token,"acl" : widget.acl};
     Map r = await api.get("loja/acl/allow", params: params);
-    print(r);
+    //print(r);
     return (r["id"] == 0);
   }
 
