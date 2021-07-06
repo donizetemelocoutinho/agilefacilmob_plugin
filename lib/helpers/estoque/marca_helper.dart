@@ -15,7 +15,7 @@ class MarcaApi {
     return await api.get("estoque/marca/edit", params: {"codloja":codloja.toString(),"codmarca": codmarca.toString(),"api_token":api_token});
   }
 
-  Future<List>getList({@required int codloja,@required String api_token})async{
+  Future<List>getList({@required int codloja,@required String api_token, String search})async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/marca/list", params:{"codloja":codloja.toString(), "api_token": api_token});
 
