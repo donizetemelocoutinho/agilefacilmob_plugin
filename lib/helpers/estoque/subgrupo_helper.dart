@@ -17,6 +17,9 @@ class SubGrupoApi{
     if (codgrupo != null)
       _params["codgrupo"] = codgrupo.toString();
 
+    if (search != null)
+      _params['search'] = search;
+
     return await api.get("estoque/subgrupo/list", params : _params);
   }
 

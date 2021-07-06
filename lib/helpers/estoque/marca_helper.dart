@@ -17,7 +17,12 @@ class MarcaApi {
 
   Future<List>getList({@required int codloja,@required String api_token, String search})async{
     ApiHelper api = ApiHelper();
-    return await api.get("estoque/marca/list", params:{"codloja":codloja.toString(), "api_token": api_token});
+
+    Map<String, dynamic> _params = {"codloja":codloja.toString(), "api_token": api_token};
+    if (search != null)
+      _params['search'] = search;
+
+    return await api.get("estoque/marca/list", params: _params);
 
   }
 
