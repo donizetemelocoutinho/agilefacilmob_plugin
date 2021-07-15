@@ -9,13 +9,16 @@ class SubGrupoApi{
     return version;
   }
 
-  Future<List>getSubGrupoList({@required int codloja,@required String api_token,int codgrupo})async{
+  Future<List>getSubGrupoList({@required int codloja,@required String api_token,String search,int codgrupo})async{
     ApiHelper api = ApiHelper();
 
     Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token};
 
     if (codgrupo != null)
       _params["codgrupo"] = codgrupo.toString();
+
+    if (search != null)
+      _params['search'] = search;
 
     return await api.get("estoque/subgrupo/list", params : _params);
   }
