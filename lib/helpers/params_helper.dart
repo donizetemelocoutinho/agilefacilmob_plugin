@@ -70,10 +70,13 @@ class ParamsHelper{
   static final String ProdutoTabelaPrecoPrincipal = '{AF68BD4F-C885-4841-9ADB-0A9F1BA786DE}';
   static final String ProdutoTabelaPrecoAlternativa = '{0FD92975-6E33-48E2-8415-FA95306667A2}';
   static final String ProdutoTabelaPrecoExibirAlternativa = '{C86F10D7-BA1A-447A-A203-71A36A8CC651}';
+  static final String ProdutoTabelaPrecoExibirAlternativa = '{C86F10D7-BA1A-447A-A203-71A36A8CC651}';
+  static final String ProdutoTabelaPrecoparcelamento = 'N7zRfH2XMUahOKoyMeJ6RQ';
   static final String ProdutoTemGrade = '{3ED4D20F-E4C9-43BA-ACB4-C492D9828CB8}';
   static final String ProdutoGradeTipo1 = '{27EE2A88-8C39-4F43-BE00-AC22ADAC644C}';
   static final String ProdutoGradeTipo2 = '{AA8FCA70-BE92-421B-9DD4-85D099D3B83F}';
   static final String ProdutoMascaraPreco = '{36675F57-44CB-4EB6-9A2E-EDB6FD48F13B}';
+
 
   static final String ProdutoAtacarejo = '{06BD7B7E-1F4F-4F42-8A6D-A23779EBF357}';
 
