@@ -145,6 +145,8 @@ class ParamsHelper{
   static final String CompraModoAplicacaoMargemLucro = '{BFCBD0E0-6611-4B55-A1F6-5F238BE1DD2D}';
   static final String EmpresaHorarioFuncionamento = 'nquhl9FVDUKmjvdeYxLBRQ';
 
+  static dynamic params;
+
 
   Future<dynamic> getList({@required List<String> paramsList, @required String api_token,@required int codloja}) async{
     ApiHelper api = ApiHelper();
