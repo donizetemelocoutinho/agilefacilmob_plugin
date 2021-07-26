@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -32,6 +34,12 @@ class ProdutoApi {
   Future<Map>get({@required int codloja, @required int codproduto,@required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/produto/edit", params: {"codloja":codloja.toString(),"codproduto":codproduto.toString(),"api_token":api_token});
+  }
+
+  Future<Map>getListPreco({@required int codloja, @required List<int> codprodutos, @required String api_token })async{
+    ApiHelper api = ApiHelper();
+    String produtos = jsonEncode(codprodutos);
+    return await api.get("estoque/produto/preco/list", params: {"codloja":codloja.toString(),"codproduto":produtos,"api_token":api_token});
   }
 
 }
@@ -471,5 +479,23 @@ class ProdutoListItem{
 
     };
     return map;
+  }
+}
+
+class ProdutoPrecoListItem{
+  int codproduto;
+  double preco;
+  double preco_com_desconto;
+  ProdutoListItemPromocao promocao = ProdutoListItemPromocao();
+  double precoespecial;
+
+  ProdutoPrecoListItem();
+
+  ProdutoPrecoListItem.fromMap(Map map){
+    codproduto = map["codproduto"];
+    preco = double.parse(map['preco']);
+    preco_com_desconto = double.parse(map['preco_com_desconto']);
+    promocao = ProdutoListItemPromocao.fromMap(map['promocao']);
+    precoespecial = double.parse(map['precoespecial']);
   }
 }
