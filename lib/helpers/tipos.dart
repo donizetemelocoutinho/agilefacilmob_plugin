@@ -4,6 +4,8 @@ class Diversos{
   static List<int> UFsIbge = [12,27,13,16,29,23,53,32,52,21,31,50,51,15,25,26,22,41,33,24,11,14,43,42,28,35,17];
 }
 
+enum TabelaPrecoType{tpPrincipal,tpAlternativa}
+
 class Endereco{
   int codcidade;
   int codcidadeibge;
