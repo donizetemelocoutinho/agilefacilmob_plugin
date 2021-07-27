@@ -75,7 +75,7 @@ class Dav{
   int numero;
   DavTypes tipo;
   DateTime digitacao = DateTime.now();
-  int tabelapreco;
+  TabelaPrecoType tabelapreco;
   String observacao;
   String numeroalternativo;
   int numeroficha;
@@ -158,7 +158,7 @@ class Dav{
       digitacao =  DateTime.parse(map['digitacao']);
 
     if(tabelapreco != null)
-    tabelapreco = int.parse(map['tabelapreco'],radix:0);
+    tabelapreco = TabelaPrecoType.values[int.parse(map['tabelapreco'],radix:0)];
 
     observacao = map['observacao'];
     if(numeroficha != null)
@@ -188,7 +188,7 @@ class Dav{
        'numero': numero,
        'tipo': tipo,
        'digitacao': DateFormat('yyyy-MM-dd').format(digitacao),
-       'tabelapreco': tabelapreco,
+       'tabelapreco': tabelapreco.index,
        'numeroficha': numeroficha,
        'observacao': observacao,
        'numeroalternativo': numeroalternativo,
