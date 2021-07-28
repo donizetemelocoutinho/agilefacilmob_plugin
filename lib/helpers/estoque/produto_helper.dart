@@ -264,7 +264,7 @@ class ProdutoGrade{
   String val2;
   double estoque;
   double reservado;
-  String fotolink;
+  String foto;
   String guid;
 
   ProdutoGrade();
@@ -278,7 +278,7 @@ class ProdutoGrade{
     val2 = map["val2"];
     estoque = double.parse(map['estoque']);
     reservado = double.parse(map['reservado']);
-    fotolink = map["fotolink"];
+    foto = map["foto"];
     guid = map["guid"];
   }
 }
