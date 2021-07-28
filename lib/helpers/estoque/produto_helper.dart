@@ -255,6 +255,34 @@ class ProdutoCompra{
 
 }
 
+class ProdutoGrade{
+  int codgrade;
+  int seq;
+  int codalternativo;
+  String codbarra;
+  String val1;
+  String val2;
+  double estoque;
+  double reservado;
+  String fotolink;
+  String guid;
+
+  ProdutoGrade();
+
+  ProdutoGrade.fromMap(Map map){
+    codgrade = map["codgrade"];
+    seq = map["seq"];
+    codalternativo = map["codalternativo"];
+    codbarra = map["codbarra"];
+    val1 = map["val1"];
+    val2 = map["val2"];
+    estoque = double.parse(map['estoque']);
+    reservado = double.parse(map['reservado']);
+    fotolink = map["fotolink"];
+    guid = map["guid"];
+  }
+}
+
 class Produto{
   int codproduto;
   String guid;
@@ -288,6 +316,7 @@ class Produto{
   double parcela_max_valor = 0;
   double parcela_max_total = 0;
   int parcela_max_numero = 0;
+  List<ProdutoGrade> grade = [];
   Produto();
 
   Produto.fromMap(Map map){
@@ -301,7 +330,6 @@ class Produto{
     tipo = map["tipo"];
     descricao = map["descricao"];
     foto = map["foto"];
-
     comissao = ProdutoComissao.fromMap(map["comissao"]);
     tributacao = ProdutoTributacao.fromMap(map["tributacao"]);
     embalagem = ProdutoEmbalagem.fromMap(map["embalagem"]);
@@ -318,24 +346,23 @@ class Produto{
     pdvfavorito = map["pdvfavorito"];
     estoque = ProdutoEstoque.fromMap(map["estoque"]);
     preco = ProdutoPreco.fromMap(map["preco"]);
-
     preco.valor_com_desconto = double.parse(map['preco']['valor_com_desconto']);
-
     preco_especial = ProdutoPreco.fromMap(map["preco"]["especial"]);
-
     if(map['parcelas'] != null) {
       for (int i = 0; i < map['parcelas'].length; i++) {
         ProdutoParcela parcela = ProdutoParcela.fromMap(map['parcelas'][i]);
-
         parcelas.add(parcela);
-
         parcela_max_numero = parcela.numero;
         parcela_max_valor = parcela.parcela;
         parcela_max_total = parcela.total;
       }
     }
+    if (map['grade'] != null) {
+      map['grade'].forEach((v) {
+        grade.add(new ProdutoGrade.fromMap(v));
+      });
+    }
   }
-
 
 
 }
