@@ -498,10 +498,6 @@ class ProdutoListItem{
       'precoespecial': precoespecial,
       'estoque': estoque,
       'reserva': reserva,
-      'codgrade': codgrade,
-      'gradeitem': gradeitem,
-      'gradeval1': gradeval1,
-      'gradeval2': gradeval2,
 
     };
     return map;
