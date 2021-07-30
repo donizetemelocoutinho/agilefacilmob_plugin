@@ -80,7 +80,7 @@ class ClienteEmpresa extends PessoaJuridica {
 }
 
 class ClienteFisica extends PessoaFisica{
-  int codigo;
+  int codigo= 0;
   bool ativo = true;
   Credito credito = Credito();
   double receber = 0;
