@@ -420,14 +420,11 @@ class ProdutoListItem{
   double precoespecial;
   double estoque;
   double reserva;
-  int codgrade = 0;
-  int gradeitem = 0;
-  String gradeval1 = "";
-  String gradeval2 = "";
   List<ProdutoParcela> parcelas = [];
   double parcela_max_valor = 0;
   double parcela_max_total = 0;
   int parcela_max_numero = 0;
+  List<ProdutoGrade> grade = [];
 
   ProdutoListItem();
 
@@ -455,10 +452,12 @@ class ProdutoListItem{
     precoespecial = double.parse(map['precoespecial']);
     estoque = double.parse(map['estoque']);
     reserva = double.parse(map['reserva']);
-    codgrade = map['codgrade'];
-    gradeitem = map['seq'];
-    gradeval1 = map['value1'];
-    gradeval2 = map['value2'];
+
+    if (map['grade'] != null) {
+      map['grade'].forEach((v) {
+        grade.add(new ProdutoGrade.fromMap(v));
+      });
+    }
 
     if(map['parcelas'] != null) {
       for (int i = 0; i < map['parcelas'].length; i++) {
