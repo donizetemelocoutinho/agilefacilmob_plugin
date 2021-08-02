@@ -276,8 +276,8 @@ class ProdutoGrade{
     codbarra = map["codbarra"];
     val1 = map["val1"];
     val2 = map["val2"];
-    estoque = double.parse(map['estoque']);
-    reservado = double.parse(map['reservado']);
+    estoque = (map['estoque'] == null) ? 0 : double.parse(map['estoque'].toString());
+    reservado = (map['reservado'] == null) ? 0 : double.parse(map['reservado'].toString());
     foto = map["foto"];
     guid = map["guid"];
   }
