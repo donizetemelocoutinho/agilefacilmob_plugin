@@ -36,7 +36,7 @@ class ProdutoApi {
     return await api.get("estoque/produto/edit", params: {"codloja":codloja.toString(),"codproduto":codproduto.toString(),"api_token":api_token});
   }
 
-  Future<Map>getListPreco({@required int codloja, @required List<int> codprodutos, @required String api_token })async{
+  Future<List>getListPreco({@required int codloja, @required List<int> codprodutos, @required String api_token })async{
     ApiHelper api = ApiHelper();
     String produtos = jsonEncode(codprodutos);
     return await api.get("estoque/produto/preco/list", params: {"codloja":codloja.toString(),"codproduto":produtos,"api_token":api_token});
