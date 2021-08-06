@@ -528,6 +528,7 @@ class DavItemProdutoGrade{
   int seq = 0;
   String value1;
   String value2;
+  String foto;
 
   DavItemProdutoGrade();
 
@@ -536,6 +537,7 @@ class DavItemProdutoGrade{
     seq = map['seq'];
     value1 = map['value1'];
     value2 = map['value2'];
+    foto = map['foto'];
   }
 
   Map<String,dynamic> toMap(){
