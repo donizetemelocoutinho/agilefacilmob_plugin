@@ -61,6 +61,10 @@ class Helper{
 
   static double toDouble(String v){
     v = v.isEmpty ? "0": v;
+
+    if (v.contains(","))
+      v = v.replaceAll(".", "");
+
     v = v.replaceAll(",", ".");
     return double.parse(v);
   }
