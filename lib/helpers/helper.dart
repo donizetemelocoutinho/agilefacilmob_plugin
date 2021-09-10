@@ -59,6 +59,12 @@ class Helper{
     }
   }
 
+  static double toDouble(String v){
+    v = v.isEmpty ? "0": v;
+    v = v.replaceAll(",", ".");
+    return double.parse(v);
+  }
+
   static Maps(double lat,double lng) async {
     String googleUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
