@@ -1,7 +1,7 @@
 import 'tipos.dart';
 import 'tipos.dart';
 
-class LojaResponsavel{
+class LojaResponsavel {
   String nome;
   String cpf;
   String celular;
@@ -15,8 +15,20 @@ class LojaResponsavel{
     celular = map['celular'];
     email = map['email'];
   }
-
 }
+  class LojaPadrao{
+    int codpgtoaprazo;
+    String pgtoaprazo;
+
+    LojaPadrao();
+
+  LojaPadrao.fromMap(Map map){
+    codpgtoaprazo = map['codpgtoaprazo'];
+    pgtoaprazo = map['pgtoaprazo'];
+  }
+
+  }
+
 
 class Loja{
   String guid;
@@ -39,6 +51,8 @@ class Loja{
   int codcontatesouraria;
   String despfixa;
   String despvariavel;
+  LojaPadrao padrao;
+
 
   Loja();
 
@@ -64,6 +78,7 @@ class Loja{
     codcontatesouraria = map['codcontatesouraria'];
     despfixa = map['despfixa'];
     despvariavel = map['despvariavel'];
+    padrao= LojaPadrao.fromMap(map['padrao']);
   }
 
 }
