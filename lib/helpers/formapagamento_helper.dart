@@ -14,11 +14,22 @@ class FormaPagamentoApi {
     return await api.get("loja/pgto/list", params: {"codloja": codloja.toString(),"tipo": tipo.toString(),"api_token":api_token.toString()});
   }
 
-  Future<Map>get({@required int codloja, @required double valor, @required int codpgto, @required String api_token})async{
+  Future<List>FormaPagamentoCalcularParcelas({@required int codloja, @required double valor, @required int codpgto, @required String api_token})async{
     ApiHelper api = ApiHelper();
-    return await api.get("loja/pgto/parcelas/calcular", params: {"codloja": codloja.toString(),"valor": valor.toString(),
-        "codpgto": codpgto.toString(),"api_token":api_token.toString()});
-    }
+
+    Map result = await api.get("loja/pgto/parcelas/calcular", params: {"codloja": codloja.toString(),"valor": valor,"codpgto": codpgto.toString(),
+      "api_token":api_token});
+    List<SimularParcelaItem> parcelas = [];
+
+    if (result['id'] == 0){
+      for (var _item in result['parcelas']) {
+        parcelas.add(SimularParcelaItem.fromMap(_item));
+      }
+    } else
+      throw Exception("Não foi possivel calcular as parcelas: ${result["msg"]}");
+
+    return parcelas;
+  }
 }
 
 class FormaPagamento{
@@ -90,12 +101,12 @@ class FormaPagamentoListItem{
   }
 }
 
-  class FormaPagamentoCalcularParcelas{
+  class SimularParcelaItem{
     int numero  = 0;
     double parcela = 0.00;
     double total = 0.00;
 
-    FormaPagamentoCalcularParcelas.fromMap(Map map){
+    SimularParcelaItem.fromMap(Map map){
     numero = map['numero'];
     parcela = double.parse(map['parcela']);
     total = double.parse(map['total']);
