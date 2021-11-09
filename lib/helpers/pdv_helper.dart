@@ -24,7 +24,7 @@ class Pdv{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = Map();
     jo['id'] = await Helper.loja.codloja.toString();
-    jo['descricao'] = device;
+    jo['device'] = device;
     return await api.post("owner/store", jo);
   }
 
