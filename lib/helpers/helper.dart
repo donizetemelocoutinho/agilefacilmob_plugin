@@ -40,6 +40,19 @@ class Helper{
     return id;
   }
 
+  static Future<String> getNome() async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    String nome = "";
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      nome = androidInfo.id;
+    } else if (Platform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+      nome = iosInfo.identifierForVendor;
+    }
+    return nome;
+  }
+
   static DateTime strToDateTime(String date){
     if (!(date.isEmpty || date == null))
       return DateTime.parse(date);
