@@ -20,7 +20,7 @@ class Pdv{
     return await api.get("pdv/check", params : {"codloja": codloja,"device": device});
   }
 
-  Future<Map> Store(@required String chave, @required String device) async{
+  Future<Map> LinkDevice(@required String chave, @required String device) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = Map();
     jo['id'] = await Helper.loja.codloja.toString();
