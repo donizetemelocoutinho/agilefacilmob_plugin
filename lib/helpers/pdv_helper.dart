@@ -25,7 +25,7 @@ class Pdv{
     Map<String,dynamic> jo = Map();
     jo['id'] = await Helper.loja.codloja.toString();
     jo['device'] = device;
-    return await api.post("owner/store", jo);
+    return await api.post("pdv/linkdevice", jo);
   }
 
 
