@@ -15,7 +15,7 @@ class Pdv{
   Future<Map>Check({@required int codloja}) async{
     ApiHelper api = ApiHelper();
     String device = await Helper.getId();
-    return await api.get("loja/pdv/check", params : {"codloja": codloja,"device": device});
+    return await api.get("loja/pdv/check", params : {"codloja": codloja.toString(),"device": device});
   }
 
   Future<Map> LinkDevice({@required String chave}) async{
@@ -31,6 +31,11 @@ class Pdv{
     jo['device'] = device;
 
     return await api.post("loja/pdv/linkdevice", jo);
+  }
+
+  Future<Map>get({@required int codloja, @required String codpdv, @required String api_token})async{
+    ApiHelper api = ApiHelper();
+    return await api.get("loja/pdv/get", params: {"codloja": codloja.toString(),"codpdv":codpdv,"api_token":api_token});
   }
 
 
