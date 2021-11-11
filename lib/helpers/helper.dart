@@ -46,10 +46,9 @@ class Helper{
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       nome = androidInfo.model;
-      print(nome);
     } else if (Platform.isIOS) {
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-      nome = iosInfo.identifierForVendor;
+      nome = iosInfo.model;
     }
     return nome;
   }
