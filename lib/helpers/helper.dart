@@ -45,7 +45,8 @@ class Helper{
     String nome = "";
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-      nome = androidInfo.id;
+      nome = androidInfo.model;
+      print(nome);
     } else if (Platform.isIOS) {
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
       nome = iosInfo.identifierForVendor;
