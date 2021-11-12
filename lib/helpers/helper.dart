@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:agilefacil_mob/helpers/pdv_model.dart';
 import 'package:agilefacil_mob/helpers/usuario_helper.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,7 +8,6 @@ import 'package:device_info/device_info.dart';
 
 import 'funcionario_helper.dart';
 import 'loja_helper.dart';
-
 
 class Helper{
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
@@ -19,9 +19,11 @@ class Helper{
 
   static Loja loja;
   static Usuario usuario;
+  static PDVModel pdv;
   static Funcionario funcionario;
   static String fcm_token;
   static String AppTitle;
+
 
   static String newGuid(){
     return Uuid().v1();

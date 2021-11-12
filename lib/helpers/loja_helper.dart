@@ -1,5 +1,4 @@
 import 'tipos.dart';
-import 'tipos.dart';
 
 class LojaResponsavel {
   String nome;
