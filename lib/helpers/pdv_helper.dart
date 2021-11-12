@@ -33,9 +33,9 @@ class Pdv{
     return await api.post("loja/pdv/linkdevice", jo);
   }
 
-  Future<Map>get({@required int codloja, @required String codpdv, @required String api_token})async{
+  Future<Map>get({@required int codloja, @required int codpdv, @required String api_token})async{
     ApiHelper api = ApiHelper();
-    return await api.get("loja/pdv/get", params: {"codloja": codloja.toString(),"codpdv":codpdv,"api_token":api_token});
+    return await api.get("loja/pdv/get", params: {"codloja": codloja.toString(),"codpdv":codpdv.toString(),"api_token":api_token});
   }
 
 
