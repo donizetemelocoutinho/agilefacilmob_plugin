@@ -19,7 +19,7 @@ class Helper{
 
   static Loja loja;
   static Usuario usuario;
-  static PDVModel pdv;
+  static PDVJason pdv;
   static Funcionario funcionario;
   static String fcm_token;
   static String AppTitle;
