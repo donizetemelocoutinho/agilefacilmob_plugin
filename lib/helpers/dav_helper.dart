@@ -60,25 +60,6 @@ class DavApi {
 
   }
 
-  Future<Map>separar({@required int codloja, @required int coddav, @required String fmc ,@required String api_token})async{
-    ApiHelper api = ApiHelper();
-    return await api.get("dav/separar", params: {"codloja": codloja.toString(),"coddav":coddav.toString(),"fmc":fmc,"api_token":api_token });
-  }
-
-  Future<Map>separado({@required int codloja, @required int coddav,@required String api_token})async{
-    ApiHelper api = ApiHelper();
-    return await api.get("dav/separado", params: {"codloja": codloja.toString(),"coddav":coddav.toString(),"api_token":api_token });
-  }
-
-  Future<Map>negado({@required int codloja, @required int coddav, @required String motivo, @required String api_token})async{
-    ApiHelper api = ApiHelper();
-    return await api.get("dav/negado", params: {"codloja": codloja.toString(),"coddav":coddav.toString(), "motivo":motivo, "api_token":api_token });
-  }
-
-  Future<Map>cancelar({@required int codloja, @required int coddav, @required String motivo, @required String api_token})async{
-    ApiHelper api = ApiHelper();
-    return await api.get("dav/cancelar", params: {"codloja": codloja.toString(),"coddav":coddav.toString(), "motivo":motivo, "api_token":api_token });
-  }
 
 }
 
