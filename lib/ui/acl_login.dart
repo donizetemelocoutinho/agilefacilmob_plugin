@@ -112,7 +112,7 @@ class _AclLoginState extends State<AclLogin> {
                 child: Container(
                   decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Padding(padding: EdgeInsets.only(left: 12.0, top: 10),
-                    child: TextFormField(style: TextStyle(fontSize: 22.0, fontFamily: 'Secular', color: Colors.black),
+                    child: TextFormField(style: TextStyle(fontSize: 18.0, fontFamily: 'Secular', color: Colors.black),
                       decoration: InputDecoration(
                         suffixIcon: Padding(padding: const EdgeInsetsDirectional.only(end: 12.0),
                           child: Icon(
@@ -167,7 +167,7 @@ class _AclLoginState extends State<AclLogin> {
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Padding(padding: EdgeInsets.only(left: 12.0, top: 10),
                   child: TextFormField(
-                    style: TextStyle(fontSize: 22.0, fontFamily: 'Secular', color: Colors.black),
+                    style: TextStyle(fontSize: 18.0, fontFamily: 'Secular', color: Colors.black),
                     decoration: InputDecoration(
                       suffixIcon: Padding(
                         padding: const EdgeInsets.only(right: 12.0),
