@@ -24,6 +24,7 @@ class _AclLoginState extends State<AclLogin> {
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  bool _acesso = false;
 
   TextEditingController _login = TextEditingController();
   TextEditingController _senha = TextEditingController();
@@ -57,7 +58,7 @@ class _AclLoginState extends State<AclLogin> {
         _getUsuario(),
         _getSenha(),
         _getJustificativa(),
-        _buttonLiberar()
+        _acesso == true ? _actionCircular() : _buttonLiberar(),
       ],
     );
   }
@@ -96,7 +97,7 @@ class _AclLoginState extends State<AclLogin> {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Container(
-          child: Padding(padding: const EdgeInsets.only(top: 20.0, left: 26, bottom: 3.0),
+          child: Padding(padding: const EdgeInsets.only(top: 20.0, left: 28, bottom: 3.0),
             child: (Text("Usuário",
               style: TextStyle(fontSize: 16.0, fontFamily: "Secular", color: Theme.of(context).secondaryHeaderColor), textAlign: TextAlign.left)
             ),
@@ -151,7 +152,7 @@ class _AclLoginState extends State<AclLogin> {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Container(
-          child: Padding(padding: const EdgeInsets.only(top: 20.0, left: 26, bottom: 3.0),
+          child: Padding(padding: const EdgeInsets.only(top: 20.0, left: 28, bottom: 3.0),
             child: (Text("Senha",
               style: TextStyle(fontSize: 16.0, fontFamily: "Secular", color: Theme.of(context).secondaryHeaderColor), textAlign: TextAlign.left)
             ),
@@ -257,6 +258,7 @@ class _AclLoginState extends State<AclLogin> {
               label: Text("Liberar", style: TextStyle(fontSize: 18.0)), backgroundColor: Theme.of(context).primaryColor,
               onPressed: () async {
                 FocusScope.of(context).requestFocus(new FocusNode());
+                _acesso = true;
 
                 UsuarioApi u = UsuarioApi();
                 Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
@@ -266,11 +268,13 @@ class _AclLoginState extends State<AclLogin> {
                   if (allow)
                     Navigator.pop(context,true);
                   else {
+                    _acesso = false;
                     SnackBar snackBar = SnackBar(content: Text("Usuário sem permissão...",style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }
 
                 } else {
+                  _acesso = false;
                   SnackBar snackBar = SnackBar(content: Text(ru["msg"],style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
@@ -280,6 +284,14 @@ class _AclLoginState extends State<AclLogin> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _actionCircular() {
+    return Container(
+      width: 25,
+      height: 25,
+      child: CircularProgressIndicator(),
     );
   }
 
