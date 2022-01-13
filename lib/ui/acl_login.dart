@@ -258,7 +258,9 @@ class _AclLoginState extends State<AclLogin> {
               label: Text("Liberar", style: TextStyle(fontSize: 18.0)), backgroundColor: Theme.of(context).primaryColor,
               onPressed: () async {
                 FocusScope.of(context).requestFocus(new FocusNode());
-                _acesso = true;
+                setState(() {
+                  _acesso = true;
+                });
 
                 UsuarioApi u = UsuarioApi();
                 Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
@@ -298,7 +300,7 @@ class _AclLoginState extends State<AclLogin> {
     return Container(
       width: 25,
       height: 25,
-      child: CircularProgressIndicator(),
+      child: CircularProgressIndicator(color: Theme.of(context).primaryColor,),
     );
   }
 
