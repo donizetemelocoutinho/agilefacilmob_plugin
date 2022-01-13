@@ -76,7 +76,7 @@ class _AclLoginState extends State<AclLogin> {
               Expanded(
                 child: RichText(
                   text: TextSpan(
-                    text: widget.operacao,
+                    text: widget.operacao.toUpperCase(),
                     style: TextStyle(fontSize: 21, color: Color(0xff2a2d32) ),
                   ),
                 ),
@@ -185,7 +185,7 @@ class _AclLoginState extends State<AclLogin> {
                         ),
                       ),
                       border: InputBorder.none,
-                      hintText: "*",
+                      hintText: "******",
                       hintStyle: TextStyle(color: Colors.black26),
                       errorStyle: TextStyle(height: 0),
                     ),
