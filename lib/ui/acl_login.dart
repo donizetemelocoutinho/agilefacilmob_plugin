@@ -268,17 +268,24 @@ class _AclLoginState extends State<AclLogin> {
                   if (allow)
                     Navigator.pop(context,true);
                   else {
-                    _acesso = false;
+                    setState(() {
+                      _acesso = false;
+                    });
+
                     SnackBar snackBar = SnackBar(content: Text("Usuário sem permissão...",style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }
 
                 } else {
-                  _acesso = false;
+                  setState(() {
+                    _acesso = false;
+                  });
                   SnackBar snackBar = SnackBar(content: Text(ru["msg"],style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
-
+                setState(() {
+                  _acesso = false;
+                });
               },
             ),
           ),
