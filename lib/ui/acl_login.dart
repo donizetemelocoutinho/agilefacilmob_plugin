@@ -274,7 +274,7 @@ class _AclLoginState extends State<AclLogin> {
                       _acesso = false;
                     });
 
-                    SnackBar snackBar = SnackBar(content: Text("Usuário sem permissão...",style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                    SnackBar snackBar = SnackBar(content: Text("Usuário sem permissão...",style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(milliseconds: 1000));
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }
 
@@ -282,7 +282,7 @@ class _AclLoginState extends State<AclLogin> {
                   setState(() {
                     _acesso = false;
                   });
-                  SnackBar snackBar = SnackBar(content: Text(ru["msg"],style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                  SnackBar snackBar = SnackBar(content: Text(ru["msg"],style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(milliseconds: 1000));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
                 setState(() {
