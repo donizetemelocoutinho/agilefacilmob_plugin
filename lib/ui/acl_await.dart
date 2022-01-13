@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 class AclAwait{
 
   Widget Loading(Function future, Function ret){
-    return Scaffold(appBar: PreferredSize(preferredSize: Size.fromHeight(0.0),child: AppBar(backgroundColor: Color.fromARGB(
-        248, 248, 127, 16))),
+    return Scaffold(
         body: Column(
           children: <Widget>[
             Expanded(
