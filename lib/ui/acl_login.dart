@@ -172,16 +172,15 @@ class _AclLoginState extends State<AclLogin> {
                       suffixIcon: Padding(
                         padding: const EdgeInsets.only(right: 12.0),
                         child: GestureDetector(
-                            child: Icon(
-                                _obscureText ? Icons.remove_red_eye_outlined : Icons.lock_outlined,
-                                size: 28,
-                                color: Theme.of(context).secondaryHeaderColor
-                            ),
-                            onTap: () {
-                              setState(() {
-                                _obscureText = !_obscureText;
-                              });
-                            }
+                          child: Icon(_obscureText ? Icons.remove_red_eye_outlined : Icons.lock_outlined,
+                            size: 28,
+                            color: Theme.of(context).secondaryHeaderColor
+                          ),
+                          onTap: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          }
                         ),
                       ),
                       border: InputBorder.none,
@@ -249,33 +248,38 @@ class _AclLoginState extends State<AclLogin> {
   }
 
   Widget _buttonLiberar(){
-    return Column(
-      children: [
-        Container(width: 309,height: 53,
-          child: FloatingActionButton.extended(
-            label: Text("Liberar", style: TextStyle(fontSize: 18.0)), backgroundColor: Theme.of(context).primaryColor,
-            onPressed: () async {
-              UsuarioApi u = UsuarioApi();
-              Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
-              //print(ru);
-              if (ru["id"] == 0) {
-                bool allow = await _allow(ru["usuario"]["api_token"]);
-                if (allow)
-                  Navigator.pop(context,true);
-                else {
-                  SnackBar snackBar = SnackBar(content: Text("Usuário sem permissão...",style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15.0),
+      child: Column(
+        children: [
+          Container(width: 309,height: 53,
+            child: FloatingActionButton.extended(
+              label: Text("Liberar", style: TextStyle(fontSize: 18.0)), backgroundColor: Theme.of(context).primaryColor,
+              onPressed: () async {
+                FocusScope.of(context).requestFocus(new FocusNode());
+
+                UsuarioApi u = UsuarioApi();
+                Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
+                //print(ru);
+                if (ru["id"] == 0) {
+                  bool allow = await _allow(ru["usuario"]["api_token"]);
+                  if (allow)
+                    Navigator.pop(context,true);
+                  else {
+                    SnackBar snackBar = SnackBar(content: Text("Usuário sem permissão...",style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
+
+                } else {
+                  SnackBar snackBar = SnackBar(content: Text(ru["msg"],style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
 
-              } else {
-                SnackBar snackBar = SnackBar(content: Text(ru["msg"],style: TextStyle(fontFamily: 'FreeSans',fontSize: 15.0),textAlign: TextAlign.center),backgroundColor: Colors.red,duration: Duration(seconds: 5));
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              }
-
-            },
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
