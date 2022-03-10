@@ -15,7 +15,7 @@ class LoginRegister extends StatefulWidget {
     return version;
   }
 
-  final DBCount count;
+  final DBCount count = 0;
   LoginRegister({this.count});
 
   @override
