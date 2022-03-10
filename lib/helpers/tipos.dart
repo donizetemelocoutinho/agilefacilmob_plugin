@@ -7,9 +7,9 @@ class Diversos{
 enum TabelaPrecoType{tpPrincipal,tpAlternativa}
 
 class Endereco{
-  int codcidade;
-  int codcidadeibge;
-  String cidade = "";
+  int ?codcidade;
+  int ?codcidadeibge;
+  String ?cidade;
   String uf = "";
   String bairro = "";
   String cep = "";
@@ -69,11 +69,11 @@ class Endereco{
 }
 
 class Cidade{
-  int codcidade;
-  String guid;
-  String uf;
-  String descricao;
-  int codcidadeibge;
+  int ?codcidade;
+  String ?guid;
+  String ?uf;
+  String ?descricao;
+  int ?codcidadeibge;
 
   Cidade();
 

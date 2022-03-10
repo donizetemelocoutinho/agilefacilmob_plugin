@@ -28,7 +28,7 @@ class AclAwait{
                     default:
                       if (snapshot.hasError)
                         return Container(child: Text(snapshot.error.toString()));
-                      else if (snapshot.data)
+                      else if (snapshot.data != null)
                         return ret(context);
                       else{
                         return Center(

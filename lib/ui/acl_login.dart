@@ -135,6 +135,8 @@ class _AclLoginState extends State<AclLogin> {
                       validator: (String value) {
                         if (value == null || value.isEmpty)
                           return "Preencha o Usuário";
+                        else
+                          return null;
                       },
                       enabled: true,
                     ),
@@ -195,9 +197,10 @@ class _AclLoginState extends State<AclLogin> {
                     obscuringCharacter: "*",
                     controller: _senha,
                     // ignore: missing_return
-                    validator: (String value) {
+                    validator: (String value){
                       if (value == null || value.isEmpty)
                         return "Preencha a Senha";
+                      return null;
                     },
                     enabled: true,
                   ),

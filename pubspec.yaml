@@ -5,23 +5,23 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
   flutter: ">=1.20.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.4
   cpfcnpj: ^1.0.3
-  http: ^0.13.0
+  http: ^0.13.4
   sqflite: ^2.0.0+2
-  url_launcher: ^6.0.2
-  image_picker: ^0.7.2
-  uuid: ^3.0.1
-  device_info: ^2.0.0
+  url_launcher: ^6.0.20
+  image_picker: ^0.8.4+11
+  uuid: ^3.0.6
+  device_info: ^2.0.3
   barcode_scan: ^3.0.1
-  package_info: ^2.0.0
+  package_info: ^2.0.2
   intl: 0.17.0
 
 dev_dependencies:

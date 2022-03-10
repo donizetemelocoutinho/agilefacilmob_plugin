@@ -7,9 +7,6 @@ import 'package:agilefacil_mob/ui/cidade_screen.dart';
 import 'package:agilefacil_mob/ui/estado_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-
 
 class EnderecoHelper{
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
@@ -19,7 +16,7 @@ class EnderecoHelper{
     return version;
   }
 
-  Endereco endereco;
+  Endereco endereco = new Endereco();
 
   final _cepController = TextEditingController();
   final _ufController = TextEditingController();
@@ -33,7 +30,7 @@ class EnderecoHelper{
     this.endereco = endereco;
     _cepController.text = endereco.cep;
     _ufController.text = endereco.uf;
-    _cidadeController.text = endereco.cidade;
+    _cidadeController.text = endereco.cidade ?? "";
     _bairroController.text = endereco.bairro;
     _logradouroController.text = endereco.logradouro;
     _numeroController.text = endereco.numero;
@@ -77,7 +74,7 @@ class EnderecoHelper{
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
                         _bairroController.text = endereco.bairro;
-                        _cidadeController.text = endereco.cidade;
+                        _cidadeController.text = endereco.cidade ?? "";
                         _ufController.text = endereco.uf;
                       } else{
                         SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
@@ -128,11 +125,11 @@ class EnderecoHelper{
                     icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
                       Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
-                      _cidadeController.text = cidade.descricao;
-                      _ufController.text = cidade.uf;
+                      _cidadeController.text = cidade.descricao!;
+                      _ufController.text = cidade.uf!;
 
-                      endereco.uf = cidade.uf;
-                      endereco.cidade = cidade.descricao;
+                      endereco.uf = cidade.uf!;
+                      endereco.cidade = cidade.descricao!;
                       endereco.codcidade = cidade.codcidade;
                       endereco.codcidadeibge = cidade.codcidadeibge;
 
@@ -166,7 +163,7 @@ class EnderecoHelper{
             decoration: InputDecoration(labelText: "Nº"),
             controller: _numeroController,
             validator: (value) {
-              if (value.isEmpty ?? value == null) {
+              if (value!.isEmpty && value == null) {
                 return "Informe o numero";
               }
             },
