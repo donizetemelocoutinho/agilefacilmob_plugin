@@ -7,13 +7,13 @@ import 'package:flutter/services.dart';
 class AclLogin extends StatefulWidget {
 
 
-  int codloja;
-  String acl;
-  String operacao;
-  String observacao;
+  int codloja = 0;
+  String acl = "";
+  String operacao = "";
+  String ?observacao;
 
 
-  AclLogin({@required this.codloja,@required this.acl,@required this.operacao, this.observacao});
+  AclLogin({required this.codloja,required this.acl,required this.operacao, this.observacao});
 
 
   @override
@@ -84,10 +84,9 @@ class _AclLoginState extends State<AclLogin> {
               ),
             ],
           ),
-          if (widget.observacao != null)
-            Text(widget.observacao != null ? widget.observacao : ""),
-          if (widget.observacao != null)
-            Divider(),
+            Text(widget?.observacao ?? ""),
+            if (widget.observacao != null)
+              Divider(),
         ],
       ),
     );
@@ -132,11 +131,8 @@ class _AclLoginState extends State<AclLogin> {
                       keyboardType: TextInputType.text,
                       controller: _login,
                       // ignore: missing_return
-                      validator: (String value) {
-                        if (value == null || value.isEmpty)
-                          return "Preencha o Usuário";
-                        else
-                          return null;
+                      validator: (value) {
+                          return  (value == null || value.isEmpty) ? "Preencha o Usuário" : null;
                       },
                       enabled: true,
                     ),
@@ -197,10 +193,8 @@ class _AclLoginState extends State<AclLogin> {
                     obscuringCharacter: "*",
                     controller: _senha,
                     // ignore: missing_return
-                    validator: (String value){
-                      if (value == null || value.isEmpty)
-                        return "Preencha a Senha";
-                      return null;
+                    validator: (value){
+                      return  (value == null || value.isEmpty) ? "Preencha a Senha" : null;
                     },
                     enabled: true,
                   ),
@@ -314,8 +308,7 @@ class _AclLoginState extends State<AclLogin> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment : CrossAxisAlignment.stretch,
           children: <Widget>[
-            if (widget.observacao != null)
-              Text(widget.observacao != null ? widget.observacao : ""),
+            Text(widget.observacao ?? ""),
             if (widget.observacao != null)
               Divider(),
             TextField(

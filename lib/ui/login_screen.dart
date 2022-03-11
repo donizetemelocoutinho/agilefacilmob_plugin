@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   DBCountsHelper helper = DBCountsHelper();
   List<DBCount> counts = [];
 
-  DBCount _selectedCount = null;
+  late DBCount _selectedCount;
 
   final _senhaController = TextEditingController();
   final _senhaFocus = FocusNode();
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _showCount(BuildContext context, {DBCount count}) async {
+  void _showCount(BuildContext context, {required DBCount count}) async {
     await Navigator.push(context, MaterialPageRoute(builder: (context) => LoginRegister(count: count)));
     _getAllCounts();
   }
