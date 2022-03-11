@@ -88,7 +88,7 @@ class DBCountsHelper{
     return Sqflite.firstIntValue(await d.rawQuery("SELECT COUNT(*) FROM $table"));
   }
 
-  Future<List> getAll() async {
+  Future<List<DBCount>> getAll() async {
     Database d = await DBHelper().db;
     List listMap = await d.rawQuery("SELECT * FROM $table");
     List<DBCount> list = [];
@@ -111,27 +111,30 @@ class DBCountsHelper{
         whereArgs: [codloja,codusuario]);
     if (maps.length > 0)
       return maps.first[idColumn];
-    else
-      return null;
+
+    return null;
   }
 
 }
 
 class DBCount{
-  int id;
-  String cpfcnpj;
-  int codloja;
-  String login;
-  int codusuario;
-  String loginfotolink;
-  String senha;
-  String apitoken;
-  String empresalogolink;
-  String celular;
-  String descricao;
-  Map usuario;
-  Map loja;
+  int id = 0;
+  String cpfcnpj = "";
+  int codloja = 0;
+  String login = "";
+  int codusuario = 0;
+  String loginfotolink = "";
+  String senha = "";
+  String apitoken = "";
+  String empresalogolink = "";
+  String celular = "";
+  String descricao = "";
+  Map ?usuario;
+  Map ?loja;
 
+  DBCount()
+
+  // ignore: empty_constructor_bodies
   DBCount.fromMap(Map map){
     id = map[idColumn];
     cpfcnpj = map[cpfcnpjColumn];
@@ -170,11 +173,4 @@ class DBCount{
     return map;
   }
 
-  DBCount();
-  /*
-  @override
-  String toString() {
-    return toMap().toString();
-  }
-  */
 }
