@@ -1,5 +1,4 @@
 import 'package:agilefacil_mob/helpers/api_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class SubGrupoApi{
@@ -9,7 +8,7 @@ class SubGrupoApi{
     return version;
   }
 
-  Future<List>getSubGrupoList({@required int codloja,@required String api_token,String search,int codgrupo})async{
+  Future<List>getSubGrupoList({required int codloja,required String api_token,String ?search,int ?codgrupo})async{
     ApiHelper api = ApiHelper();
 
     Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token};

@@ -14,24 +14,24 @@ class ClienteApi{
     return version;
   }
 
-  Future<Map> getList({@required int codloja, @required String api_token, @required String search,@required int startrow,@required bool ativo, @required int limit}) async {
+  Future<Map> getList({required int codloja, required String api_token, required String search,required int startrow,required bool ativo, required int limit}) async {
     ApiHelper api = ApiHelper();
     return await api.get("cliente/list",params: {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(),
       "ativo": ativo ? "S" : "N","limit": limit.toString(),"api_token": api_token});
   }
 
-  Future<Map>get({@required int codloja,@required int codcliente, @required String api_token})async{
+  Future<Map>get({required int codloja,required int codcliente, required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("cliente/edit", params: {"codloja": codloja.toString(), "codcliente": codcliente.toString(),"api_token":api_token});
   }
 
-  Future<Map>storeEmpresa({@required int codloja, @required String api_token,@required ClienteEmpresa cliente})async{
+  Future<Map>storeEmpresa({required int codloja, required String api_token,required ClienteEmpresa cliente})async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = cliente.toMap();
     return await api.post("cliente", jo,params: {"codloja": codloja.toString(),"api_token":api_token});
   }
 
-  Future<Map>storeFisica({@required int codloja, @required String api_token,@required ClienteFisica cliente})async{
+  Future<Map>storeFisica({required int codloja, required String api_token,required ClienteFisica cliente})async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = cliente.toMap();
     return await api.post("cliente", jo,params: {"codloja": codloja.toString(),"api_token":api_token});
@@ -116,9 +116,9 @@ class ClienteFisica extends PessoaFisica{
 
 class ClienteListItemCredito{
 
-  double limite;
-  double disponivel;
-  double totalreceber;
+  double limite = 0.00;
+  double disponivel = 0.00;
+  double totalreceber = 0.00;
 
   ClienteListItemCredito.fromMap(Map map){
     limite = double.parse(map["limite"]);
@@ -144,13 +144,13 @@ class ClienteListItemContato{
 
 class ClienteListItemEdereco{
 
-  String cidade;
-  String uf;
-  String bairro;
-  String cep;
-  String logradouro;
-  String numero;
-  String referencia;
+  String cidade = "";
+  String uf = "";
+  String bairro = "";
+  String cep = "";
+  String logradouro = "";
+  String numero = "";
+  String referencia = "";
 
   ClienteListItemEdereco.fromMap(Map map){
     cidade = map['cidade'];

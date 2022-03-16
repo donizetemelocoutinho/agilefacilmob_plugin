@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
@@ -15,8 +14,8 @@ class DavApi {
     return version;
   }
 
-  Future<Map>getDavList({@required int codloja,DateTime inicio, DateTime fim,int codcliente, List<DavTypes> tipos,@required bool cancelado, int numero,
-     String numeroalternativo, String numeroficha, @required int startrow, @required String api_token})async{
+  Future<Map>getDavList({required int codloja,DateTime ?inicio, DateTime ?fim,int ?codcliente, List<DavTypes> ?tipos,required bool cancelado, int ?numero,
+     String ?numeroalternativo, String ?numeroficha, required int startrow, required String api_token})async{
 
     ApiHelper api = ApiHelper();
 
@@ -48,12 +47,12 @@ class DavApi {
     return await api.get("dav/list",params:_params);
   }
 
-  Future<Map>get({@required int codloja, @required int coddav,@required String api_token})async{
+  Future<Map>get({required int codloja, required int coddav,required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("dav/edit", params: {"codloja": codloja.toString(),"coddav":coddav.toString(),"api_token":api_token });
   }
 
-  Future<Map>storeDav({@required String api_token, @required Dav dav})async{
+  Future<Map>storeDav({required String api_token, required Dav dav})async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = dav.toMap();
     return await api.post("dav", jo,params:{"api_token": api_token});
@@ -69,26 +68,26 @@ class DavHelper {
 
 class Dav{
   String guid = Helper.newGuid();
-  int coddav;
-  int codusuario;
-  int codcliente;
-  int codfuncionario;
-  int codloja;
-  int numero;
-  DavTypes tipo;
+  int coddav = 0;
+  int codusuario = 0;
+  int codcliente = 0;
+  int codfuncionario = 0;
+  int codloja = 0;
+  int numero = 0;
+  DavTypes tipo = DavTypes.orcamento;
   DateTime digitacao = DateTime.now();
-  TabelaPrecoType tabelapreco;
-  String observacao;
-  String numeroalternativo;
-  int numeroficha;
-  int tpcondicional;
+  TabelaPrecoType tabelapreco = TabelaPrecoType.tpPrincipal;
+  String ?observacao;
+  String ?numeroalternativo;
+  int ?numeroficha;
+  int ?tpcondicional;
   DavTotal total = DavTotal();
   DavCliente cliente = DavCliente();
-  String cancelado;
-  String faturado;
-  int origem;
-  int validade;
-  int entrega;
+  String cancelado = "N";
+  String faturado = "N";
+  int origem = 2;
+  int validade = 0;
+  int entrega = 0;
   DavPagamento pagamento = DavPagamento();
   int codgprDocumento = 0;
   List<DavItem> _itens = [];
@@ -131,7 +130,7 @@ class Dav{
     return itens;
   }
 
-  void DeleteItem(@required int sequencia){
+  void DeleteItem(int sequencia){
     for (int i = 0; i < _itens.length; i++) {
       if (_itens[i].item == sequencia){
         _itens[i].deleted_at = DateTime.now();
@@ -140,7 +139,7 @@ class Dav{
     totalizar();
   }
 
-  void AddItem(@required DavItem item){
+  void AddItem(DavItem item){
     item.item = _itens.length + 1;
     _itens.add(item);
     totalizar();

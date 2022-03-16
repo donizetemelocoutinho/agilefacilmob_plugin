@@ -9,7 +9,7 @@ class BancoApi{
     return version;
   }
 
-  Future<Map>getList({@required String search,@required int startrow})async{
+  Future<Map>getList({required String search,required int startrow})async{
     ApiHelper api = ApiHelper();
     return await api.get("common/banco/list", params:{"search":search, "startrow":startrow.toString()});
   }
@@ -17,11 +17,11 @@ class BancoApi{
 }
 
 class Banco{
-  int codbanco;
-  String guid;
-  int codigo;
-  String descricao;
-  String linklogo;
+  int codbanco = 0;
+  String guid = "";
+  int codigo = 0;
+  String descricao = "";
+  String linklogo = "";
 
   Banco();
 
