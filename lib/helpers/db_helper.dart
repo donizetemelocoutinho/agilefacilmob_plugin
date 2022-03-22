@@ -4,18 +4,16 @@ import 'package:package_info/package_info.dart';
 import 'db_counts.dart';
 
 class DBHelper{
+
+
+
   static final DBHelper _instance = DBHelper.internal();
   factory DBHelper() => _instance;
+  Database? _db;
   DBHelper.internal();
-  Database _db;
 
   Future<Database> get db async {
-    if (_db != null) {
-      return _db;
-    } else {
-      _db = await initDb();
-      return _db;
-    }
+    return _db ?? await initDb();
   }
 
   Future<Database> initDb() async {
@@ -29,9 +27,9 @@ class DBHelper{
         });
   }
 
-  Future<int> close() async{
-    Database d = await db;
-    d.close();
+  Future<int?> close() async{
+    Database? d = await db;
+    d?.close();
   }
 
 }

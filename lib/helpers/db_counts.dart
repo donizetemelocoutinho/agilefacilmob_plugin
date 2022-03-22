@@ -19,7 +19,7 @@ final String descricaoColumn = "DESCRICAO";
 
 class DBCountsHelper{
 
-  Database _db;
+  Database? _db;
 
   String toScript(){
     return "CREATE TABLE $table("
@@ -39,15 +39,16 @@ class DBCountsHelper{
   }
 
   Future<DBCount> save(DBCount count) async {
-    Database d = await DBHelper().db;
+    Database? d = await DBHelper().db;
 
     //verifico se este usuário esta liberado para esta loja
     if (count.id == null)
       count.id = await Exists(count.codloja,count.codusuario);
 
     //Verifico se retornou o id caso não tenha retornado insiro
-    if (count.id == null)
-      count.id = await d.insert(table, count.toMap());
+    if (count.id == null) {
+      count.id = (await d.insert(table,count.toMap())) ?? -1;
+    }
     else
       await update(count);
 
@@ -57,7 +58,7 @@ class DBCountsHelper{
   }
 
   Future<DBCount?> get(int id) async {
-    Database d = await DBHelper().db;
+    Database ?d = await DBHelper().db;
     List<Map> maps = await d.query(table,
         columns: [idColumn, cpfcnpjColumn, cpfcnpjColumn, cpfcnpjColumn, codlojaColumn,
           loginColumn,senhaColumn,codusuarioColumn,loginfotolinkColumn,apitokenColumn,empresalogolinkColumn,
@@ -77,7 +78,7 @@ class DBCountsHelper{
 
   Future<int> update(DBCount count) async {
     Database d = await DBHelper().db;
-    return await d.update(table, count.toMap(), where: "$idColumn = ?", whereArgs: [count.id]);
+    return await d.update(table, count.toMap() as Map<String, Object?>, where: "$idColumn = ?", whereArgs: [count.id]);
   }
 
   Future<int?> count() async{
@@ -109,7 +110,7 @@ class DBCountsHelper{
     if (maps.length > 0)
       return maps.first[idColumn];
 
-    return null;
+    return -1;
   }
 
 }
@@ -129,7 +130,7 @@ class DBCount{
   Map ?usuario;
   Map ?loja;
 
-  DBCount()
+  DBCount();
 
   DBCount.fromMap(Map map){
     id = map[idColumn];
@@ -146,8 +147,8 @@ class DBCount{
     descricao = map[descricaoColumn];
   }
 
-  Map toMap(){
-    Map<String, dynamic> map = {
+  Map<String, Object?> toMap(){
+    Map<String, Object?> map = {
       cpfcnpjColumn: cpfcnpj,
       codlojaColumn: codloja,
       loginColumn: login,
@@ -160,7 +161,6 @@ class DBCount{
       descricaoColumn : descricao,
       jusuarioColumn: convert.jsonEncode(usuario),
       jlojaColumn: convert.jsonEncode(loja)
-
     };
 
     if (id != null) {
