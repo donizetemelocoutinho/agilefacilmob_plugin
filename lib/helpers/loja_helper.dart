@@ -31,7 +31,7 @@ class LojaResponsavel {
 
 class Loja{
   String guid = '';
-  int ?codloja;
+  int codloja = 0;
   String nome = '';
   String razao = '';
   int seguimento = 0;
@@ -50,8 +50,7 @@ class Loja{
   int codcontatesouraria = 4;
   String despfixa = '';
   String despvariavel = '';
-  LojaPadrao ?padrao;
-
+  LojaPadrao padrao = LojaPadrao();
 
   Loja();
 
