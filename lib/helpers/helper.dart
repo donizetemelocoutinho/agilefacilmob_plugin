@@ -18,11 +18,11 @@ class Helper{
   }
 
   static late Loja loja;
-  static Usuario ?usuario;
-  static PDVJason ?pdv;
-  static Funcionario ?funcionario;
-  static String ?fcm_token;
-  static String ?AppTitle;
+  static late Usuario usuario;
+  static late PDVJason pdv;
+  static late Funcionario funcionario;
+  static late String fcm_token;
+  static late String AppTitle;
 
 
   static String newGuid(){
