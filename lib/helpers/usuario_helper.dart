@@ -4,24 +4,24 @@ import 'package:flutter/services.dart';
 import 'api_helper.dart';
 
 class Usuario{
-  int ?id;
-  String ?guid;
-  int ?codusuario;
-  int ?codloja;
-  String ?loja;
-  String ?cnpj;
-  String ?idloja;
-  String ?login;
-  String ?senha;
-  String ?idgrupo;
-  int ?codgrupo;
-  String ?ativo;
-  String ?email;
-  String ?celular;
-  String ?alterarspl;
-  String ?fotolink;
-  String ?api_token;
-  int ?codfuncionario;
+  int id = 0;
+  String guid = "";
+  int codusuario = 0;
+  int codloja = 0;
+  String loja = "";
+  String cnpj = "";
+  String idloja = "";
+  String login = "";
+  String senha = "";
+  String idgrupo = "";
+  int codgrupo = 0;
+  String ativo = "S";
+  String email = "";
+  String celular = "";
+  String alterarspl = "N";
+  String fotolink = "";
+  String api_token = "";
+  int codfuncionario = 0;
 
   Usuario();
 
