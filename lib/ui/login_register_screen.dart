@@ -88,7 +88,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                           return "Informe um CPF/CNPJ válido";
                       }),
                       Divider(),
-                      buildeTextField("Usuário", controller: _usuarioController,icon: Icons.person,onValidate: (String value){
+                      buildeTextField("Usuário", controller: _usuarioController,icon: Icons.person,onValidate: (value){
                         if (value == null || value.isEmpty)
                           return "Preencha o Usuário";
                       }),
@@ -123,7 +123,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                       Divider(),
                       buildeTextField("Celular",controller: _celularController,
                           icon: Icons.phone, keyboardType: TextInputType.phone,
-                          onValidate: (String value) {
+                          onValidate: (value) {
                         if (value == null || value.isEmpty)
                           return "Preencha o celular!";
                         else if (value.length < 10 || value.length > 11)
@@ -189,7 +189,7 @@ class _LoginRegisterState extends State<LoginRegister> {
 
   Widget buildeTextField(String label, {String ?prefix, TextEditingController ?controller,
       TextInputType ?keyboardType, Function(dynamic) ?onChanged, FocusNode ?focus,
-      Function ?onValidate, bool ?pwd, IconData ?icon}) {
+      FormFieldValidator<String>? onValidate, bool ?pwd, IconData ?icon}) {
     Icon ?i;
     if (icon != null) i = Icon(icon);
 
@@ -203,7 +203,7 @@ class _LoginRegisterState extends State<LoginRegister> {
       focusNode: focus,
       keyboardType: keyboardType,
       onChanged: onChanged,
-      validator: onValidate,
+      validator: onValidate
     );
   }
 }
