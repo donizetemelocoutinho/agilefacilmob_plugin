@@ -1,5 +1,4 @@
 import 'package:agilefacil_mob/helpers/api_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class MarcaApi {
@@ -10,12 +9,12 @@ class MarcaApi {
     return version;
   }
 
-  Future<Map>get({@required int codloja, @required int codmarca,@required String api_token})async{
+  Future<Map>get({required int codloja, required int codmarca,required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/marca/edit", params: {"codloja":codloja.toString(),"codmarca": codmarca.toString(),"api_token":api_token});
   }
 
-  Future<List>getList({@required int codloja,@required String api_token, String search})async{
+  Future<List>getList({required int codloja,required String api_token, required String search})async{
     ApiHelper api = ApiHelper();
 
     Map<String, dynamic> _params = {"codloja":codloja.toString(), "api_token": api_token};
@@ -30,12 +29,12 @@ class MarcaApi {
 
 
 class Marca{
-  int id;
-  String guid;
-  int codmarca;
-  int codloja;
-  String idloja;
-  String descricao;
+  int id = 0;
+  String guid = '';
+  int codmarca = 0;
+  int codloja = 0;
+  String idloja = '';
+  String descricao = '';
 
   Marca();
 
@@ -50,11 +49,11 @@ class Marca{
 }
 
   class MarcaListItem{
-    String guid;
-    int codmarca;
-    int codloja;
-    String idloja;
-    String descricao;
+    String guid = '';
+    int codmarca = 0;
+    int codloja = 0;
+    String idloja = '';
+    String descricao = '';
 
     MarcaListItem();
 

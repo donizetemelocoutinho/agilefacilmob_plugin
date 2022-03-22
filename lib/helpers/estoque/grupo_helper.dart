@@ -1,5 +1,4 @@
 import 'package:agilefacil_mob/helpers/api_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class GrupoApi{
@@ -17,12 +16,12 @@ class GrupoApi{
 }
 
 class Grupo{
-  int id;
-  String guid;
-  int codgrupo;
-  int codloja;
-  String idloja;
-  String descricao;
+  int id = 0;
+  String guid = '';
+  int codgrupo = 0;
+  int codloja = 0;
+  String idloja = '';
+  String descricao = '';
 
   Grupo();
 
@@ -37,11 +36,11 @@ class Grupo{
 }
 
 class GrupoListItem{
-  String guid;
-  int codgrupo;
-  int codloja;
-  String idloja;
-  String descricao;
+  String guid = '';
+  int codgrupo =  0;
+  int codloja =  0;
+  String idloja = '';
+  String descricao = '';
 
   GrupoListItem();
 

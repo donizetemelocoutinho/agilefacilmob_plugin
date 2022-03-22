@@ -15,8 +15,8 @@ class LoginRegister extends StatefulWidget {
     return version;
   }
 
-  final DBCount count = new DBCount();
-  LoginRegister({this.count});
+  late DBCount count = DBCount();
+  LoginRegister({required this.count});
 
   @override
   _LoginRegisterState createState() => _LoginRegisterState();
@@ -24,7 +24,7 @@ class LoginRegister extends StatefulWidget {
 }
 
 class _LoginRegisterState extends State<LoginRegister> {
-  DBCount _editedCount;
+  late DBCount _editedCount;
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
@@ -101,7 +101,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                             obscureText: _obscureText,
                             obscuringCharacter: "*",
                             controller: _senhaController,
-                            validator: (String value){
+                            validator: (value){
                               if (value == null || value.isEmpty)
                                 return "Preencha a Senha...";
                             },
@@ -156,7 +156,7 @@ class _LoginRegisterState extends State<LoginRegister> {
   }
 
   void _salvar() async{
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       DispositivoHelper d = DispositivoHelper();
       Map mr = await d.Cadastrar(context, _cnpjController.text, _usuarioController.text, _senhaController.text, _celularController.text, _descricaoController.text);
       if (mr["id"] == 0)
@@ -187,10 +187,10 @@ class _LoginRegisterState extends State<LoginRegister> {
     }
   }
 
-  Widget buildeTextField(String label, {String prefix, TextEditingController controller,
-      TextInputType keyboardType, Function onChanged, FocusNode focus,
-      Function onValidate, bool pwd, IconData icon}) {
-    Icon i = null;
+  Widget buildeTextField(String label, {String ?prefix, TextEditingController ?controller,
+      TextInputType ?keyboardType, Function(dynamic) ?onChanged, FocusNode ?focus,
+      Function ?onValidate, bool ?pwd, IconData ?icon}) {
+    Icon ?i;
     if (icon != null) i = Icon(icon);
 
     return TextFormField(

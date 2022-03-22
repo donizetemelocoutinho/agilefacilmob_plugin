@@ -4,24 +4,24 @@ import 'package:flutter/services.dart';
 import 'api_helper.dart';
 
 class Usuario{
-  int id;
-  String guid;
-  int codusuario;
-  int codloja;
-  String loja;
-  String cnpj;
-  String idloja;
-  String login;
-  String senha;
-  String idgrupo;
-  int codgrupo;
-  String ativo;
-  String email;
-  String celular;
-  String alterarspl;
-  String fotolink;
-  String api_token;
-  int codfuncionario;
+  int ?id;
+  String ?guid;
+  int ?codusuario;
+  int ?codloja;
+  String ?loja;
+  String ?cnpj;
+  String ?idloja;
+  String ?login;
+  String ?senha;
+  String ?idgrupo;
+  int ?codgrupo;
+  String ?ativo;
+  String ?email;
+  String ?celular;
+  String ?alterarspl;
+  String ?fotolink;
+  String ?api_token;
+  int ?codfuncionario;
 
   Usuario();
 
@@ -64,10 +64,10 @@ class UsuarioApi{
     jo['cpfcnpj'] = cpfcnpj;
     jo['login'] = login;
     jo['senha'] = senha;
-    return await api.post("usuario/autenticar", jo);
+    return await api.post("usuario/autenticar", jo, params: {});
   }
 
-  Future<Map> AtualizarPerfil({@required int codloja,@required int codusuario,@required String api_token, String foto, String celular, String email}) async{
+  Future<Map> AtualizarPerfil({required int codloja,required int codusuario,required String api_token, String ?foto, String ?celular, String ?email}) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = Map();
     jo['codloja'] = codloja;
@@ -78,7 +78,7 @@ class UsuarioApi{
     return await api.post("usuario/update", jo,params : {"codloja": codloja.toString(),"api_token":api_token});
   }
 
-  Future<Map> AtualizarSenha({@required int codloja,@required int codusuario,@required String api_token, String senhaatual, String novasenha}) async{
+  Future<Map> AtualizarSenha({required int codloja,required int codusuario,required String api_token, String ?senhaatual, String ?novasenha}) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = Map();
     jo['codloja'] = codloja;

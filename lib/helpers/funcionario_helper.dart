@@ -14,7 +14,7 @@ class FuncionarioApi {
     return version;
   }
 
-  Future<Map> get({@required int codloja, @required int codfuncionario, @required String api_token}) async{
+  Future<Map> get({required int codloja, required int codfuncionario, required String api_token}) async{
     ApiHelper api = ApiHelper();
     return await api.get("funcionario/edit", params : {"codloja": codloja.toString(),"codfuncionario": codfuncionario.toString(),"api_token": api_token });
   }
@@ -23,12 +23,12 @@ class FuncionarioApi {
 
 
 class Funcionario extends PessoaFisica{
-  int codigo;
-  DateTime admissao;
-  DateTime demissao;
-  String ativo;
+  int codigo = 0;
+  DateTime ?admissao;
+  DateTime ?demissao;
+  String ativo = 'S';
   Comissao comissao = Comissao();
-  String funcao;
+  String funcao = '';
 
 
 
@@ -50,13 +50,16 @@ class Funcionario extends PessoaFisica{
 
   @override
   Map<String,dynamic> toMap() {
-    Map<String, dynamic> map = super.toMap();
-    map["codigo"] = codigo;
-    map["admissao"] = admissao != null ? DateFormat('yyyy-MM-dd').format(admissao) : null;
-    map["demissao"] = demissao != null ? DateFormat('yyyy-MM-dd').format(demissao) : null;
-    map["ativo"] = ativo;
-    map["comissao"] = comissao.toMap();
-    map["funcao"] = funcao;
+    Map<String, dynamic> map = {
+    'codigo' : codigo,
+    'admissao' : admissao != null ? DateFormat('yyyy-MM-dd').format(admissao!) : null,
+    'demissao' : demissao != null ? DateFormat('yyyy-MM-dd').format(demissao!) : null,
+    'ativo' : ativo,
+    'comissao' : comissao.toMap(),
+    'funcao' : funcao,
+  };
+    return map;
+
   }
 
 }

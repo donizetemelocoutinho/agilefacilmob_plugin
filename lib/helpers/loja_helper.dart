@@ -1,10 +1,10 @@
 import 'tipos.dart';
 
 class LojaResponsavel {
-  String nome;
-  String cpf;
-  String celular;
-  String email;
+  String nome = '';
+  String cpf = '';
+  String celular = '';
+  String email = '';
 
   LojaResponsavel();
 
@@ -16,8 +16,8 @@ class LojaResponsavel {
   }
 }
   class LojaPadrao{
-    int codpgtoaprazo;
-    String pgtoaprazo;
+    int codpgtoaprazo = 0;
+    String pgtoaprazo = '';
 
     LojaPadrao();
 
@@ -30,27 +30,27 @@ class LojaResponsavel {
 
 
 class Loja{
-  String guid;
-  int codloja;
-  String nome;
-  String razao;
-  int seguimento;
-  String tpinscricao;
-  String cpfcnpj;
-  String ie;
-  String im;
-  int regimetrib;
-  Endereco endereco;
-  String fone;
-  String email;
-  String emailcontador;
-  String linklogo;
-  LojaResponsavel responsavel;
-  int codcontacaixa;
-  int codcontatesouraria;
-  String despfixa;
-  String despvariavel;
-  LojaPadrao padrao;
+  String guid = '';
+  int ?codloja;
+  String nome = '';
+  String razao = '';
+  int seguimento = 0;
+  String tpinscricao = '';
+  String cpfcnpj = '';
+  String ie = '';
+  String im = '';
+  int regimetrib = 0;
+  Endereco ?endereco;
+  String fone = '';
+  String email = '';
+  String emailcontador = '';
+  String ?linklogo;
+  LojaResponsavel ?responsavel;
+  int codcontacaixa = 1;
+  int codcontatesouraria = 4;
+  String despfixa = '';
+  String despvariavel = '';
+  LojaPadrao ?padrao;
 
 
   Loja();

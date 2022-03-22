@@ -25,9 +25,9 @@ class AclHelper{
     return (allow != null) ? allow : false;
   }
 
-  Future<bool> allow() async{
+  Future<bool> allow() async {
     Map r = await _allow();
-    if (r["id"] == 0){
+    if (r["id"] == 0) {
       if (r["force_login"] == "N")
         return true;
       else
@@ -35,10 +35,5 @@ class AclHelper{
     } else {
       return await _autentic();
     }
-
-
   }
-
-
-
 }

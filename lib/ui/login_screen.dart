@@ -17,7 +17,7 @@ class LoginScreen extends StatefulWidget {
   }
 
   final String route;
-  LoginScreen({this.route});
+  LoginScreen({required this.route});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           Container(
               padding: EdgeInsets.only(top: 150.0),
-              child: Text(Helper.AppTitle, style: TextStyle(fontSize: 25.0, color: Theme.of(context).primaryColor))),
+              child: Text(Helper.AppTitle.toString(), style: TextStyle(fontSize: 25.0, color: Theme.of(context).primaryColor))),
           Expanded(
               child: Center(
                   child: IgnorePointer(
@@ -120,8 +120,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _showCount(BuildContext context, {required DBCount count}) async {
-    await Navigator.push(context, MaterialPageRoute(builder: (context) => LoginRegister(count: count)));
+  void _showCount(BuildContext context, {DBCount ?count}) async {
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => LoginRegister(count: count!)));
     _getAllCounts();
   }
 
@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscuringCharacter: "*",
                     controller: _senhaController,
                     focusNode: _senhaFocus,
-                    validator: (String value) {
+                    validator: (value) {
                       if (value == null || value.isEmpty)
                         return "Preencha a Senha...";
                     },

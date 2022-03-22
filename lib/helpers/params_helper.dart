@@ -148,21 +148,21 @@ class ParamsHelper{
   static dynamic params;
 
 
-  Future<dynamic> getList({@required List<String> paramsList, @required String api_token,@required int codloja}) async{
+  Future<dynamic> getList({required List<String> paramsList, required String api_token,required int codloja}) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> params = {"codloja": codloja.toString(),"api_token":api_token,"params" : jsonEncode(paramsList)};
     dynamic r = await api.get("loja/parametros/list", params: params);
     return r;
   }
 
-  Future<Map> get({@required String param, @required String api_token,@required int codloja}) async{
+  Future<Map> get({required String param, required String api_token,required int codloja}) async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> params = {"codloja": codloja.toString(),"api_token":api_token,"id" : param};
     Map r = await api.get("loja/parametros/get", params: params);
     return r;
   }
 
-  static String getStringFromList({@required dynamic params, @required String param,String defaultValue}){
+  static String getStringFromList({@required dynamic params, required String param,required String defaultValue}){
     String ret = defaultValue;
     for (var i = 0; i < params.length -1; i++) {
       if (params[i]["id"].toString().toUpperCase() == param.toUpperCase()){
@@ -173,19 +173,19 @@ class ParamsHelper{
     return ret;
   }
 
-  static bool getBoolFromList({@required dynamic params, @required String param}){
+  static bool getBoolFromList({required dynamic params, required String param}){
     bool ret = false;
     ret = getStringFromList(params:params,param: param,defaultValue: "N") == "S";
     return ret;
   }
 
-  static int getIntFromList({@required dynamic params,@required String param}){
+  static int getIntFromList({required dynamic params,required String param}){
     int ret = 0;
     ret = int.parse(getStringFromList(params: params,param: param,defaultValue: "0"));
     return ret;
   }
 
-  static double getDouleFromList({@required dynamic params, @required String param}){
+  static double getDouleFromList({required dynamic params, required String param}){
     double ret = 0;
     ret = double.parse(getStringFromList(params:params,param: param,defaultValue: "0.00"));
     return ret;

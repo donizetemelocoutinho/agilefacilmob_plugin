@@ -16,7 +16,7 @@ class DispositivoHelper{
     jo['fcm_token'] = Helper.fcm_token;
     ApiHelper api = ApiHelper();
     
-    return await api.post("dispositivo/cadastrar", jo);
+    return await api.post("dispositivo/cadastrar", jo, params: {});
   }
 
 

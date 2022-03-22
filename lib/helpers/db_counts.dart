@@ -1,8 +1,5 @@
 import 'dart:convert' as convert;
-
-import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
-
 import 'db_helper.dart';
 
 final String table = "COUNTS";
@@ -59,7 +56,7 @@ class DBCountsHelper{
     return count;
   }
 
-  Future<DBCount> get(int id) async {
+  Future<DBCount?> get(int id) async {
     Database d = await DBHelper().db;
     List<Map> maps = await d.query(table,
         columns: [idColumn, cpfcnpjColumn, cpfcnpjColumn, cpfcnpjColumn, codlojaColumn,
@@ -83,7 +80,7 @@ class DBCountsHelper{
     return await d.update(table, count.toMap(), where: "$idColumn = ?", whereArgs: [count.id]);
   }
 
-  Future<int> count() async{
+  Future<int?> count() async{
     Database d = await DBHelper().db;
     return Sqflite.firstIntValue(await d.rawQuery("SELECT COUNT(*) FROM $table"));
   }
@@ -123,18 +120,17 @@ class DBCount{
   int codloja = 0;
   String login = "";
   int codusuario = 0;
-  String loginfotolink = "";
-  String senha = "";
-  String apitoken = "";
-  String empresalogolink = "";
-  String celular = "";
-  String descricao = "";
+  String loginfotolink = '';
+  String senha = '';
+  String apitoken = '';
+  String empresalogolink = '';
+  String celular = '';
+  String descricao = '';
   Map ?usuario;
   Map ?loja;
 
   DBCount()
 
-  // ignore: empty_constructor_bodies
   DBCount.fromMap(Map map){
     id = map[idColumn];
     cpfcnpj = map[cpfcnpjColumn];

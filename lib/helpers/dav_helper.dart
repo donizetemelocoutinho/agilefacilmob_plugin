@@ -69,7 +69,7 @@ class DavHelper {
 class Dav{
   String guid = Helper.newGuid();
   int coddav = 0;
-  int codusuario = 0;
+  int ?codusuario;
   int codcliente = 0;
   int codfuncionario = 0;
   int codloja = 0;
@@ -93,8 +93,8 @@ class Dav{
   List<DavItem> _itens = [];
 
   Dav(){
-    codusuario = Helper.usuario.codusuario;
-    codloja = Helper.loja.codloja;
+    codusuario = Helper.usuario?.codusuario!;
+    codloja = Helper.loja.codloja!;
   }
 
 
@@ -270,14 +270,14 @@ class DavTotal {
 }
 
 class DavCliente {
-  int codcliente;
-  String guidcliente;
+  int codcliente = 0;
+  String guidcliente = '';
   String cliente = "CONSUMIDOR...";
-  String photo_link;
-  String celular;
-  String fone;
-  String cpfcnpj;
-  String email;
+  String ?photo_link;
+  String celular = '';
+  String fone = '';
+  String cpfcnpj = '';
+  String email = '';
   Endereco endereco = Endereco();
 
   DavCliente();
@@ -413,8 +413,8 @@ class DavItem{
 
   int item = 0;
   DavItemProduto produto = DavItemProduto();
-  int codfuncionario;
-  String desfuncionario;
+  int codfuncionario = 0;
+  String desfuncionario = '';
   double quantidade = 1;
   double unitario = 0;
   double unitarioliquido = 0;
@@ -426,10 +426,10 @@ class DavItem{
   double seguro = 0;
   double outros = 0;
   DateTime inclusao = DateTime.now();
-  String observacao;
+  String observacao = '';
   double pesobruto = 0;
   double pesoliquido = 0;
-  DateTime deleted_at;
+  DateTime ?deleted_at;
 
   DavItem();
 
@@ -482,12 +482,12 @@ class DavItemProduto{
 
   int codproduto = 55;
   int codigo = 55;
-  String codbarra;
-  String codalternativo;
-  String descricao;
-  String marca;
-  String foto;
-  String unidade;
+  String codbarra = '';
+  String codalternativo = '';
+  String descricao = '';
+  String marca = '';
+  String ?foto;
+  String unidade = '';
   DavItemProdutoGrade grade = DavItemProdutoGrade();
 
   DavItemProduto();
@@ -525,9 +525,9 @@ class DavItemProduto{
 class DavItemProdutoGrade{
   int codgrade = 0;
   int seq = 0;
-  String value1;
-  String value2;
-  String foto;
+  String ?value1;
+  String ?value2;
+  String ?foto;
 
   DavItemProdutoGrade();
 
@@ -628,10 +628,10 @@ class DavItemProdutoAcrescimo{
 }
 
 class DavListItemCliente{
-  String nome;
-  String cpfcnp;
-  String email;
-  String photo_link;
+  String nome = '';
+  String cpfcnp = '';
+  String email = '';
+  String ?photo_link;
 
   DavListItemCliente();
 
@@ -672,23 +672,23 @@ class DavListItemTotal{
 }
 
 class DavListItem{
-  int coddav;
-  String guid;
+  int coddav = 0;
+  String guid = '';
   DavListItemCliente cliente = DavListItemCliente();
-  String cancelado;
-  int origem;
-  int validade;
-  int entrega;
-  String cidade;
-  String vendedor;
-  int numero;
-  DavTypes tipo;
-  String numeroalternativo;
-  int numeroficha;
-  DavListItemTotal total;
-  DateTime data;
-  int tabelapreco;
-  String obs;
+  String cancelado = '';
+  int ?origem;
+  int validade = 0;
+  int entrega = 1;
+  String cidade = '';
+  String vendedor = '';
+  int ?numero;
+  DavTypes ?tipo;
+  String numeroalternativo = '';
+  int ?numeroficha;
+  DavListItemTotal ?total;
+  DateTime ?data;
+  int tabelapreco = 0;
+  String obs = '';
 
   DavListItem();
 

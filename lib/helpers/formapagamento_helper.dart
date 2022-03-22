@@ -9,12 +9,12 @@ class FormaPagamentoApi {
     return version;
   }
 
-  Future<Map>getList({@required int codloja, @required int tipo, @required String api_token})async{
+  Future<Map>getList({required int codloja, required int tipo, required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("loja/pgto/list", params: {"codloja": codloja.toString(),"tipo": tipo.toString(),"api_token":api_token.toString()});
   }
 
-  Future<List>FormaPagamentoCalcularParcelas({@required int codloja, @required double valor, @required int codpgto, @required String api_token})async{
+  Future<List>FormaPagamentoCalcularParcelas({required int codloja, required double valor, required int codpgto, required String api_token})async{
     ApiHelper api = ApiHelper();
 
     Map result = await api.get("loja/pgto/parcelas/calcular", params: {"codloja": codloja.toString(),"valor": valor,"codpgto": codpgto.toString(),
@@ -34,19 +34,19 @@ class FormaPagamentoApi {
 
 class FormaPagamento{
 
-  int id;
-  String guid;
-  int codformapagamento;
-  int codloja;
-  String idloja;
-  int indice;
-  int tipo;
-  int tipoconta;
-  bool padrao;
-  int finalidade;
-  int tpnfe;
-  String descricao;
-  String icone;
+  int id = 0;
+  String guid = '';
+  int codformapagamento = 1;
+  int codloja = 0;
+  String idloja = '';
+  int indice = 0;
+  int tipo = 0;
+  int tipoconta = 0;
+  bool ?padrao;
+  int ?finalidade;
+  int tpnfe = 0;
+  String descricao  = '';
+  String ?icone;
 
   FormaPagamento();
 
@@ -69,18 +69,18 @@ class FormaPagamento{
 
 
 class FormaPagamentoListItem{
-  String guid;
-  int codformapagamento;
-  int codloja;
-  String idloja;
-  int indice;
-  int tipo;
-  int tipoconta;
-  bool padrao;
-  int finalidade;
-  int tpnfe;
-  String descricao;
-  String icone;
+  String guid  = '';
+  int codformapagamento = 1;
+  int codloja = 0;
+  String idloja = '';
+  int indice = 0;
+  int tipo = 0;
+  int tipoconta = 0;
+  bool ?padrao;
+  int ?finalidade;
+  int tpnfe= 0;
+  String descricao = '';
+  String ?icone;
 
   FormaPagamentoListItem();
 

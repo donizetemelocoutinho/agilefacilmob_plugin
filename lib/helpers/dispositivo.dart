@@ -9,13 +9,13 @@ class DispositivoApi{
     return version;
   }
 
-  Future<Map>storeDispostivo({@required String api_token, @required Dispositivo dispositivo})async{
+  Future<Map>storeDispostivo({required String api_token, required Dispositivo dispositivo})async{
     ApiHelper api = ApiHelper();
     Map<String,dynamic> jo = dispositivo.toMap();
     return await api.post("dispositivo/cadastrar", jo,params:{"api_token": api_token});
   }
 
-  Future<Map>get({@required int codloja, @required String device})async{
+  Future<Map>get({required int codloja, required String device})async{
     ApiHelper api = ApiHelper();
     return await api.get("dispositivo/valid", params: {"codloja": codloja.toString(),"device":device});
   }

@@ -17,12 +17,12 @@ class Helper{
     return version;
   }
 
-  static Loja loja;
-  static Usuario usuario;
-  static PDVJason pdv;
-  static Funcionario funcionario;
-  static String fcm_token;
-  static String AppTitle;
+  static late Loja loja;
+  static Usuario ?usuario;
+  static PDVJason ?pdv;
+  static Funcionario ?funcionario;
+  static String ?fcm_token;
+  static String ?AppTitle;
 
 
   static String newGuid(){
@@ -55,7 +55,7 @@ class Helper{
     return nome;
   }
 
-  static DateTime strToDateTime(String date){
+   static DateTime ?strToDateTime(String date){
     if (!(date.isEmpty || date == null))
       return DateTime.parse(date);
   }
@@ -64,7 +64,7 @@ class Helper{
     return date.toString();
   }
 
-  static WhatsApp(String number,{String msg}) async {
+  static WhatsApp(String number,{required String msg}) async {
     var whatsappUrl = "whatsapp://send?phone=+55$number&text=${msg == null ? "": msg}";
 
     if (await canLaunch(whatsappUrl)) {

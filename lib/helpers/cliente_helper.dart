@@ -1,10 +1,7 @@
 import 'package:agilefacil_mob/helpers/pessoa_helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'api_helper.dart';
-import 'helper.dart';
-
 
 class ClienteApi{
 
@@ -176,11 +173,11 @@ class ClienteListItem{
   String cpfcnpj = "";
   int tipoie = 0;
   String ie = "";
-  String foto;
+  String ?foto;
   String sexo = "";
-  ClienteListItemContato contato;
+  ClienteListItemContato ?contato;
   Endereco endereco = Endereco();
-  ClienteListItemCredito credito;
+  ClienteListItemCredito ?credito;
 
   ClienteListItem();
 

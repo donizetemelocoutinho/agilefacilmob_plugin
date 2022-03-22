@@ -25,8 +25,8 @@ class SubGrupoApi{
 }
 
 class SubGrupoComissao{
-  double avista;
-  double aprazo;
+  double avista = 0.00;
+  double aprazo = 0.00;
 
   SubGrupoComissao();
 
@@ -38,18 +38,18 @@ class SubGrupoComissao{
 
 
 class SubGrupo{
-  int id;
-  String guid;
-  int codsubgrupo;
-  int codloja;
-  String idloja;
-  String descricao;
-  int codgrupo;
-  String idgrupo;
-  String grupo;
-  String linkicone;
-  String favorito;
-  SubGrupoComissao comissao;
+  int id = 0;
+  String guid = '';
+  int codsubgrupo = 0;
+  int codloja = 0;
+  String idloja = '';
+  String descricao = '';
+  int codgrupo = 0;
+  String idgrupo = '';
+  String grupo = '';
+  String ?linkicone;
+  String favorito = 'N';
+  SubGrupoComissao ?comissao;
 
   SubGrupo();
 
@@ -68,17 +68,17 @@ class SubGrupo{
 }
 
 class SubGrupoListItem{
-  String guid;
-  int codsubgrupo;
-  int codloja;
-  String idloja;
-  String descricao;
-  int codgrupo;
-  String idgrupo;
-  String grupo;
-  String linkicone;
-  String favorito;
-  SubGrupoComissao comissao;
+  String guid = '';
+  int codsubgrupo = 0;
+  int codloja = 0;
+  String idloja = '';
+  String descricao = '';
+  int codgrupo = 0;
+  String idgrupo = '';
+  String grupo = '';
+  String ?linkicone;
+  String favorito = 'N';
+  SubGrupoComissao ?comissao;
 
   SubGrupoListItem();
 

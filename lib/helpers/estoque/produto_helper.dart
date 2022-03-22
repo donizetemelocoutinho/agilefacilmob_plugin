@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import '../api_helper.dart';
@@ -14,8 +12,8 @@ class ProdutoApi {
     return version;
   }
 
-  Future<Map>getList({@required int codloja,int codmarca,int codsubgrupo,ProdutoFiltroEstoque estoque,@required int startrow,
-    @required String search,@required String api_token,@required bool ativo})async{
+  Future<Map>getList({required int codloja,int ?codmarca,int ?codsubgrupo,required ProdutoFiltroEstoque estoque,required int startrow,
+    required String search,required String api_token,required bool ativo})async{
     ApiHelper api = ApiHelper();
 
     Map<String, String> _params = {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(), "ativo": ativo ? "S" : "N","api_token": api_token,
@@ -31,12 +29,12 @@ class ProdutoApi {
     return await api.get("estoque/produto/list",params: _params);
   }
 
-  Future<Map>get({@required int codloja, @required int codproduto,@required String api_token})async{
+  Future<Map>get({required int codloja, required int codproduto,required String api_token})async{
     ApiHelper api = ApiHelper();
     return await api.get("estoque/produto/edit", params: {"codloja":codloja.toString(),"codproduto":codproduto.toString(),"api_token":api_token});
   }
 
-  Future<List>getListPreco({@required int codloja, @required List<int> codprodutos, @required String api_token })async{
+  Future<List>getListPreco({required int codloja, required List<int> codprodutos, required String api_token })async{
     ApiHelper api = ApiHelper();
     String produtos = jsonEncode(codprodutos);
     return await api.get("estoque/produto/preco/list", params: {"codloja":codloja.toString(),"codprodutos":produtos,"api_token":api_token});
@@ -45,9 +43,9 @@ class ProdutoApi {
 }
 
 class ProdutoParcela{
-  int numero;
-  double parcela;
-  double total;
+  int numero = 0;
+  double parcela = 0.00;
+  double total = 0.00;
 
   ProdutoParcela.fromMap(Map map){
     numero = map['numero'];
@@ -58,8 +56,8 @@ class ProdutoParcela{
 }
 
 class ProdutoComissao{
-  double avista;
-  double aprazo;
+  double avista = 0.00;
+  double aprazo = 0.00;
   ProdutoComissao();
 
   ProdutoComissao.fromMap(Map map){
@@ -70,12 +68,12 @@ class ProdutoComissao{
 }
 
 class ProdutoTributacao{
-  int codcategoria;
-  String idcategoria;
-  String categoria;
-  int codncm;
-  String ncm;
-  String anp;
+  int codcategoria = 0;
+  String idcategoria = '';
+  String categoria = '';
+  int codncm = 0;
+  String ncm = '';
+  String anp = '';
 
   ProdutoTributacao();
 
@@ -91,9 +89,9 @@ class ProdutoTributacao{
 }
 
 class ProdutoEmbalagemTipo{
-  int codunidade;
-  String idunidade;
-  String unidade;
+  int codunidade = 0;
+  String idunidade = '';
+  String unidade = '';
 
   ProdutoEmbalagemTipo();
 
@@ -106,8 +104,8 @@ class ProdutoEmbalagemTipo{
 }
 
 class ProdutoEmbalagemConversao{
-  int tipo;
-  double fator;
+  int tipo = 0;
+  double fator = 0.00;
 
   ProdutoEmbalagemConversao();
 
@@ -121,8 +119,8 @@ class ProdutoEmbalagem{
   ProdutoEmbalagemTipo compra = ProdutoEmbalagemTipo();
   ProdutoEmbalagemConversao conversao = ProdutoEmbalagemConversao();
   ProdutoEmbalagemTipo venda = ProdutoEmbalagemTipo();
-  double pesoliquido;
-  double pesobruto;
+  double pesoliquido = 0.00;
+  double pesobruto = 0.00;
 
   ProdutoEmbalagem();
 
@@ -136,11 +134,11 @@ class ProdutoEmbalagem{
 }
 
 class ProdutoInsChange{
-  int codusuario;
-  String idusuario;
-  String login;
-  DateTime cadastro;
-  DateTime modificacao;
+  int codusuario = 0;
+  String idusuario = '';
+  String login = '';
+  DateTime ?cadastro;
+  DateTime ?modificacao;
 
   ProdutoInsChange();
 
@@ -148,16 +146,16 @@ class ProdutoInsChange{
     codusuario = map['codusuario'];
     idusuario = map['idusuario'];
     login = map['login'];
-    cadastro = (map['cadastro'] != null) ? DateTime.parse(map['cadastro']) : null;
-    modificacao = (map['modificacao'] != null) ? DateTime.parse(map['cadastro']) : null;
+    cadastro = ((map['cadastro'] != null) ? DateTime.parse(map['cadastro']) : null);
+    modificacao = ((map['modificacao'] != null) ? DateTime.parse(map['cadastro']) : null);
   }
 
 }
 
 class ProdutoBalanca{
-  String exporta;
-  String acionanocaixa;
-  int diasvalidade;
+  String exporta = 'N';
+  String acionanocaixa = 'N';
+  int diasvalidade = 0;
 
   ProdutoBalanca();
 
@@ -169,38 +167,38 @@ class ProdutoBalanca{
 }
 
 class ProdutoEstoque{
-  double saldo;
-  double reservado;
-  DateTime dataentrada;
-  DateTime datasaida;
-  double minimo;
-  double ideal;
-  String localizacao;
-  int diasreposicao;
-  DateTime atualizacao;
+  double saldo = 0.00;
+  double reservado = 0.00;
+  DateTime ?dataentrada;
+  DateTime ?datasaida;
+  double minimo = 0.00;
+  double ideal = 0.00;
+  String localizacao = '';
+  int diasreposicao = 0;
+  DateTime ?atualizacao;
 
   ProdutoEstoque();
 
   ProdutoEstoque.fromMap(Map map){
     saldo = double.parse(map['saldo']);
     reservado = double.parse(map['reservado']);
-    dataentrada = (map['dataentrada'] != null) ? DateTime.parse(map['dataentrada']) : null;
-    datasaida = (map['datasaida'] != null) ? DateTime.parse(map['datasaida']) : null;
+    dataentrada = ((map['dataentrada'] != null) ? DateTime.parse(map['dataentrada']) : null);
+    datasaida = ((map['datasaida'] != null) ? DateTime.parse(map['datasaida']) : null);
     minimo = double.parse(map['minimo']);
     ideal = double.parse(map['ideal']);
     localizacao = map['localizacao'];
     diasreposicao = map['diasreposicao'];
-    atualizacao = (map['atualizacao'] != null) ? DateTime.parse(map['atualizacao']) : null;
+    atualizacao = ((map['atualizacao'] != null) ? DateTime.parse(map['atualizacao']) : null);
   }
 }
 
 class ProdutoPreco{
-  double valor;
-  double valor_com_desconto;
-  double lucro;
-  double minimo;
-  double valoranterior;
-  DateTime atualizacao;
+  double valor = 0.00;
+  double valor_com_desconto = 0.00;
+  double lucro = 0.00;
+  double minimo = 0.00;
+  double valoranterior = 0.00;
+  DateTime ?atualizacao;
 
   ProdutoPreco();
 
@@ -209,27 +207,27 @@ class ProdutoPreco{
     lucro = double.parse(map['lucro']);
     minimo = double.parse(map['minimo']);
     valoranterior = double.parse(map['valoranterior']);
-    atualizacao = (map['atualizacao'] != null) ? DateTime.parse(map['atualizacao']) : null;
+    atualizacao = ((map['atualizacao'] != null) ? DateTime.parse(map['atualizacao']) : null);
   }
 }
 
 class ProdutoCompra{
-  double preco;
-  double custo;
-  double frete;
-  double acrescimo;
-  double seguro;
-  double despesas;
-  double desconto;
-  double icmsst;
-  double icms;
-  double pis;
-  double cofins;
-  double ipi;
-  DateTime data;
-  int codfornecedor;
-  String guidfornecedor;
-  String fornecedor;
+  double preco = 0.00;
+  double custo = 0.00;
+  double frete = 0.00;
+  double acrescimo = 0.00;
+  double seguro = 0.00;
+  double despesas = 0.00;
+  double desconto = 0.00;
+  double icmsst = 0.00;
+  double icms = 0.00;
+  double pis = 0.00;
+  double cofins = 0.00;
+  double ipi = 0.00;
+  DateTime ?data;
+  int codfornecedor = 0;
+  String guidfornecedor = '';
+  String fornecedor = '';
 
   ProdutoCompra();
 
@@ -256,16 +254,16 @@ class ProdutoCompra{
 }
 
 class ProdutoGrade{
-  int codgrade;
-  int seq;
-  int codalternativo;
-  String codbarra;
-  String val1;
-  String val2;
-  double estoque;
-  double reservado;
-  String foto;
-  String guid;
+  int codgrade = 0;
+  int seq = 0;
+  int codalternativo = 0;
+  String codbarra = '';
+  String val1 = '';
+  String val2 = '';
+  double estoque = 0.00;
+  double reservado = 0.00;
+  String foto = '';
+  String guid = '';
 
   ProdutoGrade();
 
@@ -284,34 +282,34 @@ class ProdutoGrade{
 }
 
 class Produto{
-  int codproduto;
-  String guid;
-  int codigo;
-  int codloja;
-  String idloja;
-  String codbarra;
-  String codalternativo;
-  int tipo;
-  String descricao;
-  String foto;
-  ProdutoComissao comissao;
-  ProdutoTributacao tributacao;
-  ProdutoEmbalagem embalagem;
-  int codmarca;
-  String idmarca;
-  String marca;
-  int codsubgrupo;
-  String idsubgrupo;
-  String subgrupo;
-  ProdutoInsChange modificacao;
-  String aplicacao;
-  String infoadicional;
-  String temgrade;
-  String ativo;
-  String pdvfavorito;
-  ProdutoEstoque estoque;
-  ProdutoPreco preco;
-  ProdutoPreco preco_especial;
+  int codproduto = 0;
+  String guid = '';
+  int codigo = 0;
+  int codloja = 0;
+  String idloja = '';
+  String codbarra = '';
+  String codalternativo = '';
+  int tipo = 0;
+  String descricao = '';
+  String foto = '';
+  ProdutoComissao ?comissao;
+  ProdutoTributacao ?tributacao;
+  ProdutoEmbalagem ?embalagem;
+  int codmarca = 0;
+  String idmarca = '';
+  String marca = '';
+  int codsubgrupo = 0;
+  String idsubgrupo = '';
+  String subgrupo = '';
+  ProdutoInsChange ?modificacao;
+  String aplicacao = '';
+  String infoadicional = '';
+  String temgrade = 'N';
+  String ativo = 'S';
+  String pdvfavorito= 'N';
+  ProdutoEstoque ?estoque;
+  ProdutoPreco ?preco;
+  ProdutoPreco ?preco_especial;
   List<ProdutoParcela> parcelas = [];
   double parcela_max_valor = 0;
   double parcela_max_total = 0;
@@ -346,7 +344,7 @@ class Produto{
     pdvfavorito = map["pdvfavorito"];
     estoque = ProdutoEstoque.fromMap(map["estoque"]);
     preco = ProdutoPreco.fromMap(map["preco"]);
-    preco.valor_com_desconto = double.parse(map['preco']['valor_com_desconto']);
+    preco?.valor_com_desconto = double.parse(map['preco']['valor_com_desconto']);
     preco_especial = ProdutoPreco.fromMap(map["preco"]["especial"]);
     if(map['parcelas'] != null) {
       for (int i = 0; i < map['parcelas'].length; i++) {
@@ -370,7 +368,7 @@ class Produto{
 class ProdutoListItemPromocao {
   DateTime inicio = DateTime.now();
   DateTime fim = DateTime.now();
-  double valor;
+  double valor= 0.00;
 
   ProdutoListItemPromocao();
 
@@ -412,14 +410,14 @@ class ProdutoListItem{
   String ncm = "";
   String unidadecompra = "";
   int conversaotipo = 0;
-  double conversaofator;
-  String unidadevenda;
+  double conversaofator = 1;
+  String unidadevenda = 'UN';
   String fotolink = "";
-  double preco;
-  ProdutoListItemPromocao promocao = ProdutoListItemPromocao();
-  double precoespecial;
-  double estoque;
-  double reserva;
+  double ?preco;
+  ProdutoListItemPromocao ?promocao = ProdutoListItemPromocao();
+  double precoespecial = 0.00;
+  double estoque = 0.00;
+  double reserva = 0.00;
   List<ProdutoParcela> parcelas = [];
   double parcela_max_valor = 0;
   double parcela_max_total = 0;
@@ -447,7 +445,7 @@ class ProdutoListItem{
     conversaofator = double.parse(map['conversaofator']);
     unidadevenda = map['unidadevenda'];
     fotolink = map['fotolink'];
-    preco = num.parse(map['preco']);
+    preco = map['preco'];
     promocao = ProdutoListItemPromocao.fromMap(map['promocao']);
     precoespecial = double.parse(map['precoespecial']);
     estoque = double.parse(map['estoque']);
@@ -494,7 +492,7 @@ class ProdutoListItem{
       'unidadevenda': unidadevenda,
       'foto': fotolink,
       'preco': preco,
-      'promocao': promocao.toMap(),
+      'promocao': promocao?.toMap(),
       'precoespecial': precoespecial,
       'estoque': estoque,
       'reserva': reserva,
@@ -505,11 +503,11 @@ class ProdutoListItem{
 }
 
 class ProdutoPrecoListItem{
-  int codproduto;
-  double preco;
-  double preco_com_desconto;
+  int codproduto = 0;
+  double preco = 0.00;
+  double preco_com_desconto = 0.00;
   ProdutoListItemPromocao promocao = ProdutoListItemPromocao();
-  double precoespecial;
+  double precoespecial = 0.00;
 
   ProdutoPrecoListItem();
 

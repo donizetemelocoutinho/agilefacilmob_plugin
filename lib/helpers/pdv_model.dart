@@ -1,10 +1,10 @@
 
 
 class PDVJasonCartao {
-  int tipo;
+  int tipo = 0;
   Null tefCaptura;
 
-  PDVJasonCartao({this.tipo, this.tefCaptura});
+  PDVJasonCartao({required this.tipo, this.tefCaptura});
 
   PDVJasonCartao.fromJson(Map<String, dynamic> json) {
     tipo = json['tipo'];
@@ -20,11 +20,11 @@ class PDVJasonCartao {
 }
 
 class PDVJasonBalanca {
-  int tipo;
-  String porta;
-  int velocidade;
+  int tipo = 0;
+  String porta = '';
+  int ?velocidade;
 
-  PDVJasonBalanca({this.tipo, this.porta, this.velocidade});
+  PDVJasonBalanca({required this.tipo, required this.porta, this.velocidade});
 
   PDVJasonBalanca.fromJson(Map<String, dynamic> json) {
     tipo = json['tipo'];
@@ -42,12 +42,12 @@ class PDVJasonBalanca {
 }
 
 class PDVJasonDispositivo {
-  int coddispositivo;
-  String nome;
+  int coddispositivo = 0;
+  String nome = '';
   Null ip;
   Null versao;
 
-  PDVJasonDispositivo({this.coddispositivo, this.nome, this.ip, this.versao});
+  PDVJasonDispositivo({required this.coddispositivo, required this.nome, this.ip, this.versao});
 
   PDVJasonDispositivo.fromJson(Map<String, dynamic> json) {
     coddispositivo = json['coddispositivo'];
@@ -67,9 +67,9 @@ class PDVJasonDispositivo {
 }
 
 class PDVJasonNfce {
-  int codserie;
+  int codserie = 0;
 
-  PDVJasonNfce({this.codserie});
+  PDVJasonNfce({required this.codserie});
 
   PDVJasonNfce.fromJson(Map<String, dynamic> json) {
     codserie = json['codserie'];
@@ -83,10 +83,10 @@ class PDVJasonNfce {
 }
 
 class PDVJasonCreate {
-  int codusuario;
-  String data;
+  int codusuario =  0;
+  String ?data;
 
-  PDVJasonCreate({this.codusuario, this.data});
+  PDVJasonCreate({required this.codusuario, this.data});
 
   PDVJasonCreate.fromJson(Map<String, dynamic> json) {
     codusuario = json['codusuario'];
@@ -121,18 +121,18 @@ class PDVJasonDelete {
 }
 
 class PDVJasonSat {
-  String marca;
-  String modelo;
-  String numeroSerie;
-  String versao;
-  String codigoAtivacao;
+  String marca = '';
+  String modelo = '';
+  String numeroSerie = '';
+  String versao = '';
+  String codigoAtivacao = '';
 
   PDVJasonSat(
-      {this.marca,
-        this.modelo,
-        this.numeroSerie,
-        this.versao,
-        this.codigoAtivacao});
+      {required this.marca,
+        required this.modelo,
+        required this.numeroSerie,
+        required this.versao,
+        required this.codigoAtivacao});
 
   PDVJasonSat.fromJson(Map<String, dynamic> json) {
     marca = json['marca'];
@@ -155,9 +155,9 @@ class PDVJasonSat {
 
 class PDVJasonImpressora {
   Null nome;
-  int modelo;
+  int modelo =  0;
 
-  PDVJasonImpressora({this.nome, this.modelo});
+  PDVJasonImpressora({this.nome, required this.modelo});
 
   PDVJasonImpressora.fromJson(Map<String, dynamic> json) {
     nome = json['nome'];
@@ -173,38 +173,38 @@ class PDVJasonImpressora {
 }
 
 class PDVJason{
-  int codpdv;
-  int numero;
-  String chave;
-  PDVJasonCartao cartao;
-  int codtdf;
-  PDVJasonBalanca balanca;
-  PDVJasonDispositivo dispositivo;
-  PDVJasonNfce nfce;
-  PDVJasonCreate create;
-  PDVJasonCreate update;
-  PDVJasonDelete delete;
-  PDVJasonSat sat;
-  PDVJasonImpressora impressora;
-  String guid;
-  int tipo;
+  int codpdv = 0;
+  int numero = 0;
+  String chave = '';
+  PDVJasonCartao ?cartao;
+  int ?codtdf;
+  PDVJasonBalanca ?balanca;
+  PDVJasonDispositivo ?dispositivo;
+  PDVJasonNfce ?nfce;
+  PDVJasonCreate ?create;
+  PDVJasonCreate ?update;
+  PDVJasonDelete ?delete;
+  PDVJasonSat ?sat;
+  PDVJasonImpressora ?impressora;
+  String guid = '';
+  int tipo = 0;
 
   PDVJason(
-    {this.codpdv,
-      this.numero,
-      this.chave,
-      this.cartao,
+    {required this.codpdv,
+      required this.numero,
+      required this.chave,
+      required this.cartao,
       this.codtdf,
       this.balanca,
-      this.dispositivo,
-      this.nfce,
-      this.create,
-      this.update,
-      this.delete,
-      this.sat,
-      this.impressora,
-      this.guid,
-      this.tipo});
+      required this.dispositivo,
+      required this.nfce,
+      required this.create,
+      required this.update,
+      required this.delete,
+      required this.sat,
+      required this.impressora,
+      required this.guid,
+      required this.tipo});
 
   PDVJason.fromJson(Map<String, dynamic> json) {
     codpdv = json['codpdv'];
@@ -231,32 +231,32 @@ class PDVJason{
     data['numero'] = this.numero;
     data['chave'] = this.chave;
     if (this.cartao != null) {
-      data['cartao'] = this.cartao.toJson();
+      data['cartao'] = this.cartao?.toJson();
     }
     data['codtdf'] = this.codtdf;
     if (this.balanca != null) {
-      data['balanca'] = this.balanca.toJson();
+      data['balanca'] = this.balanca?.toJson();
     }
     if (this.dispositivo != null) {
-      data['dispositivo'] = this.dispositivo.toJson();
+      data['dispositivo'] = this.dispositivo?.toJson();
     }
     if (this.nfce != null) {
-      data['nfce'] = this.nfce.toJson();
+      data['nfce'] = this.nfce?.toJson();
     }
     if (this.create != null) {
-      data['create'] = this.create.toJson();
+      data['create'] = this.create?.toJson();
     }
     if (this.update != null) {
-      data['update'] = this.update.toJson();
+      data['update'] = this.update?.toJson();
     }
     if (this.delete != null) {
-      data['delete'] = this.delete.toJson();
+      data['delete'] = this.delete?.toJson();
     }
     if (this.sat != null) {
-      data['sat'] = this.sat.toJson();
+      data['sat'] = this.sat?.toJson();
     }
     if (this.impressora != null) {
-      data['impressora'] = this.impressora.toJson();
+      data['impressora'] = this.impressora?.toJson();
     }
     data['guid'] = this.guid;
     data['tipo'] = this.tipo;

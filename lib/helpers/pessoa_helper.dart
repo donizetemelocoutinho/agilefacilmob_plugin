@@ -8,26 +8,26 @@ class PessoHelper{
 class Pessoa{
 
   int codpessoa = 0;
-  String guid;
-  int codloja = 0;
-  String idloja;
-  String tipo;
-  String nome;
-  String cpfcnpj;
-  String ie;
+  String ?guid;
+  int ?codloja;
+  String ?idloja;
+  String tipo = '';
+  String nome = '';
+  String cpfcnpj = '';
+  String ie = '';
   int tipoie = 0;
   Contato contato = Contato();
   List<InfoBanco> infobancolist = [];
-  Modification cadastro;
-  Modification atualizacao;
+  Modification ?cadastro;
+  Modification ?atualizacao;
   String obs = "";
   int codgrdocumento = 0;
   Endereco endereco = Endereco();
 
   Pessoa(){
     guid = Helper.newGuid();
-    codloja = Helper.loja.codloja;
-    idloja = Helper.loja.guid;
+    codloja = Helper.loja?.codloja;
+    idloja = Helper.loja?.guid;
     cadastro = Modification();
     atualizacao = Modification();
   }
@@ -43,7 +43,7 @@ class Pessoa{
 
     if (map['infobancolist'] != null){
       for (int i = 0; i < map['infobancolist'].length; i++) {
-        infobancolist.add(InfoBanco.fromMap(map['infobancolist'][i]));
+        infobancolist?.add(InfoBanco.fromMap(map['infobancolist'][i]));
       }
     }
     atualizacao = Modification.fromMap(map['atualizacao']);
@@ -60,8 +60,8 @@ class Pessoa{
   Map<String,dynamic> toMap(){
 
     List<Map> list = [];
-    for (int i = 0; i < infobancolist.length; i++) {
-      list.add(infobancolist[i].toMap());
+    for (int i = 0; i < infobancolist!.length; i++) {
+      list.add(infobancolist![i].toMap());
     }
 
     Map<String, dynamic> map = {
@@ -70,17 +70,17 @@ class Pessoa{
       'codloja' : codloja,
       'idloja' : idloja,
       'tipo' : tipo,
-      'contato' : contato.toMap(),
-      'cadastro' : cadastro.toMap(),
+      'contato' : contato?.toMap(),
+      'cadastro' : cadastro?.toMap(),
       'nome': nome,
       'cpfcnpj': cpfcnpj,
       'ie': ie,
       'tipoie': tipoie,
       'obs': obs,
-      'atualizacao' : atualizacao.toMap(),
+      'atualizacao' : atualizacao?.toMap(),
       'codgprdocumento' : null,
       'infobanco' : list,
-      'endereco' : endereco.toMap(),
+      'endereco' : endereco?.toMap(),
     };
     return map;
   }
@@ -89,18 +89,18 @@ class Pessoa{
 
 class PessoaFisica extends Pessoa{
 
-  String rg;
-  DateTime nascimento;
-  String photo_link;
-  String sexo = "";
-  int estadocivil;
-  Conjuge conjuge;
-  Filiacao filiacao = Filiacao();
-  Trabalho trabalho = Trabalho();
+  String rg ='';
+  DateTime ?nascimento;
+  String ?photo_link;
+  String ?sexo = "";
+  int ?estadocivil;
+  Conjuge ?conjuge;
+  Filiacao ?filiacao = Filiacao();
+  Trabalho ?trabalho = Trabalho();
   double outrasrendas = 0;
   int qtddependentes = 0;
   int tipomoradia = 0; //tratar depois
-  String fotobase64;
+  String ?fotobase64;
 
   PessoaFisica(){
     this.tipo = "F";
@@ -129,26 +129,26 @@ class PessoaFisica extends Pessoa{
     Map<String,dynamic> map = super.toMap();
     map["rg"] = rg;
     map["fotobase64"] = fotobase64;
-    map["nascimento"] = nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento) : null;
+    map["nascimento"] = nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento!) : null;
     map["foto"] = photo_link;
     map["sexo"] = sexo;
     map["estadocivil"] = estadocivil;
     map["outrasrendas"] = outrasrendas;
     map["qtddependentes"] = qtddependentes;
     map["tipomoradia"] = tipomoradia;//ver depois
-    map["conjuge"] = (conjuge != null) ? conjuge.toMap() : null;
-    map["filiacao"] = filiacao.toMap();
-    map["trabalho"] = trabalho.toMap();
+    map["conjuge"] = (conjuge != null) ? conjuge?.toMap() : null;
+    map["filiacao"] = filiacao?.toMap();
+    map["trabalho"] = trabalho?.toMap();
     return map;
   }
 }
 
 class PessoaJuridica extends Pessoa{
 
-  String razao;
-  DateTime abertura = null;
-  String site;
-  String emailcobranca;
+  String razao = '';
+  DateTime ?abertura;
+  String site = '';
+  String emailcobranca = '';
   Responsavel responsavel = Responsavel();
 
   PessoaJuridica() {
@@ -168,9 +168,9 @@ class PessoaJuridica extends Pessoa{
   }
 
   Map<String,dynamic> toMap() {
-    Map map = super.toMap();
+    Map<String,dynamic> map = super.toMap();
     map["razao"] = razao;
-    map["abertura"] = abertura != null ? DateFormat('yyyy-MM-dd').format(abertura) : null;
+    map["abertura"] = abertura != null ? DateFormat('yyyy-MM-dd').format(abertura!) : null;
     map["site"] = site;
     map["emailcobranca"] = emailcobranca;
     map["emailnfe"] = null; // tratar depois
@@ -183,12 +183,12 @@ class PessoaJuridica extends Pessoa{
 class Modification{
 
   DateTime data = new DateTime.now();
-  String usuario;
-  int codusuario = 0;
+  String ?usuario;
+  int ?codusuario;
 
   Modification(){
-    usuario = Helper.usuario.login;
-    codusuario = Helper.usuario.codusuario;
+    usuario = Helper.usuario?.login;
+    codusuario = Helper.usuario?.codusuario;
   }
 
   Modification.fromMap(Map map){
@@ -211,12 +211,12 @@ class Modification{
 
 class Conjuge{
 
-  String nome;
-  String cpf;
-  String rg;
-  DateTime nascimento;
-  String fone;
-  String localtrabalho;
+  String ?nome;
+  String ?cpf;
+  String ?rg;
+  DateTime ?nascimento;
+  String ?fone;
+  String ?localtrabalho;
 
   Conjuge();
 
@@ -236,7 +236,7 @@ class Conjuge{
       'nome': nome,
       'cpf': cpf,
       'rg': rg,
-      'nascimento' : nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento) : null,
+      'nascimento' : nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento!) : null,
       'fone': fone,
       'localtrabalho': localtrabalho,
     };
@@ -247,10 +247,10 @@ class Conjuge{
 
 class Contato {
 
-  String email;
-  String fone;
-  String celular;
-  String recado;
+  String ?email;
+  String ?fone;
+  String ?celular;
+  String ?recado;
   List<ContatoAdicional> outros = [];
 
   Contato();
@@ -287,11 +287,11 @@ class Contato {
 
 class ContatoAdicional{
 
-  String guid;
-  String fone ;
+  String ?guid;
+  String ?fone ;
   int tipo = 0;
-  String email;
-  String infoadicional;
+  String ?email;
+  String ?infoadicional;
 
   ContatoAdicional();
 
@@ -344,8 +344,8 @@ class Credito {
 
 class Filiacao {
 
-  String mae;
-  String pai;
+  String ?mae;
+  String ?pai;
 
   Filiacao();
 
@@ -366,13 +366,13 @@ class Filiacao {
 
 class InfoBanco {
 
-  String guid;
+  String ?guid;
   int codbanco = 0;
   int codfebraban = 0;
-  String banco;
+  String ?banco;
   int agencia = 1;
   int conta = 1;
-  String infoadicional;
+  String ?infoadicional;
 
   InfoBanco.fromMap(Map map){
     guid = map['guid'];
@@ -401,13 +401,13 @@ class InfoBanco {
 
 class Responsavel{
 
-  String nome;
-  String cpf;
-  String rg;
-  String orgemissor;
-  String fone;
-  String celular;
-  String email;
+  String ?nome;
+  String ?cpf;
+  String ?rg;
+  String ?orgemissor;
+  String ?fone;
+  String ?celular;
+  String ?email;
 
   Responsavel();
 
@@ -437,12 +437,12 @@ class Responsavel{
 }
 
 class Trabalho {
-  String profissao;
-  String local;
-  String fone;
-  String responsavel;
-  DateTime admissao;
-  String cargo;
+  String profissao = '';
+  String local = '';
+  String fone = '';
+  String responsavel = '';
+  DateTime ?admissao;
+  String cargo = '';
   double salario = 0;
 
   Trabalho();
@@ -464,7 +464,7 @@ class Trabalho {
       'local': local,
       'fone': fone,
       'responsavel': responsavel,
-      'admissao' : admissao != null ? DateFormat('yyyy-MM-dd').format(admissao) : null,
+      'admissao' : admissao != null ? DateFormat('yyyy-MM-dd').format(admissao!) : null,
       'cargo': cargo,
       'salario': salario,
     };
@@ -473,8 +473,8 @@ class Trabalho {
 }
 
 class Comissao {
-  double aprazo;
-  double avista;
+  double ?aprazo;
+  double ?avista;
 
   Comissao();
 
