@@ -162,7 +162,7 @@ class ParamsHelper{
     return r;
   }
 
-  static String getStringFromList({@required dynamic params, required String param,required String defaultValue}){
+  static String getStringFromList({required dynamic params, required String param,required String defaultValue}){
     String ret = defaultValue;
     for (var i = 0; i < params.length -1; i++) {
       if (params[i]["id"].toString().toUpperCase() == param.toUpperCase()){
