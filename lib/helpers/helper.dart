@@ -64,7 +64,7 @@ class Helper{
     return date.toString();
   }
 
-  static WhatsApp(String number,{required String msg}) async {
+  static WhatsApp(String number,{String ?msg}) async {
     var whatsappUrl = "whatsapp://send?phone=+55$number&text=${msg == null ? "": msg}";
 
     if (await canLaunch(whatsappUrl)) {
