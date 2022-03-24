@@ -13,7 +13,6 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.4
-  cpfcnpj: ^1.0.3
   http: ^0.13.4
   sqflite: ^2.0.0+2
   url_launcher: ^6.0.20
@@ -23,6 +22,10 @@ dependencies:
   barcode_scan2: ^4.2.0
   package_info: ^2.0.2
   intl: 0.17.0
+
+  cpfcnpj:
+    git:
+      url: https://github.com/erickhaendel/dart-cpfcnpj.git
 
 dev_dependencies:
   flutter_test:
