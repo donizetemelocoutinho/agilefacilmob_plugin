@@ -47,7 +47,7 @@ class DBCountsHelper{
 
     //Verifico se retornou o id caso não tenha retornado insiro
     if (count.id == null) {
-      count.id = (await d.insert(table,count.toMap())) ?? -1;
+      count.id = (await d.insert(table,count.toMap()));
     }
     else
       await update(count);
