@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'api_helper.dart';
 
@@ -43,10 +42,10 @@ class FormaPagamento{
   int tipo = 0;
   int tipoconta = 0;
   bool ?padrao;
-  int ?finalidade;
+  int finalidade = 0;
   int tpnfe = 0;
   String descricao  = '';
-  String ?icone;
+  String icone = '';
 
   FormaPagamento();
 
@@ -77,10 +76,10 @@ class FormaPagamentoListItem{
   int tipo = 0;
   int tipoconta = 0;
   bool ?padrao;
-  int ?finalidade;
-  int tpnfe= 0;
+  int finalidade = 0;
+  int tpnfe = 0;
   String descricao = '';
-  String ?icone;
+  String icone = '';
 
   FormaPagamentoListItem();
 

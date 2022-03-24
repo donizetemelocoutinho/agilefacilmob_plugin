@@ -7,15 +7,15 @@ class Diversos{
 enum TabelaPrecoType{tpPrincipal,tpAlternativa}
 
 class Endereco{
-  int ?codcidade;
-  int ?codcidadeibge;
-  String ?cidade;
-  String uf = "";
-  String bairro = "";
-  String cep = "";
-  String logradouro = "";
-  String numero = "";
-  String referencia = "";
+  int codcidade = 0;
+  int codcidadeibge = 0;
+  String cidade = '';
+  String uf = '';
+  String bairro = '';
+  String cep = '';
+  String logradouro = '';
+  String numero = '';
+  String referencia = '';
   double lat = 0;
   double long = 0;
 
@@ -59,7 +59,7 @@ class Endereco{
     info = numero.length > 0 ?  info + ", " + numero : info;
     info = referencia.length > 0 ?  info + ", " + referencia : info;
     info = bairro.length > 0 ?  info + ", " + bairro : info;
-    info = cidade!.length > 0 ?  info + " - " + cidade! : info;
+    info = cidade.length > 0 ?  info + " - " + cidade : info;
     info = uf.length > 0 ?  info + " - " + uf : info;
     info = cep.length > 0 ?  info + " - " + cep : info;
 
@@ -69,11 +69,11 @@ class Endereco{
 }
 
 class Cidade{
-  int ?codcidade;
-  String ?guid;
-  String ?uf;
-  String ?descricao;
-  int ?codcidadeibge;
+  int codcidade  = 0;
+  String guid = '';
+  String uf = '';
+  String descricao = '';
+  int codcidadeibge = 0;
 
   Cidade();
 

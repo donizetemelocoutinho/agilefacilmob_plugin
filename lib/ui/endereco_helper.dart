@@ -67,7 +67,7 @@ class EnderecoHelper{
                         endereco.referencia = map["complemento"];
                         endereco.bairro = map["bairro"];
                         endereco.cidade = map["localidade"];
-                        endereco.codcidade = null;
+                        endereco.codcidade;
                         endereco.uf = map["uf"];
                         endereco.codcidadeibge = int.parse(map["ibge"]);
 
@@ -102,9 +102,9 @@ class EnderecoHelper{
                         _ufController.text = estado.descricao;
                         _cidadeController.text = "";
                         endereco.uf = estado.uf;
-                        endereco.cidade = null;
-                        endereco.codcidade = null;
-                        endereco.codcidadeibge = null;
+                        endereco.cidade;
+                        endereco.codcidade;
+                        endereco.codcidadeibge;
                       }
 
                     })
@@ -130,8 +130,8 @@ class EnderecoHelper{
 
                       endereco.uf = cidade.uf!;
                       endereco.cidade = cidade.descricao!;
-                      endereco.codcidade = cidade.codcidade;
-                      endereco.codcidadeibge = cidade.codcidadeibge;
+                      endereco.codcidade = cidade.codcidade!;
+                      endereco.codcidadeibge = cidade.codcidadeibge!;
 
                     })
               ],
