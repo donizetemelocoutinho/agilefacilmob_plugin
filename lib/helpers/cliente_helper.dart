@@ -175,9 +175,9 @@ class ClienteListItem{
   String ie = '';
   String foto = '';
   String sexo = '';
-  ClienteListItemContato ?contato;
+  late ClienteListItemContato contato;
   Endereco endereco = Endereco();
-  ClienteListItemCredito ?credito;
+  late ClienteListItemCredito credito;
 
   ClienteListItem();
 
