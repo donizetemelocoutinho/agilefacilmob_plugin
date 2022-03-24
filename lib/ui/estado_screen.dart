@@ -15,10 +15,12 @@ class _EstadoScreenState extends State<EstadoScreen> {
       body: Column(
         children: <Widget>[
           Expanded(
-              child: ListView.builder(
-                  padding: EdgeInsets.all(10.0),
-                  itemCount: Diversos.Estados.length,
-                  itemBuilder: biuldItem))
+            child: ListView.builder(
+              padding: EdgeInsets.all(10.0),
+              itemCount: Diversos.Estados.length,
+              itemBuilder: biuldItem
+            )
+          )
         ],
       ),
     );
@@ -42,9 +44,6 @@ class _EstadoScreenState extends State<EstadoScreen> {
       },
     );
   }
-
-
-
 }
 
 

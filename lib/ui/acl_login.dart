@@ -84,7 +84,7 @@ class _AclLoginState extends State<AclLogin> {
               ),
             ],
           ),
-            Text(widget?.observacao ?? ""),
+            Text(widget.observacao ?? ""),
             if (widget.observacao != null)
               Divider(),
         ],

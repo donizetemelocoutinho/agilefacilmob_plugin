@@ -8,9 +8,9 @@ class PessoHelper{
 class Pessoa{
 
   int codpessoa = 0;
-  String ?guid;
-  int ?codloja;
-  String ?idloja;
+  String guid = '';
+  int codloja = 0;
+  String idloja = '';
   String tipo = '';
   String nome = '';
   String cpfcnpj = '';
@@ -20,14 +20,14 @@ class Pessoa{
   List<InfoBanco> infobancolist = [];
   Modification ?cadastro;
   Modification ?atualizacao;
-  String obs = "";
+  String obs = '';
   int codgrdocumento = 0;
   Endereco endereco = Endereco();
 
   Pessoa(){
     guid = Helper.newGuid();
-    codloja = Helper.loja!.codloja;
-    idloja = Helper.loja!.guid;
+    codloja = Helper.loja.codloja;
+    idloja = Helper.loja.guid;
     cadastro = Modification();
     atualizacao = Modification();
   }
@@ -91,16 +91,16 @@ class PessoaFisica extends Pessoa{
 
   String rg ='';
   DateTime ?nascimento;
-  String ?photo_link;
-  String ?sexo = "";
-  int ?estadocivil;
+  String photo_link = '';
+  String sexo = '';
+  int estadocivil = 4;
   Conjuge ?conjuge;
   Filiacao filiacao = Filiacao();
   Trabalho trabalho = Trabalho();
   double outrasrendas = 0;
   int qtddependentes = 0;
   int tipomoradia = 0; //tratar depois
-  String ?fotobase64;
+  String fotobase64 = '';
 
   PessoaFisica(){
     this.tipo = "F";
@@ -183,8 +183,8 @@ class PessoaJuridica extends Pessoa{
 class Modification{
 
   DateTime data = new DateTime.now();
-  String ?usuario;
-  int ?codusuario;
+  String usuario = '';
+  int codusuario = 0;
 
   Modification(){
     usuario = Helper.usuario.login;
@@ -211,12 +211,12 @@ class Modification{
 
 class Conjuge{
 
-  String ?nome;
-  String ?cpf;
-  String ?rg;
+  String nome = '';
+  String cpf = '';
+  String rg = '';
   DateTime ?nascimento;
-  String ?fone;
-  String ?localtrabalho;
+  String fone = '';
+  String localtrabalho = '';
 
   Conjuge();
 
@@ -247,10 +247,10 @@ class Conjuge{
 
 class Contato {
 
-  String ?email;
-  String ?fone;
-  String ?celular;
-  String ?recado;
+  String email = '';
+  String fone = '';
+  String celular = '';
+  String recado = '';
   List<ContatoAdicional> outros = [];
 
   Contato();
@@ -287,11 +287,11 @@ class Contato {
 
 class ContatoAdicional{
 
-  String ?guid;
-  String ?fone ;
+  String guid = '';
+  String fone = '';
   int tipo = 0;
-  String ?email;
-  String ?infoadicional;
+  String email = '';
+  String infoadicional = '';
 
   ContatoAdicional();
 
@@ -344,8 +344,8 @@ class Credito {
 
 class Filiacao {
 
-  String ?mae;
-  String ?pai;
+  String mae = '';
+  String pai = '';
 
   Filiacao();
 
@@ -366,13 +366,13 @@ class Filiacao {
 
 class InfoBanco {
 
-  String ?guid;
+  String guid = '';
   int codbanco = 0;
   int codfebraban = 0;
   String ?banco;
   int agencia = 1;
   int conta = 1;
-  String ?infoadicional;
+  String infoadicional = '';
 
   InfoBanco.fromMap(Map map){
     guid = map['guid'];
@@ -401,13 +401,13 @@ class InfoBanco {
 
 class Responsavel{
 
-  String ?nome;
-  String ?cpf;
-  String ?rg;
-  String ?orgemissor;
-  String ?fone;
-  String ?celular;
-  String ?email;
+  String nome = '';
+  String cpf = '';
+  String rg = '';
+  String orgemissor = '';
+  String fone = '';
+  String celular = '';
+  String email = '';
 
   Responsavel();
 
@@ -473,8 +473,8 @@ class Trabalho {
 }
 
 class Comissao {
-  double ?aprazo;
-  double ?avista;
+  double aprazo = 0;
+  double avista = 0;
 
   Comissao();
 

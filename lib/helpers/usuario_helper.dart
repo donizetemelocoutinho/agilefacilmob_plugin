@@ -5,22 +5,22 @@ import 'api_helper.dart';
 
 class Usuario{
   int id = 0;
-  String guid = "";
+  String guid = '';
   int codusuario = 0;
   int codloja = 0;
-  String loja = "";
-  String cnpj = "";
-  String idloja = "";
-  String login = "";
-  String senha = "";
-  String idgrupo = "";
+  String loja = '';
+  String cnpj = '';
+  String idloja = '';
+  String login = '';
+  String senha = '';
+  String idgrupo = '';
   int codgrupo = 0;
-  String ativo = "S";
-  String email = "";
-  String celular = "";
-  String alterarspl = "N";
-  String fotolink = "";
-  String api_token = "";
+  String ativo = 'S';
+  String email = '';
+  String celular = '';
+  String alterarspl = 'N';
+  String fotolink = '';
+  String api_token = '';
   int codfuncionario = 0;
 
   Usuario();

@@ -1,6 +1,5 @@
 import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CidadeScreen extends StatefulWidget {
@@ -50,29 +49,29 @@ class _CidadeScreenState extends State<CidadeScreen> {
                 },)
             ),
             Expanded(
-                child: FutureBuilder(
-                  future: _getList(),
-                  builder: (context, snapshot) {
-                    switch (snapshot.connectionState) {
-                      case ConnectionState.waiting:
-                      case ConnectionState.none:
-                        return Container(
-                          width: 200.0,
-                          height: 200.0,
-                          alignment: Alignment.center,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
-                            strokeWidth: 5.0,
-                          ),
-                        );
-                      default:
-                        if (snapshot.hasError)
-                          return Container();
-                        else
-                          return _createCidadeTable(context, snapshot);
-                    }
-                  },
-                )
+              child: FutureBuilder(
+                future: _getList(),
+                builder: (context, snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.waiting:
+                    case ConnectionState.none:
+                      return Container(
+                        width: 200.0,
+                        height: 200.0,
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+                          strokeWidth: 5.0,
+                        ),
+                      );
+                    default:
+                      if (snapshot.hasError)
+                        return Container();
+                      else
+                        return _createCidadeTable(context, snapshot);
+                  }
+                },
+              )
             )
           ]
       )
@@ -82,26 +81,22 @@ class _CidadeScreenState extends State<CidadeScreen> {
 
   Widget _createCidadeTable(BuildContext context, AsyncSnapshot snapshot) {
     return ListView.builder(
-        padding: EdgeInsets.all(10.0),
-        itemCount: snapshot.data["cidades"].length,
-        itemBuilder: (context,index){
-          return GestureDetector(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Text(snapshot.data["cidades"][index]["descricao"],style: TextStyle(fontSize: 16.0)),
-                Divider()
-              ],
-            ),
-            onTap: (){
-              Cidade cidade = Cidade.fromMap(snapshot.data["cidades"][index]);
-              Navigator.pop(context,cidade);
-            },
-          );
-        });
+      padding: EdgeInsets.all(10.0),
+      itemCount: snapshot.data["cidades"].length,
+      itemBuilder: (context,index){
+        return GestureDetector(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(snapshot.data["cidades"][index]["descricao"],style: TextStyle(fontSize: 16.0)),
+              Divider()
+            ],
+          ),
+          onTap: (){
+            Cidade cidade = Cidade.fromMap(snapshot.data["cidades"][index]);
+            Navigator.pop(context,cidade);
+          },
+        );
+      });
   }
-
-
-
-
 }

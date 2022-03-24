@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
@@ -125,13 +123,13 @@ class EnderecoHelper{
                     icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
                       Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
-                      _cidadeController.text = cidade.descricao!;
-                      _ufController.text = cidade.uf!;
+                      _cidadeController.text = cidade.descricao;
+                      _ufController.text = cidade.uf;
 
-                      endereco.uf = cidade.uf!;
-                      endereco.cidade = cidade.descricao!;
-                      endereco.codcidade = cidade.codcidade!;
-                      endereco.codcidadeibge = cidade.codcidadeibge!;
+                      endereco.uf = cidade.uf;
+                      endereco.cidade = cidade.descricao;
+                      endereco.codcidade = cidade.codcidade;
+                      endereco.codcidadeibge = cidade.codcidadeibge;
 
                     })
               ],
@@ -175,7 +173,7 @@ class EnderecoHelper{
             },
           ),
           Padding(padding: EdgeInsets.all(12.0),
-            child: FlatButton(
+            child: TextButton(
               child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
               onPressed: () async {
                 ApiHelper api = ApiHelper();
@@ -190,7 +188,4 @@ class EnderecoHelper{
       ),
     );
   }
-
-
-
 }
