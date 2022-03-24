@@ -23,7 +23,7 @@ class FinanceiroUtilApi {
     return version;
   }
 
-  Future<List>CalcularParcelas({required int codloja, required double valor, required String api_token})async{
+  Future<List<SimulaParcelaItem>>CalcularParcelas({required int codloja, required double valor, required String api_token})async{
     ApiHelper api = ApiHelper();
 
     Map result = await api.get("venda/parcelas/calcular", params: {"codloja": codloja.toString(),"valor": valor.toString(),"api_token":api_token.toString()});
