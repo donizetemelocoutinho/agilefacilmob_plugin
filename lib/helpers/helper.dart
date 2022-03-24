@@ -4,7 +4,7 @@ import 'package:agilefacil_mob/helpers/usuario_helper.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 import 'funcionario_helper.dart';
 import 'loja_helper.dart';
@@ -29,9 +29,9 @@ class Helper{
     return Uuid().v1();
   }
 
-  static Future<String> getId() async {
+  static Future<String?> getId() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    String id = "";
+    String? id = "";
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       id = androidInfo.id;
@@ -42,9 +42,9 @@ class Helper{
     return id;
   }
 
-  static Future<String> getNome() async {
+  static Future<String?> getNome() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    String nome = "";
+    String? nome = "";
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       nome = androidInfo.model;

@@ -2,7 +2,7 @@ import 'package:agilefacil_mob/helpers/db_counts.dart';
 import 'package:agilefacil_mob/helpers/dispositivo_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cpfcnpj/cpfcnpj.dart';
-import 'package:barcode_scan/barcode_scan.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'dart:convert' as convert;
 
 import 'package:flutter/services.dart';
