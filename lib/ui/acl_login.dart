@@ -10,7 +10,7 @@ class AclLogin extends StatefulWidget {
   int codloja = 0;
   String acl = "";
   String operacao = "";
-  String ?observacao;
+  String ? observacao;
 
 
   AclLogin({required this.codloja,required this.acl,required this.operacao, this.observacao});
@@ -260,7 +260,7 @@ class _AclLoginState extends State<AclLogin> {
                 });
 
                 UsuarioApi u = UsuarioApi();
-                Map ru = await u.Autenticar(Helper.loja!.cpfcnpj, _login.text, _senha.text);
+                Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
                 //print(ru);
                 if (ru["id"] == 0) {
                   bool allow = await _allow(ru["usuario"]["api_token"]);
@@ -362,7 +362,7 @@ class _AclLoginState extends State<AclLogin> {
                           child: ElevatedButton(
                               onPressed: () async {
                                 UsuarioApi u = UsuarioApi();
-                                Map ru = await u.Autenticar(Helper.loja!.cpfcnpj, _login.text, _senha.text);
+                                Map ru = await u.Autenticar(Helper.loja.cpfcnpj, _login.text, _senha.text);
                                 //print(ru);
                                 if (ru["id"] == 0) {
                                   bool allow = await _allow(ru["usuario"]["api_token"]);
