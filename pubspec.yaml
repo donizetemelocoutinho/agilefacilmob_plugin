@@ -19,8 +19,8 @@ dependencies:
   url_launcher: ^6.0.20
   image_picker: ^0.8.4+11
   uuid: ^3.0.6
-  device_info: ^2.0.3
-  barcode_scan: ^3.0.1
+  device_info_plus: 3.2.2
+  barcode_scan2: ^4.2.0
   package_info: ^2.0.2
   intl: 0.17.0
 
