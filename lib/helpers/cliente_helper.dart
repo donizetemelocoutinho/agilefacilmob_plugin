@@ -127,8 +127,8 @@ class ClienteListItemCredito{
 class ClienteListItemContato{
 
   String email = '';
-  String fone = '';
-  String celular = '';
+  String fone = "";
+  String celular = "";
   String recado = '';
 
   ClienteListItemContato.fromMap(Map map){
