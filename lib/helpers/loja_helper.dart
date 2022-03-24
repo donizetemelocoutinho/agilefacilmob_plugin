@@ -44,7 +44,7 @@ class Loja{
   String fone = '';
   String email = '';
   String emailcontador = '';
-  String linklogo = "";
+  String linklogo = '';
   LojaResponsavel ?responsavel;
   int codcontacaixa = 1;
   int codcontatesouraria = 4;

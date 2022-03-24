@@ -26,8 +26,8 @@ class Pessoa{
 
   Pessoa(){
     guid = Helper.newGuid();
-    codloja = Helper.loja?.codloja;
-    idloja = Helper.loja?.guid;
+    codloja = Helper.loja!.codloja;
+    idloja = Helper.loja!.guid;
     cadastro = Modification();
     atualizacao = Modification();
   }
@@ -43,7 +43,7 @@ class Pessoa{
 
     if (map['infobancolist'] != null){
       for (int i = 0; i < map['infobancolist'].length; i++) {
-        infobancolist?.add(InfoBanco.fromMap(map['infobancolist'][i]));
+        infobancolist.add(InfoBanco.fromMap(map['infobancolist'][i]));
       }
     }
     atualizacao = Modification.fromMap(map['atualizacao']);
@@ -60,8 +60,8 @@ class Pessoa{
   Map<String,dynamic> toMap(){
 
     List<Map> list = [];
-    for (int i = 0; i < infobancolist!.length; i++) {
-      list.add(infobancolist![i].toMap());
+    for (int i = 0; i < infobancolist.length; i++) {
+      list.add(infobancolist[i].toMap());
     }
 
     Map<String, dynamic> map = {
@@ -70,7 +70,7 @@ class Pessoa{
       'codloja' : codloja,
       'idloja' : idloja,
       'tipo' : tipo,
-      'contato' : contato?.toMap(),
+      'contato' : contato.toMap(),
       'cadastro' : cadastro?.toMap(),
       'nome': nome,
       'cpfcnpj': cpfcnpj,
@@ -80,7 +80,7 @@ class Pessoa{
       'atualizacao' : atualizacao?.toMap(),
       'codgprdocumento' : null,
       'infobanco' : list,
-      'endereco' : endereco?.toMap(),
+      'endereco' : endereco.toMap(),
     };
     return map;
   }
@@ -95,8 +95,8 @@ class PessoaFisica extends Pessoa{
   String ?sexo = "";
   int ?estadocivil;
   Conjuge ?conjuge;
-  Filiacao ?filiacao = Filiacao();
-  Trabalho ?trabalho = Trabalho();
+  Filiacao filiacao = Filiacao();
+  Trabalho trabalho = Trabalho();
   double outrasrendas = 0;
   int qtddependentes = 0;
   int tipomoradia = 0; //tratar depois
@@ -137,8 +137,8 @@ class PessoaFisica extends Pessoa{
     map["qtddependentes"] = qtddependentes;
     map["tipomoradia"] = tipomoradia;//ver depois
     map["conjuge"] = (conjuge != null) ? conjuge?.toMap() : null;
-    map["filiacao"] = filiacao?.toMap();
-    map["trabalho"] = trabalho?.toMap();
+    map["filiacao"] = filiacao.toMap();
+    map["trabalho"] = trabalho.toMap();
     return map;
   }
 }
@@ -187,8 +187,8 @@ class Modification{
   int ?codusuario;
 
   Modification(){
-    usuario = Helper.usuario?.login;
-    codusuario = Helper.usuario?.codusuario;
+    usuario = Helper.usuario.login;
+    codusuario = Helper.usuario.codusuario;
   }
 
   Modification.fromMap(Map map){
