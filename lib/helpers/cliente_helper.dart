@@ -48,7 +48,7 @@ class ClienteEmpresa extends PessoaJuridica {
   double receber = 0;
   String classificacao = "C";
   int diafaturamento = 1;
-  String descricao = "";
+  String descricao = '';
 
 
   ClienteEmpresa();
@@ -83,7 +83,7 @@ class ClienteFisica extends PessoaFisica{
   double receber = 0;
   String classificacao = "C";
   int diafaturamento = 1;
-  String descricao = "";
+  String descricao = '';
 
   ClienteFisica();
 
@@ -126,10 +126,10 @@ class ClienteListItemCredito{
 
 class ClienteListItemContato{
 
-  String email = "";
-  String fone = "";
-  String celular = "";
-  String recado = "";
+  String email = '';
+  String fone = '';
+  String celular = '';
+  String recado = '';
 
   ClienteListItemContato.fromMap(Map map){
     email = map['email'];
@@ -141,13 +141,13 @@ class ClienteListItemContato{
 
 class ClienteListItemEdereco{
 
-  String cidade = "";
-  String uf = "";
-  String bairro = "";
-  String cep = "";
-  String logradouro = "";
-  String numero = "";
-  String referencia = "";
+  String cidade = '';
+  String uf = '';
+  String bairro = '';
+  String cep = '';
+  String logradouro = '';
+  String numero = '';
+  String referencia = '';
 
   ClienteListItemEdereco.fromMap(Map map){
     cidade = map['cidade'];
@@ -164,17 +164,17 @@ class ClienteListItemEdereco{
 class ClienteListItem{
 
   int codpessoa = 0;
-  String guid = "";
+  String guid = '';
   int codigo = 0;
-  String tipo = "";
+  String tipo = '';
   int status = 0;
   String nome = "CONSUMIDOR...";
   String razao = "CONSUMIDOR...";
-  String cpfcnpj = "";
+  String cpfcnpj = '';
   int tipoie = 0;
-  String ie = "";
-  String ?foto;
-  String sexo = "";
+  String ie = '';
+  String foto = '';
+  String sexo = '';
   ClienteListItemContato ?contato;
   Endereco endereco = Endereco();
   ClienteListItemCredito ?credito;
