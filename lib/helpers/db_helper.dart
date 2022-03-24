@@ -9,11 +9,11 @@ class DBHelper{
 
   static final DBHelper _instance = DBHelper.internal();
   factory DBHelper() => _instance;
-  Database? _db;
   DBHelper.internal();
+  Database ?_db;
 
   Future<Database> get db async {
-    return _db ?? await initDb();
+    return _db = await initDb();
   }
 
   Future<Database> initDb() async {
@@ -29,7 +29,7 @@ class DBHelper{
 
   Future<int?> close() async{
     Database? d = await db;
-    d?.close();
+    d.close();
   }
 
 }

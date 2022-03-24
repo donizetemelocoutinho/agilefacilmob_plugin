@@ -69,7 +69,7 @@ class DavHelper {
 class Dav{
   String guid = Helper.newGuid();
   int coddav = 0;
-  int ?codusuario;
+  int codusuario = 0;
   int codcliente = 0;
   int codfuncionario = 0;
   int codloja = 0;
@@ -77,10 +77,10 @@ class Dav{
   DavTypes tipo = DavTypes.orcamento;
   DateTime digitacao = DateTime.now();
   TabelaPrecoType tabelapreco = TabelaPrecoType.tpPrincipal;
-  String ?observacao;
-  String ?numeroalternativo;
-  int ?numeroficha;
-  int ?tpcondicional;
+  String observacao = "";
+  String numeroalternativo = "";
+  int numeroficha = 0;
+  int tpcondicional =  0;
   DavTotal total = DavTotal();
   DavCliente cliente = DavCliente();
   String cancelado = "N";
@@ -93,7 +93,7 @@ class Dav{
   List<DavItem> _itens = [];
 
   Dav(){
-    codusuario = Helper.usuario?.codusuario!;
+    codusuario = Helper.usuario.codusuario;
     codloja = Helper.loja.codloja!;
   }
 
@@ -273,7 +273,7 @@ class DavCliente {
   int codcliente = 0;
   String guidcliente = '';
   String cliente = "CONSUMIDOR...";
-  String ?photo_link;
+  String photo_link = '';
   String celular = '';
   String fone = '';
   String cpfcnpj = '';
@@ -486,7 +486,7 @@ class DavItemProduto{
   String codalternativo = '';
   String descricao = '';
   String marca = '';
-  String ?foto;
+  String foto = '';
   String unidade = '';
   DavItemProdutoGrade grade = DavItemProdutoGrade();
 
@@ -525,9 +525,9 @@ class DavItemProduto{
 class DavItemProdutoGrade{
   int codgrade = 0;
   int seq = 0;
-  String ?value1;
-  String ?value2;
-  String ?foto;
+  String value1 = '';
+  String value2 = '';
+  String foto = '';
 
   DavItemProdutoGrade();
 
@@ -631,7 +631,7 @@ class DavListItemCliente{
   String nome = '';
   String cpfcnp = '';
   String email = '';
-  String ?photo_link;
+  String photo_link = '';
 
   DavListItemCliente();
 
@@ -676,15 +676,15 @@ class DavListItem{
   String guid = '';
   DavListItemCliente cliente = DavListItemCliente();
   String cancelado = '';
-  int ?origem;
+  int origem =  0;
   int validade = 0;
   int entrega = 1;
   String cidade = '';
   String vendedor = '';
-  int ?numero;
-  DavTypes ?tipo;
+  int numero = 0;
+  DavTypes tipo = DavTypes.orcamento;
   String numeroalternativo = '';
-  int ?numeroficha;
+  int numeroficha = 0;
   DavListItemTotal ?total;
   DateTime ?data;
   int tabelapreco = 0;
