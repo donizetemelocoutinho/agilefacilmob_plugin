@@ -28,7 +28,7 @@ class EnderecoHelper{
     this.endereco = endereco;
     _cepController.text = endereco.cep;
     _ufController.text = endereco.uf;
-    _cidadeController.text = endereco.cidade ?? "";
+    _cidadeController.text = endereco.cidade;
     _bairroController.text = endereco.bairro;
     _logradouroController.text = endereco.logradouro;
     _numeroController.text = endereco.numero;
