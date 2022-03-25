@@ -10,7 +10,7 @@ class Usuario{
   String ?loja;
   String cnpj = '';
   String idloja = '';
-  String login = '';
+  String ?login = '';
   String senha = '';
   String idgrupo = '';
   int codgrupo = 0;
@@ -18,7 +18,7 @@ class Usuario{
   String email = '';
   String celular = '';
   String alterarspl = 'N';
-  String fotolink = '';
+  String ?fotolink = '';
   String api_token = '';
   int codfuncionario = 0;
 

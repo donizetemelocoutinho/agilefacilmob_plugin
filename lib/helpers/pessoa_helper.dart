@@ -187,7 +187,7 @@ class Modification{
   int codusuario = 0;
 
   Modification(){
-    usuario = Helper.usuario.login;
+    usuario = Helper.usuario.login.toString();
     codusuario = Helper.usuario.codusuario;
   }
 
