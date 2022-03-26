@@ -8,10 +8,10 @@ class Usuario{
   int codusuario = 0;
   int codloja = 0;
   String ?loja;
-  String cnpj = '';
+  String ?cnpj;
   String idloja = '';
-  String ?login = '';
-  String senha = '';
+  String ?login;
+  String ?senha;
   String idgrupo = '';
   int codgrupo = 0;
   String ativo = 'S';
