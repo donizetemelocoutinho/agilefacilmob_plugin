@@ -8,7 +8,7 @@ class Usuario{
   int codusuario = 0;
   int codloja = 0;
   String ?loja;
-  String ?cnpj;
+  String ?cnpj = '';
   String idloja = '';
   String ?login;
   String ?senha;
