@@ -37,7 +37,7 @@ class Loja{
   int seguimento = 0;
   String tpinscricao = '';
   String cpfcnpj = '';
-  String ie = '';
+  String ?ie;
   String im = '';
   int regimetrib = 0;
   Endereco ?endereco;
