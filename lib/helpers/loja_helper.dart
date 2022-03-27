@@ -50,7 +50,7 @@ class Loja{
   int codcontatesouraria = 4;
   String despfixa = '';
   String despvariavel = '';
-  late LojaPadrao padrao = LojaPadrao();
+  LojaPadrao padrao = LojaPadrao();
 
   Loja();
 
