@@ -37,7 +37,7 @@ class Loja{
   int seguimento = 0;
   String tpinscricao = '';
   String cpfcnpj = '';
-  String ie = '';
+  String ?ie;
   String im = '';
   int regimetrib = 0;
   Endereco ?endereco;
@@ -63,7 +63,7 @@ class Loja{
     seguimento = map['seguimento'];
     tpinscricao = map['tpinscricao'];
     cpfcnpj = map['cpfcnpj'];
-    ie == null ? ie = map['ie'] : '';
+    ie?.toString() ?? map['ie'];
     im = map['im'];
     regimetrib = map['regimetrib'];
     endereco = Endereco.fromMap(map['endereco']);
