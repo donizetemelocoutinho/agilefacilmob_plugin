@@ -37,8 +37,8 @@ class LojaResponsavel {
     int seguimento = 0;
     String tpinscricao = "";
     String cpfcnpj = "";
-    String? ie;
-    String? im;
+    String ie = "null";
+    String im = "null";
     int regimetrib = 0;
     late Endereco endereco;
     String fone = "";
@@ -62,8 +62,8 @@ class LojaResponsavel {
       seguimento = map['seguimento'];
       tpinscricao = map['tpinscricao'];
       cpfcnpj = map['cpfcnpj'];
-      ie = map['ie']?.toString() ?? "0";
-      im = map['im']?.toString() ?? "0";
+      ie = map['ie'];
+      im = map['im'];
       regimetrib = map['regimetrib'];
       endereco = Endereco.fromMap(map['endereco']);
       fone = map['fone'];
