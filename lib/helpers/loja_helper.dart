@@ -63,7 +63,7 @@ class LojaResponsavel {
       tpinscricao = map['tpinscricao'];
       cpfcnpj = map['cpfcnpj'];
       ie = map['ie'] ?? "";
-      im = map['im'] ?? "";
+      im = map['im']?.toString()  ?? "0";
       regimetrib = map['regimetrib'];
       endereco = Endereco.fromMap(map['endereco']);
       fone = map['fone'];
