@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'tipos.dart';
 
 class LojaResponsavel {
@@ -63,7 +65,7 @@ class Loja{
     seguimento = map['seguimento'];
     tpinscricao = map['tpinscricao'];
     cpfcnpj = map['cpfcnpj'];
-    ie?.toString() ?? map['ie'];
+    ie = map['ie'].toString() ?? "";
     im = map['im'];
     regimetrib = map['regimetrib'];
     endereco = Endereco.fromMap(map['endereco']);
