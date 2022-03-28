@@ -62,7 +62,7 @@ class Loja{
     razao = map['razao'];
     seguimento = map['seguimento'];
     tpinscricao = map['tpinscricao'];
-    cpfcnpj = map['cpfcnpj'] ?? '';
+    cpfcnpj = map['cpfcnpj'];
     if(ie != null) ie = map['ie'] ?? "";
     im = map['im'];
     regimetrib = map['regimetrib'];
