@@ -12,7 +12,7 @@ class LojaResponsavel {
     nome = map['nome'] == null ? "" : nome = map['nome'];
     cpf = map['cpf'];
     celular = map['celular'];
-    email = map['email'];
+    email = map['email'] == null ? "" : email = map['email'];
   }
 }
   class LojaPadrao{
