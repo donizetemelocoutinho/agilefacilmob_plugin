@@ -63,7 +63,7 @@ class Loja{
     nome = map['nome'];
     razao = map['razao'];
     seguimento = map['seguimento'];
-    tpinscricao = map['tpinscricao'];
+    tpinscricao = map['tpinscricao'].toString();
     cpfcnpj = map['cpfcnpj'];
     ie = map['ie'] ?? "".toString();
     im = map['im'] ?? "".toString();
