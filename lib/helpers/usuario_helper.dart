@@ -37,7 +37,7 @@ class Usuario{
     idgrupo = map['idgrupo'];
     codgrupo = map['codgrupo'];
     ativo = map['ativo'];
-    email = map['email'];
+    email = map['email'] == null ? "" : email = map['email'];
     celular = map['celular'];
     alterarspl = map['alterarspl'];
     fotolink = map['fotolink'];
