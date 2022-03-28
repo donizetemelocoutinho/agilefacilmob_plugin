@@ -63,10 +63,10 @@ class Loja{
     nome = map['nome'];
     razao = map['razao'];
     seguimento = map['seguimento'];
-    tpinscricao = map['tpinscricao'].toString();
+    tpinscricao = map['tpinscricao'];
     cpfcnpj = map['cpfcnpj'];
-    ie = map['ie'] ?? "".toString();
-    im = map['im'] ?? "".toString();
+    ie = map['ie'] ?? "";
+    im = map['im'] ?? "";
     regimetrib = map['regimetrib'];
     endereco = Endereco.fromMap(map['endereco']);
     fone = map['fone'];
