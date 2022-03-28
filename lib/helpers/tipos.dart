@@ -23,7 +23,7 @@ class Endereco{
 
   Endereco.fromMap(Map map){
     codcidade = map['codcidade'];
-    codcidadeibge = map['codcidadeibge'];
+    codcidadeibge = map['codcidadeibge'] ?? 0;
     cidade = map['cidade'] == null ? "" : map['cidade'];
     uf = map['uf'] == null ? "" : map['uf'];
     bairro = map['bairro'] == null ? "" : map['bairro'];
