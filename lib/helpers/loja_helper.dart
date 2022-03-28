@@ -23,61 +23,59 @@ class LojaResponsavel {
 
     LojaPadrao();
 
-  LojaPadrao.fromMap(Map map){
-    codpgtoaprazo = map['codpgtoaprazo'];
-    pgtoaprazo = map['pgtoaprazo'];
+    LojaPadrao.fromMap(Map map){
+      codpgtoaprazo = map['codpgtoaprazo'];
+      pgtoaprazo = map['pgtoaprazo'];
+    }
   }
 
+  class Loja{
+    String guid = "";
+    int codloja = 0;
+    String nome = "";
+    String razao = "";
+    int seguimento = 0;
+    String tpinscricao = "";
+    String cpfcnpj = "";
+    String ie = "";
+    String im = "";
+    int regimetrib = 0;
+    late Endereco endereco;
+    String fone = "";
+    String email = "";
+    String emailcontador = "";
+    String linklogo = "";
+    late LojaResponsavel responsavel;
+    int codcontacaixa = 1;
+    int codcontatesouraria = 4;
+    String despfixa = "";
+    String despvariavel = "";
+    LojaPadrao padrao = LojaPadrao();
+
+    Loja();
+
+    Loja.fromMap( Map map){
+      guid = map['guid'];
+      codloja = map['codloja'];
+      nome = map['nome'];
+      razao = map['razao'];
+      seguimento = map['seguimento'];
+      tpinscricao = map['tpinscricao'];
+      cpfcnpj = map['cpfcnpj'];
+      ie = map['ie'] ?? "";
+      im = map['im'] ?? "";
+      regimetrib = map['regimetrib'];
+      endereco = Endereco.fromMap(map['endereco']);
+      fone = map['fone'];
+      email = map['email'];
+      emailcontador = map['emailcontador'];
+      linklogo = map['linklogo'];
+      responsavel = LojaResponsavel.fromMap(map['responsavel']);
+      codcontacaixa = map['codcontacaixa'];
+      codcontatesouraria = map['codcontatesouraria'];
+      despfixa = map['despfixa'];
+      despvariavel = map['despvariavel'];
+      padrao= LojaPadrao.fromMap(map['padrao']);
+    }
+
   }
-
-
-class Loja{
-  String guid = "";
-  int codloja = 0;
-  String nome = "";
-  String razao = "";
-  int seguimento = 0;
-  String tpinscricao = "";
-  String cpfcnpj = "";
-  String ie = "";
-  String im = "";
-  int regimetrib = 0;
-  late Endereco endereco;
-  String fone = "";
-  String email = "";
-  String emailcontador = "";
-  String linklogo = "";
-  late LojaResponsavel responsavel;
-  int codcontacaixa = 1;
-  int codcontatesouraria = 4;
-  String despfixa = "";
-  String despvariavel = "";
-  LojaPadrao padrao = LojaPadrao();
-
-  Loja();
-
-  Loja.fromMap( Map map){
-    guid = map['guid'];
-    codloja = map['codloja'];
-    nome = map['nome'];
-    razao = map['razao'];
-    seguimento = map['seguimento'];
-    tpinscricao = map['tpinscricao'];
-    cpfcnpj = map['cpfcnpj'];
-    ie = map['ie'] ?? "";
-    im = map['im'] ?? "";
-    regimetrib = map['regimetrib'];
-    endereco = Endereco.fromMap(map['endereco']);
-    fone = map['fone'];
-    email = map['email'];
-    emailcontador = map['emailcontador'];
-    linklogo = map['linklogo'];
-    responsavel = LojaResponsavel.fromMap(map['responsavel']);
-    codcontacaixa = map['codcontacaixa'];
-    codcontatesouraria = map['codcontatesouraria'];
-    despfixa = map['despfixa'];
-    despvariavel = map['despvariavel'];
-    padrao= LojaPadrao.fromMap(map['padrao']);
-  }
-
-}
