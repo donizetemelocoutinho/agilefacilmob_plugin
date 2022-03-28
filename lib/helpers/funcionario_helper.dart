@@ -24,8 +24,8 @@ class FuncionarioApi {
 
 class Funcionario extends PessoaFisica{
   int codigo = 0;
-  DateTime ?admissao;
-  DateTime ?demissao;
+  DateTime? admissao;
+  DateTime? demissao;
   String ativo = 'S';
   Comissao comissao = Comissao();
   String funcao = '';
@@ -37,8 +37,7 @@ class Funcionario extends PessoaFisica{
 
     codigo = map['codigo'];
 
-    if (map['admissao'] != null)
-      admissao =  DateTime.parse(map['admissao']);
+    admissao = (DateTime.parse(map['admissao']) == null ? "" : DateTime.parse(map['admissao'])) as DateTime?;
 
     if (map['demissao'] != null)
       demissao =  DateTime.parse(map['demissao']);
