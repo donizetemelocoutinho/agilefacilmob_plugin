@@ -57,7 +57,6 @@ class Loja{
   Loja();
 
   Loja.fromMap( Map map){
-
     guid = map['guid'];
     codloja = map['codloja'];
     nome = map['nome'];
