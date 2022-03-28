@@ -62,13 +62,13 @@ class LojaResponsavel {
       seguimento = map['seguimento'];
       tpinscricao = map['tpinscricao'];
       cpfcnpj = map['cpfcnpj'];
-      ie = map['ie'] != null ? ie = map['ie'] : "";
-      im = map['im'] != null ? im = map['im'] : "";
+      ie = map['ie'] == null ? "" : ie = map['ie'];
+      im = map['im'] == null ? "" : im = map['im'];
       regimetrib = map['regimetrib'];
       endereco = Endereco.fromMap(map['endereco']);
       fone = map['fone'];
       email = map['email'];
-      emailcontador = map['emailcontador'];
+      emailcontador = map['emailcontador'] == null ? "" : emailcontador = map['emailcontador'];
       linklogo = map['linklogo'];
       responsavel = LojaResponsavel.fromMap(map['responsavel']);
       codcontacaixa = map['codcontacaixa'];
