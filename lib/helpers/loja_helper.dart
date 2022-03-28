@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'tipos.dart';
 
 class LojaResponsavel {
@@ -11,7 +9,7 @@ class LojaResponsavel {
   LojaResponsavel();
 
   LojaResponsavel.fromMap(Map map){
-    nome = map['nome'];
+    nome = map['nome'] == null ? "" : nome = map['nome'];
     cpf = map['cpf'];
     celular = map['celular'];
     email = map['email'];
