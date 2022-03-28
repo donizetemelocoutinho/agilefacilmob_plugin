@@ -64,7 +64,7 @@ class LojaResponsavel {
       cpfcnpj = map['cpfcnpj'];
       ie = map['ie'] ?? "";
       im = map['im'] ?? "";
-      regimetrib = map['regimetrib'];
+      regimetrib = map['regimetrib'] ?? 0;
       endereco = Endereco.fromMap(map['endereco']);
       fone = map['fone'];
       email = map['email'];
