@@ -62,8 +62,8 @@ class Loja{
     razao = map['razao'];
     seguimento = map['seguimento'];
     tpinscricao = map['tpinscricao'];
-    cpfcnpj = map['cpfcnpj'];
-    ie = map['ie'] ?? '';
+    cpfcnpj = map['cpfcnpj'] ?? null;
+    ie = map['ie'];
     im = map['im'];
     regimetrib = map['regimetrib'];
     endereco = Endereco.fromMap(map['endereco']);
