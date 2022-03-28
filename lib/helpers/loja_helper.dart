@@ -32,26 +32,26 @@ class LojaResponsavel {
 
 
 class Loja{
-  String guid = '';
+  String guid = "";
   int codloja = 0;
-  String nome = '';
-  String razao = '';
+  String nome = "";
+  String razao = "";
   int seguimento = 0;
-  String tpinscricao = '';
-  String cpfcnpj = '';
-  String ie = '';
-  String im = '';
+  String tpinscricao = "";
+  String cpfcnpj = "";
+  String ie = "";
+  String im = "";
   int regimetrib = 0;
   late Endereco endereco;
-  String fone = '';
-  String email = '';
-  String emailcontador = '';
-  String linklogo = '';
-  LojaResponsavel ?responsavel;
+  String fone = "";
+  String email = "";
+  String emailcontador = "";
+  String linklogo = "";
+  late LojaResponsavel responsavel;
   int codcontacaixa = 1;
   int codcontatesouraria = 4;
-  String despfixa = '';
-  String despvariavel = '';
+  String despfixa = "";
+  String despvariavel = "";
   LojaPadrao padrao = LojaPadrao();
 
   Loja();
@@ -63,7 +63,7 @@ class Loja{
     nome = map['nome'];
     razao = map['razao'];
     seguimento = map['seguimento'];
-    tpinscricao = map['tpinscricao'] ?? "".toString();
+    tpinscricao = map['tpinscricao'];
     cpfcnpj = map['cpfcnpj'];
     ie = map['ie'] ?? "".toString();
     im = map['im'] ?? "".toString();
