@@ -62,9 +62,9 @@ class LojaResponsavel {
       seguimento = map['seguimento'];
       tpinscricao = map['tpinscricao'];
       cpfcnpj = map['cpfcnpj'];
-      ie = map['ie']?.toString() ?? "0";
-      im = map['im']?.toString() ?? "0";
-      regimetrib = map['regimetrib'] ?? 0;
+      ie = map['ie'] ?? "";
+      im = map['im'] ?? "".isEmpty;
+      regimetrib = map['regimetrib'];
       endereco = Endereco.fromMap(map['endereco']);
       fone = map['fone'];
       email = map['email'];
