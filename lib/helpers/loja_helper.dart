@@ -42,7 +42,7 @@ class Loja{
   String ie = '';
   String im = '';
   int regimetrib = 0;
-  Endereco ?endereco;
+  late Endereco endereco;
   String fone = '';
   String email = '';
   String emailcontador = '';
