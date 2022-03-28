@@ -1,6 +1,4 @@
-
 import 'package:agilefacil_mob/helpers/pessoa_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'api_helper.dart';
@@ -32,10 +30,8 @@ import 'api_helper.dart';
       super.fromMap(map);
 
       codigo = map['codigo'];
-      if (map['admissao'] != null)
-        admissao =  DateTime.parse(map['admissao']);
-      if (map['demissao'] != null)
-        demissao =  DateTime.parse(map['demissao']);
+      if (map['admissao'] != null) admissao =  DateTime.tryParse(map['admissao'].toString());
+      if (map['demissao'] != null) demissao =  DateTime.tryParse(map['demissao'].toString());
       ativo = map['ativo'];
       comissao = Comissao.fromMap(map['comissao']);
       funcao = map['funcao'];
@@ -53,5 +49,4 @@ import 'api_helper.dart';
     };
       return map;
     }
-
   }
