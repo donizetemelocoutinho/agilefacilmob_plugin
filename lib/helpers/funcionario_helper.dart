@@ -30,8 +30,8 @@ import 'api_helper.dart';
       super.fromMap(map);
 
       codigo = map['codigo'];
-      admissao =  DateTime.tryParse(map['admissao'].toString() == null ? ""  : admissao = map['admissao']);
-      if (map['demissao'] != null) demissao =  DateTime.tryParse(map['demissao'].toString());
+      admissao =  DateTime.tryParse(map['admissao']?.toString() ?? "");
+      demissao =  DateTime.tryParse(map['demissao']?.toString() ?? "");
       ativo = map['ativo'];
       comissao = Comissao.fromMap(map['comissao']);
       funcao = map['funcao'];
