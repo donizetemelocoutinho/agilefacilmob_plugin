@@ -110,9 +110,7 @@ class PessoaFisica extends Pessoa{
     super.fromMap(map);
 
     rg = map['rg'];
-
-    if (map['nascimento'] != null)
-      nascimento =  DateTime.parse(map['nascimento']);
+    nascimento =  DateTime.parse(map['nascimento']?.toString() ?? "");
     photo_link = map['foto'];
     sexo = map['sexo'];
     estadocivil = map['estadocivil'];
