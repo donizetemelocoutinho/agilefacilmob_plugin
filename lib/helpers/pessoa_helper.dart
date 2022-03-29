@@ -134,7 +134,7 @@ class PessoaFisica extends Pessoa{
     map["outrasrendas"] = outrasrendas;
     map["qtddependentes"] = qtddependentes;
     map["tipomoradia"] = tipomoradia;//ver depois
-    map["conjuge"] = (conjuge != null) ? conjuge?.toMap() : null;
+    map["conjuge"] = conjuge.toMap();
     map["filiacao"] = filiacao.toMap();
     map["trabalho"] = trabalho.toMap();
     return map;
