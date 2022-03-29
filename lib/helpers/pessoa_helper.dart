@@ -87,18 +87,18 @@ class PessoHelper{
   }
 
   class PessoaFisica extends Pessoa{
-    String rg ='';
+    late String rg ='';
     DateTime ?nascimento;
-    String photo_link = '';
-    String sexo = '';
-    int estadocivil = 4;
+    late String photo_link = '';
+    late String sexo = '';
+    late int estadocivil = 4;
     late Conjuge conjuge;
     Filiacao filiacao = Filiacao();
     Trabalho trabalho = Trabalho();
-    double outrasrendas = 0;
-    int qtddependentes = 0;
-    int tipomoradia = 0; //tratar depois
-    String fotobase64 = '';
+    late double outrasrendas = 0;
+    late int qtddependentes = 0;
+    late int tipomoradia = 0; //tratar depois
+    late String fotobase64 = '';
 
     PessoaFisica(){
       this.tipo = "F";
@@ -107,11 +107,11 @@ class PessoHelper{
     void fromMap(Map map){
       super.fromMap(map);
 
-      rg = map['rg'] ?? "";
+      rg = map['rg'];
       nascimento =  DateTime.parse(map['nascimento']?.toString() ?? "");
-      photo_link = map['foto'] ?? "";
-      sexo = map['sexo'] ?? "";
-      estadocivil = map['estadocivil'] ?? 4;
+      photo_link = map['foto'];
+      sexo = map['sexo'];
+      estadocivil = map['estadocivil'];
       conjuge = map['conjuge'] ?? Conjuge.fromMap(map['conjuge']);
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
