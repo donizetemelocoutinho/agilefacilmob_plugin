@@ -107,13 +107,11 @@ class PessoHelper{
     void fromMap(Map map){
       super.fromMap(map);
 
-      if(rg != null)
-        rg = map['rg'];
-      print(rg);
+      rg = map['rg'] ?? "";
       nascimento =  DateTime.parse(map['nascimento']?.toString() ?? "");
-      photo_link = map['foto'];
-      sexo = map['sexo'];
-      estadocivil = map['estadocivil'];
+      photo_link = map['foto'] ?? "";
+      sexo = map['sexo'] ?? "";
+      estadocivil = map['estadocivil'] ?? 4;
       conjuge = map['conjuge'] ?? Conjuge.fromMap(map['conjuge']);
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
