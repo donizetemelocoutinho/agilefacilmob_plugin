@@ -16,7 +16,7 @@ class Pessoa{
   String cpfcnpj = '';
   String ie = '';
   int tipoie = 0;
-  late Contato contato = Contato();
+  Contato contato = Contato();
   List<InfoBanco> infobancolist = [];
   Modification ?cadastro;
   Modification ?atualizacao;
