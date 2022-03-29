@@ -479,8 +479,8 @@ class Comissao {
   Comissao();
 
   Comissao.fromMap(Map map){
-    aprazo = double.parse(map['aprazo']);
-    avista = double.parse(map['avista']);
+    aprazo = double.parse(map['aprazo'].toString());
+    avista = double.parse(map['avista'].toString());
   }
 
   Map<String,dynamic> toMap(){
