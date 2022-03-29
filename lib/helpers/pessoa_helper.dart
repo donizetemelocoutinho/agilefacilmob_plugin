@@ -245,10 +245,10 @@ class Conjuge{
 
 class Contato {
 
-  String email = '';
-  String fone = '';
-  String celular = '';
-  String recado = '';
+  String email = "";
+  String fone = "";
+  String celular = "";
+  String recado = "";
   List<ContatoAdicional> outros = [];
 
   Contato();
