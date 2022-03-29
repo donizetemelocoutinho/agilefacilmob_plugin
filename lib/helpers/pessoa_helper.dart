@@ -186,8 +186,7 @@ class PessoHelper{
     }
 
     Modification.fromMap(Map map){
-      if (map['data'] != null)
-        data =  DateTime.parse(map['data']);
+      data =  DateTime.parse(map['data']?.toString() ?? "");
       usuario = map['usuario'];
       codusuario = map['codusuario'];
     }
