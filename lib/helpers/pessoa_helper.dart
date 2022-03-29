@@ -38,7 +38,7 @@ class Pessoa{
     codloja = map['codloja'];
     idloja = map['idloja'];
     tipo = map['tipo'];
-    contato = Contato.fromMap(map['contato'] == null ? 0 : map['contato']);
+    contato = Contato.fromMap(map['contato'?.toString() ?? 0]);
     cadastro = Modification.fromMap(map['cadastro']);
 
     if (map['infobancolist'] != null){
