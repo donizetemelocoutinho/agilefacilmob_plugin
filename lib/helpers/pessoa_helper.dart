@@ -107,7 +107,7 @@ class PessoHelper{
     void fromMap(Map map){
       super.fromMap(map);
 
-      rg = map['rg']?.toString() ?? "";
+      rg = map['rg'] == null ? "" : rg = map['rg'];
       print(rg);
       nascimento =  DateTime.parse(map['nascimento']?.toString() ?? "");
       photo_link = map['foto'];
