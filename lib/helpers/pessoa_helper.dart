@@ -16,7 +16,7 @@ class Pessoa{
   String cpfcnpj = '';
   String ie = '';
   int tipoie = 0;
-  Contato contato = Contato();
+  Contato ?contato = Contato();
   List<InfoBanco> infobancolist = [];
   Modification ?cadastro;
   Modification ?atualizacao;
@@ -38,8 +38,7 @@ class Pessoa{
     codloja = map['codloja'];
     idloja = map['idloja'];
     tipo = map['tipo'];
-    if(map[contato] != null)
-      contato = Contato.fromMap(map['contato']);
+    contato = Contato.fromMap(map['contato']);
     cadastro = Modification.fromMap(map['cadastro']);
 
     if (map['infobancolist'] != null){
@@ -71,7 +70,7 @@ class Pessoa{
       'codloja' : codloja,
       'idloja' : idloja,
       'tipo' : tipo,
-      'contato' : contato.toMap(),
+      'contato' : contato?.toMap(),
       'cadastro' : cadastro?.toMap(),
       'nome': nome,
       'cpfcnpj': cpfcnpj,
