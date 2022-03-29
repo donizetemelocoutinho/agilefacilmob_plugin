@@ -94,7 +94,7 @@ class PessoaFisica extends Pessoa{
   String photo_link = '';
   String sexo = '';
   int estadocivil = 4;
-  Conjuge ?conjuge;
+  late Conjuge conjuge;
   Filiacao filiacao = Filiacao();
   Trabalho trabalho = Trabalho();
   double outrasrendas = 0;
@@ -114,7 +114,7 @@ class PessoaFisica extends Pessoa{
     photo_link = map['foto'];
     sexo = map['sexo'];
     estadocivil = map['estadocivil'];
-    conjuge = map['conjuge'] != null ? Conjuge.fromMap(map['conjuge']) : null;
+    conjuge = map['conjuge'] ?? Conjuge.fromMap(map['conjuge']);
     filiacao = Filiacao.fromMap(map['filiacao']);
     trabalho = Trabalho.fromMap(map['trabalho']);
     outrasrendas = double.parse(map['outrasrendas']);
