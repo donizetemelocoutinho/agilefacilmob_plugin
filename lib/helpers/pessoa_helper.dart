@@ -254,7 +254,7 @@ class Contato {
   Contato();
 
   Contato.fromMap(Map map){
-    email = map['email'];
+    email = map['email'] == null ? "" : email = map['email'];
     fone = map['fone'];
     celular = map['celular'];
     recado = map['recado'];
