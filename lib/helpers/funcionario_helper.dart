@@ -23,7 +23,7 @@ import 'api_helper.dart';
     DateTime ?admissao;
     DateTime ?demissao;
     String ativo = 'S';
-    Comissao comissao = Comissao();
+    late Comissao comissao = Comissao();
     String funcao = '';
 
     Funcionario.fromMap(Map map) {
