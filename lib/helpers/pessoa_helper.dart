@@ -255,9 +255,9 @@ class Contato {
 
   Contato.fromMap(Map map){
     email = map['email'] == null ? "" : email = map['email'];
-    fone = map['fone'];
-    celular = map['celular'];
-    recado = map['recado'];
+    fone = map['fone'] == null ? "" : fone = map['fone'];
+    celular = map['celular'] == null ? "" : celular = map['celular'];
+    recado = map['recado'] == null ? "" : recado = map['recado'];
     if(map['outros'] != null) {
       for (int i = 0; i < map['outros'].length; i++) {
         outros.add(ContatoAdicional.fromMap(map['outros'][i]));
