@@ -50,7 +50,7 @@ class PessoHelper{
       ie = map['ie'];
       tipoie = map['tipoie'] ?? 0;
       obs = map['obs']?.toString() ?? "";
-      codgrdocumento = map['codgrdocumento']  == null ? "" : codgrdocumento = map['codgrdocumento'];
+      codgrdocumento = map['codgrdocumento'] ?? 0;
       endereco = Endereco.fromMap(map['endereco']);
 
     }
