@@ -49,7 +49,7 @@ class PessoHelper{
       nome = map['nome'];
       cpfcnpj = map['cpfcnpj'];
       ie = map['ie'];
-      tipoie = map['tipoie'];
+      tipoie = map['tipoie'] ?? 0;
       obs = map['obs'];
       codgrdocumento = map['codgrdocumento'];
       endereco = Endereco.fromMap(map['endereco']);
