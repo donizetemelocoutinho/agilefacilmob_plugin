@@ -19,7 +19,7 @@ class PessoHelper{
     List<InfoBanco> infobancolist = [];
     Modification ?cadastro;
     Modification ?atualizacao;
-    String ?obs;
+    String obs = "";
     int codgrdocumento = 0;
     Endereco endereco = Endereco();
 
@@ -39,7 +39,6 @@ class PessoHelper{
       tipo = map['tipo'];
       contato = Contato.fromMap(map['contato']);
       cadastro = Modification.fromMap(map['cadastro']);
-
       if (map['infobancolist'] != null){
         for (int i = 0; i < map['infobancolist'].length; i++) {
           infobancolist.add(InfoBanco.fromMap(map['infobancolist'][i]));
@@ -50,8 +49,7 @@ class PessoHelper{
       cpfcnpj = map['cpfcnpj'];
       ie = map['ie'];
       tipoie = map['tipoie'] ?? 0;
-      if (obs == null)
-        obs = map['obs'] ?? "";
+      obs = map['obs']?.toString() ?? "";
       codgrdocumento = map['codgrdocumento']  == null ? "" : codgrdocumento = map['codgrdocumento'];
       endereco = Endereco.fromMap(map['endereco']);
 
