@@ -19,7 +19,7 @@ class PessoHelper{
     List<InfoBanco> infobancolist = [];
     Modification ?cadastro;
     Modification ?atualizacao;
-    String obs = '';
+    String ?obs;
     int codgrdocumento = 0;
     Endereco endereco = Endereco();
 
@@ -50,7 +50,7 @@ class PessoHelper{
       cpfcnpj = map['cpfcnpj'];
       ie = map['ie'];
       tipoie = map['tipoie'] ?? 0;
-      obs = map['obs']?.toString() ?? "";
+      obs = map['obs'] == null ? "" : obs = map['obs'];
       codgrdocumento = map['codgrdocumento']  == null ? "" : codgrdocumento = map['codgrdocumento'];
       endereco = Endereco.fromMap(map['endereco']);
 
