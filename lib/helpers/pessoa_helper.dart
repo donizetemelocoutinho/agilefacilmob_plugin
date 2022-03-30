@@ -123,7 +123,7 @@ class PessoHelper{
     @override
     Map<String,dynamic> toMap() {
       Map<String,dynamic> map = super.toMap();
-      map["rg"] = rg;
+      map["rg"] = rg != null ? map["rg"] = rg : null;
       map["fotobase64"] = fotobase64;
       map["nascimento"] = nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento!) : null;
       map["foto"] = photo_link;
