@@ -87,18 +87,18 @@ class PessoHelper{
   }
 
   class PessoaFisica extends Pessoa{
-    late String rg ='';
+    String ?rg;
     DateTime ?nascimento;
-    late String photo_link = '';
-    late String sexo = '';
-    late int estadocivil = 4;
+    String photo_link = '';
+    String sexo = '';
+    int estadocivil = 4;
     late Conjuge conjuge;
     Filiacao filiacao = Filiacao();
     Trabalho trabalho = Trabalho();
-    late double outrasrendas = 0;
-    late int qtddependentes = 0;
-    late int tipomoradia = 0; //tratar depois
-    late String fotobase64 = '';
+    double outrasrendas = 0;
+    int qtddependentes = 0;
+    int tipomoradia = 0; //tratar depois
+    String fotobase64 = '';
 
     PessoaFisica(){
       this.tipo = "F";
@@ -123,7 +123,7 @@ class PessoHelper{
     @override
     Map<String,dynamic> toMap() {
       Map<String,dynamic> map = super.toMap();
-      map["rg"] = rg != null ? map["rg"] = rg : null;
+      map["rg"] = rg;
       map["fotobase64"] = fotobase64;
       map["nascimento"] = nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento!) : null;
       map["foto"] = photo_link;
