@@ -115,7 +115,7 @@ class PessoHelper{
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
-      qtddependentes = map['qtddependentes'];
+      qtddependentes = map['qtddependentes'] ?? 0;
       tipomoradia = map['tipomoradia'];
     }
 
