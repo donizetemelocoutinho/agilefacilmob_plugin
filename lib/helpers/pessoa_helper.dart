@@ -17,8 +17,8 @@ class PessoHelper{
     int tipoie = 0;
     Contato contato = Contato();
     List<InfoBanco> infobancolist = [];
-    Modification ?cadastro;
-    Modification ?atualizacao;
+    Modification? cadastro;
+    Modification? atualizacao;
     String obs = "";
     int codgrdocumento = 0;
     Endereco endereco = Endereco();
@@ -131,7 +131,7 @@ class PessoHelper{
       map["outrasrendas"] = outrasrendas;
       map["qtddependentes"] = qtddependentes;
       map["tipomoradia"] = tipomoradia;//ver depois
-      map["conjuge"] = conjuge.toMap();
+      map["conjuge"] = (conjuge != null) ? conjuge.toMap() : null;
       map["filiacao"] = filiacao.toMap();
       map["trabalho"] = trabalho.toMap();
       return map;
@@ -140,7 +140,7 @@ class PessoHelper{
 
   class PessoaJuridica extends Pessoa{
     String razao = '';
-    DateTime ?abertura;
+    DateTime? abertura;
     String site = '';
     String emailcobranca = '';
     Responsavel responsavel = Responsavel();
@@ -153,8 +153,7 @@ class PessoHelper{
       super.fromMap(map);
 
       razao = map['razao'];
-      if (map['abertura'] != null)
-        abertura =  DateTime.parse(map['abertura']);
+      abertura =  DateTime.tryParse(map['abertura'] ?? "");
 
       site = map['site'];
       emailcobranca = map['emailcobranca'];
@@ -164,7 +163,7 @@ class PessoHelper{
     Map<String,dynamic> toMap() {
       Map<String,dynamic> map = super.toMap();
       map["razao"] = razao;
-      map["abertura"] = abertura != null ? DateFormat('yyyy-MM-dd').format(abertura!) : null;
+      map["abertura"] = abertura;
       map["site"] = site;
       map["emailcobranca"] = emailcobranca;
       map["emailnfe"] = null; // tratar depois
