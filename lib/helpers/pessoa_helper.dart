@@ -132,6 +132,7 @@ class PessoHelper{
       map["qtddependentes"] = qtddependentes;
       map["tipomoradia"] = tipomoradia;//ver depois
       map["conjuge"] = (conjuge != null) ? conjuge.toMap() : null;
+
       map["filiacao"] = filiacao.toMap();
       map["trabalho"] = trabalho.toMap();
       return map;
