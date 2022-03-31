@@ -91,7 +91,7 @@ class PessoHelper{
     String photo_link = '';
     String sexo = '';
     int estadocivil = 4;
-    late Conjuge conjuge;
+    Conjuge conjuge = Conjuge();
     Filiacao filiacao = Filiacao();
     Trabalho trabalho = Trabalho();
     double outrasrendas = 0;
@@ -111,7 +111,7 @@ class PessoHelper{
       photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
-      conjuge = map['conjuge'];
+      conjuge = Conjuge.fromMap(map['conjuge']);
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
@@ -424,7 +424,7 @@ class PessoHelper{
     String local = '';
     String fone = '';
     String responsavel = '';
-    DateTime ?admissao;
+    DateTime? admissao;
     String cargo = '';
     double salario = 0;
 
@@ -435,8 +435,7 @@ class PessoHelper{
       local = map['local'];
       fone = map['fone'];
       responsavel = map['responsavel'];
-      if (map['admissao'] != null)
-        admissao =  DateTime.parse(map['admissao']);
+      admissao =  DateTime.tryParse(map['admissao'] ?? "");
       cargo = map['cargo'];
       salario = double.parse(map['salario']);
     }
@@ -447,7 +446,7 @@ class PessoHelper{
         'local': local,
         'fone': fone,
         'responsavel': responsavel,
-        'admissao' : admissao != null ? DateFormat('yyyy-MM-dd').format(admissao!) : null,
+        'admissao' : admissao,
         'cargo': cargo,
         'salario': salario,
       };
