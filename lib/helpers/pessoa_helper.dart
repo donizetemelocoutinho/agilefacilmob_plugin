@@ -111,7 +111,7 @@ class PessoHelper{
       photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
-      conjuge = map['conjuge'] ?? Conjuge.fromMap(map['conjuge']);
+      conjuge = map['conjuge'];
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
@@ -216,7 +216,7 @@ class PessoHelper{
       cpf = map['cpf'];
       rg = map['rg'];
       if (map['nascimento'] != null)
-        nascimento =  DateTime.parse(map['nascimento']);
+        nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
       fone = map['fone'];
       localtrabalho = map['localtrabalho'];
     }
@@ -226,7 +226,7 @@ class PessoHelper{
         'nome': nome,
         'cpf': cpf,
         'rg': rg,
-        'nascimento' : nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento!) : null,
+        'nascimento' : nascimento,
         'fone': fone,
         'localtrabalho': localtrabalho,
       };
