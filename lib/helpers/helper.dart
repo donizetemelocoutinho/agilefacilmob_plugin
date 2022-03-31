@@ -29,33 +29,33 @@ class Helper{
     return Uuid().v1();
   }
 
-  static Future<String?> getId() async {
+  static Future<String> getId() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    String? id = "";
+    String id = "";
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-      id = androidInfo.id;
+      id = androidInfo.id ?? "";
     } else if (Platform.isIOS) {
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-      id = iosInfo.identifierForVendor;
+      id = iosInfo.identifierForVendor ?? "";
     }
     return id;
   }
 
   static Future<String?> getNome() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    String? nome = "";
+    String nome = "";
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-      nome = androidInfo.model;
+      nome = androidInfo.model ?? "";
     } else if (Platform.isIOS) {
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-      nome = iosInfo.model;
+      nome = iosInfo.model ?? "";
     }
     return nome;
   }
 
-   static DateTime ?strToDateTime(String date){
+   static DateTime? strToDateTime(String date){
     if (!(date.isEmpty || date == null))
       return DateTime.parse(date);
   }

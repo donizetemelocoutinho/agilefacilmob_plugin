@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 import 'api_helper.dart';
@@ -14,7 +13,7 @@ class Pdv{
 
   Future<Map>Check({required int codloja}) async{
     ApiHelper api = ApiHelper();
-    String? device = await Helper.getId();
+    String device = await Helper.getId();
     return await api.get("loja/pdv/check", params : {"codloja": codloja.toString(),"device": device});
   }
 
