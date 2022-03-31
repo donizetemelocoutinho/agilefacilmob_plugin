@@ -20,7 +20,7 @@ dependencies:
   uuid: ^3.0.6
   device_info_plus: 3.2.2
   barcode_scan2: ^4.2.0
-  package_info: ^2.0.2
+  package_info_plus: ^1.4.0
   intl: 0.17.0
 
   cpfcnpj:
