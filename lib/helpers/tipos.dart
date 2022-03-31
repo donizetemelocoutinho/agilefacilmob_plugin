@@ -4,117 +4,117 @@ class Diversos{
   static List<int> UFsIbge = [12,27,13,16,29,23,53,32,52,21,31,50,51,15,25,26,22,41,33,24,11,14,43,42,28,35,17];
 }
 
-enum TabelaPrecoType{tpPrincipal,tpAlternativa}
+  enum TabelaPrecoType{tpPrincipal,tpAlternativa}
 
-class Endereco{
-  int codcidade = 0;
-  int codcidadeibge = 0;
-  String cidade = '';
-  String uf = '';
-  String bairro = '';
-  String cep = '';
-  String logradouro = '';
-  String numero = '';
-  String referencia = '';
-  double lat = 0;
-  double long = 0;
+  class Endereco{
+    int codcidade = 0;
+    int codcidadeibge = 0;
+    String cidade = '';
+    String uf = '';
+    String bairro = '';
+    String cep = '';
+    String logradouro = '';
+    String numero = '';
+    String referencia = '';
+    double lat = 0;
+    double long = 0;
 
-  Endereco();
+    Endereco();
 
-  Endereco.fromMap(Map map){
-    codcidade = map['codcidade'] ?? 0;
-    codcidadeibge = map['codcidadeibge'] ?? 0;
-    cidade = map['cidade'] == null ? "" : map['cidade'];
-    uf = map['uf'] == null ? "" : map['uf'];
-    bairro = map['bairro'] == null ? "" : map['bairro'];
-    cep = map['cep'] == null ? "" : map['cep'];
-    logradouro = map['logradouro']  == null ? "" : map['logradouro'];
-    numero = map['numero']  == null ? "" : map['numero'];
-    referencia = map['referencia'] == null ? "" : map['referencia'];
-    lat = 0.0;
-    long = 0.0;
-  }
-
-  Map toMap(){
-    Map<String, dynamic> map = {
-      'codcidade': codcidade,
-      'codcidadeibge': codcidadeibge,
-      'cidade': cidade,
-      'uf': uf,
-      'bairro' : bairro,
-      'cep': cep,
-      'logradouro': logradouro,
-      'numero': numero,
-      'referencia' : referencia,
-      'lat' : lat,
-      'long': long
-    };
-    return map;
-  }
-
-  String getDescricao(){
-    String info = "";
-
-    info = logradouro.length > 0 ? logradouro : "";
-    info = numero.length > 0 ?  info + ", " + numero : info;
-    info = referencia.length > 0 ?  info + ", " + referencia : info;
-    info = bairro.length > 0 ?  info + ", " + bairro : info;
-    info = cidade.length > 0 ?  info + " - " + cidade : info;
-    info = uf.length > 0 ?  info + " - " + uf : info;
-    info = cep.length > 0 ?  info + " - " + cep : info;
-
-    return info;
-  }
-
-}
-
-class Cidade{
-  int codcidade  = 0;
-  String guid = '';
-  String uf = '';
-  String descricao = '';
-  int codcidadeibge = 0;
-
-  Cidade();
-
-  Cidade.fromMap(Map map){
-    codcidade = map['codcidade'];
-    guid = map['guid'];
-    uf = map['uf'];
-    descricao = map['descricao'];
-    codcidadeibge = map['codcidadeibge'];
-  }
-
-}
-
-class Estado{
-  String uf = "";
-  String descricao = "";
-  int codibge = 0;
-
-  Estado();
-
-  static String getUF(int i){
-    return Diversos.UFs[i];
-  }
-
-  static String getEstado(int i){
-    return Diversos.Estados[i];
-  }
-
-  static int getCodIbge(int i){
-    return Diversos.UFsIbge[i];
-  }
-
-  static int getUFPosition(String uf){
-    int pos = -1;
-    for (int i = 0; i < 27; i++) {
-      if (uf.toUpperCase().compareTo(Diversos.UFs[i]) == 0){
-        pos = i;
-        break;
-      }
+    Endereco.fromMap(Map map){
+      codcidade = map['codcidade'] ?? 0;
+      codcidadeibge = map['codcidadeibge'] ?? 0;
+      cidade = map['cidade'] == null ? "" : map['cidade'];
+      uf = map['uf'] == null ? "" : map['uf'];
+      bairro = map['bairro'] == null ? "" : map['bairro'];
+      cep = map['cep'] == null ? "" : map['cep'];
+      logradouro = map['logradouro']  == null ? "" : map['logradouro'];
+      numero = map['numero']  == null ? "" : map['numero'];
+      referencia = map['referencia'] == null ? "" : map['referencia'];
+      lat = 0.0;
+      long = 0.0;
     }
-    return pos;
+
+    Map toMap(){
+      Map<String, dynamic> map = {
+        'codcidade': codcidade,
+        'codcidadeibge': codcidadeibge,
+        'cidade': cidade,
+        'uf': uf,
+        'bairro' : bairro,
+        'cep': cep,
+        'logradouro': logradouro,
+        'numero': numero,
+        'referencia' : referencia,
+        'lat' : lat,
+        'long': long
+      };
+      return map;
+    }
+
+    String getDescricao(){
+      String info = "";
+
+      info = logradouro.length > 0 ? logradouro : "";
+      info = numero.length > 0 ?  info + ", " + numero : info;
+      info = referencia.length > 0 ?  info + ", " + referencia : info;
+      info = bairro.length > 0 ?  info + ", " + bairro : info;
+      info = cidade.length > 0 ?  info + " - " + cidade : info;
+      info = uf.length > 0 ?  info + " - " + uf : info;
+      info = cep.length > 0 ?  info + " - " + cep : info;
+
+      return info;
+    }
+
   }
 
-}
+  class Cidade{
+    int codcidade  = 0;
+    String guid = '';
+    String uf = '';
+    String descricao = '';
+    int codcidadeibge = 0;
+
+    Cidade();
+
+    Cidade.fromMap(Map map){
+      codcidade = map['codcidade'];
+      guid = map['guid'];
+      uf = map['uf'];
+      descricao = map['descricao'];
+      codcidadeibge = map['codcidadeibge'];
+    }
+
+  }
+
+  class Estado{
+    String uf = "";
+    String descricao = "";
+    int codibge = 0;
+
+    Estado();
+
+    static String getUF(int i){
+      return Diversos.UFs[i];
+    }
+
+    static String getEstado(int i){
+      return Diversos.Estados[i];
+    }
+
+    static int getCodIbge(int i){
+      return Diversos.UFsIbge[i];
+    }
+
+    static int getUFPosition(String uf){
+      int pos = -1;
+      for (int i = 0; i < 27; i++) {
+        if (uf.toUpperCase().compareTo(Diversos.UFs[i]) == 0){
+          pos = i;
+          break;
+        }
+      }
+      return pos;
+    }
+
+  }
