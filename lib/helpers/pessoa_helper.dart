@@ -435,7 +435,7 @@ class PessoHelper{
       responsavel = map['responsavel'] ?? "";
       admissao = DateTime.tryParse(map['admissao'] ?? "");
       cargo = map['cargo'] ?? "";
-      salario = double.parse(map['salario'] == null ? 0 : salario = map['salario']);
+      salario = double.parse(map['salario'] ?? 0);
     }
 
     Map<String,dynamic> toMap(){
