@@ -87,7 +87,7 @@ class PessoHelper{
 
   class PessoaFisica extends Pessoa{
     String ?rg;
-    DateTime ?nascimento;
+    late DateTime nascimento;
     String photo_link = '';
     String sexo = '';
     int estadocivil = 4;
@@ -107,7 +107,7 @@ class PessoHelper{
       super.fromMap(map);
 
       rg = map['rg'] == null ? "" : rg = map['rg'];
-      nascimento =  DateTime.parse(map['nascimento']);
+      nascimento =  DateTime.parse(map['nascimento']?.toString() ?? "");
       photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
@@ -124,7 +124,7 @@ class PessoHelper{
       Map<String,dynamic> map = super.toMap();
       map["rg"] = rg;
       map["fotobase64"] = fotobase64;
-      map["nascimento"] = nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento!) : null;
+      map["nascimento"] = nascimento != null ? DateFormat('yyyy-MM-dd').format(nascimento) : null;
       map["foto"] = photo_link;
       map["sexo"] = sexo;
       map["estadocivil"] = estadocivil;
