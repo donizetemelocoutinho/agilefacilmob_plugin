@@ -20,8 +20,8 @@ import 'api_helper.dart';
 
   class Funcionario extends PessoaFisica{
     int codigo = 0;
-    DateTime ?admissao;
-    DateTime ?demissao;
+    DateTime? admissao;
+    DateTime? demissao;
     String ativo = 'S';
     Comissao comissao = Comissao();
     String funcao = '';
@@ -30,8 +30,8 @@ import 'api_helper.dart';
       super.fromMap(map);
 
       codigo = map['codigo'];
-      admissao =  DateTime.tryParse(map['admissao']?.toString() ?? "");
-      demissao =  DateTime.tryParse(map['demissao']?.toString() ?? "");
+      admissao = DateTime.tryParse(map['admissao'] ?? "");
+      demissao = DateTime.tryParse(map['demissao'] ?? "");
       ativo = map['ativo'];
       comissao = Comissao.fromMap(map['comissao']);
       funcao = map['funcao'];
@@ -41,8 +41,8 @@ import 'api_helper.dart';
     Map<String,dynamic> toMap() {
       Map<String, dynamic> map = {
       'codigo' : codigo,
-      'admissao' : admissao != null ? DateFormat('yyyy-MM-dd').format(admissao!) : null,
-      'demissao' : demissao != null ? DateFormat('yyyy-MM-dd').format(demissao!) : null,
+      'admissao' : admissao,
+      'demissao' : demissao,
       'ativo' : ativo,
       'comissao' : comissao.toMap(),
       'funcao' : funcao,
