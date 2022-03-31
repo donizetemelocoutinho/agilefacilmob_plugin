@@ -86,7 +86,7 @@ class PessoHelper{
   }
 
   class PessoaFisica extends Pessoa{
-    String ?rg;
+    String? rg;
     DateTime? nascimento;
     String photo_link = '';
     String sexo = '';
@@ -111,7 +111,7 @@ class PessoHelper{
       photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
-      conjuge = map['conjuge'] ?? "";
+      conjuge = map['conjuge'] == null ? "" : conjuge = map['conjuge'];
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
@@ -205,7 +205,7 @@ class PessoHelper{
     String nome = '';
     String cpf = '';
     String rg = '';
-    DateTime ?nascimento;
+    DateTime? nascimento;
     String fone = '';
     String localtrabalho = '';
 
@@ -215,8 +215,7 @@ class PessoHelper{
       nome = map['nome'];
       cpf = map['cpf'];
       rg = map['rg'];
-      if (map['nascimento'] != null)
-        nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
+      nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
       fone = map['fone'];
       localtrabalho = map['localtrabalho'];
     }
