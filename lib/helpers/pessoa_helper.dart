@@ -91,7 +91,7 @@ class PessoHelper{
     String photo_link = '';
     String sexo = '';
     int estadocivil = 4;
-    late Conjuge conjuge;
+    Conjuge? conjuge;
     Filiacao filiacao = Filiacao();
     Trabalho trabalho = Trabalho();
     double outrasrendas = 0;
@@ -111,7 +111,7 @@ class PessoHelper{
       photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
-      conjuge = map['conjuge'];
+      conjuge = map['conjuge'] ?? "";
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
@@ -131,7 +131,7 @@ class PessoHelper{
       map["outrasrendas"] = outrasrendas;
       map["qtddependentes"] = qtddependentes;
       map["tipomoradia"] = tipomoradia;//ver depois
-      map["conjuge"] = conjuge.toMap();
+      map["conjuge"] = conjuge?.toMap();
       map["filiacao"] = filiacao.toMap();
       map["trabalho"] = trabalho.toMap();
       return map;
