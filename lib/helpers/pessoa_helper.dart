@@ -112,7 +112,6 @@ class PessoHelper{
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
       conjuge = map['conjuge'] ?? "";
-
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
