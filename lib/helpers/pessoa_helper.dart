@@ -111,7 +111,7 @@ class PessoHelper{
       photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
-      conjuge = map['conjuge'] ?? "";
+      conjuge = map['conjuge'] != null ? Conjuge.fromMap(map['conjuge']) : null;
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
@@ -131,7 +131,7 @@ class PessoHelper{
       map["outrasrendas"] = outrasrendas;
       map["qtddependentes"] = qtddependentes;
       map["tipomoradia"] = tipomoradia;//ver depois
-      map["conjuge"] = conjuge;
+      map["conjuge"] = (conjuge != null) ? conjuge?.toMap() : null;
       map["filiacao"] = filiacao.toMap();
       map["trabalho"] = trabalho.toMap();
       return map;
