@@ -333,8 +333,8 @@ class PessoHelper{
     Filiacao();
 
     Filiacao.fromMap(Map map){
-      mae = map['mae'];
-      pai = map['pai'];
+      mae = map['mae'] ?? "";
+      pai = map['pai'] ?? "";
     }
 
     Map<String,dynamic> toMap(){
@@ -429,13 +429,13 @@ class PessoHelper{
     Trabalho();
 
     Trabalho.fromMap(Map map){
-      profissao = map['profissao'];
-      local = map['local'];
+      profissao = map['profissao'] ?? "";
+      local = map['local'] ?? "";
       fone = map['fone'];
-      responsavel = map['responsavel'];
-      admissao =  DateTime.tryParse(map['admissao'] ?? "");
-      cargo = map['cargo'];
-      salario = double.parse(map['salario']);
+      responsavel = map['responsavel'] ?? "";
+      admissao = DateTime.tryParse(map['admissao'] ?? "");
+      cargo = map['cargo'] ?? "";
+      salario = double.parse(map['salario'] == null ? 0 : salario = map['salario']);
     }
 
     Map<String,dynamic> toMap(){
