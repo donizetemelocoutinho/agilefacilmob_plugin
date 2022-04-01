@@ -18,7 +18,7 @@ class Helper{
 
   static late Loja loja;
   static late Usuario usuario;
-  static late PDVJason pdv;
+  static late PDVJason? pdv;
   static late Funcionario funcionario;
   static late String fcm_token;
   static late String AppTitle;
