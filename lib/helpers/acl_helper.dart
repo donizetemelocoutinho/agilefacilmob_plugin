@@ -8,7 +8,7 @@ class AclHelper{
   String acl;
   String api_token;
   String operacao;
-  String ?observacao;
+  String? observacao;
   BuildContext context;
 
   AclHelper({required this.context,required this.codloja,required this.acl,required this.api_token,required this.operacao, this.observacao});

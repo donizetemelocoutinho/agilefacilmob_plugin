@@ -39,7 +39,7 @@ class DBCountsHelper{
   }
 
   Future<DBCount> save(DBCount count) async {
-    Database? d = await DBHelper().db;
+    Database d = await DBHelper().db;
 
     //verifico se este usuário esta liberado para esta loja
     if (count.id == null)
@@ -58,7 +58,7 @@ class DBCountsHelper{
   }
 
   Future<DBCount?> get(int id) async {
-    Database ?d = await DBHelper().db;
+    Database d = await DBHelper().db;
     List<Map> maps = await d.query(table,
         columns: [idColumn, cpfcnpjColumn, cpfcnpjColumn, cpfcnpjColumn, codlojaColumn,
           loginColumn,senhaColumn,codusuarioColumn,loginfotolinkColumn,apitokenColumn,empresalogolinkColumn,

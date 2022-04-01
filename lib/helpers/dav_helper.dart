@@ -94,7 +94,7 @@ class Dav{
 
   Dav(){
     codusuario = Helper.usuario.codusuario;
-    codloja = Helper.loja.codloja!;
+    codloja = Helper.loja.codloja;
   }
 
 

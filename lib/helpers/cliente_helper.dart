@@ -122,10 +122,10 @@ import 'api_helper.dart';
   }
 
   class ClienteListItemContato{
-    String email = '';
+    String email = "";
     String fone = "";
     String celular = "";
-    String recado = '';
+    String recado = "";
 
     ClienteListItemContato.fromMap(Map map){
       email = map['email'];
