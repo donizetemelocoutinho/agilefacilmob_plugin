@@ -1,9 +1,9 @@
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:intl/intl.dart';
-class PessoHelper{
 
-}
+
+class PessoHelper{}
 
   class Pessoa{
     int codpessoa = 0;
@@ -52,7 +52,6 @@ class PessoHelper{
       obs = map['obs']?.toString() ?? "";
       codgrdocumento = map['codgrdocumento'] ?? 0;
       endereco = Endereco.fromMap(map['endereco']);
-
     }
 
     Map<String,dynamic> toMap(){
@@ -82,7 +81,6 @@ class PessoHelper{
       };
       return map;
     }
-
   }
 
   class PessoaFisica extends Pessoa{
@@ -230,7 +228,6 @@ class PessoHelper{
       };
       return map;
     }
-
   }
 
   class Contato {
@@ -344,14 +341,13 @@ class PessoHelper{
       };
       return map;
     }
-
   }
 
   class InfoBanco {
     String guid = '';
     int codbanco = 0;
     int codfebraban = 0;
-    String ?banco;
+    String? banco;
     int agencia = 1;
     int conta = 1;
     String infoadicional = '';
@@ -414,7 +410,6 @@ class PessoHelper{
       };
       return map;
     }
-
   }
 
   class Trabalho {

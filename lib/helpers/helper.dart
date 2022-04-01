@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-
 import 'funcionario_helper.dart';
 import 'loja_helper.dart';
 
@@ -19,7 +18,7 @@ class Helper{
 
   static late Loja loja;
   static late Usuario usuario;
-  static late PDVJason? pdv;
+  static late PDVJason pdv;
   static late Funcionario funcionario;
   static late String fcm_token;
   static late String AppTitle;

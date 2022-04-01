@@ -1,6 +1,5 @@
 import 'package:agilefacil_mob/helpers/pessoa_helper.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'api_helper.dart';
 
   class FuncionarioApi {

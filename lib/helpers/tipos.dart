@@ -65,7 +65,6 @@ class Diversos{
 
       return info;
     }
-
   }
 
   class Cidade{
