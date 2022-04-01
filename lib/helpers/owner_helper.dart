@@ -12,13 +12,13 @@ class OwnerApi{
 
   Future<Map>Checked() async{
     ApiHelper api = ApiHelper();
-    String? id = await Helper.getId();
+    String id = await Helper.getId();
     return await api.get("owner/checked", params : {"id": id});
   }
 
   Future<Map>Resend({required String fone}) async {
     ApiHelper api = ApiHelper();
-    String? id = await Helper.getId();
+    String id = await Helper.getId();
 
     return await api.get("owner/resend", params : {"id": id,"fone": fone });
   }
