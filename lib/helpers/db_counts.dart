@@ -78,9 +78,9 @@ class DBCountsHelper{
     return await d.update(table, count.toMap() as Map<String, Object?>, where: "$idColumn = ?", whereArgs: [count.id]);
   }
 
-  Future<int?> count() async{
+  Future<int> count() async{
     Database d = await DBHelper().db;
-    return Sqflite.firstIntValue(await d.rawQuery("SELECT COUNT(*) FROM $table"));
+    return Sqflite.firstIntValue(await d.rawQuery("SELECT COUNT(*) FROM $table")) ?? -1;
   }
 
   Future<List<DBCount>> getAll() async {
