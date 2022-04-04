@@ -86,7 +86,7 @@ class PessoHelper{}
   class PessoaFisica extends Pessoa{
     String? rg;
     DateTime? nascimento;
-    String photo_link = "";
+    String? photo_link;
     String sexo = "";
     int estadocivil = 4;
     Conjuge? conjuge;
@@ -106,7 +106,7 @@ class PessoHelper{}
 
       rg = map['rg'] == null ? "" : rg = map['rg'];
       nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
-      photo_link = map['foto'];
+      photo_link = map['foto'] == null ? "" : photo_link = map['foto'];
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
       conjuge = map['conjuge'] != null ? Conjuge.fromMap(map['conjuge']) : null;
