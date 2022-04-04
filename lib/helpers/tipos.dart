@@ -9,13 +9,13 @@ class Diversos{
   class Endereco{
     int codcidade = 0;
     int codcidadeibge = 0;
-    String cidade = '';
-    String uf = '';
-    String bairro = '';
-    String cep = '';
-    String logradouro = '';
-    String numero = '';
-    String referencia = '';
+    String cidade = "";
+    String uf = "";
+    String bairro = "";
+    String cep = "";
+    String logradouro = "";
+    String numero = "";
+    String referencia = "";
     double lat = 0;
     double long = 0;
 
@@ -24,13 +24,13 @@ class Diversos{
     Endereco.fromMap(Map map){
       codcidade = map['codcidade'] ?? 0;
       codcidadeibge = map['codcidadeibge'] ?? 0;
-      cidade = map['cidade'] == null ? "" : map['cidade'];
-      uf = map['uf'] == null ? "" : map['uf'];
-      bairro = map['bairro'] == null ? "" : map['bairro'];
-      cep = map['cep'] == null ? "" : map['cep'];
-      logradouro = map['logradouro']  == null ? "" : map['logradouro'];
-      numero = map['numero']  == null ? "" : map['numero'];
-      referencia = map['referencia'] == null ? "" : map['referencia'];
+      cidade = map['cidade'] ?? "";
+      uf = map['uf'] ?? "";
+      bairro = map['bairro'] ?? "";
+      cep = map['cep'] ?? "";
+      logradouro = map['logradouro'] ?? "";
+      numero = map['numero'] ?? "";
+      referencia = map['referencia'] ?? "";
       lat = 0.0;
       long = 0.0;
     }
