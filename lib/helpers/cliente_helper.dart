@@ -187,7 +187,7 @@ import 'api_helper.dart';
       tipoie = map['tipoie'];
       ie = map['ie'];
       foto = map['foto'] ?? "";
-      sexo = map['sexo'];
+      sexo = map['sexo'] ?? "";
       contato = ClienteListItemContato.fromMap(map['contato']);
       endereco = Endereco.fromMap(map['endereco']);
       credito = ClienteListItemCredito.fromMap(map['credito']);
