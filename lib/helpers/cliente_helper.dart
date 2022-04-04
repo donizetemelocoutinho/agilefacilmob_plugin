@@ -182,7 +182,7 @@ import 'api_helper.dart';
       tipo = map['tipo'];
       status = map['status'];
       nome = map['nome'];
-      razao = map['razao'];
+      razao = map['razao'] ?? "";
       cpfcnpj = map['cpfcnpj'];
       tipoie = map['tipoie'];
       ie = map['ie'];
