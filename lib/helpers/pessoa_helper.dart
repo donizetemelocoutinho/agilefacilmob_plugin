@@ -106,7 +106,7 @@ class PessoHelper{}
 
       rg = map['rg'] == null ? "" : rg = map['rg'];
       nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
-      photo_link = map['foto'] ?? "";
+      photo_link = map['foto']?.toString() ?? "";
       sexo = map['sexo'];
       estadocivil = map['estadocivil'];
       conjuge = map['conjuge'] != null ? Conjuge.fromMap(map['conjuge']) : null;
