@@ -186,7 +186,7 @@ import 'api_helper.dart';
       cpfcnpj = map['cpfcnpj'];
       tipoie = map['tipoie'];
       ie = map['ie'];
-      foto = map['foto']?.toString() ?? "";
+      foto = map['foto'] != null ? foto = map['foto'] : null;
       sexo = map['sexo'];
       contato = ClienteListItemContato.fromMap(map['contato']);
       endereco = Endereco.fromMap(map['endereco']);
