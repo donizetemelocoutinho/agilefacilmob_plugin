@@ -69,19 +69,19 @@ class Diversos{
 
   class Cidade{
     int codcidade  = 0;
-    String guid = '';
-    String uf = '';
-    String descricao = '';
+    String guid = "";
+    String uf = "";
+    String descricao = "";
     int codcidadeibge = 0;
 
     Cidade();
 
     Cidade.fromMap(Map map){
-      codcidade = map['codcidade'];
-      guid = map['guid'];
-      uf = map['uf'];
-      descricao = map['descricao'];
-      codcidadeibge = map['codcidadeibge'];
+      codcidade = map['codcidade'] ?? 0;
+      guid = map['guid'] ?? "";
+      uf = map['uf'] ?? "";
+      descricao = map['descricao'] ?? "";
+      codcidadeibge = map['codcidadeibge'] ?? 0;
     }
 
   }

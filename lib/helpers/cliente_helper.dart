@@ -47,7 +47,7 @@ import 'api_helper.dart';
     double receber = 0;
     String classificacao = "C";
     int diafaturamento = 1;
-    String descricao = '';
+    String descricao = "";
 
     ClienteEmpresa();
 
@@ -81,7 +81,7 @@ import 'api_helper.dart';
     double receber = 0;
     String classificacao = "C";
     int diafaturamento = 1;
-    String descricao = '';
+    String descricao = "";
 
     ClienteFisica();
 
@@ -129,28 +129,28 @@ import 'api_helper.dart';
 
     ClienteListItemContato.fromMap(Map map){
       email = map['email'] ?? "";
-      fone = map['fone'];
-      celular = map['celular'];
-      recado = map['recado'];
+      fone = map['fone'] ?? "";
+      celular = map['celular'] ?? "";
+      recado = map['recado'] ?? "";
     }
   }
 
   class ClienteListItemEdereco{
-    String cidade = '';
-    String uf = '';
-    String bairro = '';
-    String cep = '';
-    String logradouro = '';
-    String numero = '';
-    String referencia = '';
+    String cidade = "";
+    String uf = "";
+    String bairro = "";
+    String cep = "";
+    String logradouro = "";
+    String numero = "";
+    String referencia = "";
 
     ClienteListItemEdereco.fromMap(Map map){
-      cidade = map['cidade'];
-      uf = map['uf'];
-      bairro = map['bairro'];
-      cep = map['cep'];
-      logradouro = map['logradouro'];
-      numero = map['numero'];
+      cidade = map['cidade'] ?? "";
+      uf = map['uf'] ?? "";
+      bairro = map['bairro'] ?? "";
+      cep = map['cep'] ?? "";
+      logradouro = map['logradouro'] ?? "";
+      numero = map['numero'] ?? "";
       referencia = map['referencia'] ?? "";
     }
 
@@ -158,17 +158,17 @@ import 'api_helper.dart';
 
   class ClienteListItem{
     int codpessoa = 0;
-    String guid = '';
+    String guid = "";
     int codigo = 0;
-    String tipo = '';
+    String tipo = "";
     int status = 0;
     String nome = "CONSUMIDOR...";
     String razao = "CONSUMIDOR...";
-    String cpfcnpj = '';
+    String cpfcnpj = "";
     int tipoie = 0;
-    String ie = '';
+    String ie = "";
     String foto = "";
-    String sexo = '';
+    String sexo = "";
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;

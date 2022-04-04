@@ -7,13 +7,13 @@ class PessoHelper{}
 
   class Pessoa{
     int codpessoa = 0;
-    String guid = '';
+    String guid = "";
     int codloja = 0;
-    String idloja = '';
-    String tipo = '';
-    String nome = '';
-    String cpfcnpj = '';
-    String ie = '';
+    String idloja = "";
+    String tipo = "";
+    String nome = "";
+    String cpfcnpj = "";
+    String ie = "";
     int tipoie = 0;
     Contato contato = Contato();
     List<InfoBanco> infobancolist = [];
@@ -86,8 +86,8 @@ class PessoHelper{}
   class PessoaFisica extends Pessoa{
     String? rg;
     DateTime? nascimento;
-    String photo_link = '';
-    String sexo = '';
+    String photo_link = "";
+    String sexo = "";
     int estadocivil = 4;
     Conjuge? conjuge;
     Filiacao filiacao = Filiacao();
@@ -95,7 +95,7 @@ class PessoHelper{}
     double outrasrendas = 0;
     int qtddependentes = 0;
     int tipomoradia = 0; //tratar depois
-    String fotobase64 = '';
+    String fotobase64 = "";
 
     PessoaFisica(){
       this.tipo = "F";
@@ -137,10 +137,10 @@ class PessoHelper{}
   }
 
   class PessoaJuridica extends Pessoa{
-    String razao = '';
+    String razao = "";
     DateTime? abertura;
-    String site = '';
-    String emailcobranca = '';
+    String site = "";
+    String emailcobranca = "";
     Responsavel responsavel = Responsavel();
 
     PessoaJuridica() {
@@ -173,7 +173,7 @@ class PessoHelper{}
 
   class Modification{
     DateTime data = new DateTime.now();
-    String usuario = '';
+    String usuario = "";
     int codusuario = 0;
 
     Modification(){
@@ -199,12 +199,12 @@ class PessoHelper{}
   }
 
   class Conjuge{
-    String nome = '';
-    String cpf = '';
-    String rg = '';
+    String nome = "";
+    String cpf = "";
+    String rg = "";
     DateTime? nascimento;
-    String fone = '';
-    String localtrabalho = '';
+    String fone = "";
+    String localtrabalho = "";
 
     Conjuge();
 
@@ -231,10 +231,10 @@ class PessoHelper{}
   }
 
   class Contato {
-    String email = '';
-    String fone = '';
-    String celular = '';
-    String recado = '';
+    String email = "";
+    String fone = "";
+    String celular = "";
+    String recado = "";
     List<ContatoAdicional> outros = [];
 
     Contato();
@@ -269,11 +269,11 @@ class PessoHelper{}
   }
 
   class ContatoAdicional{
-    String guid = '';
-    String fone = '';
+    String guid = "";
+    String fone = "";
     int tipo = 0;
-    String email = '';
-    String infoadicional = '';
+    String email = "";
+    String infoadicional = "";
 
     ContatoAdicional();
 
@@ -324,8 +324,8 @@ class PessoHelper{}
   }
 
   class Filiacao {
-    String mae = '';
-    String pai = '';
+    String mae = "";
+    String pai = "";
 
     Filiacao();
 
@@ -344,13 +344,13 @@ class PessoHelper{}
   }
 
   class InfoBanco {
-    String guid = '';
+    String guid = "";
     int codbanco = 0;
     int codfebraban = 0;
     String? banco;
     int agencia = 1;
     int conta = 1;
-    String infoadicional = '';
+    String infoadicional = "";
 
     InfoBanco.fromMap(Map map){
       guid = map['guid'];
@@ -378,13 +378,13 @@ class PessoHelper{}
   }
 
   class Responsavel{
-    String nome = '';
-    String cpf = '';
-    String rg = '';
-    String orgemissor = '';
-    String fone = '';
-    String celular = '';
-    String email = '';
+    String nome = "";
+    String cpf = "";
+    String rg = "";
+    String orgemissor = "";
+    String fone = "";
+    String celular = "";
+    String email = "";
 
     Responsavel();
 
@@ -413,12 +413,12 @@ class PessoHelper{}
   }
 
   class Trabalho {
-    String profissao = '';
-    String local = '';
-    String fone = '';
-    String responsavel = '';
+    String profissao = "";
+    String local = "";
+    String fone = "";
+    String responsavel = "";
     DateTime? admissao;
-    String cargo = '';
+    String cargo = "";
     double salario = 0;
 
     Trabalho();
