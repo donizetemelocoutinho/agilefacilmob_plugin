@@ -42,18 +42,15 @@ class DBCountsHelper{
     Database d = await DBHelper().db;
 
     //verifico se este usuário esta liberado para esta loja
-    if (count.id == null)
+    if (count.id == -1)
       count.id = await Exists(count.codloja,count.codusuario);
 
     //Verifico se retornou o id caso não tenha retornado insiro
-    if (count.id == null) {
+    if (count.id == -1) {
       count.id = (await d.insert(table,count.toMap()));
     }
     else
       await update(count);
-
-    //print(count.toString());
-
     return count;
   }
 
@@ -116,7 +113,7 @@ class DBCountsHelper{
 }
 
 class DBCount{
-  int id = 0;
+  int id = -1;
   String cpfcnpj = "";
   int codloja = 0;
   String login = "";
