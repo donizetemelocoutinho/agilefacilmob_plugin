@@ -128,7 +128,7 @@ import 'api_helper.dart';
     String recado = "";
 
     ClienteListItemContato.fromMap(Map map){
-      email = map['email'];
+      email = map['email'] ?? "";
       fone = map['fone'];
       celular = map['celular'];
       recado = map['recado'];
@@ -151,7 +151,7 @@ import 'api_helper.dart';
       cep = map['cep'];
       logradouro = map['logradouro'];
       numero = map['numero'];
-      referencia = map['referencia'];
+      referencia = map['referencia'] ?? "";
     }
 
   }
