@@ -167,7 +167,7 @@ import 'api_helper.dart';
     String cpfcnpj = '';
     int tipoie = 0;
     String ie = '';
-    String? foto;
+    String foto = "";
     String sexo = '';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
