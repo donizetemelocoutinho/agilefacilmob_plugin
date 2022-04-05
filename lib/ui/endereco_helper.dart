@@ -63,7 +63,6 @@ class EnderecoHelper{
                         endereco.cep = map["cep"];
                         endereco.logradouro = map["logradouro"];
                         endereco.referencia = map["complemento"];
-                        endereco.numero = map["numero"];
                         endereco.bairro = map["bairro"];
                         endereco.cidade = map["localidade"];
                         endereco.codcidade;
