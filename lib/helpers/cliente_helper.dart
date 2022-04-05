@@ -75,7 +75,7 @@ import 'api_helper.dart';
   }
 
   class ClienteFisica extends PessoaFisica{
-    int codigo= 0;
+    int codigo = 0;
     bool ativo = true;
     Credito credito = Credito();
     double receber = 0;
@@ -88,12 +88,12 @@ import 'api_helper.dart';
     ClienteFisica.fromMap(Map map){
       super.fromMap(map);
 
-      codigo = map["codigo"];
+      codigo = map["codigo"] ?? 0;
       ativo = map["ativo"] == "S" ? true : false;
       credito = Credito.fromMap(map["credito"]);
-      receber = double.parse(map["receber"]);
-      classificacao = map["classificacao"];
-      diafaturamento = map["diafaturamento"];
+      receber = double.parse(map["receber"] ?? 0);
+      classificacao = map["classificacao"] ?? "C";
+      diafaturamento = map["diafaturamento"] ?? 1;
     }
 
     @override
@@ -115,9 +115,9 @@ import 'api_helper.dart';
     double totalreceber = 0.00;
 
     ClienteListItemCredito.fromMap(Map map){
-      limite = double.parse(map["limite"]);
-      disponivel = double.parse(map["disponivel"]);
-      totalreceber = double.parse(map["totalreceber"]);
+      limite = double.parse(map["limite"] ?? 0);
+      disponivel = double.parse(map["disponivel"] ?? 0);
+      totalreceber = double.parse(map["totalreceber"] ?? 0);
     }
   }
 
@@ -176,16 +176,16 @@ import 'api_helper.dart';
     ClienteListItem();
 
     ClienteListItem.fromMap(Map map){
-      codpessoa = map['codpessoa'];
-      guid = map['guid'];
-      codigo = map['codigo'];
-      tipo = map['tipo'];
-      status = map['status'];
-      nome = map['nome'];
-      razao = map['razao'] ?? "";
-      cpfcnpj = map['cpfcnpj'];
-      tipoie = map['tipoie'];
-      ie = map['ie'];
+      codpessoa = map['codpessoa'] ?? 0;
+      guid = map['guid'] ??  "";
+      codigo = map['codigo'] ?? 0;
+      tipo = map['tipo'] ?? "";
+      status = map['status'] ?? 0;
+      nome = map['nome'] ?? "CONSUMIDOR...";
+      razao = map['razao'] ?? "CONSUMIDOR...";
+      cpfcnpj = map['cpfcnpj'] ?? "";
+      tipoie = map['tipoie'] ?? 0;
+      ie = map['ie'] ?? "";
       foto = map['foto'] ?? "";
       sexo = map['sexo'] ?? "";
       contato = ClienteListItemContato.fromMap(map['contato']);
