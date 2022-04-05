@@ -84,7 +84,7 @@ class PessoHelper{}
   }
 
   class PessoaFisica extends Pessoa{
-    String? rg;
+    String rg = "";
     DateTime? nascimento;
     String photo_link = "";
     String sexo = "";
