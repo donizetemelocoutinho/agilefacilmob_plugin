@@ -29,7 +29,7 @@ class Diversos{
       bairro = map['bairro'] ?? "";
       cep = map['cep'] ?? "";
       logradouro = map['logradouro'] ?? "";
-      numero = map['numero'] ?? "";
+      numero = map['numero'];
       referencia = map['referencia'] ?? "";
       lat = 0.0;
       long = 0.0;
@@ -56,8 +56,7 @@ class Diversos{
       String info = "";
 
       info = logradouro.length > 0 ? logradouro : "";
-      //info = numero.length > 0 ?  info + ", " + numero : info;
-      info = numero.length > 0 ?  numero : "";
+      info = numero.length > 0 ?  info + ", " + numero : info;
       info = referencia.length > 0 ?  info + ", " + referencia : info;
       info = bairro.length > 0 ?  info + ", " + bairro : info;
       info = cidade.length > 0 ?  info + " - " + cidade : info;
