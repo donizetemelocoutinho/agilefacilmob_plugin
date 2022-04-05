@@ -162,7 +162,7 @@ class EnderecoHelper{
             decoration: InputDecoration(labelText: "Nº"),
             controller: _numeroController,
             validator: (value) {
-              if (value!.isEmpty && value == null) {
+              if (value!.isEmpty && value == 0) {
                 return "Informe o numero";
               }
             },
