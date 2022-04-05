@@ -47,22 +47,22 @@ class SubGrupo{
   int codgrupo = 0;
   String idgrupo = '';
   String grupo = '';
-  String ?linkicone;
+  String? linkicone;
   String favorito = 'N';
-  SubGrupoComissao ?comissao;
+  SubGrupoComissao? comissao;
 
   SubGrupo();
 
   SubGrupo.fromMap(Map map){
-    id = map['id'];
-    guid = map['guid'];
-    codsubgrupo = map['codsubgrupo'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    descricao = map['descricao'];
-    codgrupo = map['codgrupo'];
-    idgrupo = map['idgrupo'];
-    favorito = map['grupo'];
+    id = map['id'] ?? 0;
+    guid = map['guid'] ?? "";
+    codsubgrupo = map['codsubgrupo'] ?? 0;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    descricao = map['descricao'] ?? "";
+    codgrupo = map['codgrupo'] ?? 0;
+    idgrupo = map['idgrupo'] ?? "";
+    favorito = map['grupo'] ?? "N";
     comissao = SubGrupoComissao.fromMap(map['comissao']);
   }
 }
@@ -76,23 +76,23 @@ class SubGrupoListItem{
   int codgrupo = 0;
   String idgrupo = '';
   String grupo = '';
-  String ?linkicone;
+  String? linkicone;
   String favorito = 'N';
   SubGrupoComissao ?comissao;
 
   SubGrupoListItem();
 
   SubGrupoListItem.fromMap(Map map){
-    guid = map['guid'];
-    codsubgrupo = map['codsubgrupo'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    descricao = map['descricao'];
-    codgrupo = map['codgrupo'];
-    idgrupo = map['idgrupo'];
-    grupo = map['grupo'];
-    linkicone = map['linkicone'];
-    favorito = map['favorito'];
+    guid = map['guid'] ?? "";
+    codsubgrupo = map['codsubgrupo'] ?? 0;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    descricao = map['descricao'] ?? "";
+    codgrupo = map['codgrupo'] ?? 0;
+    idgrupo = map['idgrupo'] ?? "";
+    grupo = map['grupo'] ?? "";
+    linkicone = map['linkicone'] ?? "";
+    favorito = map['favorito'] ?? "N";
     comissao = SubGrupoComissao.fromMap(map['comissao']);
   }
 }

@@ -32,11 +32,11 @@ class PessoHelper{}
     }
 
     void fromMap(Map map){
-      codpessoa = map['codpessoa'];
-      guid = map['guid'];
-      codloja = map['codloja'];
-      idloja = map['idloja'];
-      tipo = map['tipo'];
+      codpessoa = map['codpessoa'] ?? 0;
+      guid = map['guid'] ?? "";
+      codloja = map['codloja'] ?? 0;
+      idloja = map['idloja'] ?? "";
+      tipo = map['tipo'] ?? "";
       contato = Contato.fromMap(map['contato']);
       cadastro = Modification.fromMap(map['cadastro']);
       if (map['infobancolist'] != null){
@@ -45,9 +45,9 @@ class PessoHelper{}
         }
       }
       atualizacao = Modification.fromMap(map['atualizacao']);
-      nome = map['nome'];
-      cpfcnpj = map['cpfcnpj'];
-      ie = map['ie'];
+      nome = map['nome'] ?? "";
+      cpfcnpj = map['cpfcnpj'] ?? "";
+      ie = map['ie'] ?? "";
       tipoie = map['tipoie'] ?? 0;
       obs = map['obs']?.toString() ?? "";
       codgrdocumento = map['codgrdocumento'] ?? 0;
@@ -107,14 +107,14 @@ class PessoHelper{}
       rg = map['rg'] ?? "";
       nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
       photo_link = map['foto'] ?? "";
-      sexo = map['sexo'];
-      estadocivil = map['estadocivil'];
+      sexo = map['sexo'] ?? "";
+      estadocivil = map['estadocivil'] ?? 4;
       conjuge = map['conjuge'] != null ? Conjuge.fromMap(map['conjuge']) : null;
       filiacao = Filiacao.fromMap(map['filiacao']);
       trabalho = Trabalho.fromMap(map['trabalho']);
       outrasrendas = double.parse(map['outrasrendas']);
       qtddependentes = map['qtddependentes'] ?? 0;
-      tipomoradia = map['tipomoradia'];
+      tipomoradia = map['tipomoradia'] ?? 0;
     }
 
     @override
@@ -183,8 +183,8 @@ class PessoHelper{}
 
     Modification.fromMap(Map map){
       data =  DateTime.parse(map['data']?.toString() ?? "");
-      usuario = map['usuario'];
-      codusuario = map['codusuario'];
+      usuario = map['usuario'] ?? "";
+      codusuario = map['codusuario'] ?? 0;
     }
 
     Map<String,dynamic> toMap(){
@@ -307,7 +307,7 @@ class PessoHelper{}
     Credito();
 
     Credito.fromMap(Map map){
-      limite = double.parse(map['limite']);
+      limite = double.parse(map['limite'] ?? 0);
       liberacao_aprazo = map['liberacao']['aprazo'] == "S" ? true : false;
       liberacao_cheque = map['liberacao']['cheque'] == "S" ? true : false;
     }
@@ -356,7 +356,7 @@ class PessoHelper{}
       guid = map['guid'] ?? "";
       codbanco = map['codbanco'] ?? 0;
       codfebraban = map['codfebraban'] ?? 0;
-      banco = map['banco'];
+      banco = map['banco'] ?? "";
       agencia = map['agencia'] ?? 0;
       conta = map['conta'] ?? 0;
       infoadicional = map['infoadicional'] ?? "";
@@ -426,7 +426,7 @@ class PessoHelper{}
     Trabalho.fromMap(Map map){
       profissao = map['profissao'] ?? "";
       local = map['local'] ?? "";
-      fone = map['fone'];
+      fone = map['fone'] ?? "";
       responsavel = map['responsavel'] ?? "";
       admissao = DateTime.tryParse(map['admissao'] ?? "");
       cargo = map['cargo'] ?? "";

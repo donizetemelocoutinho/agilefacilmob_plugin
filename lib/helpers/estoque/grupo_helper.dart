@@ -26,12 +26,12 @@ class Grupo{
   Grupo();
 
   Grupo.fromMap( Map map){
-    id = map['id'];
-    guid = map['guid'];
-    codgrupo = map['codgrupo'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    descricao = map['descricao'];
+    id = map['id'] ?? 0;
+    guid = map['guid'] ?? "";
+    codgrupo = map['codgrupo'] ?? 0;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    descricao = map['descricao'] ?? "";
   }
 }
 
@@ -45,10 +45,10 @@ class GrupoListItem{
   GrupoListItem();
 
   GrupoListItem.fromMap( Map map){
-    guid = map['guid'];
-    codgrupo = map['codgrupo'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    descricao = map['descricao'];
+    guid = map['guid'] ?? "";
+    codgrupo = map['codgrupo'] ?? 0;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    descricao = map['descricao'] ?? "";
   }
 }

@@ -39,12 +39,12 @@ class Marca{
   Marca();
 
   Marca.fromMap( Map map){
-    id = map['id'];
-    guid = map['guid'];
-    codmarca = map['codmarca'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    descricao = map['descricao'];
+    id = map['id'] ?? 0;
+    guid = map['guid'] ?? "";
+    codmarca = map['codmarca'] ?? 0;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    descricao = map['descricao'] ?? "";
   }
 }
 
@@ -58,11 +58,11 @@ class Marca{
     MarcaListItem();
 
     MarcaListItem.fromMap( Map map){
-      guid = map['guid'];
-      codmarca = map['codmarca'];
-      codloja = map['codloja'];
-      idloja = map['idloja'];
-      descricao = map['descricao'];
+      guid = map['guid'] ?? "";
+      codmarca = map['codmarca'] ?? 0;
+      codloja = map['codloja'] ?? 0;
+      idloja = map['idloja'] ?? "";
+      descricao = map['descricao'] ?? "";
     }
   }
 
