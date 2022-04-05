@@ -22,7 +22,7 @@ class Diversos{
     Endereco();
 
     Endereco.fromMap(Map map){
-      codcidade = map['codcidade'];
+      codcidade = map['codcidade'] ?? 0;
       codcidadeibge = map['codcidadeibge'] ?? 0;
       cidade = map['cidade'] ?? "";
       uf = map['uf'] ?? "";
@@ -37,7 +37,7 @@ class Diversos{
 
     Map toMap(){
       Map<String, dynamic> map = {
-        'codcidade': codcidade,
+        'codcidade': (codcidade!= 0) ? codcidade: null,
         'codcidadeibge': codcidadeibge,
         'cidade': cidade,
         'uf': uf,
