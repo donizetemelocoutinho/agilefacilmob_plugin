@@ -29,7 +29,7 @@ class Diversos{
       bairro = map['bairro'] ?? "";
       cep = map['cep'] ?? "";
       logradouro = map['logradouro'] ?? "";
-      numero = map['numero'];
+      numero = map['numero'] ?? "";
       referencia = map['referencia'] ?? "";
       lat = 0.0;
       long = 0.0;
