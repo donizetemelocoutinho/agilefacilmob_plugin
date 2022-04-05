@@ -150,11 +150,11 @@ class PessoHelper{}
     void fromMap(Map map){
       super.fromMap(map);
 
-      razao = map['razao'];
+      razao = map['razao'] ?? "";
       abertura =  DateTime.tryParse(map['abertura'] ?? "");
 
-      site = map['site'];
-      emailcobranca = map['emailcobranca'];
+      site = map['site'] ?? "";
+      emailcobranca = map['emailcobranca'] ?? "";
       responsavel = Responsavel.fromMap(map['responsavel']);
     }
 
@@ -209,12 +209,12 @@ class PessoHelper{}
     Conjuge();
 
     Conjuge.fromMap(Map map){
-      nome = map['nome'];
-      cpf = map['cpf'];
-      rg = map['rg'];
+      nome = map['nome'] ?? "";
+      cpf = map['cpf'] ?? "";
+      rg = map['rg'] ?? "";
       nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
-      fone = map['fone'];
-      localtrabalho = map['localtrabalho'];
+      fone = map['fone'] ?? "";
+      localtrabalho = map['localtrabalho'] ?? "";
     }
 
     Map<String,dynamic> toMap(){
@@ -241,9 +241,9 @@ class PessoHelper{}
 
     Contato.fromMap(Map map){
       email = map['email'] == null ? "" : email = map['email'];
-      fone = map['fone'];
-      celular = map['celular'];
-      recado = map['recado'];
+      fone = map['fone'] ?? "";
+      celular = map['celular'] ?? "";
+      recado = map['recado'] ?? "";
       if(map['outros'] != null) {
         for (int i = 0; i < map['outros'].length; i++) {
           outros.add(ContatoAdicional.fromMap(map['outros'][i]));
@@ -278,11 +278,11 @@ class PessoHelper{}
     ContatoAdicional();
 
     ContatoAdicional.fromMap(Map map){
-      guid = map['guid'];
-      fone = map['fone'];
-      tipo = map['tipo'];
-      email = map['email'];
-      infoadicional = map['infoadicional'];
+      guid = map['guid'] ?? "";
+      fone = map['fone'] ?? "";
+      tipo = map['tipo'] ?? 0;
+      email = map['email'] ?? "";
+      infoadicional = map['infoadicional'] ?? "";
     }
 
     Map<String,dynamic> toMap(){
@@ -353,13 +353,13 @@ class PessoHelper{}
     String infoadicional = "";
 
     InfoBanco.fromMap(Map map){
-      guid = map['guid'];
-      codbanco = map['codbanco'];
-      codfebraban = map['codfebraban'];
+      guid = map['guid'] ?? "";
+      codbanco = map['codbanco'] ?? 0;
+      codfebraban = map['codfebraban'] ?? 0;
       banco = map['banco'];
-      agencia = map['agencia'];
-      conta = map['conta'];
-      infoadicional = map['infoadicional'];
+      agencia = map['agencia'] ?? 0;
+      conta = map['conta'] ?? 0;
+      infoadicional = map['infoadicional'] ?? "";
     }
 
     Map<String,dynamic> toMap(){
@@ -389,13 +389,13 @@ class PessoHelper{}
     Responsavel();
 
     Responsavel.fromMap(Map map){
-      nome = map['nome'];
-      cpf = map['cpf'];
-      rg = map['rg'];
-      orgemissor = map['orgemissor'];
-      fone = map['fone'];
-      celular = map['celular'];
-      email = map['email'];
+      nome = map['nome'] ?? "";
+      cpf = map['cpf'] ?? "";
+      rg = map['rg'] ?? "";
+      orgemissor = map['orgemissor'] ?? "";
+      fone = map['fone'] ?? "";
+      celular = map['celular'] ?? "";
+      email = map['email'] ?? "";
     }
 
     Map<String,dynamic> toMap(){
