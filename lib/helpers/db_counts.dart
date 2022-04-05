@@ -19,7 +19,7 @@ final String descricaoColumn = "DESCRICAO";
 
 class DBCountsHelper{
 
-  late Database _db;
+  Database? _db;
 
   String toScript(){
     return "CREATE TABLE $table("

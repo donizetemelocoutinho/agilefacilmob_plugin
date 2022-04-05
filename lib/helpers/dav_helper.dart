@@ -14,8 +14,8 @@ class DavApi {
     return version;
   }
 
-  Future<Map>getDavList({required int codloja,DateTime ?inicio, DateTime ?fim,int ?codcliente, List<DavTypes> ?tipos,required bool cancelado, int ?numero,
-     String ?numeroalternativo, String ?numeroficha, required int startrow, required String api_token})async{
+  Future<Map>getDavList({required int codloja,DateTime? inicio, DateTime? fim,int? codcliente, List<DavTypes> ?tipos,required bool cancelado, int? numero,
+     String? numeroalternativo, String? numeroficha, required int startrow, required String api_token})async{
 
     ApiHelper api = ApiHelper();
 
