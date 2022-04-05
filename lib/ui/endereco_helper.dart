@@ -63,6 +63,7 @@ class EnderecoHelper{
                         endereco.cep = map["cep"];
                         endereco.logradouro = map["logradouro"];
                         endereco.referencia = map["complemento"];
+                        endereco.numero = map["numero"];
                         endereco.bairro = map["bairro"];
                         endereco.cidade = map["localidade"];
                         endereco.codcidade;
@@ -74,6 +75,7 @@ class EnderecoHelper{
                         _bairroController.text = endereco.bairro;
                         _cidadeController.text = endereco.cidade;
                         _ufController.text = endereco.uf;
+                        _numeroController.text = endereco.numero;
                       } else{
                         SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                         Scaffold.of(context).showSnackBar(snackBar);
