@@ -448,7 +448,7 @@ class ProdutoListItem{
     fotolink = map['fotolink'] ?? "";
     preco = double.parse(map['preco'] ?? 0);
     promocao = ProdutoListItemPromocao.fromMap(map['promocao']);
-    precoespecial = double.parse(map['precoespecial']);
+    precoespecial = double.parse(map['precoespecial'] ?? 0);
     estoque = double.parse(map['estoque'] ?? 0);
     reserva = double.parse(map['reserva'] ?? 0);
 
