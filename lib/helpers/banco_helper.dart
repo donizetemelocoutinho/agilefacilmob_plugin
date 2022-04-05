@@ -25,10 +25,10 @@ class Banco{
   Banco();
 
   Banco.fromMap(Map map){
-    codbanco = map['codbanco'];
-    guid = map['guid'];
-    codigo = map['codigo'];
-    descricao = map['descricao'];
-    linklogo = map['linklogo'];
+    codbanco = map['codbanco'] ?? 0;
+    guid = map['guid'] ?? "";
+    codigo = map['codigo'] ?? 0;
+    descricao = map['descricao'] ?? "";
+    linklogo = map['linklogo'] ?? "";
   }
 }

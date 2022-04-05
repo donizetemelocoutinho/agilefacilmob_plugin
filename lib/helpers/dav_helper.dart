@@ -97,7 +97,6 @@ class Dav{
     codloja = Helper.loja.codloja;
   }
 
-
   totalizar(){
     total.bruto = 0;
     total.liquido = 0;
@@ -146,26 +145,26 @@ class Dav{
   }
 
   Dav.fromMap(Map map){
-    coddav = map['coddav'];
+    coddav = map['coddav'] ?? 0;
     guid = map['guid'];
-    codusuario = map['codusuario'];
-    codfuncionario = map['codfuncionario'];
-    codloja = map['codloja'];
-    numero = map['numero'];
-    tipo = map['tipo'];
+    codusuario = map['codusuario'] ?? 0;
+    codfuncionario = map['codfuncionario'] ?? 0;
+    codloja = map['codloja'] ?? 0;
+    numero = map['numero'] ?? 0;
+    tipo = map['tipo'] ?? DavTypes.orcamento;
 
     if (map['digitacao'] != null)
       digitacao =  DateTime.parse(map['digitacao']);
 
-    if(tabelapreco != null)
+    if(tabelapreco != 0)
     tabelapreco = TabelaPrecoType.values[int.parse(map['tabelapreco'],radix:0)];
 
-    observacao = map['observacao'];
-    if(numeroficha != null)
+    observacao = map['observacao'] ?? "";
+    if(numeroficha != 0)
     numeroficha = int.parse(map['numeroficha'],radix: 0);
-    if(numeroalternativo != null)
+    if(numeroalternativo != 0)
     numeroalternativo = (map['numeroalternativo']);
-    tpcondicional = map['tpcondicional'];
+    tpcondicional = map['tpcondicional'] ?? 0;
     total = DavTotal.fromMap(map["total"]);
     cliente = DavCliente.fromMap(map["cliente"]);
     pagamento = DavPagamento.fromMap(map['pagamento']);
@@ -210,39 +209,39 @@ class DavTotal {
   double entrada = 0;
   double peso_bruto = 0;
   double peso_liquido = 0;
-  double desconto_itens =0;
-  double desconto_subtotal=0;
-  double desconto_total=0;
-  double acrescimo_itens=0;
-  double acrescimo_subtotal=0;
-  double acrescimo_total=0;
-  double subtotal=0;
-  double tributos_icmsst=0;
-  double tributos_ipi=0;
-  double outros_fretes=0;
-  double outros_segurro=0;
-  double outros_outros=0;
+  double desconto_itens = 0;
+  double desconto_subtotal = 0;
+  double desconto_total = 0;
+  double acrescimo_itens = 0;
+  double acrescimo_subtotal = 0;
+  double acrescimo_total =0;
+  double subtotal = 0;
+  double tributos_icmsst = 0;
+  double tributos_ipi = 0;
+  double outros_fretes = 0;
+  double outros_segurro = 0;
+  double outros_outros = 0;
 
   DavTotal();
 
   DavTotal.fromMap(Map map){
-    bruto = double.parse(map['bruto']);
-    liquido = double.parse(map['liquido']);
-    entrada = double.parse(map['entrada']);
-    peso_bruto = double.parse(map['peso']['bruto']);
-    peso_liquido = double.parse(map['peso']['liquido']);
-    desconto_itens = double.parse(map['desconto']['itens']);
-    desconto_subtotal = double.parse(map['desconto']['subtotal']);
-    desconto_total = double.parse(map['desconto']['total']);
-    acrescimo_itens = double.parse(map['acrescimo']['itens']);
-    acrescimo_subtotal = double.parse(map['acrescimo']['subtotal']);
-    acrescimo_total = double.parse(map['acrescimo']['total']);
-    subtotal = double.parse(map['subtotal']);
-    tributos_icmsst = double.parse(map['tributos']['icmsst']);
-    tributos_ipi = double.parse(map['tributos']['ipi']);
-    outros_fretes = double.parse(map['outros']['frete']);
-    outros_segurro = double.parse(map['outros']['seguro']);
-    outros_outros = double.parse(map['outros']['outros']);
+    bruto = double.parse(map['bruto'] ?? 0);
+    liquido = double.parse(map['liquido'] ?? 0);
+    entrada = double.parse(map['entrada'] ?? 0);
+    peso_bruto = double.parse(map['peso']['bruto'] ?? 0);
+    peso_liquido = double.parse(map['peso']['liquido'] ?? 0);
+    desconto_itens = double.parse(map['desconto']['itens'] ?? 0);
+    desconto_subtotal = double.parse(map['desconto']['subtotal'] ?? 0);
+    desconto_total = double.parse(map['desconto']['total'] ?? 0);
+    acrescimo_itens = double.parse(map['acrescimo']['itens'] ?? 0);
+    acrescimo_subtotal = double.parse(map['acrescimo']['subtotal'] ?? 0);
+    acrescimo_total = double.parse(map['acrescimo']['total'] ?? 0);
+    subtotal = double.parse(map['subtotal'] ?? 0);
+    tributos_icmsst = double.parse(map['tributos']['icmsst'] ?? 0);
+    tributos_ipi = double.parse(map['tributos']['ipi'] ?? 0);
+    outros_fretes = double.parse(map['outros']['frete'] ?? 0);
+    outros_segurro = double.parse(map['outros']['seguro'] ?? 0);
+    outros_outros = double.parse(map['outros']['outros'] ?? 0);
   }
 
   Map<String,dynamic> toMap(){
@@ -283,14 +282,14 @@ class DavCliente {
   DavCliente();
 
   DavCliente.fromMap(Map map){
-    codcliente = (map['codcliente']);
-    guidcliente = (map['guidcliente']);
-    cliente = (map['cliente']);
-    photo_link = map['photo_link'];
-    celular = map['celular'];
-    fone = map['fone'];
-    cpfcnpj = (map['cpfcnpj']);
-    email = (map['email']);
+    codcliente = (map['codcliente'] ?? 0);
+    guidcliente = (map['guidcliente'] ?? "");
+    cliente = (map['cliente']) ?? "CONSUMIDOR...";
+    photo_link = map['photo_link'] ?? "";
+    celular = map['celular'] ?? "";
+    fone = map['fone'] ?? "";
+    cpfcnpj = (map['cpfcnpj'] ?? "");
+    email = (map['email'] ?? "");
     if (map['endereco'] != null)
       endereco = Endereco.fromMap(map['endereco']);
   }
@@ -320,7 +319,7 @@ class DavPagamento{
   DavPagamento();
 
   DavPagamento.fromMap(Map map){
-    pagamento_dinheiro = (map['pagamento']['dinheiro']);
+    pagamento_dinheiro = (map['pagamento']['dinheiro'] ?? 0);
     aprazo = DavAprazo.fromMap(map["aprazo"]);
     cheque = DavCheque.fromMap(map["cheque"]);
     outros = DavOutros.fromMap(map["outros"]);
@@ -345,9 +344,9 @@ class DavAprazo{
   DavAprazo();
 
   DavAprazo.fromMap(Map map){
-    valor = double.parse(map['valor']);
-    codpgto = double.parse(map['codpgto']);
-    parcelas = double.parse(map['parcelas']);
+    valor = double.parse(map['valor'] ?? 0);
+    codpgto = double.parse(map['codpgto'] ?? 0);
+    parcelas = double.parse(map['parcelas'] ?? 1);
   }
 
   Map<String,dynamic> toMap(){
@@ -369,9 +368,9 @@ class DavCheque{
   DavCheque();
 
   DavCheque.fromMap(Map map){
-    valor = double.parse(map['valor']);
-    codpgto = double.parse(map['codpgto']);
-    parcelas = double.parse(map['parcelas']);
+    valor = double.parse(map['valor'] ?? 0);
+    codpgto = double.parse(map['codpgto'] ?? 0);
+    parcelas = double.parse(map['parcelas'] ?? 1);
   }
 
   Map<String,dynamic> toMap(){
@@ -393,9 +392,9 @@ class DavOutros{
   DavOutros();
 
   DavOutros.fromMap(Map map){
-    valor = double.parse(map['valor']);
-    codpgto = double.parse(map['codpgto']);
-    parcelas = double.parse(map['parcelas']);
+    valor = double.parse(map['valor'] ?? 0);
+    codpgto = double.parse(map['codpgto'] ?? 0);
+    parcelas = double.parse(map['parcelas'] ?? 1);
   }
 
   Map<String,dynamic> toMap(){
@@ -410,7 +409,6 @@ class DavOutros{
 }
 
 class DavItem{
-
   int item = 0;
   DavItemProduto produto = DavItemProduto();
   int codfuncionario = 0;
@@ -429,27 +427,27 @@ class DavItem{
   String observacao = '';
   double pesobruto = 0;
   double pesoliquido = 0;
-  DateTime ?deleted_at;
+  DateTime? deleted_at;
 
   DavItem();
 
   DavItem.fromMap(Map map){
-    item = map['item'];
+    item = map['item'] ?? 0;
     produto = DavItemProduto.fromMap(map['produto']);
-    codfuncionario = map['codfuncionario'];
-    desfuncionario = map['desfuncionario'];
-    quantidade = double.parse(map['quantidade']);
-    unitario = double.parse(map['unitario']);
-    custocompra = double.parse(map['custocompra']);
+    codfuncionario = map['codfuncionario'] ?? 0;
+    desfuncionario = map['desfuncionario'] ?? "";
+    quantidade = double.parse(map['quantidade'] ?? 1);
+    unitario = double.parse(map['unitario'] ?? 0);
+    custocompra = double.parse(map['custocompra'] ?? 0);
     total = DavItemProdutoTotal.fromMap(map['total']);
     desconto = DavItemProdutoDesconto.fromMap(map['desconto']);
     acrescimo = DavItemProdutoAcrescimo.fromMap(map['acrescimo']);
-    frete = map['frete'];
-    seguro = map['seguro'];
-    outros = map['outros'];
+    frete = map['frete'] ?? 0;
+    seguro = map['seguro'] ?? 0;
+    outros = map['outros'] ?? 0;
     if (map['inclusao'] != null)
       inclusao =  DateTime.parse(map['inclusao']);
-    observacao = map['observacao'];
+    observacao = map['observacao'] ?? "";
   }
 
   Map<String,dynamic> toMap(){
@@ -480,27 +478,27 @@ class DavItem{
 
 class DavItemProduto{
 
-  int codproduto = 55;
-  int codigo = 55;
+  int codproduto = 0;
+  int codigo = 0;
   String codbarra = '';
   String codalternativo = '';
   String descricao = '';
   String marca = '';
   String foto = '';
-  String unidade = '';
+  String unidade = "UN";
   DavItemProdutoGrade grade = DavItemProdutoGrade();
 
   DavItemProduto();
 
   DavItemProduto.fromMap(Map map){
-    codproduto = map['codproduto'];
-    codigo = map['codigo'];
-    codbarra = map['codbarra'];
-    codalternativo = map['codalternativo'];
-    descricao = map['descricao'];
-    marca = map['marca'];
-    foto = map['foto'];
-    unidade = map['unidade'];
+    codproduto = map['codproduto'] ?? 0;
+    codigo = map['codigo'] ?? 0;
+    codbarra = map['codbarra'] ?? "";
+    codalternativo = map['codalternativo'] ?? "";
+    descricao = map['descricao'] ?? "";
+    marca = map['marca'] ?? "";
+    foto = map['foto'] ?? "";
+    unidade = map['unidade'] ?? "UN";
     grade = DavItemProdutoGrade.fromMap(map["grade"]);
   }
 
@@ -532,11 +530,11 @@ class DavItemProdutoGrade{
   DavItemProdutoGrade();
 
   DavItemProdutoGrade.fromMap(Map map){
-    codgrade = map['codgrade'];
-    seq = map['seq'];
-    value1 = map['value1'];
-    value2 = map['value2'];
-    foto = map['foto'];
+    codgrade = map['codgrade'] ?? 0;
+    seq = map['seq'] ?? 0;
+    value1 = map['value1'] ?? "";
+    value2 = map['value2'] ?? "";
+    foto = map['foto'] ?? "";
   }
 
   Map<String,dynamic> toMap(){
@@ -554,16 +552,16 @@ class DavItemProdutoGrade{
 class DavItemProdutoTotal{
   double bruto = 0;
   double liquido = 0;
-  double peso_bruto = 0 ;
-  double peso_liquido =0;
+  double peso_bruto = 0;
+  double peso_liquido = 0;
 
   DavItemProdutoTotal();
 
   DavItemProdutoTotal.fromMap(Map map){
-    bruto = double.parse(map['bruto']);
-    liquido = double.parse(map['liquido']);
-    peso_bruto = double.parse(map['peso']['bruto']);
-    peso_liquido = double.parse(map['peso']['bruto']);
+    bruto = double.parse(map['bruto'] ?? 0);
+    liquido = double.parse(map['liquido'] ?? 0);
+    peso_bruto = double.parse(map['peso']['bruto'] ?? 0);
+    peso_liquido = double.parse(map['peso']['bruto'] ?? 0);
   }
 
   Map<String,dynamic> toMap(){
@@ -588,9 +586,9 @@ class DavItemProdutoDesconto{
 
 
   DavItemProdutoDesconto.fromMap(Map map){
-    item = double.parse(map['item']);
-    rateado = double.parse(map['rateado']);
-    total = double.parse(map['total']);
+    item = double.parse(map['item'] ?? 0);
+    rateado = double.parse(map['rateado'] ?? 0);
+    total = double.parse(map['total'] ?? 0);
   }
 
   Map<String,dynamic> toMap(){
@@ -612,9 +610,9 @@ class DavItemProdutoAcrescimo{
   DavItemProdutoAcrescimo();
 
   DavItemProdutoAcrescimo.fromMap(Map map){
-    item = double.parse(map['item']);
-    rateado = double.parse(map['rateado']);
-    total = double.parse(map['total']);
+    item = double.parse(map['item'] ?? 0);
+    rateado = double.parse(map['rateado'] ?? 0);
+    total = double.parse(map['total'] ?? 0);
   }
 
   Map<String,dynamic> toMap(){
@@ -636,20 +634,20 @@ class DavListItemCliente{
   DavListItemCliente();
 
   DavListItemCliente.fromMap(Map map){
-    nome = map['nome'];
-    cpfcnp = map['cpfcnp'];
-    email = map['email'];
-    photo_link = map['photo_link'];
+    nome = map['nome'] ?? "";
+    cpfcnp = map['cpfcnp'] ?? "";
+    email = map['email'] ?? "";
+    photo_link = map['photo_link'] ?? "";
   }
 
 }
 
 class DavListItemTotal{
   double bruto = 0;
-  double desconto =0;
-  double acrescimo =0;
-  double icmsst =0;
-  double ipi =0;
+  double desconto = 0;
+  double acrescimo = 0;
+  double icmsst = 0;
+  double ipi = 0;
   double frete = 0;
   double seguro = 0;
   double outros = 0;
@@ -658,15 +656,15 @@ class DavListItemTotal{
   DavListItemTotal();
 
   DavListItemTotal.fromMap(Map map){
-    bruto = double.parse(map['bruto']);
-    desconto = double.parse(map['desconto']);
-    acrescimo = double.parse(map['acrescimo']);
-    icmsst = double.parse(map['icmsst']);
-    ipi = double.parse(map['ipi']);
-    frete = double.parse(map['frete']);
-    seguro = double.parse(map['seguro']);
-    outros = double.parse(map['outros']);
-    liquido = double.parse(map['liquido']);
+    bruto = double.parse(map['bruto'] ?? 0);
+    desconto = double.parse(map['desconto'] ?? 0);
+    acrescimo = double.parse(map['acrescimo'] ?? 0);
+    icmsst = double.parse(map['icmsst'] ?? 0);
+    ipi = double.parse(map['ipi'] ?? 0);
+    frete = double.parse(map['frete'] ?? 0);
+    seguro = double.parse(map['seguro'] ?? 0);
+    outros = double.parse(map['outros'] ?? 0);
+    liquido = double.parse(map['liquido'] ?? 0);
   }
 
 }
@@ -685,32 +683,32 @@ class DavListItem{
   DavTypes tipo = DavTypes.orcamento;
   String numeroalternativo = '';
   int numeroficha = 0;
-  DavListItemTotal ?total;
-  DateTime ?data;
+  DavListItemTotal? total;
+  DateTime? data;
   int tabelapreco = 0;
   String obs = '';
 
   DavListItem();
 
   DavListItem.fromMap(Map map){
-    coddav = map['coddav'];
-    guid = map['guid'];
+    coddav = map['coddav'] ?? 0;
+    guid = map['guid'] ?? "";
     cliente = DavListItemCliente.fromMap(map['cliente']);
-    cancelado = map['cancelado'];
-    origem = map['origem'];
-    tipo = DavTypes.values[map['tipo']];
-    validade = map['validade'];
-    entrega = map['entrega'];
-    cidade = map['cidade'];
-    vendedor = map['vendedor'];
-    numero = map['numero'];
-    if(numeroficha != null)
+    cancelado = map['cancelado'] ?? "";
+    origem = map['origem'] ?? 0;
+    tipo = DavTypes.values[map['tipo'] ?? DavTypes.orcamento];
+    validade = map['validade'] ?? 0;
+    entrega = map['entrega'] ?? 1;
+    cidade = map['cidade'] ?? "";
+    vendedor = map['vendedor'] ?? "";
+    numero = map['numero'] ?? 0;
+    if(numeroficha != 0)
       numeroficha = int.parse(map['numeroficha'], radix: 0);
-    if(numeroalternativo != null)
+    if(numeroalternativo != 0)
       numeroalternativo = map['numeroalternativo'];
-    total = DavListItemTotal.fromMap(map['total']);
-    data = DateTime.parse(map['data']);
-    if(tabelapreco != null)
+    total = DavListItemTotal.fromMap(map['total'] ?? 0);
+    data = DateTime.tryParse(map['data'] ?? "");
+    if(tabelapreco != 0)
       tabelapreco = int.parse(map['tabelapreco'],radix:0);
     obs = map['obs'];
   }

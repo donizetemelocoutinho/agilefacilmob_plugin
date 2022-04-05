@@ -160,7 +160,7 @@ class DBCount{
       jlojaColumn: convert.jsonEncode(loja)
     };
 
-    if (id != null) {
+    if (id != -1) {
       map[idColumn] = id;
     }
     return map;
