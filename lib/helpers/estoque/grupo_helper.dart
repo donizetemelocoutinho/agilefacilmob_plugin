@@ -28,8 +28,8 @@ class Grupo{
   Grupo.fromMap( Map map){
     id = map['id'] ?? 0;
     guid = map['guid'] ?? "";
-    codgrupo = map['codgrupo'] ?? 0;
-    codloja = map['codloja'] ?? 0;
+    codgrupo = map['codgrupo'];
+    codloja = map['codloja'];
     idloja = map['idloja'] ?? "";
     descricao = map['descricao'] ?? "";
   }
