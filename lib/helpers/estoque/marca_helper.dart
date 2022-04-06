@@ -18,7 +18,7 @@ class MarcaApi {
     ApiHelper api = ApiHelper();
 
     Map<String, dynamic> _params = {"codloja":codloja.toString(), "api_token": api_token};
-    if (search != 0)
+    if (search != "")
       _params['search'] = search;
 
     return await api.get("estoque/marca/list", params: _params);
