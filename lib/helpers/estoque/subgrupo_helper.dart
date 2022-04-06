@@ -13,10 +13,10 @@ class SubGrupoApi{
 
     Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token};
 
-    if (codgrupo != "")
+    if (codgrupo != null)
       _params["codgrupo"] = codgrupo.toString();
 
-    if (search != "")
+    if (search != null)
       _params['search'] = search;
 
     return await api.get("estoque/subgrupo/list", params : _params);
@@ -31,8 +31,8 @@ class SubGrupoComissao{
   SubGrupoComissao();
 
   SubGrupoComissao.fromMap(Map map){
-    avista = double.parse(map['avista']);
-    aprazo = double.parse(map['aprazo']);
+    avista = double.parse(map['avista'] ?? 0);
+    aprazo = double.parse(map['aprazo'] ?? 0);
   }
 }
 
