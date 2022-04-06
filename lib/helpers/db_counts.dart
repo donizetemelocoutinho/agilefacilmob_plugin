@@ -124,8 +124,8 @@ class DBCount{
   String empresalogolink = '';
   String celular = '';
   String descricao = '';
-  late Map usuario;
-  late Map loja;
+  Map? usuario;
+  Map? loja;
 
   DBCount();
 
