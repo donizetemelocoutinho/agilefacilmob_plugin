@@ -13,10 +13,10 @@ class SubGrupoApi{
 
     Map<String, String> _params = {"codloja": codloja.toString(),"api_token": api_token};
 
-    if (codgrupo != null)
+    if (codgrupo != -1)
       _params["codgrupo"] = codgrupo.toString();
 
-    if (search != null)
+    if (search != "")
       _params['search'] = search;
 
     return await api.get("estoque/subgrupo/list", params : _params);

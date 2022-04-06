@@ -12,17 +12,17 @@ class ProdutoApi {
     return version;
   }
 
-  Future<Map>getList({required int codloja,int ?codmarca,int ?codsubgrupo,required ProdutoFiltroEstoque estoque,required int startrow,
+  Future<Map>getList({required int codloja,int? codmarca,int? codsubgrupo,required ProdutoFiltroEstoque estoque,required int startrow,
     required String search,required String api_token,required bool ativo})async{
     ApiHelper api = ApiHelper();
 
     Map<String, String> _params = {"codloja": codloja.toString(),"search": search,"startrow": startrow.toString(), "ativo": ativo ? "S" : "N","api_token": api_token,
     "estoque": estoque.index.toString()};
 
-    if ((codmarca != 0) && (codmarca != null) && (codmarca != ""))
+    if ((codmarca != 0) && (codmarca != null))
       _params["codmarca"] = codmarca.toString();
 
-    if ((codsubgrupo != 0) && (codsubgrupo != null) && (codsubgrupo != ""))
+    if ((codsubgrupo != 0) && (codsubgrupo != null))
       _params["codcategoria"] = codsubgrupo.toString();
 
 
