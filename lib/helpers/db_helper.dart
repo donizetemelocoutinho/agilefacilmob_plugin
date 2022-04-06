@@ -8,7 +8,7 @@ class DBHelper{
   static final DBHelper _instance = DBHelper.internal();
   factory DBHelper() => _instance;
   DBHelper.internal();
-  late Database _db;
+  Database? _db;
 
   Future<Database> get db async {
     return _db = await initDb();
