@@ -41,7 +41,7 @@ class FormaPagamento{
   int indice = 0;
   int tipo = 0;
   int tipoconta = 0;
-  bool ?padrao;
+  bool? padrao;
   int finalidade = 0;
   int tpnfe = 0;
   String descricao  = '';
@@ -50,19 +50,19 @@ class FormaPagamento{
   FormaPagamento();
 
   FormaPagamento.fromMap(Map map){
-    id = map['id'];
-    guid = map['guid'];
-    codformapagamento = map['codformapagamento'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    indice = map['indice'];
-    tipo = map['tipo'];
-    tipoconta = map['tipoconta'];
+    id = map['id'] ?? 0;
+    guid = map['guid'] ?? "";
+    codformapagamento = map['codformapagamento'] ?? 1;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    indice = map['indice'] ?? 0;
+    tipo = map['tipo'] ?? 0;
+    tipoconta = map['tipoconta'] ?? 0;
     padrao = map['padrao'];
-    finalidade = map['finalidade'];
-    tpnfe = map['tpnfe'];
-    descricao = map['descricao'];
-    icone = map['icone'];
+    finalidade = map['finalidade'] ?? 0;
+    tpnfe = map['tpnfe'] ?? 0;
+    descricao = map['descricao'] ?? "";
+    icone = map['icone'] ?? "";
   }
 }
 
@@ -75,7 +75,7 @@ class FormaPagamentoListItem{
   int indice = 0;
   int tipo = 0;
   int tipoconta = 0;
-  bool ?padrao;
+  bool? padrao;
   int finalidade = 0;
   int tpnfe = 0;
   String descricao = '';
@@ -85,18 +85,18 @@ class FormaPagamentoListItem{
 
   FormaPagamentoListItem.fromMap(Map map){
 
-    guid = map['guid'];
-    codformapagamento = map['codformapagamento'];
-    codloja = map['codloja'];
-    idloja = map['idloja'];
-    indice = map['indice'];
-    tipo = map['tipo'];
-    tipoconta = map['tipoconta'];
+    guid = map['guid'] ?? "";
+    codformapagamento = map['codformapagamento'] ?? 1;
+    codloja = map['codloja'] ?? 0;
+    idloja = map['idloja'] ?? "";
+    indice = map['indice'] ?? 0;
+    tipo = map['tipo'] ?? 0;
+    tipoconta = map['tipoconta'] ?? 0;
     padrao = map['padrao'];
-    finalidade = map['finalidade'];
-    tpnfe = map['tpnfe'];
-    descricao = map['descricao'];
-    icone = map['icone'];
+    finalidade = map['finalidade'] ?? 0;
+    tpnfe = map['tpnfe'] ?? 0;
+    descricao = map['descricao'] ?? "";
+    icone = map['icone'] ?? "";
   }
 }
 
@@ -106,9 +106,9 @@ class FormaPagamentoListItem{
     double total = 0.00;
 
     SimularParcelaItem.fromMap(Map map){
-    numero = map['numero'];
-    parcela = double.parse(map['parcela']);
-    total = double.parse(map['total']);
+    numero = map['numero'] ?? 0;
+    parcela = double.parse(map['parcela'] ?? 0);
+    total = double.parse(map['total'] ?? 0);
   }
 }
 

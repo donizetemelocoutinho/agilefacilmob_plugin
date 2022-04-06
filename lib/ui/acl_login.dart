@@ -10,7 +10,7 @@ class AclLogin extends StatefulWidget {
   int codloja = 0;
   String acl = "";
   String operacao = "";
-  String ? observacao;
+  String? observacao;
 
 
   AclLogin({required this.codloja,required this.acl,required this.operacao, this.observacao});

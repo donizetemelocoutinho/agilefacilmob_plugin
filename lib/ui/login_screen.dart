@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                    image: counts[index].loginfotolink != null
+                    image: counts[index].loginfotolink != ""
                         ? Image.network(counts[index].loginfotolink).image
                         : AssetImage("images/photo.png")),
               ),

@@ -10,8 +10,8 @@ class LojaResponsavel {
 
   LojaResponsavel.fromMap(Map map){
     nome = map['nome'] == null ? "" : nome = map['nome'];
-    cpf = map['cpf'];
-    celular = map['celular'];
+    cpf = map['cpf'] ?? "";
+    celular = map['celular'] ?? "";
     email = map['email'] == null ? "" : email = map['email'];
   }
 }
@@ -22,8 +22,8 @@ class LojaResponsavel {
     LojaPadrao();
 
     LojaPadrao.fromMap(Map map){
-      codpgtoaprazo = map['codpgtoaprazo'];
-      pgtoaprazo = map['pgtoaprazo'];
+      codpgtoaprazo = map['codpgtoaprazo'] ?? 0;
+      pgtoaprazo = map['pgtoaprazo'] ?? "";
     }
   }
 
@@ -38,12 +38,12 @@ class LojaResponsavel {
     String ie = "";
     String im = "";
     int regimetrib = 0;
-    late Endereco endereco;
+    Endereco? endereco;
     String fone = "";
     String email = "";
     String emailcontador = "";
     String linklogo = "";
-    late LojaResponsavel responsavel;
+    LojaResponsavel? responsavel;
     int codcontacaixa = 1;
     int codcontatesouraria = 4;
     String despfixa = "";
@@ -53,26 +53,26 @@ class LojaResponsavel {
     Loja();
 
     Loja.fromMap( Map map){
-      guid = map['guid'];
-      codloja = map['codloja'];
-      nome = map['nome'];
-      razao = map['razao'];
-      seguimento = map['seguimento'];
-      tpinscricao = map['tpinscricao'];
-      cpfcnpj = map['cpfcnpj'];
+      guid = map['guid'] ?? "";
+      codloja = map['codloja'] ?? 0;
+      nome = map['nome'] ?? "";
+      razao = map['razao'] ?? "";
+      seguimento = map['seguimento'] ?? 0;
+      tpinscricao = map['tpinscricao'] ?? "";
+      cpfcnpj = map['cpfcnpj'] ?? "";
       ie = map['ie'] == null ? "" : ie = map['ie'];
       im = map['im'] == null ? "" : im = map['im'];
-      regimetrib = map['regimetrib'];
+      regimetrib = map['regimetrib'] ?? 0;
       endereco = Endereco.fromMap(map['endereco']);
-      fone = map['fone'];
-      email = map['email'];
+      fone = map['fone'] ?? "";
+      email = map['email'] ?? "";
       emailcontador = map['emailcontador'] == null ? "" : emailcontador = map['emailcontador'];
-      linklogo = map['linklogo'];
+      linklogo = map['linklogo'] ?? "";
       responsavel = LojaResponsavel.fromMap(map['responsavel']);
-      codcontacaixa = map['codcontacaixa'];
-      codcontatesouraria = map['codcontatesouraria'];
-      despfixa = map['despfixa'];
-      despvariavel = map['despvariavel'];
+      codcontacaixa = map['codcontacaixa'] ?? 1;
+      codcontatesouraria = map['codcontatesouraria'] ?? 4;
+      despfixa = map['despfixa'] ?? "";
+      despvariavel = map['despvariavel'] ?? "";
       padrao= LojaPadrao.fromMap(map['padrao']);
     }
 

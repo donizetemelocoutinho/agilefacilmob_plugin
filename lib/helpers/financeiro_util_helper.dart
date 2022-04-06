@@ -8,9 +8,9 @@ class SimulaParcelaItem{
   double total = 0.00;
 
   SimulaParcelaItem.fromMap(Map map){
-    numero = map['numero'];
-    parcela = double.parse(map['parcela']);
-    total = double.parse(map['total']);
+    numero = map['numero'] ?? 0;
+    parcela = double.parse(map['parcela'] ?? 0);
+    total = double.parse(map['total'] ?? 0);
   }
 }
 

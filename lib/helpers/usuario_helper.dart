@@ -25,24 +25,24 @@ import 'api_helper.dart';
     Usuario();
 
     Usuario.fromMap( Map map){
-      id = map['id'];
-      guid = map['guid'];
-      codusuario = map['codusuario'];
-      codloja = map['codloja'];
-      idloja = map['idloja'];
-      loja = map['loja'];
-      cnpj = map['cnpj'];
-      login = map['login'];
-      senha = map['senha'];
-      idgrupo = map['idgrupo'];
-      codgrupo = map['codgrupo'];
-      ativo = map['ativo'];
+      id = map['id'] ?? 0;
+      guid = map['guid'] ?? "";
+      codusuario = map['codusuario'] ?? 0;
+      codloja = map['codloja'] ?? 0;
+      idloja = map['idloja'] ?? "";
+      loja = map['loja']  ?? "";
+      cnpj = map['cnpj'] ?? "";
+      login = map['login'] ?? "";
+      senha = map['senha'] ?? "";
+      idgrupo = map['idgrupo'] ?? "";
+      codgrupo = map['codgrupo'] ?? 0;
+      ativo = map['ativo'] ?? "S";
       email = map['email'] == null ? "" : email = map['email'];
-      celular = map['celular'];
-      alterarspl = map['alterarspl'];
-      fotolink = map['fotolink'];
-      api_token = map['api_token'];
-      codfuncionario = map['codfuncionario'];
+      celular = map['celular'] ?? "";
+      alterarspl = map['alterarspl'] ?? "N";
+      fotolink = map['fotolink'] ?? "";
+      api_token = map['api_token'] ?? "";
+      codfuncionario = map['codfuncionario'] ?? 0;
     }
   }
 

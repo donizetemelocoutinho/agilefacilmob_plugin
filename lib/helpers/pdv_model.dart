@@ -7,7 +7,7 @@ class PDVJasonCartao {
   PDVJasonCartao({required this.tipo, this.tefCaptura});
 
   PDVJasonCartao.fromJson(Map<String, dynamic> json) {
-    tipo = json['tipo'];
+    tipo = json['tipo'] ?? 0;
     tefCaptura = json['tef_captura'];
   }
 
@@ -22,13 +22,13 @@ class PDVJasonCartao {
 class PDVJasonBalanca {
   int tipo = 0;
   String porta = '';
-  int ?velocidade;
+  int? velocidade;
 
   PDVJasonBalanca({required this.tipo, required this.porta, this.velocidade});
 
   PDVJasonBalanca.fromJson(Map<String, dynamic> json) {
-    tipo = json['tipo'];
-    porta = json['porta'];
+    tipo = json['tipo'] ?? 0;
+    porta = json['porta'] ?? "";
     velocidade = json['velocidade'];
   }
 
@@ -50,8 +50,8 @@ class PDVJasonDispositivo {
   PDVJasonDispositivo({required this.coddispositivo, required this.nome, this.ip, this.versao});
 
   PDVJasonDispositivo.fromJson(Map<String, dynamic> json) {
-    coddispositivo = json['coddispositivo'];
-    nome = json['nome'];
+    coddispositivo = json['coddispositivo'] ?? 0;
+    nome = json['nome'] ?? "";
     ip = json['ip'];
     versao = json['versao'];
   }
@@ -72,7 +72,7 @@ class PDVJasonNfce {
   PDVJasonNfce({required this.codserie});
 
   PDVJasonNfce.fromJson(Map<String, dynamic> json) {
-    codserie = json['codserie'];
+    codserie = json['codserie'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
@@ -84,13 +84,13 @@ class PDVJasonNfce {
 
 class PDVJasonCreate {
   int codusuario =  0;
-  String ?data;
+  String? data;
 
   PDVJasonCreate({required this.codusuario, this.data});
 
   PDVJasonCreate.fromJson(Map<String, dynamic> json) {
-    codusuario = json['codusuario'];
-    data = json['data'];
+    codusuario = json['codusuario'] ?? 0;
+    data = json['data'] ?? "";
   }
 
   Map<String, dynamic> toJson() {
@@ -135,11 +135,11 @@ class PDVJasonSat {
         required this.codigoAtivacao});
 
   PDVJasonSat.fromJson(Map<String, dynamic> json) {
-    marca = json['marca'];
-    modelo = json['modelo'];
-    numeroSerie = json['numero_serie'];
-    versao = json['versao'];
-    codigoAtivacao = json['codigo_ativacao'];
+    marca = json['marca'] ?? "";
+    modelo = json['modelo'] ?? "";
+    numeroSerie = json['numero_serie'] ?? "";
+    versao = json['versao'] ?? "";
+    codigoAtivacao = json['codigo_ativacao'] ?? "";
   }
 
   Map<String, dynamic> toJson() {
@@ -161,7 +161,7 @@ class PDVJasonImpressora {
 
   PDVJasonImpressora.fromJson(Map<String, dynamic> json) {
     nome = json['nome'];
-    modelo = json['modelo'];
+    modelo = json['modelo'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
@@ -176,16 +176,16 @@ class PDVJason{
   int codpdv = 0;
   int numero = 0;
   String chave = '';
-  PDVJasonCartao ?cartao;
-  int ?codtdf;
-  PDVJasonBalanca ?balanca;
-  PDVJasonDispositivo ?dispositivo;
-  PDVJasonNfce ?nfce;
-  PDVJasonCreate ?create;
-  PDVJasonCreate ?update;
-  PDVJasonDelete ?delete;
-  PDVJasonSat ?sat;
-  PDVJasonImpressora ?impressora;
+  PDVJasonCartao? cartao;
+  int? codtdf;
+  PDVJasonBalanca? balanca;
+  PDVJasonDispositivo? dispositivo;
+  PDVJasonNfce? nfce;
+  PDVJasonCreate? create;
+  PDVJasonCreate? update;
+  PDVJasonDelete? delete;
+  PDVJasonSat? sat;
+  PDVJasonImpressora? impressora;
   String guid = '';
   int tipo = 0;
 
@@ -207,9 +207,9 @@ class PDVJason{
       required this.tipo});
 
   PDVJason.fromJson(Map<String, dynamic> json) {
-    codpdv = json['codpdv'];
-    numero = json['numero'];
-    chave = json['chave'];
+    codpdv = json['codpdv'] ?? 0;
+    numero = json['numero'] ?? 0;
+    chave = json['chave'] ?? "";
     cartao =
     json['cartao'] != null ? new PDVJasonCartao.fromJson(json['cartao']) : null;
     codtdf = json['codtdf'];
@@ -221,8 +221,8 @@ class PDVJason{
     delete = json['delete'] != null ? new PDVJasonDelete.fromJson(json['delete']) : null;
     sat = json['sat'] != null ? new PDVJasonSat.fromJson(json['sat']) : null;
     impressora = json['impressora'] != null ? new PDVJasonImpressora.fromJson(json['impressora']) : null;
-    guid = json['guid'];
-    tipo = json['tipo'];
+    guid = json['guid'] ?? "";
+    tipo = json['tipo'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {

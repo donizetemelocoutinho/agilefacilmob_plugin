@@ -28,12 +28,12 @@ import 'api_helper.dart';
     Funcionario.fromMap(Map map) {
       super.fromMap(map);
 
-      codigo = map['codigo'];
+      codigo = map['codigo'] ?? 0;
       admissao = DateTime.tryParse(map['admissao'] ?? "");
       demissao = DateTime.tryParse(map['demissao'] ?? "");
-      ativo = map['ativo'];
+      ativo = map['ativo'] ?? "S";
       comissao = Comissao.fromMap(map['comissao']);
-      funcao = map['funcao'];
+      funcao = map['funcao'] ?? "";
     }
 
     @override

@@ -33,13 +33,13 @@ class Dispositivo{
   Dispositivo();
 
   Dispositivo.fromMap(Map map){
-    cpfcnpj = map['cpfcnpj'];
-    login = map['login'];
-    senha = map['senha'];
-    celular = map['celular'];
-    id = map['id'];
-    descricao = map['descricao'];
-    guid = map['guid'];
+    cpfcnpj = map['cpfcnpj'] ?? "";
+    login = map['login'] ?? "";
+    senha = map['senha'] ?? "";
+    celular = map['celular'] ?? "";
+    id = map['id'] ?? "";
+    descricao = map['descricao'] ?? "";
+    guid = map['guid'] ?? "";
 
   }
 

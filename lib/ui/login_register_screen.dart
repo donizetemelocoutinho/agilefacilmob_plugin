@@ -15,7 +15,7 @@ class LoginRegister extends StatefulWidget {
     return version;
   }
 
-  late DBCount count = DBCount();
+  DBCount count = DBCount();
   LoginRegister({required this.count});
 
   @override
@@ -38,7 +38,7 @@ class _LoginRegisterState extends State<LoginRegister> {
   @override
   void initState() {
     super.initState();
-    if (widget.count == null) {
+    if (widget.count == -1) {
       _editedCount = DBCount();
     } else {
       _editedCount = DBCount.fromMap(widget.count.toMap());
