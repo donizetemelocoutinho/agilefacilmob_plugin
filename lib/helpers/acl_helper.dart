@@ -20,20 +20,20 @@ class AclHelper{
     return r;
   }
 
-  Future<bool> _autentic() async{
+  Future<bool?> _autentic() async{
     bool allow = await Navigator.push(context, MaterialPageRoute(builder: (context) => AclLogin(codloja: codloja, acl: acl, operacao: operacao,observacao: observacao)));
     return (allow != null) ? allow : false;
   }
 
-  Future<bool> allow() async {
+  Future<bool?> allow() async {
     Map r = await _allow();
     if (r["id"] == 0) {
       if (r["force_login"] == "N")
         return true;
       else
-        return await _autentic() ?? false;
+        return await _autentic();
     } else {
-      return await _autentic() ?? false;
+      return await _autentic();
     }
   }
 }
