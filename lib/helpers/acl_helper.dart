@@ -31,9 +31,9 @@ class AclHelper{
       if (r["force_login"] == "N")
         return true;
       else
-        return await _autentic();
+        return await _autentic() ?? false;
     } else {
-      return await _autentic();
+      return await _autentic() ?? false;
     }
   }
 }
