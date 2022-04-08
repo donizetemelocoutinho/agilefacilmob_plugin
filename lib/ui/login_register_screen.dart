@@ -2,7 +2,6 @@ import 'package:agilefacil_mob/helpers/db_counts.dart';
 import 'package:agilefacil_mob/helpers/dispositivo_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cpfcnpj/cpfcnpj.dart';
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'dart:convert' as convert;
 
 import 'package:flutter/services.dart';
@@ -137,6 +136,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                             height: 50.0,
                             child: RaisedButton(
                               onPressed: () async{
+                                /*
                                 ScanResult r = await BarcodeScanner.scan();
                                 Map us = convert.jsonDecode(r.rawContent);
 
@@ -145,6 +145,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                 _senhaController.text = us['pwd'];
                                 _celularController.text = us['celular'];
                                 _descricaoController.text = us['nome'];
+                                 */
                               },
                               child: Text("Ler QR-CODE"),
                             ),
