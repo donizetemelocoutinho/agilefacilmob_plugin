@@ -256,7 +256,7 @@ class ProdutoCompra{
 class ProdutoGrade{
   int codgrade = 0;
   int seq = 0;
-  int codalternativo = 0;
+  String codalternativo = "";
   String codbarra = '';
   String val1 = '';
   String val2 = '';
@@ -270,8 +270,8 @@ class ProdutoGrade{
   ProdutoGrade.fromMap(Map map){
     codgrade = map["codgrade"] ?? 0;
     seq = map["seq"] ?? 0;
-    codalternativo = map["codalternativo"] ?? 0;
-    codbarra = map["codbarra"] ?? 0;
+    codalternativo = map["codalternativo"] ?? "";
+    codbarra = map["codbarra"] ?? "";
     val1 = map["val1"] ?? "";
     val2 = map["val2"] ?? "";
     estoque = (map['estoque'] == null) ? 0 : double.parse(map['estoque'].toString());
