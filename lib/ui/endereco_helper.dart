@@ -180,7 +180,7 @@ class EnderecoHelper{
                 ApiHelper api = ApiHelper();
                 Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
                 if (ret["id"] == 0){
-                  Helper.Maps(ret["lat"], ret["lng"]);
+                  Helper.navigateTo(ret["lat"], ret["lng"]);
                 }
               },
             ),
