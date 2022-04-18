@@ -76,10 +76,10 @@ class Helper{
     }
   }
 
-  static launchWhatsApp(String number,{String ?msg}) async {
-    final link = await WhatsAppUnilink(
+  static launchWhatsApp(String number,{String? msg}) async {
+    final link = WhatsAppUnilink(
       phoneNumber: '+55$number',
-      text: "${msg == null ? "": msg}",
+      text: "${msg == null ? "" : msg}",
     );
 
     await launch('$link');
