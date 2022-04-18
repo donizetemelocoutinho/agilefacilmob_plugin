@@ -81,7 +81,6 @@ class Helper{
       phoneNumber: '+55$number',
       text: "${msg == null ? "" : msg}",
     );
-
     await launch('$link');
   }
 
@@ -102,6 +101,15 @@ class Helper{
       await launch(googleUrl);
     } else if (Platform.isIOS) {
       await launch(appleUrl);
+    }
+  }
+
+  static void navigateTo(double lat, double lng) async {
+    var uri = Uri.parse("google.navigation:q=$lat,$lng&mode=d");
+    if (await canLaunch(uri.toString())) {
+      await launch(uri.toString());
+    } else {
+      throw 'Não foi possível iniciar ${uri.toString()}';
     }
   }
 
