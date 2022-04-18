@@ -8,7 +8,7 @@ class AclHelper{
   String acl;
   String api_token;
   String operacao;
-  String? observacao;
+  String? observacao = "";
   BuildContext context;
 
   AclHelper({required this.context,required this.codloja,required this.acl,required this.api_token,required this.operacao, this.observacao});
@@ -21,7 +21,7 @@ class AclHelper{
   }
 
   Future<bool> _autentic() async{
-    bool allow = await Navigator.push(context, MaterialPageRoute(builder: (context) => AclLogin(codloja: codloja, acl: acl, operacao: operacao,observacao: observacao)));
+    bool allow = await Navigator.push(context, MaterialPageRoute(builder: (context) => AclLogin(codloja: codloja, acl: acl, operacao: operacao,observacao: observacao))) ?? false;
     return (allow != false) ? allow : false;
   }
 
