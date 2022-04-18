@@ -5,8 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 import 'funcionario_helper.dart';
 import 'loja_helper.dart';
+
+
 
 class Helper{
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
@@ -71,6 +74,15 @@ class Helper{
     } else {
       throw 'Erro ao tentar abrir o whatsApp';
     }
+  }
+
+  launchWhatsApp(String number,{String ?msg}) async {
+    final link = await WhatsAppUnilink(
+      phoneNumber: '+55$number',
+      text: "$msg",
+    );
+
+    await launch('$link');
   }
 
   static double toDouble(String v){
