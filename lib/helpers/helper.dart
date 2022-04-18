@@ -79,7 +79,7 @@ class Helper{
   static launchWhatsApp(String number,{String ?msg}) async {
     final link = await WhatsAppUnilink(
       phoneNumber: '+55$number',
-      text: "$msg",
+      text: "${msg == null ? "": msg}",
     );
 
     await launch('$link');
