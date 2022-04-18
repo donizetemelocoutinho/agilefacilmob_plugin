@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:agilefacil_mob/helpers/api_helper.dart';
 import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
@@ -5,6 +7,7 @@ import 'package:agilefacil_mob/ui/cidade_screen.dart';
 import 'package:agilefacil_mob/ui/estado_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geocoding/geocoding.dart';
 
 class EnderecoHelper{
   static const MethodChannel _channel = const MethodChannel('agilefacil_mob');
@@ -179,6 +182,8 @@ class EnderecoHelper{
               onPressed: () async {
                 ApiHelper api = ApiHelper();
                 Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
+                List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
+                print(locations);
                 if (ret["id"] == 0){
                   Helper.navigateTo(ret["lat"], ret["lng"]);
                 }
