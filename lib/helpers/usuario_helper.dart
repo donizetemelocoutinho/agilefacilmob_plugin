@@ -64,7 +64,7 @@ import 'api_helper.dart';
       return await api.post("usuario/autenticar", jo, params: {});
     }
 
-    Future<Map> AtualizarPerfil({required int codloja,required int codusuario,required String api_token, String ?foto, String ?celular, String ?email}) async{
+    Future<Map> AtualizarPerfil({required int codloja,required int codusuario,required String api_token, String? foto, String? celular, String? email}) async{
       ApiHelper api = ApiHelper();
       Map<String,dynamic> jo = Map();
       jo['codloja'] = codloja;
@@ -75,7 +75,7 @@ import 'api_helper.dart';
       return await api.post("usuario/update", jo,params : {"codloja": codloja.toString(),"api_token":api_token});
     }
 
-    Future<Map> AtualizarSenha({required int codloja,required int codusuario,required String api_token, String ?senhaatual, String ?novasenha}) async{
+    Future<Map> AtualizarSenha({required int codloja,required int codusuario,required String api_token, String? senhaatual, String? novasenha}) async{
       ApiHelper api = ApiHelper();
       Map<String,dynamic> jo = Map();
       jo['codloja'] = codloja;
