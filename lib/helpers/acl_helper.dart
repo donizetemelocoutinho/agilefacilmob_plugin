@@ -21,8 +21,9 @@ class AclHelper{
   }
 
   Future<bool> _autentic() async{
-    bool allow = await Navigator.push(context, MaterialPageRoute(builder: (context) => AclLogin(codloja: codloja, acl: acl, operacao: operacao,observacao: observacao ?? "")));
-    return (allow != false) ? allow : false;
+    bool? allow = await Navigator.push(context, MaterialPageRoute(builder: (context) => AclLogin(codloja: codloja, acl: acl, operacao: operacao,observacao: observacao)));
+    return allow ?? false;
+    //return (allow != false) ? allow : false;
   }
 
   Future<bool> allow() async {
