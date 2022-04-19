@@ -171,7 +171,6 @@ class EnderecoHelper{
           TextFormField(
             decoration: InputDecoration(labelText: "Referencia"),
             controller: _referenciaController,
-            validator: (value) {},
           ),
           Padding(padding: EdgeInsets.all(12.0),
             child: TextButton(
@@ -181,8 +180,6 @@ class EnderecoHelper{
                 // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
                 //List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
                 List<Location> locations = await locationFromAddress("Avenida Antônio Gomes de Andrade 196 - Jardim California, Barretos - SP");
-                print(locations[0].latitude);
-                print(locations[0].longitude);
                 await Helper.navigateTo(locations[0].latitude,locations[0].longitude);
 
                 // if (ret["id"] == 0){
@@ -192,7 +189,6 @@ class EnderecoHelper{
               },
             ),
           ),
-          SizedBox(height: 25,child: const Text("Aqui..."))
         ],
       ),
     );
