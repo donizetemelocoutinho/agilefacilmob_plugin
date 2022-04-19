@@ -106,7 +106,6 @@ class PessoHelper{}
 
       rg = map['rg'] ?? "";
       nascimento =  DateTime.tryParse(map['nascimento'] ?? "");
-      print(nascimento);
       photo_link = map['foto'] ?? "";
       sexo = map['sexo'] ?? "";
       estadocivil = map['estadocivil'] ?? 4;
@@ -124,7 +123,6 @@ class PessoHelper{}
       map["rg"] = rg;
       map["fotobase64"] = fotobase64;
       map["nascimento"] = Helper.DateTimeToStr(nascimento!);
-      print(nascimento);
       map["foto"] = photo_link;
       map["sexo"] = sexo;
       map["estadocivil"] = estadocivil;
