@@ -183,7 +183,7 @@ class EnderecoHelper{
                 List<Location> locations = await locationFromAddress("Avenida Antonio Gomes de Andrade 196, Barretos - SP");
                 print(locations[0].latitude);
                 print(locations[0].longitude);
-                Helper.navigateTo(locations[0].latitude,locations[0].longitude);
+                await Helper.navigateTo(locations[0].latitude,locations[0].longitude);
 
                 // if (ret["id"] == 0){
                 //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
