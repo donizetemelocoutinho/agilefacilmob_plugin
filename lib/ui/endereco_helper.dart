@@ -191,7 +191,8 @@ class EnderecoHelper{
                 // }
               },
             ),
-          )
+          ),
+          SizedBox(height: 25)
         ],
       ),
     );
