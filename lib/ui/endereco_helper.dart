@@ -181,9 +181,10 @@ class EnderecoHelper{
                 ApiHelper api = ApiHelper();
                 Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
                 List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
-                print(locations);
+                print('antes $locations');
                 if (ret["id"] == 0){
                   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
+                  print('depois $locations');
                 }
               },
             ),
