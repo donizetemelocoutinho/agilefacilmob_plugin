@@ -183,7 +183,7 @@ class EnderecoHelper{
                 List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
                 print(locations);
                 if (ret["id"] == 0){
-                  Helper.navigateTo(ret["lat"], ret["lng"]);
+                  Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
                 }
               },
             ),
