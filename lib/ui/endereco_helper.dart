@@ -178,14 +178,15 @@ class EnderecoHelper{
               onPressed: () async {
                 // ApiHelper api = ApiHelper();
                 // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
-                //List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
-                List<Location> locations = await locationFromAddress("Avenida Antônio Gomes de Andrade 196 - Jardim California, Barretos - SP");
-                await Helper.navigateTo(locations[0].latitude,locations[0].longitude);
-
                 // if (ret["id"] == 0){
                 //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
                 //   print('depois $locations');
                 // }
+
+                List<Location> locations = await locationFromAddress
+                  ("${endereco.logradouro} " + "${endereco.numero} - " + "${endereco.bairro}, " + "${endereco.cidade} - " + "${endereco.uf}");
+                Helper.Maps(locations[0].latitude, locations[0].longitude);
+
               },
             ),
           ),
