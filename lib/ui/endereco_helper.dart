@@ -173,7 +173,7 @@ class EnderecoHelper{
             controller: _referenciaController,
             validator: (value) {},
           ),
-          Padding(padding: EdgeInsets.only(bottom: 12.0),
+          Padding(padding: EdgeInsets.all(12.0),
             child: TextButton(
               child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
               onPressed: () async {
