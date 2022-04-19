@@ -174,24 +174,25 @@ class EnderecoHelper{
             validator: (value) {
             },
           ),
-          // Padding(padding: EdgeInsets.all(12.0),
-          //   child: TextButton(
-          //     child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
-          //     onPressed: () async {
-          //       // ApiHelper api = ApiHelper();
-          //       // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
-          //       //List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
-          //       List<Location> locations = await locationFromAddress("Gronausestraat 710, Enschede");
-          //       print(locations[0].latitude);
-          //       print(locations[0].longitude);
-          //       Helper.navigateTo(locations[0].latitude, locations[0].longitude);
-          //       // if (ret["id"] == 0){
-          //       //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
-          //       //   print('depois $locations');
-          //       // }
-          //     },
-          //   ),
-          // )
+          Padding(padding: EdgeInsets.all(12.0),
+            child: TextButton(
+              child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
+              onPressed: () async {
+                // ApiHelper api = ApiHelper();
+                // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
+                //List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
+                List<Location> locations = await locationFromAddress("Avenida Antonio Gomes de Andrade 196, Barretos - SP");
+                print(locations[0].latitude);
+                print(locations[0].longitude);
+                Helper.navigateTo(locations[0].latitude,locations[0].longitude);
+
+                // if (ret["id"] == 0){
+                //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
+                //   print('depois $locations');
+                // }
+              },
+            ),
+          )
         ],
       ),
     );
