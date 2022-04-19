@@ -122,7 +122,7 @@ class PessoHelper{}
       Map<String,dynamic> map = super.toMap();
       map["rg"] = rg;
       map["fotobase64"] = fotobase64;
-      map["nascimento"] = nascimento;
+      map["nascimento"] = Helper.DateTimeToStr(nascimento!);
       map["foto"] = photo_link;
       map["sexo"] = sexo;
       map["estadocivil"] = estadocivil;
