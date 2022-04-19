@@ -184,7 +184,7 @@ class EnderecoHelper{
                 List<Location> locations = await locationFromAddress("Gronausestraat 710, Enschede");
                 print(locations[0].latitude);
                 print(locations[1].longitude);
-                Helper.navigateTo(locations[0].latitude, locations[1].longitude);
+                Helper.navigateTo(locations[0].latitude, locations[0].longitude);
                 // if (ret["id"] == 0){
                 //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
                 //   print('depois $locations');
