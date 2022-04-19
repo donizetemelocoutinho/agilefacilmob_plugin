@@ -178,15 +178,16 @@ class EnderecoHelper{
             child: TextButton(
               child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
               onPressed: () async {
-                ApiHelper api = ApiHelper();
-                Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
+                // ApiHelper api = ApiHelper();
+                // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
                 List<Location> locations = await locationFromAddress("Gronausestraat 710, Enschede");
                 //List<Location> locations = await locationFromAddress("$_logradouroController + $_numeroController + $_cidadeController + $_ufController  ");
                 print('antes $locations');
-                if (ret["id"] == 0){
-                  Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
-                  print('depois $locations');
-                }
+                Helper.navigateTo(locations[0].latitude, locations[1].longitude);
+                // if (ret["id"] == 0){
+                //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
+                //   print('depois $locations');
+                // }
               },
             ),
           )
