@@ -105,7 +105,7 @@ class PessoHelper{}
       super.fromMap(map);
 
       rg = map['rg'] ?? "";
-      nascimento =  DateTime.tryParse(map['nascimento']?.toString() ?? "");
+      nascimento =  DateTime.parse(map['nascimento'] ?? "");
       photo_link = map['foto'] ?? "";
       sexo = map['sexo'] ?? "";
       estadocivil = map['estadocivil'] ?? 4;

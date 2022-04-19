@@ -59,7 +59,7 @@ class Helper{
 
    static DateTime? strToDateTime(String date){
     if (!(date.isEmpty || date == null))
-      return DateTime.tryParse(date);
+      return DateTime.parse(date);
   }
 
   static String DateTimeToStr(DateTime date){
