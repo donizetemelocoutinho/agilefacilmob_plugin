@@ -171,8 +171,7 @@ class EnderecoHelper{
           TextFormField(
             decoration: InputDecoration(labelText: "Referencia"),
             controller: _referenciaController,
-            validator: (value) {
-            },
+            validator: (value) {},
           ),
           Padding(padding: EdgeInsets.all(12.0),
             child: TextButton(
