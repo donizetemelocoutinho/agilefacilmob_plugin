@@ -116,6 +116,5 @@ class Helper{
   static Call(String number){
     launch('tel:+55$number');
   }
-
 }
 
