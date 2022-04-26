@@ -64,21 +64,21 @@ class EnderecoHelper{
                         endereco.cep = map["cep"];
                         endereco.logradouro = map["logradouro"];
                         endereco.referencia = map["complemento"];
+                        endereco.codcidadeibge = int.parse(map["ibge"]);
                         endereco.bairro = map["bairro"];
                         endereco.cidade = map["localidade"];
                         endereco.codcidade;
                         endereco.uf = map["uf"];
-                        endereco.codcidadeibge = int.parse(map["ibge"]);
+
 
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
                         _bairroController.text = endereco.bairro;
                         _cidadeController.text = endereco.cidade;
                         _ufController.text = endereco.uf;
-                        if(endereco.numero != "");
-                          _numeroController.text = endereco.numero;
+
                       } else{
-                        SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                        SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
                         Scaffold.of(context).showSnackBar(snackBar);
                       }
                     })
