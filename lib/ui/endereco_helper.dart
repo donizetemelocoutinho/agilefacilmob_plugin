@@ -57,6 +57,7 @@ class EnderecoHelper{
                 IconButton(
                   icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async {
+                      FocusScope.of(context).requestFocus(new FocusNode());
                       ApiHelper api = ApiHelper();
                       Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
 
@@ -99,6 +100,7 @@ class EnderecoHelper{
                 IconButton(
                     icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
+                      FocusScope.of(context).requestFocus(new FocusNode());
                       Estado estado = await Navigator.push(context, MaterialPageRoute(builder: (context) => EstadoScreen()));
                       if (estado.uf != _ufController.text) {
                         _ufController.text = estado.descricao;
@@ -126,6 +128,7 @@ class EnderecoHelper{
                 IconButton(
                     icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
+                      FocusScope.of(context).requestFocus(new FocusNode());
                       Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
                       _cidadeController.text = cidade.descricao;
                       _ufController.text = cidade.uf;
