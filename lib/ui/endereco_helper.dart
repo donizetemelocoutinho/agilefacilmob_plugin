@@ -69,6 +69,7 @@ class EnderecoHelper{
                         endereco.codcidade;
                         endereco.uf = map["uf"];
                         endereco.codcidadeibge = int.parse(map["ibge"]);
+                        endereco.numero = map["numero"];
 
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
@@ -163,9 +164,9 @@ class EnderecoHelper{
             decoration: InputDecoration(labelText: "Nº"),
             controller: _numeroController,
             validator: (value) {
-              if (value!.isEmpty && value == 0) {
-                return "Informe o numero";
-              }
+              // if (value!.isEmpty && value == 0) {
+              //   return "Informe o numero";
+              // }
             },
           ),
           TextFormField(
