@@ -70,6 +70,7 @@ class EnderecoHelper{
                         endereco.cidade = map["localidade"];
                         endereco.codcidade;
                         endereco.uf = map["uf"];
+                        endereco.numero = map["numero"];
 
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
