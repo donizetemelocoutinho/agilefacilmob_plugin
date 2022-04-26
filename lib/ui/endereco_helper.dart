@@ -46,20 +46,20 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(labelText: "Cep"),
-                      controller: _cepController,
-                      validator: (value) {
-                        //validar
-                      },
-                      keyboardType: TextInputType.numberWithOptions(decimal: false),
-                      onChanged: (value){endereco.cep = value;},
-                    )),
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: "Cep"),
+                    controller: _cepController,
+                    validator: (value) {},
+                    keyboardType: TextInputType.numberWithOptions(decimal: false),
+                    onChanged: (value){endereco.cep = value;},
+                  )
+                ),
                 IconButton(
-                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
-                    onPressed: () async{
+                  icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
+                    onPressed: () async {
                       ApiHelper api = ApiHelper();
                       Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
+
                       if (map["id"] == 0){
                         endereco.cep = map["cep"];
                         endereco.logradouro = map["logradouro"];
@@ -70,18 +70,19 @@ class EnderecoHelper{
                         endereco.codcidade;
                         endereco.uf = map["uf"];
 
-
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
                         _bairroController.text = endereco.bairro;
                         _cidadeController.text = endereco.cidade;
                         _ufController.text = endereco.uf;
 
-                      } else{
-                        SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
+                      }
+                      else{
+                        SnackBar snackBar = SnackBar(content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
                         Scaffold.of(context).showSnackBar(snackBar);
                       }
-                    })
+                    }
+                )
               ],
             ),
           ),
