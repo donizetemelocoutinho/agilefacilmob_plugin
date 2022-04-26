@@ -164,9 +164,9 @@ class EnderecoHelper{
             decoration: InputDecoration(labelText: "Nº"),
             controller: _numeroController,
             validator: (value) {
-              if (value!.isEmpty && value == 0) {
-                return "Informe o numero";
-              }
+              // if (value!.isEmpty && value == 0) {
+              //   return "Informe o numero";
+              // }
             },
           ),
           TextFormField(
