@@ -69,7 +69,7 @@ class EnderecoHelper{
                         endereco.codcidade;
                         endereco.uf = map["uf"];
                         endereco.codcidadeibge = int.parse(map["ibge"]);
-                        endereco.numero = map["numero"];
+
 
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
