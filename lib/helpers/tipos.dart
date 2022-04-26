@@ -38,7 +38,7 @@ class Diversos{
     Map toMap(){
       Map<String, dynamic> map = {
         'codcidade': (codcidade!= 0) ? codcidade : null,
-        'codcidadeibge': (codcidadeibge != 0) ? codcidadeibge : null,
+        'codcidadeibge': (codcidadeibge != 0) ? codcidadeibge : 0,
         'cidade': cidade,
         'uf': uf,
         'bairro' : bairro,
