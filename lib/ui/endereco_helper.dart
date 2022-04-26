@@ -68,13 +68,23 @@ class EnderecoHelper{
                         endereco.cidade = map["localidade"];
                         endereco.codcidade;
                         endereco.uf = map["uf"];
-                        endereco.codcidadeibge = map["ibge"];
+                        endereco.codcidadeibge = int.parse(map["ibge"]);
 
-                        _logradouroController.text = endereco.logradouro;
-                        _referenciaController.text = endereco.referencia;
-                        _bairroController.text = endereco.bairro;
-                        _cidadeController.text = endereco.cidade;
-                        _ufController.text = endereco.uf;
+                        if(endereco.logradouro != "");
+                          _logradouroController.text = endereco.logradouro;
+
+                        if(endereco.referencia != "");
+                          _referenciaController.text = endereco.referencia;
+
+                        if(endereco.bairro != "");
+                          _bairroController.text = endereco.bairro;
+
+                        if(endereco.cidade != "");
+                          _cidadeController.text = endereco.cidade;
+
+                        if(endereco.uf != "");
+                          _ufController.text = endereco.uf;
+
                         if(endereco.numero != "");
                           _numeroController.text = endereco.numero;
                       } else{
