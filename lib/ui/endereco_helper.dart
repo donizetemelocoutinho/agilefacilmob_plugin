@@ -69,14 +69,14 @@ class EnderecoHelper{
                         endereco.codcidade;
                         endereco.uf = map["uf"];
                         endereco.codcidadeibge = int.parse(map["ibge"]);
-                        endereco.numero = map["numero"];
 
                         _logradouroController.text = endereco.logradouro;
                         _referenciaController.text = endereco.referencia;
                         _bairroController.text = endereco.bairro;
                         _cidadeController.text = endereco.cidade;
                         _ufController.text = endereco.uf;
-                        _numeroController.text = endereco.numero;
+                        if(endereco.numero != null);
+                          _numeroController.text = endereco.numero;
                       } else{
                         SnackBar snackBar = SnackBar(content: Text(map["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
                         Scaffold.of(context).showSnackBar(snackBar);
