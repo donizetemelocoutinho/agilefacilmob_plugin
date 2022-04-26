@@ -23,7 +23,7 @@ class Diversos{
 
     Endereco.fromMap(Map map){
       codcidade = map['codcidade'] ?? 0;
-      codcidadeibge = int.parse(map['codcidadeibge']) ?? 0;
+      codcidadeibge = map['codcidadeibge'] ?? 0;
       cidade = map['cidade'] ?? "";
       uf = map['uf'] ?? "";
       bairro = map['bairro'] ?? "";
