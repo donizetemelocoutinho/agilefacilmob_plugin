@@ -77,6 +77,10 @@ class EnderecoHelper{
                         _cidadeController.text = endereco.cidade;
                         _ufController.text = endereco.uf;
 
+                        if(endereco.numero != null){
+                          _numeroController.text = endereco.numero;
+                        }
+
                       }
                       else{
                         SnackBar snackBar = SnackBar(content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
