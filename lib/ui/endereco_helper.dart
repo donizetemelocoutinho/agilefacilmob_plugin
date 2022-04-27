@@ -59,7 +59,7 @@ class EnderecoHelper{
                     FocusScope.of(context).requestFocus(new FocusNode());
                     ApiHelper api = ApiHelper();
                     Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
-
+                    _numeroController.text = endereco.numero;
                     if (map["id"] == 0){
                       endereco.cep = map["cep"];
                       endereco.logradouro = map["logradouro"];
@@ -69,9 +69,6 @@ class EnderecoHelper{
                       endereco.cidade = map["localidade"];
                       endereco.codcidade;
                       endereco.uf = map["uf"];
-                      if(endereco.numero != ""){
-                        endereco.numero = _numeroController.text;
-                      }
 
                       _logradouroController.text = endereco.logradouro;
                       _referenciaController.text = endereco.referencia;
@@ -79,7 +76,6 @@ class EnderecoHelper{
                       _cidadeController.text = endereco.cidade;
                       _ufController.text = endereco.uf;
                       _numeroController.text = endereco.numero;
-
                     }
                     else{
                       SnackBar snackBar = SnackBar(content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
