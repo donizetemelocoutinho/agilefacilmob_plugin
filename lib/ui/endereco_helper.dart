@@ -36,6 +36,16 @@ class EnderecoHelper{
     _referenciaController.text = endereco.referencia;
   }
 
+  void setValues(){
+    endereco.cep = _cepController.text;
+    endereco.uf = _ufController.text;
+    endereco.cidade = _cidadeController.text;
+    endereco.bairro = _bairroController.text;
+    endereco.logradouro = _logradouroController.text;
+    endereco.numero = _numeroController.text;
+    endereco.referencia = _referenciaController.text;
+  }
+
   Widget getEndereco(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(10.0),
