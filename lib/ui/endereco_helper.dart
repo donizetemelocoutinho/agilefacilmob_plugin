@@ -58,9 +58,6 @@ class EnderecoHelper{
                   onPressed: () async {
                     FocusScope.of(context).requestFocus(new FocusNode());
 
-                    if(endereco.numero != _numeroController.text)
-                      _numeroController.text = endereco.numero;
-
                     ApiHelper api = ApiHelper();
                     Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
                     if (map["id"] == 0){
@@ -78,7 +75,7 @@ class EnderecoHelper{
                       _bairroController.text = endereco.bairro;
                       _cidadeController.text = endereco.cidade;
                       _ufController.text = endereco.uf;
-                      endereco.numero = _numeroController.text;
+                      _numeroController.text = endereco.numero;
                     }
                     else{
                       SnackBar snackBar = SnackBar(content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
