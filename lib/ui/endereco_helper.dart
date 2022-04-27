@@ -32,7 +32,8 @@ class EnderecoHelper{
     _cidadeController.text = endereco.cidade;
     _bairroController.text = endereco.bairro;
     _logradouroController.text = endereco.logradouro;
-    _numeroController.text = endereco.numero;
+    if(endereco.numero != _numeroController.text)
+      _numeroController.text = endereco.numero;
     _referenciaController.text = endereco.referencia;
   }
 
