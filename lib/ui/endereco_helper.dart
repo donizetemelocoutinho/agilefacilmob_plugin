@@ -49,45 +49,40 @@ class EnderecoHelper{
                   child: TextFormField(
                     decoration: InputDecoration(labelText: "Cep"),
                     controller: _cepController,
-                    validator: (value) {},
                     keyboardType: TextInputType.numberWithOptions(decimal: false),
                     onChanged: (value){endereco.cep = value;},
                   )
                 ),
                 IconButton(
                   icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
-                    onPressed: () async {
-                      FocusScope.of(context).requestFocus(new FocusNode());
-                      ApiHelper api = ApiHelper();
-                      Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
+                  onPressed: () async {
+                    FocusScope.of(context).requestFocus(new FocusNode());
+                    ApiHelper api = ApiHelper();
+                    Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
 
-                      if (map["id"] == 0){
-                        endereco.cep = map["cep"];
-                        endereco.logradouro = map["logradouro"];
-                        endereco.referencia = map["complemento"];
-                        endereco.codcidadeibge = int.parse(map["ibge"]);
-                        endereco.bairro = map["bairro"];
-                        endereco.cidade = map["localidade"];
-                        endereco.codcidade;
-                        endereco.uf = map["uf"];
-                        endereco.numero = map["numero"];
+                    if (map["id"] == 0){
+                      endereco.cep = map["cep"];
+                      endereco.logradouro = map["logradouro"];
+                      endereco.referencia = map["complemento"];
+                      endereco.codcidadeibge = int.parse(map["ibge"]);
+                      endereco.bairro = map["bairro"];
+                      endereco.cidade = map["localidade"];
+                      endereco.codcidade;
+                      endereco.uf = map["uf"];
 
-                        _logradouroController.text = endereco.logradouro;
-                        _referenciaController.text = endereco.referencia;
-                        _bairroController.text = endereco.bairro;
-                        _cidadeController.text = endereco.cidade;
-                        _ufController.text = endereco.uf;
+                      _logradouroController.text = endereco.logradouro;
+                      _referenciaController.text = endereco.referencia;
+                      _bairroController.text = endereco.bairro;
+                      _cidadeController.text = endereco.cidade;
+                      _ufController.text = endereco.uf;
+                      _numeroController.text = endereco.numero;
 
-                        if(endereco.numero != null){
-                          _numeroController.text = endereco.numero;
-                        }
-
-                      }
-                      else{
-                        SnackBar snackBar = SnackBar(content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
-                        Scaffold.of(context).showSnackBar(snackBar);
-                      }
                     }
+                    else{
+                      SnackBar snackBar = SnackBar(content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
+                      Scaffold.of(context).showSnackBar(snackBar);
+                    }
+                  }
                 )
               ],
             ),
@@ -97,11 +92,12 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(labelText: "Estado"),
-                      controller: _ufController,
-                      enabled: false
-                    )),
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: "Estado"),
+                    controller: _ufController,
+                    enabled: false
+                  )
+                ),
                 IconButton(
                     icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                     onPressed: () async{
@@ -125,58 +121,49 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(labelText: "Cidade"),
-                      controller: _cidadeController,
-                      enabled: false,
-                    )),
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: "Cidade"),
+                    controller: _cidadeController,
+                    enabled: false,
+                  ),
+                ),
                 IconButton(
-                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
-                    onPressed: () async{
-                      FocusScope.of(context).requestFocus(new FocusNode());
-                      Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
-                      _cidadeController.text = cidade.descricao;
-                      _ufController.text = cidade.uf;
+                  icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
+                  onPressed: () async{
+                    FocusScope.of(context).requestFocus(new FocusNode());
+                    Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
+                    _cidadeController.text = cidade.descricao;
+                    _ufController.text = cidade.uf;
 
-                      endereco.uf = cidade.uf;
-                      endereco.cidade = cidade.descricao;
-                      endereco.codcidade = cidade.codcidade;
-                      endereco.codcidadeibge = cidade.codcidadeibge;
-
-                    })
+                    endereco.uf = cidade.uf;
+                    endereco.cidade = cidade.descricao;
+                    endereco.codcidade = cidade.codcidade;
+                    endereco.codcidadeibge = cidade.codcidadeibge;
+                  }
+                )
               ],
             ),
           ),
           TextFormField(
             decoration: InputDecoration(labelText: "Bairro"),
             controller: _bairroController,
-            validator: (value) {
-              //validar
-            },
           ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(labelText: "Logradouro"),
-                      controller: _logradouroController,
-                      validator: (value) {
-                        //validar
-                      },
-                    ))
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: "Logradouro"),
+                    controller: _logradouroController,
+                  )
+                )
               ],
             ),
           ),
           TextFormField(
             decoration: InputDecoration(labelText: "Nº"),
             controller: _numeroController,
-            validator: (value) {
-              // if (value!.isEmpty && value == 0) {
-              //   return "Informe o numero";
-              // }
-            },
           ),
           TextFormField(
             decoration: InputDecoration(labelText: "Referencia"),
@@ -192,11 +179,9 @@ class EnderecoHelper{
                 //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
                 //   print('depois $locations');
                 // }
-
                 List<Location> locations = await locationFromAddress
                   ("${endereco.logradouro} " + "${endereco.numero} - " + "${endereco.bairro}, " + "${endereco.cidade} - " + "${endereco.uf}");
                 Helper.Maps(locations[0].latitude, locations[0].longitude);
-
               },
             ),
           ),
