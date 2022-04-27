@@ -57,9 +57,10 @@ class EnderecoHelper{
                   icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
                   onPressed: () async {
                     FocusScope.of(context).requestFocus(new FocusNode());
+                    _numeroController.text = endereco.numero;
+
                     ApiHelper api = ApiHelper();
                     Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
-                    _numeroController.text = endereco.numero;
                     if (map["id"] == 0){
                       endereco.cep = map["cep"];
                       endereco.logradouro = map["logradouro"];
