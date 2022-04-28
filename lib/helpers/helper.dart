@@ -95,12 +95,14 @@ class Helper{
   }
 
   static Maps(double lat,double lng) async {
-    String googleUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
+    var googleUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
     if (Platform.isAndroid){
-      await launch(googleUrl);
+      final Uri uri = Uri.file(googleUrl);
+      await launchUrl(uri);
     } else if (Platform.isIOS) {
-      await launch(appleUrl);
+      final Uri uri = Uri.file(appleUrl);
+      await launchUrl(uri);
     }
   }
 

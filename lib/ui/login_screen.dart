@@ -101,8 +101,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: 10.0), child: Text(counts[index].login ?? "", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold))),
-                  Padding(padding: EdgeInsets.only(top: 10.0), child: Text(counts[index].cpfcnpj ?? "", style: TextStyle(fontSize: 14.0))),
+                  Padding(padding: EdgeInsets.only(top: 10.0), child: Text(counts[index].login, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold))),
+                  Padding(padding: EdgeInsets.only(top: 10.0), child: Text(counts[index].cpfcnpj, style: TextStyle(fontSize: 14.0))),
                 ],
               ),
             )
