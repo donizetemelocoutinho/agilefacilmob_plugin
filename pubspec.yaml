@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.4
   http: ^0.13.4
   sqflite: ^2.0.0+2
-  url_launcher: ^6.0.20
+  url_launcher: ^6.1.0
   image_picker: ^0.8.4+11
   uuid: ^3.0.6
   device_info_plus: 3.2.2
