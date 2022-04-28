@@ -97,13 +97,16 @@ class Helper{
   static Maps(double lat,double lng) async {
     String googleUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
-    if (Platform.isAndroid){
-      final Uri uri = Uri.file(googleUrl);
-      await launchUrl(uri);
-    } else if (Platform.isIOS) {
-      final Uri uri = Uri.file(appleUrl);
-      await launchUrl(uri);
-    }
+
+      if (Platform.isAndroid){
+        final Uri uri = Uri.file(googleUrl);
+        await launchUrl(uri);
+      }
+      else if (Platform.isIOS) {
+        final Uri uri = Uri.file(appleUrl);
+        await launchUrl(uri);
+      }
+
   }
 
   static navigateTo(double lat, double lng) async {
