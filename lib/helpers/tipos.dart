@@ -57,11 +57,11 @@ class Diversos{
 
       info = logradouro.length > 0 ? logradouro : "";
       info = numero.length > 0 ?  info + ", " + numero : info;
-      info = referencia.length > 0 ?  info + ", " + referencia : info;
       info = bairro.length > 0 ?  info + ", " + bairro : info;
       info = cidade.length > 0 ?  info + " - " + cidade : info;
       info = uf.length > 0 ?  info + " - " + uf : info;
       info = cep.length > 0 ?  info + " - " + cep : info;
+      info = referencia.length > 0 ?  info + ", " + referencia : info;
 
       return info;
     }
