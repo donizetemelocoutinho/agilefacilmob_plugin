@@ -99,12 +99,10 @@ class Helper{
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
 
       if (Platform.isAndroid){
-        final Uri uri = Uri.file(googleUrl);
-        await launchUrl(uri);
+        await launch(googleUrl);
       }
       else if (Platform.isIOS) {
-        final Uri uri = Uri.file(appleUrl);
-        await launchUrl(uri);
+        await launch(appleUrl);
       }
 
   }
