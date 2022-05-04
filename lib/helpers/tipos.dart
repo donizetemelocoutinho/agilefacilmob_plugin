@@ -44,7 +44,7 @@ class Diversos{
         'cidade': (cidade != "") ? cidade : null,
         'uf': (uf != "") ? uf : null,
         'bairro' : (bairro != "") ? bairro : null,
-        'cep': cep,
+        'cep': (cep != "") ? cep : null,
         'logradouro': (logradouro != "") ? logradouro : null,
         'numero': (numero != "") ? numero : null,
         'referencia' : (referencia != "") ? referencia : null,
