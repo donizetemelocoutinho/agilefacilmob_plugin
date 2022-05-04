@@ -41,13 +41,13 @@ class Diversos{
       Map<String, dynamic> map = {
         'codcidade': (codcidade!= 0) ? codcidade : null,
         'codcidadeibge': (codcidadeibge != 0) ? codcidadeibge : null,
-        'cidade': (cidade != "") ? cidade : null,
-        'uf': (uf != "") ? uf : null,
-        'bairro' : (bairro != "") ? bairro : null,
-        'cep': (cep != "") ? cep : null,
-        'logradouro': (logradouro != "") ? logradouro : null,
-        'numero': (numero != "") ? numero : null,
-        'referencia' : (referencia != "") ? referencia : null,
+        'cidade': cidade,
+        'uf': uf,
+        'bairro' : bairro,
+        'cep': cep,
+        'logradouro': logradouro,
+        'numero': numero,
+        'referencia' : referencia,
         'lat' : lat,
         'long': long
       };
