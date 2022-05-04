@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Diversos{
   static List<String> UFs = ["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO",];
   static List<String> Estados = ["Acre","Alagoas","Amazonas","Amapa","Bahia","Ceara","Distrito Federal","Espírito Santo","Goias","Maranhão","Minas Gerais","Mato Grossodo Sul","Mato Grosso","Para","Paraíba","Pernambuco","Piaui","Parana","Rio de Janeiro","Rio Grande do Norte","Rondtnia","Roraima","Rio Grande do Sul","Santa Catarina","Sergipe","Sao Paulo","Tocantins"];
@@ -39,13 +41,13 @@ class Diversos{
       Map<String, dynamic> map = {
         'codcidade': (codcidade!= 0) ? codcidade : null,
         'codcidadeibge': (codcidadeibge != 0) ? codcidadeibge : null,
-        'cidade': cidade,
-        'uf': uf,
-        'bairro' : bairro,
+        'cidade': (cidade != "") ? cidade : null,
+        'uf': (uf != "") ? uf : null,
+        'bairro' : (bairro != "") ? bairro : null,
         'cep': cep,
-        'logradouro': logradouro,
-        'numero': numero,
-        'referencia' : referencia,
+        'logradouro': (logradouro != "") ? logradouro : null,
+        'numero': (numero != "") ? numero : null,
+        'referencia' : (referencia != "") ? referencia : null,
         'lat' : lat,
         'long': long
       };

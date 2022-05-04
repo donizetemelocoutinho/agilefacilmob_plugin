@@ -72,13 +72,13 @@ class EnderecoHelper{
                     Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
                     if (map["id"] == 0){
                       endereco.cep = map["cep"];
-                      endereco.logradouro = map["logradouro"] ?? "";
-                      endereco.referencia = map["complemento"] ?? "";
+                      endereco.logradouro = map["logradouro"];
+                      endereco.referencia = map["complemento"];
                       endereco.codcidadeibge = int.parse(map["ibge"]);
-                      endereco.bairro = map["bairro"] ?? "";
-                      endereco.cidade = map["localidade"] ?? "";
+                      endereco.bairro = map["bairro"];
+                      endereco.cidade = map["localidade"];
                       endereco.codcidade;
-                      endereco.uf = map["uf"] ?? "";
+                      endereco.uf = map["uf"];
                       endereco.numero = map["numero"] ?? _numeroController.text;
 
                       _logradouroController.text = endereco.logradouro;
