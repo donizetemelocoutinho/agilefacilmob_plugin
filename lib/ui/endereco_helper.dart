@@ -89,14 +89,15 @@ class EnderecoHelper{
                       _numeroController.text = endereco.numero;
                     }
                     else{
+                      SnackBar snackBar = SnackBar(content: Text(map["msg"],
+                          style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
+                      Scaffold.of(context).showSnackBar(snackBar);
+
                       // ScaffoldMessenger.of(context).showSnackBar(
                       //   SnackBar( content: Text(map["msg"], style: TextStyle(fontSize: 15.0)),
                       //       backgroundColor: Colors.red, duration: Duration(seconds: 2)
                       //   )
                       // );
-                      SnackBar snackBar = SnackBar(content: Text(map["msg"],
-                          style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 2));
-                      Scaffold.of(context).showSnackBar(snackBar);
                     }
                   }
                 )

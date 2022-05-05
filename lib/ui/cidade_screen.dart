@@ -36,7 +36,7 @@ class _CidadeScreenState extends State<CidadeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,
-        title: Text("Cidade", style: TextStyle(fontSize: 22,fontFamily: 'Secular',color: Colors.white)),
+        title: Text("Cidades", style: TextStyle(fontSize: 22,fontFamily: 'Secular',color: Colors.white)),
       ),
       body: Column(
           children: <Widget>[
