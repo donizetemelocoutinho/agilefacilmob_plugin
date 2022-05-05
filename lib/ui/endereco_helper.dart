@@ -70,7 +70,7 @@ class EnderecoHelper{
 
                     ApiHelper api = ApiHelper();
                     Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
-                    if (map["localidade"] != null){
+                    if (map["msg"] != true){
                       endereco.cep = map["cep"];
                       endereco.logradouro = map["logradouro"];
                       endereco.referencia = map["complemento"];
