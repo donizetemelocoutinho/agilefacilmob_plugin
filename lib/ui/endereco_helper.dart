@@ -71,9 +71,7 @@ class EnderecoHelper{
                     FocusScope.of(context).requestFocus(new FocusNode());
 
                     ApiHelper api = ApiHelper();
-                    print("Antes rint Map");
                     Map map = await api.get("common/getenderecocep",params: {"cep": _cepController.text});
-                    print("print Map Depois" + map["msg"]);
                     if (map["id"] == 0){
                       endereco.cep = map["cep"];
                       endereco.logradouro = map["logradouro"];
