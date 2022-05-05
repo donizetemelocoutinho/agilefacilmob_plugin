@@ -11,7 +11,9 @@ class _EstadoScreenState extends State<EstadoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Estados")),
+      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,
+        title: Text("Estados", style: TextStyle(fontSize: 22,fontFamily: 'Secular',color: Colors.white)),
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
