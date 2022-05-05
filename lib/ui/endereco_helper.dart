@@ -3,6 +3,7 @@ import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:agilefacil_mob/ui/cidade_screen.dart';
 import 'package:agilefacil_mob/ui/estado_screen.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
@@ -61,6 +62,7 @@ class EnderecoHelper{
                     controller: _cepController,
                     keyboardType: TextInputType.numberWithOptions(decimal: false),
                     onChanged: (value){endereco.cep = value;},
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly, CepInputFormatter()],
                   )
                 ),
                 IconButton(
