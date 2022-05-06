@@ -18,7 +18,7 @@ class _CidadeScreenState extends State<CidadeScreen> {
   static String _search = "";
   int _startrow = 0;
 
-  Future<Map> _getList() async {
+  Future<Map>? _getList() async {
     ApiHelper api = ApiHelper();
     return await api.get("common/cidade/list",params: {"uf": uf,"search": _search,"startrow": _startrow.toString()});
   }
@@ -93,7 +93,7 @@ class _CidadeScreenState extends State<CidadeScreen> {
             ],
           ),
           onTap: (){
-            Cidade? cidade = Cidade.fromMap(snapshot.data["cidades"][index]);
+            Cidade cidade = Cidade.fromMap(snapshot.data["cidades"][index]);
             Navigator.pop(context,cidade);
           },
         );
