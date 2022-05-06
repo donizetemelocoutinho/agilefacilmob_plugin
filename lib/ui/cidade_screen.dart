@@ -93,7 +93,7 @@ class _CidadeScreenState extends State<CidadeScreen> {
             ],
           ),
           onTap: (){
-            Cidade cidade = Cidade.fromMap(snapshot.data["cidades"][index]);
+            Cidade? cidade = Cidade.fromMap(snapshot.data["cidades"][index]);
             Navigator.pop(context,cidade);
           },
         );
