@@ -18,7 +18,7 @@ class _CidadeScreenState extends State<CidadeScreen> {
   static String _search = "";
   int _startrow = 0;
 
-  Future<Map>? _getList() async {
+  Future<Map> _getList() async {
     ApiHelper api = ApiHelper();
     return await api.get("common/cidade/list",params: {"uf": uf,"search": _search,"startrow": _startrow.toString()});
   }
