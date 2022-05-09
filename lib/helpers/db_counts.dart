@@ -96,7 +96,10 @@ class DBCountsHelper{
 
     //print("Count: ${listMap.length}");
 
+
+
     for (Map m in listMap){
+
       DBCount count = DBCount.fromMap(m);
       list.add(count);
     }
@@ -150,6 +153,8 @@ class DBCount{
     loja = convert.jsonDecode(map[jlojaColumn]);
     celular = map[celularColumn];
     descricao = map[descricaoColumn];
+
+    print('listMap:' + convert.jsonEncode(map));
   }
 
   Map<String, Object?> toMap(){
