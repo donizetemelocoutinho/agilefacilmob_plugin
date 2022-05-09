@@ -29,6 +29,7 @@ class DBCountsHelper{
         "$codlojaColumn INTEGER,"
         "$loginColumn TEXT,"
         "$senhaColumn TEXT,"
+        "$pwdrememberColumn TEXT,"
         "$codusuarioColumn INTEGER,"
         "$loginfotolinkColumn TEXT,"
         "$apitokenColumn TEXT,"
@@ -39,14 +40,9 @@ class DBCountsHelper{
         "$jlojaColumn TEXT)";
   }
 
-  /*
-  String AddPWD_REMEMBER(String TableName, String ColumneName) async {
-    var dbClient = await db;
-    var count = await dbClient.execute("ALTER TABLE $TableName ADD "
-        "COLUMN $ColumneName TEXT;");
-    print(await dbClient.query(TABLE_CUSTOMER));
-    return count;
-  }*/
+  String toScriptAddPwdRemember(){
+    return "ALTER TABLE $table ADD COLUMN $pwdrememberColumn TEXT";
+  }
 
   Future<DBCount> save(DBCount count) async {
     Database d = await DBHelper().db;
