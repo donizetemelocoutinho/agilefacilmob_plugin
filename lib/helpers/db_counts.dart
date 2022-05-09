@@ -139,6 +139,7 @@ class DBCount{
 
   DBCount();
 
+
   DBCount.fromMap(Map map){
     id = map[idColumn];
     codusuario = map[codusuarioColumn];
