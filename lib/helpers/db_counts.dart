@@ -64,7 +64,7 @@ class DBCountsHelper{
     Database d = await DBHelper().db;
     List<Map> maps = await d.query(table,
         columns: [idColumn, cpfcnpjColumn, cpfcnpjColumn, cpfcnpjColumn, codlojaColumn,
-          loginColumn,senhaColumn,codusuarioColumn,loginfotolinkColumn,apitokenColumn,empresalogolinkColumn,
+          loginColumn,senhaColumn,pwdrememberColumn,codusuarioColumn,loginfotolinkColumn,apitokenColumn,empresalogolinkColumn,
           jusuarioColumn,jlojaColumn,celularColumn,descricaoColumn],
         where: "$idColumn = ?",
         whereArgs: [id]);
@@ -126,6 +126,7 @@ class DBCount{
   int codusuario = 0;
   String loginfotolink = '';
   String senha = '';
+  bool pwdremember = false;
   String apitoken = '';
   String empresalogolink = '';
   String celular = '';
@@ -141,6 +142,7 @@ class DBCount{
     codloja = map[codlojaColumn];
     login = map[loginColumn];
     senha = map[senhaColumn];
+    pwdremember = (map[pwdrememberColumn] ?? "N") == 'S';
     apitoken = map[apitokenColumn];
     empresalogolink = map[empresalogolinkColumn];
     loginfotolink = map[loginfotolinkColumn];
@@ -158,6 +160,7 @@ class DBCount{
       codusuarioColumn: codusuario,
       loginfotolinkColumn : loginfotolink,
       senhaColumn: senha,
+      pwdrememberColumn: pwdremember ? 'S' : 'N',
       apitokenColumn: apitoken,
       empresalogolinkColumn: empresalogolink,
       celularColumn : celular,
