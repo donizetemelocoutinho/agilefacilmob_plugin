@@ -16,6 +16,7 @@ final String jusuarioColumn = "J_USUARIO";
 final String jlojaColumn = "J_LOJA";
 final String celularColumn = "CELULAR";
 final String descricaoColumn = "DESCRICAO";
+final String pwdrememberColumn = "PWD_REMEMBER";
 
 class DBCountsHelper{
 
@@ -37,6 +38,15 @@ class DBCountsHelper{
         "$descricaoColumn TEXT,"
         "$jlojaColumn TEXT)";
   }
+
+  /*
+  String AddPWD_REMEMBER(String TableName, String ColumneName) async {
+    var dbClient = await db;
+    var count = await dbClient.execute("ALTER TABLE $TableName ADD "
+        "COLUMN $ColumneName TEXT;");
+    print(await dbClient.query(TABLE_CUSTOMER));
+    return count;
+  }*/
 
   Future<DBCount> save(DBCount count) async {
     Database d = await DBHelper().db;
