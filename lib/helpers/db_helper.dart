@@ -28,7 +28,7 @@ class DBHelper{
           onUpgrade: (Database db, int oldVersion, int newVersion) async {
             if (oldVersion == 1) {
               db.execute(DBCountsHelper().toScriptAddPwdRemember());
-              print('Upgrade database to version 2');
+              db.execute('UPDATE COUNTS SET SENHA = NULL');
             }
           }
         );

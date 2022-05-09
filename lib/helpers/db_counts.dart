@@ -153,8 +153,6 @@ class DBCount{
     loja = convert.jsonDecode(map[jlojaColumn]);
     celular = map[celularColumn];
     descricao = map[descricaoColumn];
-
-    print('listMap:' + convert.jsonEncode(map));
   }
 
   Map<String, Object?> toMap(){
