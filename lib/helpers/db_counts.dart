@@ -152,6 +152,7 @@ class DBCount{
     empresalogolink = map[empresalogolinkColumn];
     loginfotolink = map[loginfotolinkColumn];
     usuario = convert.jsonDecode(map[jusuarioColumn]);
+
     loja = convert.jsonDecode(map[jlojaColumn]);
     celular = map[celularColumn];
     descricao = map[descricaoColumn];
