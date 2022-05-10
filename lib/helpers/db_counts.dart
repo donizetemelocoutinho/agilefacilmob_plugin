@@ -165,7 +165,7 @@ class DBCount{
       codusuarioColumn: codusuario,
       loginfotolinkColumn : loginfotolink,
       senhaColumn: senha,
-      pwdrememberColumn: pwdremember ? 'S' : 'N',
+      pwdrememberColumn: pwdremember ? 'N' : 'S',
       apitokenColumn: apitoken,
       empresalogolinkColumn: empresalogolink,
       celularColumn : celular,
