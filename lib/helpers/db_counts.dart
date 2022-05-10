@@ -20,7 +20,7 @@ final String pwdrememberColumn = "PWD_REMEMBER";
 
 class DBCountsHelper{
 
-  Database? _db;
+  late Database _db;
 
   String toScript(){
     return "CREATE TABLE $table("
