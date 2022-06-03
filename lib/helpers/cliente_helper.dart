@@ -156,7 +156,7 @@ import 'api_helper.dart';
 
   }
 
-  class ClienteListItem{
+  class ClienteListItem {
     int codpessoa = 0;
     String guid = "";
     int codigo = 0;
@@ -172,12 +172,13 @@ import 'api_helper.dart';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;
+    List<Receber>? receber;
 
     ClienteListItem();
 
     ClienteListItem.fromMap(Map map){
       codpessoa = map['codpessoa'] ?? 0;
-      guid = map['guid'] ??  "";
+      guid = map['guid'] ?? "";
       codigo = map['codigo'] ?? 0;
       tipo = map['tipo'] ?? "";
       status = map['status'] ?? 0;
@@ -191,5 +192,164 @@ import 'api_helper.dart';
       contato = ClienteListItemContato.fromMap(map['contato']);
       endereco = Endereco.fromMap(map['endereco']);
       credito = ClienteListItemCredito.fromMap(map['credito']);
+      if (map['receber'] != null) {
+        receber = <Receber>[];
+        map['receber'].forEach((v) {
+          receber!.add(Receber.fromMap(v));
+        });
+      }
+    }
+  }
+
+  class Receber {
+    int? totalCount;
+    int? totalValor;
+    int? vencidoCount;
+    int? vencidoTotal;
+    List<Titulos>? titulos;
+
+    Receber({this.totalCount,
+      this.totalValor,
+      this.vencidoCount,
+      this.vencidoTotal,
+      this.titulos
+    });
+
+    Receber.fromMap(Map<String, dynamic> map) {
+      totalCount = map['total_count'];
+      totalValor = map['total_valor'];
+      vencidoCount = map['vencido_count'];
+      vencidoTotal = map['vencido_total'];
+      if (map['titulos'] != null) {
+        titulos = <Titulos>[];
+        map['titulos'].forEach((v) {
+          titulos!.add(Titulos.fromMap(v));
+        });
+      }
+    }
+
+    Map<String, dynamic> toMap() {
+      final map = <String, dynamic>{
+        'total_count': this.totalCount,
+        'total_valor': this.totalValor,
+        'vencido_count': this.vencidoCount,
+        'vencido_total': this.vencidoTotal,
+        if (this.titulos != null)
+          'titulos': this.titulos!.map((v) => v.toMap()).toList(),
+      };
+      return map;
+    }
+  }
+
+  class Titulos {
+    int? codtitulo;
+    int? codloja;
+    String? numerodoc;
+    Data? data;
+    Valor? valor;
+    int? diasatraso;
+    String? pgto;
+    String? usuario;
+    String? descricao;
+    String? planocontas;
+
+    Titulos({this.codtitulo,
+      this.codloja,
+      this.numerodoc,
+      this.data,
+      this.valor,
+      this.diasatraso,
+      this.pgto,
+      this.usuario,
+      this.descricao,
+      this.planocontas});
+
+    Titulos.fromMap(Map<String, dynamic> json) {
+      codtitulo = json['codtitulo'];
+      codloja = json['codloja'];
+      numerodoc = json['numerodoc'];
+      data = json['data'] != null ? new Data.fromMap(json['data']) : null;
+      valor = json['valor'] != null ? new Valor.fromMap(json['valor']) : null;
+      diasatraso = json['diasatraso'];
+      pgto = json['pgto'];
+      usuario = json['usuario'];
+      descricao = json['descricao'];
+      planocontas = json['planocontas'];
+    }
+
+
+    Map<String, dynamic> toMap() {
+      final map = <String, dynamic>{
+      'codtitulo' : this.codtitulo,
+      'codloja' : this.codloja,
+      'numerodoc' : this.numerodoc,
+      if (this.data != null)
+      'data' : this.data!.toMap(),
+
+      if (this.valor != null)
+      'valor' : this.valor!.toMap(),
+
+      'diasatraso' : this.diasatraso,
+      'pgto' : this.pgto,
+      'usuario' : this.usuario,
+      'descricao' : this.descricao,
+      'planocontas' : this.planocontas,
+      };
+      return map;
+    }
+  }
+
+  class Data {
+    String? digitacao;
+    String? emissao;
+    String? vencimento;
+    String? ultimopagamento;
+
+    Data({this.digitacao, this.emissao, this.vencimento, this.ultimopagamento});
+
+    Data.fromMap(Map<String, dynamic> map) {
+      digitacao = map['digitacao'];
+      emissao = map['emissao'];
+      vencimento = map['vencimento'];
+      ultimopagamento = map['ultimopagamento'];
+    }
+
+    Map<String, dynamic> toMap() {
+      final map = <String, dynamic>{
+      'digitacao' : this.digitacao,
+      'emissao' : this.emissao,
+      'vencimento' : this.vencimento,
+      'ultimopagamento' : this.ultimopagamento,
+      };
+      return map;
+    }
+  }
+
+  class Valor {
+    String? nominal;
+    String? restante;
+    int? juro;
+    int? multa;
+    String? atual;
+
+    Valor({this.nominal, this.restante, this.juro, this.multa, this.atual});
+
+    Valor.fromMap(Map<String, dynamic> map) {
+      nominal = map['nominal'];
+      restante = map['restante'];
+      juro = map['juro'];
+      multa = map['multa'];
+      atual = map['atual'];
+    }
+
+    Map<String, dynamic> toMap() {
+      final map = <String, dynamic>{
+      'nominal' : this.nominal,
+      'restante' : this.restante,
+      'juro' : this.juro,
+      'multa' : this.multa,
+      'atual' : this.atual,
+      };
+      return map;
     }
   }
