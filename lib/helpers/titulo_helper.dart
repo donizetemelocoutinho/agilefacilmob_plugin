@@ -9,11 +9,16 @@ import 'api_helper.dart';
       return version;
     }
 
-    Future<Map> getList({required int codloja, required int? tipo, DateTime? inicio, DateTime? fim, required bool cancelado, required int? periodo, required int? codcliente, required int startrow, required String api_token,}) async {
+    Future<List> getList({required int codloja, required int? tipo, DateTime? inicio, DateTime? fim, required bool cancelado, required int? periodo, required int? codcliente, required int startrow, required String api_token,}) async {
       ApiHelper api = ApiHelper();
-      return await api.get("titulo/list",params: {"codloja": codloja.toString(), "tipo": tipo, "periodo": periodo, "codcliente": codcliente.toString(), "startrow": startrow.toString(),
-        "cancelado": cancelado ? "S" : "N", "api_token": api_token});
 
+      Map<String, dynamic> _params ={"codloja": codloja.toString(), "tipo": tipo, "periodo": periodo, "codcliente": codcliente.toString(), "startrow": startrow.toString(),
+        "cancelado": cancelado ? "S" : "N", "api_token": api_token};
+
+      List<dynamic> _result = await api.get("titulo/list",params: _params);
+      print(_result);
+
+      return _result;
     }
 
   }
