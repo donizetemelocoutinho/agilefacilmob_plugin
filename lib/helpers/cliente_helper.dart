@@ -203,9 +203,9 @@ import 'api_helper.dart';
 
   class Receber {
     int? totalCount;
-    int? totalValor;
+    double? totalValor;
     int? vencidoCount;
-    int? vencidoTotal;
+    double? vencidoTotal;
     List<Titulos>? titulos;
 
     Receber({this.totalCount,
@@ -217,9 +217,9 @@ import 'api_helper.dart';
 
     Receber.fromMap(Map<String, dynamic> map) {
       totalCount = map['total_count'] ?? 0;
-      totalValor = map['total_valor'] ?? 0;
+      totalValor = double.parse(map['total_valor'] ?? 0);
       vencidoCount = map['vencido_count'] ?? 0;
-      vencidoTotal = map['vencido_total'] ?? 0;
+      vencidoTotal = double.parse(map['vencido_total'] ?? 0);
       if (map['titulos'] != null) {
         titulos = <Titulos>[];
         map['titulos'].forEach((v) {
@@ -326,20 +326,20 @@ import 'api_helper.dart';
   }
 
   class Valor {
-    String? nominal;
-    String? restante;
+    double? nominal;
+    double? restante;
     int? juro;
     int? multa;
-    String? atual;
+    double? atual;
 
     Valor({this.nominal, this.restante, this.juro, this.multa, this.atual});
 
     Valor.fromMap(Map<String, dynamic> map) {
-      nominal = map['nominal'];
-      restante = map['restante'];
-      juro = map['juro'];
-      multa = map['multa'];
-      atual = map['atual'];
+      nominal = double.parse(map['nominal'] ?? 0);
+      restante = double.parse(map['restante'] ?? 0);
+      juro = map['juro'] ?? 0;
+      multa = map['multa'] ?? 0;
+      atual = double.parse(map['atual'] ?? 0);
     }
 
     Map<String, dynamic> toMap() {
