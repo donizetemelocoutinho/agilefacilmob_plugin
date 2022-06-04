@@ -216,10 +216,10 @@ import 'api_helper.dart';
     });
 
     Receber.fromMap(Map<String, dynamic> map) {
-      totalCount = map['total_count'];
-      totalValor = map['total_valor'];
-      vencidoCount = map['vencido_count'];
-      vencidoTotal = map['vencido_total'];
+      totalCount = map['total_count'] ?? 0;
+      totalValor = map['total_valor'] ?? 0;
+      vencidoCount = map['vencido_count'] ?? 0;
+      vencidoTotal = map['vencido_total'] ?? 0;
       if (map['titulos'] != null) {
         titulos = <Titulos>[];
         map['titulos'].forEach((v) {
@@ -264,17 +264,17 @@ import 'api_helper.dart';
       this.descricao,
       this.planocontas});
 
-    Titulos.fromMap(Map<String, dynamic> json) {
-      codtitulo = json['codtitulo'];
-      codloja = json['codloja'];
-      numerodoc = json['numerodoc'];
-      data = json['data'] != null ? new Data.fromMap(json['data']) : null;
-      valor = json['valor'] != null ? new Valor.fromMap(json['valor']) : null;
-      diasatraso = json['diasatraso'];
-      pgto = json['pgto'];
-      usuario = json['usuario'];
-      descricao = json['descricao'];
-      planocontas = json['planocontas'];
+    Titulos.fromMap(Map<String, dynamic> map) {
+      codtitulo = map['codtitulo'];
+      codloja = map['codloja'];
+      numerodoc = map['numerodoc'];
+      data = map['data'] != null ? new Data.fromMap(map['data']) : null;
+      valor = map['valor'] != null ? new Valor.fromMap(map['valor']) : null;
+      diasatraso = map['diasatraso'];
+      pgto = map['pgto'];
+      usuario = map['usuario'];
+      descricao = map['descricao'];
+      planocontas = map['planocontas'];
     }
 
 
