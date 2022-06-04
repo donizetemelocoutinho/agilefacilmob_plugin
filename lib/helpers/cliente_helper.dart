@@ -172,7 +172,7 @@ import 'api_helper.dart';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;
-    List<Receber>? receber;
+    List<Receber> receber = [];
 
     ClienteListItem();
 
