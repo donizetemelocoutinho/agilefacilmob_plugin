@@ -219,7 +219,7 @@ import 'api_helper.dart';
       totalCount = map['total_count'] ?? 0;
       totalValor = map['total_valor'].toInt();
       vencidoCount = map['vencido_count'] ?? 0;
-      vencidoTotal = map['vencido_total'] ?? 0;
+      vencidoTotal = map['vencido_total'].toInt();
       if (map['titulos'] != null) {
         titulos = <Titulos>[];
         map['titulos'].forEach((v) {
