@@ -203,9 +203,9 @@ import 'api_helper.dart';
 
   class Receber {
     int? totalCount;
-    String? totalValor;
-    String? vencidoCount;
-    String? vencidoTotal;
+    int? totalValor;
+    int? vencidoCount;
+    int? vencidoTotal;
     List<Titulos>? titulos;
 
     Receber({this.totalCount,
