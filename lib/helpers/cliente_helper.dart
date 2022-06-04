@@ -203,9 +203,9 @@ import 'api_helper.dart';
 
   class Receber {
     int? totalCount;
-    double? totalValor;
+    int? totalValor;
     int? vencidoCount;
-    double? vencidoTotal;
+    int? vencidoTotal;
     List<Titulos>? titulos;
 
     Receber({this.totalCount,
@@ -217,7 +217,7 @@ import 'api_helper.dart';
 
     Receber.fromMap(Map<String, dynamic> map) {
       totalCount = map['total_count'] ?? 0;
-      totalValor = map['total_valor'] ?? 0;
+      totalValor = int.parse(map['total_valor'] ?? 0).toInt();
       vencidoCount = map['vencido_count'] ?? 0;
       vencidoTotal = map['vencido_total'] ?? 0;
       if (map['titulos'] != null) {
