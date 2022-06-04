@@ -195,7 +195,7 @@ import 'api_helper.dart';
       if (map['receber'] != null) {
         receber = <Receber>[];
         map['receber'].forEach((v) {
-          receber!.add(Receber.fromMap(v));
+          receber.add(Receber.fromMap(v));
         });
       }
     }
