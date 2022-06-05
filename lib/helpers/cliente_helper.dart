@@ -172,7 +172,7 @@ import 'api_helper.dart';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;
-    List<Receber>? receber;
+    late List<Receber> receber;
 
     ClienteListItem();
 
@@ -195,7 +195,7 @@ import 'api_helper.dart';
       if (map['receber'] != null) {
         receber = <Receber>[];
         map['receber'].forEach((v) {
-          receber!.add(Receber.fromMap(v));
+          receber.add(Receber.fromMap(v));
         });
       }
     }
