@@ -172,7 +172,7 @@ import 'api_helper.dart';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;
-    late List<Receber> receber = [];
+    List<Receber> receber = [];
 
     ClienteListItem();
 
@@ -203,13 +203,15 @@ import 'api_helper.dart';
 
   class Receber {
     int? totalCount;
-    int totalValor = 0;
+    int? totalValor;
     int? vencidoCount;
-    int vencidoTotal = 0;
+    int? vencidoTotal;
     List<Titulos>? titulos;
 
     Receber({this.totalCount,
+      this.totalValor,
       this.vencidoCount,
+      this.vencidoTotal,
       this.titulos
     });
 
