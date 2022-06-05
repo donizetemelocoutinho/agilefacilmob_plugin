@@ -217,9 +217,9 @@ import 'api_helper.dart';
 
     Receber.fromMap(Map<String, dynamic> map) {
       totalCount = map['total_count'] ?? 0;
-      totalValor = map['total_valor'].toInt();
+      totalValor = map['total_valor'].toInt() ?? 0;
       vencidoCount = map['vencido_count'] ?? 0;
-      vencidoTotal = map['vencido_total'].toInt();
+      vencidoTotal = map['vencido_total'].toInt() ?? 0;
       if (map['titulos'] != null) {
         titulos = <Titulos>[];
         map['titulos'].forEach((v) {
