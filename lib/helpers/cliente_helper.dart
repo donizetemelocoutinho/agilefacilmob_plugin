@@ -172,7 +172,7 @@ import 'api_helper.dart';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;
-    List<Receber> receber = [];
+    List<Receber>? receber;
 
     ClienteListItem();
 
@@ -195,11 +195,41 @@ import 'api_helper.dart';
       if (map['receber'] != null) {
         receber = <Receber>[];
         map['receber'].forEach((v) {
-          receber.add(Receber.fromMap(v));
+          receber!.add(Receber.fromMap(v));
         });
       }
     }
+
+    Map<String, dynamic> toMap() {
+      final map = <String, dynamic>{
+      'codpessoa' : codpessoa,
+      'guid' : guid,
+      'codigo' : codigo,
+      'tipo' : tipo,
+      'status' : status,
+      if (credito != null)
+        'credito' : credito,
+
+      'nome' : nome,
+      'razao' : razao,
+      'cpfcnpj' : cpfcnpj,
+      'tipoie' : tipoie,
+      'ie' : ie,
+      'foto' : foto,
+      'sexo' : sexo,
+      if (contato != null)
+        'contato' : contato,
+
+      if (endereco != null)
+        'endereco' : endereco,
+
+      if (receber != null)
+        'receber' : receber!.map((v) => v.toMap()).toList(),
+      };
+      return map;
+    }
   }
+
 
   class Receber {
     int? totalCount;
