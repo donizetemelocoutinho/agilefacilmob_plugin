@@ -172,7 +172,7 @@ import 'api_helper.dart';
     late ClienteListItemContato contato;
     Endereco endereco = Endereco();
     late ClienteListItemCredito credito;
-    List<Receber>? receber;
+    late ReceberListItem receber;
 
     ClienteListItem();
 
@@ -192,13 +192,7 @@ import 'api_helper.dart';
       contato = ClienteListItemContato.fromMap(map['contato']);
       endereco = Endereco.fromMap(map['endereco']);
       credito = ClienteListItemCredito.fromMap(map['credito']);
-
-      if (map['receber'] != null) {
-        receber = <Receber>[];
-        map['receber'].forEach((v) {
-          receber!.add(Receber.fromMap(v));
-        });
-      }
+      receber = ReceberListItem.fromMap(map['receber']);
     }
 
     Map<String, dynamic> toMap() {
@@ -225,28 +219,28 @@ import 'api_helper.dart';
         'endereco' : endereco,
 
       if (receber != null)
-        'receber' : receber!.map((v) => v.toMap()).toList(),
+        'receber' : receber,
       };
       return map;
     }
 
   }
 
-  class Receber {
+  class ReceberListItem {
     int totalCount = 0;
     double totalValor = 0.00;
     int vencidoCount = 0;
     double vencidoTotal = 0.00;
     List<Titulos>? titulos;
 
-    Receber({required this.totalCount,
+    ReceberListItem({required this.totalCount,
       required this.totalValor,
       required this.vencidoCount,
       required this.vencidoTotal,
       this.titulos
     });
 
-    Receber.fromMap(Map<String, dynamic> map) {
+    ReceberListItem.fromMap(Map<String, dynamic> map) {
       totalCount = map['total_count'] ?? 0;
       totalValor = double.parse(map['total_valor'].toString());
       vencidoCount = map['vencido_count'] ?? 0;
