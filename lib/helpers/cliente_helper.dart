@@ -193,19 +193,19 @@ import 'api_helper.dart';
       endereco = Endereco.fromMap(map['endereco']);
       credito = ClienteListItemCredito.fromMap(map['credito']);
 
-      // if (map['receber'] != null) {
-      //   receber = <Receber>[];
-      //   map['receber'].forEach((v) {
-      //     receber!.add(Receber.fromMap(v));
-      //   });
-      // }
-
-      List m_receber = map['receber'];
-      if(m_receber != null){
-        for (int i = 0; i < m_receber.length; i++){
-          receber!.add(Receber.fromMap(m_receber[i]));
-        }
+      if (map['receber'] != null) {
+        receber = <Receber>[];
+        map['receber'].forEach((v) {
+          receber!.add(Receber.fromMap(v));
+        });
       }
+
+      // List m_receber = map['receber'];
+      // if(m_receber != null){
+      //   for (int i = 0; i < m_receber.length; i++){
+      //     receber!.add(Receber.fromMap(m_receber[i]));
+      //   }
+      // }
 
     }
 
@@ -238,13 +238,13 @@ import 'api_helper.dart';
     //   return map;
     // }
 
-    List<Receber> getItensReceber(){
-      List<Receber> itens = [];
-      for (int i = 0; i < receber!.length; i++) {
-          itens.add(receber![i]);
-      }
-      return itens;
-    }
+    // List<Receber> getItensReceber(){
+    //   List<Receber> itens = [];
+    //   for (int i = 0; i < receber!.length; i++) {
+    //       itens.add(receber![i]);
+    //   }
+    //   return itens;
+    // }
 
   }
 
