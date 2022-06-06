@@ -199,47 +199,38 @@ import 'api_helper.dart';
           receber!.add(Receber.fromMap(v));
         });
       }
-
-      // List m_receber = map['receber'];
-      // if(m_receber != null){
-      //   for (int i = 0; i < m_receber.length; i++){
-      //     receber!.add(Receber.fromMap(m_receber[i]));
-      //   }
-      // }
-
     }
 
-    // Map<String, dynamic> toMap() {
-    //   final map = <String, dynamic>{
-    //   'codpessoa' : codpessoa,
-    //   'guid' : guid,
-    //   'codigo' : codigo,
-    //   'tipo' : tipo,
-    //   'status' : status,
-    //   if (credito != null)
-    //     'credito' : credito,
-    //
-    //   'nome' : nome,
-    //   'razao' : razao,
-    //   'cpfcnpj' : cpfcnpj,
-    //   'tipoie' : tipoie,
-    //   'ie' : ie,
-    //   'foto' : foto,
-    //   'sexo' : sexo,
-    //   if (contato != null)
-    //     'contato' : contato,
-    //
-    //   if (endereco != null)
-    //     'endereco' : endereco,
-    //
-    //   if (receber != null)
-    //     'receber' : receber!.map((v) => v.toMap()).toList(),
-    //   };
-    //   return map;
-    // }
+    Map<String, dynamic> toMap() {
+      final map = <String, dynamic>{
+      'codpessoa' : codpessoa,
+      'guid' : guid,
+      'codigo' : codigo,
+      'tipo' : tipo,
+      'status' : status,
+      if (credito != null)
+        'credito' : credito,
+
+      'nome' : nome,
+      'razao' : razao,
+      'cpfcnpj' : cpfcnpj,
+      'tipoie' : tipoie,
+      'ie' : ie,
+      'foto' : foto,
+      'sexo' : sexo,
+      if (contato != null)
+        'contato' : contato,
+
+      if (endereco != null)
+        'endereco' : endereco,
+
+      if (receber != null)
+        'receber' : receber!.map((v) => v.toMap()).toList(),
+      };
+      return map;
+    }
 
   }
-
 
   class Receber {
     int? totalCount;
