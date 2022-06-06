@@ -192,42 +192,60 @@ import 'api_helper.dart';
       contato = ClienteListItemContato.fromMap(map['contato']);
       endereco = Endereco.fromMap(map['endereco']);
       credito = ClienteListItemCredito.fromMap(map['credito']);
-      if (map['receber'] != null) {
-        receber = <Receber>[];
-        map['receber'].forEach((v) {
-          receber!.add(Receber.fromMap(v));
-        });
+
+      // if (map['receber'] != null) {
+      //   receber = <Receber>[];
+      //   map['receber'].forEach((v) {
+      //     receber!.add(Receber.fromMap(v));
+      //   });
+      // }
+
+      List m_receber = map['receber'];
+      if(m_receber != null){
+        for (int i = 0; i < m_receber.length; i++){
+          receber!.add(Receber.fromMap(m_receber[i]));
+        }
       }
+
     }
 
-    Map<String, dynamic> toMap() {
-      final map = <String, dynamic>{
-      'codpessoa' : codpessoa,
-      'guid' : guid,
-      'codigo' : codigo,
-      'tipo' : tipo,
-      'status' : status,
-      if (credito != null)
-        'credito' : credito,
+    // Map<String, dynamic> toMap() {
+    //   final map = <String, dynamic>{
+    //   'codpessoa' : codpessoa,
+    //   'guid' : guid,
+    //   'codigo' : codigo,
+    //   'tipo' : tipo,
+    //   'status' : status,
+    //   if (credito != null)
+    //     'credito' : credito,
+    //
+    //   'nome' : nome,
+    //   'razao' : razao,
+    //   'cpfcnpj' : cpfcnpj,
+    //   'tipoie' : tipoie,
+    //   'ie' : ie,
+    //   'foto' : foto,
+    //   'sexo' : sexo,
+    //   if (contato != null)
+    //     'contato' : contato,
+    //
+    //   if (endereco != null)
+    //     'endereco' : endereco,
+    //
+    //   if (receber != null)
+    //     'receber' : receber!.map((v) => v.toMap()).toList(),
+    //   };
+    //   return map;
+    // }
 
-      'nome' : nome,
-      'razao' : razao,
-      'cpfcnpj' : cpfcnpj,
-      'tipoie' : tipoie,
-      'ie' : ie,
-      'foto' : foto,
-      'sexo' : sexo,
-      if (contato != null)
-        'contato' : contato,
-
-      if (endereco != null)
-        'endereco' : endereco,
-
-      if (receber != null)
-        'receber' : receber!.map((v) => v.toMap()).toList(),
-      };
-      return map;
+    List<Receber> getItensReceber(){
+      List<Receber> itens = [];
+      for (int i = 0; i < receber!.length; i++) {
+          itens.add(receber![i]);
+      }
+      return itens;
     }
+
   }
 
 
