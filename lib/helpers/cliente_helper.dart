@@ -325,18 +325,18 @@ import 'api_helper.dart';
   }
 
   class Data {
-    String? digitacao;
-    String? emissao;
-    String? vencimento;
-    String? ultimopagamento;
+    DateTime? digitacao;
+    DateTime? emissao;
+    DateTime? vencimento;
+    DateTime? ultimopagamento;
 
     Data({this.digitacao, this.emissao, this.vencimento, this.ultimopagamento});
 
     Data.fromMap(Map<String, dynamic> map) {
-      digitacao = map['digitacao'];
-      emissao = map['emissao'];
-      vencimento = map['vencimento'];
-      ultimopagamento = map['ultimopagamento'];
+      digitacao = DateTime.parse(map['digitacao']);
+      emissao = DateTime.parse(map['emissao']);
+      vencimento = DateTime.parse(map['vencimento']);
+      ultimopagamento = DateTime.parse(map['ultimopagamento']);
     }
 
     Map<String, dynamic> toMap() {
