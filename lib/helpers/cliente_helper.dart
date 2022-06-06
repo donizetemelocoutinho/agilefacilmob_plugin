@@ -333,10 +333,10 @@ import 'api_helper.dart';
     Data({this.digitacao, this.emissao, this.vencimento, this.ultimopagamento});
 
     Data.fromMap(Map<String, dynamic> map) {
-      digitacao = DateTime.parse(map['digitacao']);
-      emissao = DateTime.parse(map['emissao']);
-      vencimento = DateTime.parse(map['vencimento']);
-      ultimopagamento = DateTime.parse(map['ultimopagamento']);
+      digitacao = DateTime.tryParse(map['digitacao']);
+      emissao = DateTime.tryParse(map['emissao']);
+      vencimento = DateTime.tryParse(map['vencimento']);
+      ultimopagamento = DateTime.tryParse(map['ultimopagamento']);
     }
 
     Map<String, dynamic> toMap() {
