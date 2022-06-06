@@ -238,14 +238,6 @@ import 'api_helper.dart';
     //   return map;
     // }
 
-    // List<Receber> getItensReceber(){
-    //   List<Receber> itens = [];
-    //   for (int i = 0; i < receber!.length; i++) {
-    //       itens.add(receber![i]);
-    //   }
-    //   return itens;
-    // }
-
   }
 
 
