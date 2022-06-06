@@ -233,24 +233,24 @@ import 'api_helper.dart';
   }
 
   class Receber {
-    int? totalCount;
-    int? totalValor;
-    int? vencidoCount;
-    int? vencidoTotal;
+    int totalCount = 0;
+    double totalValor = 0.00;
+    int vencidoCount = 0;
+    double vencidoTotal = 0.00;
     List<Titulos>? titulos;
 
-    Receber({this.totalCount,
-      this.totalValor,
-      this.vencidoCount,
-      this.vencidoTotal,
+    Receber({required this.totalCount,
+      required this.totalValor,
+      required this.vencidoCount,
+      required this.vencidoTotal,
       this.titulos
     });
 
     Receber.fromMap(Map<String, dynamic> map) {
       totalCount = map['total_count'] ?? 0;
-      totalValor = map['total_valor'].toInt() ?? 0;
+      totalValor = double.parse(map['total_valor'].toString());
       vencidoCount = map['vencido_count'] ?? 0;
-      vencidoTotal = map['vencido_total'].toInt() ?? 0;
+      vencidoTotal = double.parse(map['vencido_total'].toString());
       if (map['titulos'] != null) {
         titulos = <Titulos>[];
         map['titulos'].forEach((v) {
@@ -357,20 +357,20 @@ import 'api_helper.dart';
   }
 
   class Valor {
-    double? nominal;
-    double? restante;
-    int? juro;
-    int? multa;
-    double? atual;
+    double nominal = 0.00;
+    double restante = 0.00;
+    double juro = 0.00;
+    double multa = 0.00;
+    double atual = 0.00;
 
-    Valor({this.nominal, this.restante, this.juro, this.multa, this.atual});
+    Valor({required this.nominal,required this.restante,required this.juro,required this.multa, required this.atual});
 
     Valor.fromMap(Map<String, dynamic> map) {
-      nominal = double.parse(map['nominal'] ?? 0);
-      restante = double.parse(map['restante'] ?? 0);
-      juro = map['juro'] ?? 0;
-      multa = map['multa'] ?? 0;
-      atual = double.parse(map['atual'] ?? 0);
+      nominal = double.parse(map['nominal'].toString());
+      restante = double.parse(map['restante'].toString());
+      juro = double.parse(map['juro'].toString());
+      multa = double.parse(map['multa'].toString());
+      atual = double.parse(map['atual'].toString());
     }
 
     Map<String, dynamic> toMap() {
