@@ -104,7 +104,6 @@ class Helper{
       else if (Platform.isIOS) {
         await launch(appleUrl);
       }
-
   }
 
   static navigateTo(double lat, double lng) async {

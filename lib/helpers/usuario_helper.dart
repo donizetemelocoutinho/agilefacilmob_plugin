@@ -21,10 +21,12 @@ import 'api_helper.dart';
     String fotolink = '';
     String api_token = '';
     int codfuncionario = 0;
+    String printer = "";
+    String printerName = "";
 
     Usuario();
 
-    Usuario.fromMap( Map map){
+    Usuario.fromMap(Map map){
       id = map['id'] ?? 0;
       guid = map['guid'] ?? "";
       codusuario = map['codusuario'] ?? 0;
@@ -43,6 +45,8 @@ import 'api_helper.dart';
       fotolink = map['fotolink'] ?? "";
       api_token = map['api_token'] ?? "";
       codfuncionario = map['codfuncionario'] ?? 0;
+      printer = map['printer'] ?? "";
+      printerName = map['printerName'] ?? "";
     }
   }
 
@@ -84,6 +88,20 @@ import 'api_helper.dart';
       jo['novasenha'] = novasenha;
 
       return await api.post("usuario/updatesenha", jo,params : {"codloja": codloja.toString(),"api_token":api_token});
+    }
+
+    Future<bool> setPrinter({required String printer}) async{
+      Map<String,dynamic> jo = Map();
+      jo['printer'] = printer;
+      Usuario.fromMap(jo);
+      return true;
+    }
+
+    Future<bool> setPrinterName({required String printerName}) async{
+      Map<String,dynamic> jo = Map();
+      jo['printerName'] = printerName;
+      Usuario.fromMap(jo);
+      return true;
     }
 
   }
