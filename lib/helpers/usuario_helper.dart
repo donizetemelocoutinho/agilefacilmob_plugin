@@ -90,18 +90,4 @@ import 'api_helper.dart';
       return await api.post("usuario/updatesenha", jo,params : {"codloja": codloja.toString(),"api_token":api_token});
     }
 
-    Future<bool> setPrinter({required String printer}) async{
-      Map<String,dynamic> jo = Map();
-      jo['printer'] = printer;
-      Usuario.fromMap(jo);
-      return true;
-    }
-
-    Future<bool> setPrinterName({required String printerName}) async{
-      Map<String,dynamic> jo = Map();
-      jo['printerName'] = printerName;
-      Usuario.fromMap(jo);
-      return true;
-    }
-
   }
