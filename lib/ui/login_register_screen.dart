@@ -109,14 +109,14 @@ class _LoginRegisterState extends State<LoginRegister> {
                                 border: OutlineInputBorder(),
                                 icon: Icon(Icons.lock)),
                           )),
-                          FlatButton(
-                              minWidth: 30.0,
+                          TextButton(
+                              //minWidth: 30.0,
                               onPressed: () {
                                 setState(() {
                                   _obscureText = ! _obscureText;
                                 });
                               },
-                              child: Icon(Icons.remove_red_eye))
+                              child: Icon(Icons.remove_red_eye, size: 30.0))
                         ],
                       ),
                       Divider(),
@@ -134,7 +134,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                           padding: EdgeInsets.only(top: 10.0, bottom: 10.0,left: 40.0),
                           child: Container(
                             height: 50.0,
-                            child: RaisedButton(
+                            child: ElevatedButton(
                               onPressed: () async{
                                 /*
                                 ScanResult r = await BarcodeScanner.scan();

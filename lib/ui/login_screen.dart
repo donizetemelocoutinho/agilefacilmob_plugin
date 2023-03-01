@@ -155,8 +155,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: EdgeInsets.only(top: 10.0),
                       child: Container(
                         height: 50.0,
-                        child: RaisedButton(
-                          color: Theme.of(context).primaryColor,
+                        child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).primaryColor),
+                          //color: Theme.of(context).primaryColor,
                           onPressed: (){
                             UsuarioApi u = UsuarioApi();
                             u.Autenticar(_selectedCount.cpfcnpj, _selectedCount.login, _senhaController.text).then((value){
