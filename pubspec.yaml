@@ -1,6 +1,6 @@
 name: agilefacil_mob
 description: Comum para Projetos Agile Fácil
-version: 1.0.1
+version: 1.1.2
 author:
 homepage:
 
@@ -12,19 +12,18 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.4
-  http: ^0.13.4
-  sqflite: ^2.0.0+2
-  url_launcher: ^6.1.0
-  image_picker: ^0.8.4+11
-  uuid: ^3.0.6
-  device_info_plus: 3.2.2
-  package_info_plus: ^1.4.0
-  intl: 0.17.0
-  whatsapp_unilink: ^2.0.1+1
-  geocoding: ^2.0.4
-  #brasil_fields: ^1.5.0
-  brasil_fields: 1.1.2
+  intl: ^0.18.1
+  cupertino_icons: ^1.0.5
+  http: ^1.1.0
+  sqflite: ^2.3.0
+  url_launcher: ^6.1.12
+  image_picker: ^1.0.1
+  uuid: ^3.0.7
+  device_info_plus: ^9.0.2
+  package_info_plus: ^4.0.2
+  whatsapp_unilink: ^2.1.0
+  geocoding: ^2.1.0
+  brasil_fields: ^1.13.1
 
   cpfcnpj:
     git:

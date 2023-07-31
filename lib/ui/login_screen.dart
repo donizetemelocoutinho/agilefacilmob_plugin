@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.all(20.0),child: Icon(Icons.security_sharp,size: 80,color: Theme.of(context).accentColor)),
+                  Padding(padding: EdgeInsets.all(20.0),child: Icon(Icons.security_sharp,size: 80,color: Theme.of(context).colorScheme.secondary)),
                   TextFormField(
                     autofocus: true,
                     obscureText: true,

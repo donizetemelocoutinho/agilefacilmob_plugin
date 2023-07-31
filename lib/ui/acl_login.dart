@@ -317,7 +317,7 @@ class _AclLoginState extends State<AclLogin> {
               controller: _login,
               decoration: InputDecoration(
                 hintText: 'Usuário',
-                suffixIcon: Icon(Icons.person,color: Theme.of(context).accentColor),
+                suffixIcon: Icon(Icons.person,color: Theme.of(context).colorScheme.secondary),
                 border: new OutlineInputBorder(),
                 filled: true,
                 contentPadding: EdgeInsets.only(left: 10),
@@ -332,7 +332,7 @@ class _AclLoginState extends State<AclLogin> {
                 textCapitalization: TextCapitalization.sentences,
                 decoration: InputDecoration(
                   hintText: 'Senha',
-                  suffixIcon: Icon(Icons.lock_outline,color: Theme.of(context).accentColor),
+                  suffixIcon: Icon(Icons.lock_outline,color: Theme.of(context).colorScheme.secondary),
                   border: new OutlineInputBorder(),
                   filled: true,
                   contentPadding: EdgeInsets.only(left: 10),
@@ -347,7 +347,7 @@ class _AclLoginState extends State<AclLogin> {
                 controller: _justificativa,
                 decoration: InputDecoration(
                   hintText: 'Escreva uma justificativa...',
-                  suffixIcon: Icon(Icons.description,color: Theme.of(context).accentColor),
+                  suffixIcon: Icon(Icons.description,color: Theme.of(context).colorScheme.secondary),
                   border: new OutlineInputBorder(),
                   filled: true,
                   contentPadding: EdgeInsets.only(left: 10),
