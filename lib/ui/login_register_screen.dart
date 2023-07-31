@@ -55,17 +55,17 @@ class _LoginRegisterState extends State<LoginRegister> {
     return WillPopScope(
         child: Scaffold(
             appBar: AppBar(title: Text("Registrar Usuário"),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.delete_forever),
-                tooltip: 'Excluir conta',
-                onPressed: () {
-                  DBCountsHelper cr = DBCountsHelper();
-                  cr.delete(_editedCount.id);
-                  Navigator.pop(context);
-                },
-              ),
-            ],),
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.delete_forever),
+                  tooltip: 'Excluir conta',
+                  onPressed: () {
+                    DBCountsHelper cr = DBCountsHelper();
+                    cr.delete(_editedCount.id);
+                    Navigator.pop(context);
+                  },
+                ),
+              ],),
             floatingActionButton: FloatingActionButton(
               onPressed: () {
                 _salvar();
@@ -97,20 +97,20 @@ class _LoginRegisterState extends State<LoginRegister> {
                         children: <Widget>[
                           Expanded(
                               child: TextFormField(
-                            obscureText: _obscureText,
-                            obscuringCharacter: "*",
-                            controller: _senhaController,
-                            validator: (value){
-                              if (value == null || value.isEmpty)
-                                return "Preencha a Senha...";
-                            },
-                            decoration: InputDecoration(
-                                labelText: "Senha",
-                                border: OutlineInputBorder(),
-                                icon: Icon(Icons.lock)),
-                          )),
+                                obscureText: _obscureText,
+                                obscuringCharacter: "*",
+                                controller: _senhaController,
+                                validator: (value){
+                                  if (value == null || value.isEmpty)
+                                    return "Preencha a Senha...";
+                                },
+                                decoration: InputDecoration(
+                                    labelText: "Senha",
+                                    border: OutlineInputBorder(),
+                                    icon: Icon(Icons.lock)),
+                              )),
                           TextButton(
-                              //minWidth: 30.0,
+                            //minWidth: 30.0,
                               onPressed: () {
                                 setState(() {
                                   _obscureText = ! _obscureText;
@@ -123,11 +123,11 @@ class _LoginRegisterState extends State<LoginRegister> {
                       buildeTextField("Celular",controller: _celularController,
                           icon: Icons.phone, keyboardType: TextInputType.phone,
                           onValidate: (value) {
-                        if (value == null || value.isEmpty)
-                          return "Preencha o celular!";
-                        else if (value.length < 10 || value.length > 11)
-                          return "Informe um celular com DDD correto";
-                      }),
+                            if (value == null || value.isEmpty)
+                              return "Preencha o celular!";
+                            else if (value.length < 10 || value.length > 11)
+                              return "Informe um celular com DDD correto";
+                          }),
                       Divider(),
                       buildeTextField("Descrição", controller: _descricaoController,icon: Icons.description),
                       Padding(
@@ -189,22 +189,22 @@ class _LoginRegisterState extends State<LoginRegister> {
   }
 
   Widget buildeTextField(String label, {String ?prefix, TextEditingController ?controller,
-      TextInputType ?keyboardType, Function(dynamic) ?onChanged, FocusNode ?focus,
-      FormFieldValidator<String>? onValidate, bool ?pwd, IconData ?icon}) {
+    TextInputType ?keyboardType, Function(dynamic) ?onChanged, FocusNode ?focus,
+    FormFieldValidator<String>? onValidate, bool ?pwd, IconData ?icon}) {
     Icon ?i;
     if (icon != null) i = Icon(icon);
 
     return TextFormField(
-      decoration: InputDecoration(
-          labelText: label,
-          border: OutlineInputBorder(),
-          prefixText: prefix,
-          icon: i),
-      controller: controller,
-      focusNode: focus,
-      keyboardType: keyboardType,
-      onChanged: onChanged,
-      validator: onValidate
+        decoration: InputDecoration(
+            labelText: label,
+            border: OutlineInputBorder(),
+            prefixText: prefix,
+            icon: i),
+        controller: controller,
+        focusNode: focus,
+        keyboardType: keyboardType,
+        onChanged: onChanged,
+        validator: onValidate
     );
   }
 }

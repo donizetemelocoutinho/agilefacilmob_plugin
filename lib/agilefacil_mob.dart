@@ -10,6 +10,4 @@ class AgilefacilMob {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
-
-
 }

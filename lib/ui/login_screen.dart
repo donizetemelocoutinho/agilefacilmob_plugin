@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.all(20.0),child: Icon(Icons.security_sharp,size: 80,color: Theme.of(context).colorScheme.secondary)),
+                  Padding(padding: EdgeInsets.all(20.0),child: Icon(Icons.security_sharp,size: 80,color: Theme.of(context).primaryColor)),
                   TextFormField(
                     autofocus: true,
                     obscureText: true,
@@ -155,11 +155,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: EdgeInsets.only(top: 10.0),
                       child: Container(
                         height: 50.0,
-                        child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).primaryColor),
-                          //color: Theme.of(context).primaryColor,
-                          onPressed: (){
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Theme.of(context).primaryColor,
+                          ),
+                          onPressed: () {
                             UsuarioApi u = UsuarioApi();
-                            u.Autenticar(_selectedCount.cpfcnpj, _selectedCount.login, _senhaController.text).then((value){
+                            u.Autenticar(_selectedCount.cpfcnpj, _selectedCount.login, _senhaController.text).then((value) {
                               //print("Retorno...: $value");
 
                               if (value["id"] == 0) {
@@ -170,15 +172,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                 if (widget.route != null)
                                   Navigator.pushReplacementNamed(context, widget.route);
-                              }
-                              else {
+                              } else {
                                 Navigator.pop(context);
-                                SnackBar snackBar = SnackBar(content: Text(value["msg"],style: TextStyle(fontSize: 15.0)),backgroundColor: Colors.red,duration: Duration(seconds: 5));
+                                SnackBar snackBar = SnackBar(
+                                  content: Text(value["msg"], style: TextStyle(fontSize: 15.0)),
+                                  backgroundColor: Colors.red,
+                                  duration: Duration(seconds: 5),
+                                );
                                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
                               }
                             });
                           },
-                          child: Text("Entrar",style: TextStyle(color: Colors.white)),
+                          child: Text("Entrar", style: TextStyle(color: Colors.white)),
                         ),
                       ))
                 ]),
