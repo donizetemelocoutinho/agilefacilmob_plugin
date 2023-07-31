@@ -15,7 +15,7 @@ class DavApi {
   }
 
   Future<Map>getDavList({required int codloja,DateTime? inicio, DateTime? fim,int? codcliente, List<DavTypes> ?tipos,required bool cancelado, int? numero,
-     String? numeroalternativo, String? numeroficha, required int startrow, required String api_token})async{
+    String? numeroalternativo, String? numeroficha, required int startrow, required String api_token})async{
 
     ApiHelper api = ApiHelper();
 
@@ -155,13 +155,13 @@ class Dav{
       digitacao =  DateTime.parse(map['digitacao']);
 
     if(tabelapreco != 0)
-    tabelapreco = TabelaPrecoType.values[int.parse(map['tabelapreco'],radix:0)];
+      tabelapreco = TabelaPrecoType.values[int.parse(map['tabelapreco'],radix:0)];
 
     observacao = map['observacao'] ?? "";
     if(numeroficha != 0)
-    numeroficha = int.parse(map['numeroficha'],radix: 0);
+      numeroficha = int.parse(map['numeroficha'],radix: 0);
     if(numeroalternativo != 0)
-    numeroalternativo = (map['numeroalternativo']);
+      numeroalternativo = (map['numeroalternativo']);
     tpcondicional = map['tpcondicional'] ?? 0;
     total = DavTotal.fromMap(map["total"]);
     cliente = DavCliente.fromMap(map["cliente"]);
@@ -174,31 +174,31 @@ class Dav{
     }
   }
 
-   Map<String,dynamic> toMap(){
-     Map<String, dynamic> map = {
+  Map<String,dynamic> toMap(){
+    Map<String, dynamic> map = {
 
-       'coddav': coddav,
-       'guid': guid,
-       'codusuario': codusuario,
-       'codfuncionario': codfuncionario,
-       'codloja': codloja,
-       'numero': numero,
-       'tipo': tipo,
-       'digitacao': DateFormat('yyyy-MM-dd').format(digitacao),
-       'tabelapreco': tabelapreco.index,
-       'numeroficha': numeroficha,
-       'observacao': observacao,
-       'numeroalternativo': numeroalternativo,
-       'tpcondicional': tpcondicional,
-       'total': total.toMap(),
-       'cliente': cliente.toMap(),
-       'pagamento': pagamento.toMap(),
+      'coddav': coddav,
+      'guid': guid,
+      'codusuario': codusuario,
+      'codfuncionario': codfuncionario,
+      'codloja': codloja,
+      'numero': numero,
+      'tipo': tipo,
+      'digitacao': DateFormat('yyyy-MM-dd').format(digitacao),
+      'tabelapreco': tabelapreco.index,
+      'numeroficha': numeroficha,
+      'observacao': observacao,
+      'numeroalternativo': numeroalternativo,
+      'tpcondicional': tpcondicional,
+      'total': total.toMap(),
+      'cliente': cliente.toMap(),
+      'pagamento': pagamento.toMap(),
 
 
-     };
-     return map;
+    };
+    return map;
 
-   }
+  }
 }
 
 class DavTotal {

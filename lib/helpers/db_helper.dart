@@ -20,16 +20,16 @@ class DBHelper{
     final path = join(databasesPath, "${packageInfo.appName}.db");
 
     return await openDatabase(path, version: 2,
-          onCreate: (Database db, int newerVersion) async {
-            await db.execute(DBCountsHelper().toScript());
-          },
-          onUpgrade: (Database db, int oldVersion, int newVersion) async {
-            if (oldVersion == 1) {
-              db.execute(DBCountsHelper().toScriptAddPwdRemember());
-              db.execute('UPDATE COUNTS SET SENHA = NULL');
-            }
+        onCreate: (Database db, int newerVersion) async {
+          await db.execute(DBCountsHelper().toScript());
+        },
+        onUpgrade: (Database db, int oldVersion, int newVersion) async {
+          if (oldVersion == 1) {
+            db.execute(DBCountsHelper().toScriptAddPwdRemember());
+            db.execute('UPDATE COUNTS SET SENHA = NULL');
           }
-        );
+        }
+    );
 
   }
 

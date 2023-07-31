@@ -57,7 +57,7 @@ class Helper{
     return nome;
   }
 
-   static DateTime? strToDateTime(String date){
+  static DateTime? strToDateTime(String date){
     if (!(date.isEmpty || date == null))
       return DateTime.tryParse(date);
   }
@@ -98,12 +98,12 @@ class Helper{
     String googleUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
     String appleUrl = 'https://maps.apple.com/?sll=$lat,$lng';
 
-      if (Platform.isAndroid){
-        await launch(googleUrl);
-      }
-      else if (Platform.isIOS) {
-        await launch(appleUrl);
-      }
+    if (Platform.isAndroid){
+      await launch(googleUrl);
+    }
+    else if (Platform.isIOS) {
+      await launch(appleUrl);
+    }
   }
 
   static navigateTo(double lat, double lng) async {

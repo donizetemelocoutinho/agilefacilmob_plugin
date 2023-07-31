@@ -100,12 +100,12 @@ class FormaPagamentoListItem{
   }
 }
 
-  class SimularParcelaItem{
-    int numero  = 0;
-    double parcela = 0.00;
-    double total = 0.00;
+class SimularParcelaItem{
+  int numero  = 0;
+  double parcela = 0.00;
+  double total = 0.00;
 
-    SimularParcelaItem.fromMap(Map map){
+  SimularParcelaItem.fromMap(Map map){
     numero = map['numero'] ?? 0;
     parcela = double.parse(map['parcela'] ?? 0);
     total = double.parse(map['total'] ?? 0);

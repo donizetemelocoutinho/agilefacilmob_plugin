@@ -190,21 +190,21 @@ class PDVJason{
   int tipo = 0;
 
   PDVJason(
-    {required this.codpdv,
-      required this.numero,
-      required this.chave,
-      required this.cartao,
-      this.codtdf,
-      this.balanca,
-      required this.dispositivo,
-      required this.nfce,
-      required this.create,
-      required this.update,
-      required this.delete,
-      required this.sat,
-      required this.impressora,
-      required this.guid,
-      required this.tipo});
+      {required this.codpdv,
+        required this.numero,
+        required this.chave,
+        required this.cartao,
+        this.codtdf,
+        this.balanca,
+        required this.dispositivo,
+        required this.nfce,
+        required this.create,
+        required this.update,
+        required this.delete,
+        required this.sat,
+        required this.impressora,
+        required this.guid,
+        required this.tipo});
 
   PDVJason.fromJson(Map<String, dynamic> json) {
     codpdv = json['codpdv'] ?? 0;
