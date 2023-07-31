@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class ApiHelper{
 
-  static const _url_api = "api.agilefacil.com.br";
+  static const _url_api = "xapi.agilefacil.com.br";
 
   Future<dynamic> get(String service,{required Map<String, dynamic> params}) async {
     Uri url;
