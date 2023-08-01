@@ -20,9 +20,9 @@ class ApiHelper{
   Future<dynamic> post(String service,Map<String,dynamic> map,{required Map<String, String> params}) async {
     Uri url;
     if (params != null)
-      url = Uri.https(_url_api,"/api/v1/" + service,params);
+      url = Uri.https(_url_api,"/v1/" + service,params);
     else
-      url = Uri.https(_url_api,"/api/v1/" + service);
+      url = Uri.https(_url_api,"/v1/" + service);
 
     var response = await http.post(url,body: jsonEncode(map),headers: {"content-type": "application/json"});
     return jsonDecode(response.body);

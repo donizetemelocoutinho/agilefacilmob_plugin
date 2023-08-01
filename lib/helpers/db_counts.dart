@@ -81,7 +81,7 @@ class DBCountsHelper{
 
   Future<int> update(DBCount count) async {
     Database d = await DBHelper().db;
-    return await d.update(table, count.toMap() as Map<String, Object?>, where: "$idColumn = ?", whereArgs: [count.id]);
+    return await d.update(table, count.toMap(), where: "$idColumn = ?", whereArgs: [count.id]);
   }
 
   Future<int?> count() async{
