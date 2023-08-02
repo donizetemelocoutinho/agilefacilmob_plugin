@@ -98,7 +98,7 @@ class _AclLoginState extends State<AclLogin> {
         Container(
           child: Padding(padding: const EdgeInsets.only(top: 20.0, left: 28, bottom: 3.0),
             child: (Text("Usuário",
-              style: TextStyle(fontSize: 16.0, fontFamily: "Secular", color: Theme.of(context).secondaryHeaderColor), textAlign: TextAlign.left)
+              style: TextStyle(fontSize: 16.0, fontFamily: "Secular", color: Theme.of(context).primaryColor), textAlign: TextAlign.left)
             ),
           ),
         ),
@@ -152,7 +152,7 @@ class _AclLoginState extends State<AclLogin> {
         Container(
           child: Padding(padding: const EdgeInsets.only(top: 20.0, left: 28, bottom: 3.0),
             child: (Text("Senha",
-              style: TextStyle(fontSize: 16.0, fontFamily: "Secular", color: Theme.of(context).secondaryHeaderColor), textAlign: TextAlign.left)
+              style: TextStyle(fontSize: 16.0, fontFamily: "Secular", color: Theme.of(context).primaryColor), textAlign: TextAlign.left)
             ),
           ),
         ),
@@ -173,7 +173,7 @@ class _AclLoginState extends State<AclLogin> {
                         child: GestureDetector(
                           child: Icon(_obscureText ? Icons.remove_red_eye_outlined : Icons.lock_outlined,
                             size: 28,
-                            color: Theme.of(context).secondaryHeaderColor
+                            color: Theme.of(context).primaryColor
                           ),
                           onTap: () {
                             setState(() {
@@ -213,7 +213,7 @@ class _AclLoginState extends State<AclLogin> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(padding: const EdgeInsets.only(left: 5.0, bottom: 4.0),
-            child: Text("Justificativa",style: TextStyle(fontSize: 15, fontFamily: 'Secular', color: Theme.of(context).secondaryHeaderColor)),
+            child: Text("Justificativa",style: TextStyle(fontSize: 15, fontFamily: 'Secular', color: Theme.of(context).primaryColor)),
           ),
           _descJustificativa(),
         ],
