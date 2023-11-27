@@ -197,33 +197,32 @@ class ClienteListItem {
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
-      'codpessoa' : codpessoa,
-      'guid' : guid,
-      'codigo' : codigo,
-      'tipo' : tipo,
-      'status' : status,
+      'codpessoa': codpessoa,
+      'guid': guid,
+      'codigo': codigo,
+      'tipo': tipo,
+      'status': status,
       if (credito != null)
-        'credito' : credito,
+        'credito': credito,
 
-      'nome' : nome,
-      'razao' : razao,
-      'cpfcnpj' : cpfcnpj,
-      'tipoie' : tipoie,
-      'ie' : ie,
-      'foto' : foto,
-      'sexo' : sexo,
+      'nome': nome,
+      'razao': razao,
+      'cpfcnpj': cpfcnpj,
+      'tipoie': tipoie,
+      'ie': ie,
+      'foto': foto,
+      'sexo': sexo,
       if (contato != null)
-        'contato' : contato,
+        'contato': contato,
 
       if (endereco != null)
-        'endereco' : endereco,
+        'endereco': endereco,
 
       if (receber != null)
-        'receber' : receber,
+        'receber': receber,
     };
     return map;
   }
-
 }
 
 class ReceberListItem {

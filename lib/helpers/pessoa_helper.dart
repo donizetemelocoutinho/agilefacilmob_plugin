@@ -2,7 +2,6 @@ import 'package:agilefacil_mob/helpers/helper.dart';
 import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:intl/intl.dart';
 
-
 class PessoHelper{}
 
 class Pessoa{
