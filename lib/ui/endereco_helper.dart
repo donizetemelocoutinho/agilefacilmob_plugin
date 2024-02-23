@@ -190,7 +190,7 @@ class EnderecoHelper{
             decoration: InputDecoration(labelText: "Referencia",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _referenciaController,
           ),
-          Padding(padding: EdgeInsets.only(top: 12.0, bottom: 20),
+          Padding(padding: EdgeInsets.only(top: 15.0, bottom: 30),
             child: TextButton(
               child: Row(
                 children: [
