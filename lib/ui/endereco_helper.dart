@@ -4,6 +4,7 @@ import 'package:agilefacil_mob/helpers/tipos.dart';
 import 'package:agilefacil_mob/ui/cidade_screen.dart';
 import 'package:agilefacil_mob/ui/estado_screen.dart';
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
@@ -189,12 +190,11 @@ class EnderecoHelper{
             decoration: InputDecoration(labelText: "Referencia",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _referenciaController,
           ),
-          Padding(padding: EdgeInsets.all(12.0),
+          Padding(padding: EdgeInsets.only(top: 12.0, bottom: 20),
             child: TextButton(
               child: Row(
                 children: [
-                  Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor)),
-                  const SizedBox(height: 5),
+                  Expanded(child: Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor))),
                   Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
                 ],
               ),
