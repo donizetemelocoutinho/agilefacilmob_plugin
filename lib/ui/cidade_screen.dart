@@ -35,14 +35,15 @@ class _CidadeScreenState extends State<CidadeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,
+      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,iconTheme: IconThemeData(color: Colors.white),
         title: Text("Cidades", style: TextStyle(fontSize: 22,fontFamily: 'Secular',color: Colors.white)),
       ),
       body: Column(
           children: <Widget>[
             Padding(
                 padding: EdgeInsets.all(10.0),
-                child: TextField(decoration: InputDecoration(labelText: "Pesquise aqui"),autofocus: true,onChanged: (value){
+                child: TextField(style: TextStyle(color: Theme.of(context).primaryColor),
+                  decoration: InputDecoration(labelText: "Pesquise aqui"),autofocus: true,onChanged: (value){
                   setState(() {
                     _search = value;
                   });
@@ -88,7 +89,7 @@ class _CidadeScreenState extends State<CidadeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Text(snapshot.data["cidades"][index]["descricao"],style: TextStyle(fontSize: 16.0)),
+              Text(snapshot.data["cidades"][index]["descricao"],style: TextStyle(fontSize: 16.0, color: Theme.of(context).primaryColor)),
               Divider()
             ],
           ),

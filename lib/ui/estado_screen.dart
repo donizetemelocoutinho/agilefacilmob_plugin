@@ -11,7 +11,7 @@ class _EstadoScreenState extends State<EstadoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,
+      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,iconTheme: IconThemeData(color: Colors.white),
         title: Text("Estados", style: TextStyle(fontSize: 22,fontFamily: 'Secular',color: Colors.white)),
       ),
       body: Column(
@@ -33,7 +33,7 @@ class _EstadoScreenState extends State<EstadoScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Text(Diversos.Estados[index],style: TextStyle(fontSize: 16.0)),
+          Text(Diversos.Estados[index],style: TextStyle(fontSize: 16.0, color: Theme.of(context).primaryColor)),
           Divider()
         ],
       ),
