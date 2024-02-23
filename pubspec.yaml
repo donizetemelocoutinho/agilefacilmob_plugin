@@ -21,6 +21,7 @@ dependencies:
   whatsapp_unilink: ^2.1.0
   geocoding: ^2.1.0
   brasil_fields: ^1.13.1
+  fluttertoast: 8.2.2
 
   cpfcnpj:
     git:

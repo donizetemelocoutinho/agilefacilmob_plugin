@@ -7,6 +7,7 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
 
 class EnderecoHelper{
@@ -69,6 +70,20 @@ class EnderecoHelper{
                 IconButton(
                   icon: Icon(Icons.search,color: Theme.of(context).primaryColor,size: 20),
                   onPressed: () async {
+                    // Verificar se o campo está vazio
+                    if (_cepController.text.isEmpty) {
+                      // Mostrar um FlutterToast informando que o CEP deve ser fornecido
+                      Fluttertoast.showToast(
+                        msg: "Informe um CEP antes de pesquisar",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0,
+                      );
+                      return; // Parar a execução do código aqui
+                    }
                     FocusScope.of(context).requestFocus(new FocusNode());
 
                     ApiHelper api = ApiHelper();
