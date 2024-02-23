@@ -57,8 +57,8 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: "Cep"),
+                  child: TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(labelText: "Cep",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
                     controller: _cepController,
                     keyboardType: TextInputType.numberWithOptions(decimal: false),
                     onChanged: (value){endereco.cep = value;},
@@ -66,7 +66,7 @@ class EnderecoHelper{
                   )
                 ),
                 IconButton(
-                  icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
+                  icon: Icon(Icons.search,color: Theme.of(context).primaryColor,size: 20),
                   onPressed: () async {
                     FocusScope.of(context).requestFocus(new FocusNode());
 
@@ -112,14 +112,14 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: "Estado"),
+                  child: TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(labelText: "Estado",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
                     controller: _ufController,
                     enabled: false
                   )
                 ),
                 IconButton(
-                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
+                    icon: Icon(Icons.search,color: Theme.of(context).primaryColor, size: 20),
                     onPressed: () async{
                       FocusScope.of(context).requestFocus(new FocusNode());
                       Estado estado = await Navigator.push(context, MaterialPageRoute(builder: (context) => EstadoScreen()));
@@ -141,14 +141,14 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: "Cidade"),
+                  child: TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(labelText: "Cidade",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
                     controller: _cidadeController,
                     enabled: false,
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.search,color: Theme.of(context).primaryColor),
+                  icon: Icon(Icons.search,color: Theme.of(context).primaryColor,size: 20),
                   onPressed: () async{
                     FocusScope.of(context).requestFocus(new FocusNode());
                     Cidade cidade = await Navigator.push(context, MaterialPageRoute(builder: (context) => CidadeScreen(endereco.uf)));
@@ -164,8 +164,8 @@ class EnderecoHelper{
               ],
             ),
           ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "Bairro"),
+          TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+            decoration: InputDecoration(labelText: "Bairro",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _bairroController,
           ),
           Container(
@@ -173,25 +173,31 @@ class EnderecoHelper{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: "Logradouro"),
+                  child: TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(labelText: "Logradouro",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
                     controller: _logradouroController,
                   )
                 )
               ],
             ),
           ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "Nº"),
+          TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+            decoration: InputDecoration(labelText: "Nº",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _numeroController,
           ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "Referencia"),
+          TextFormField(style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor),
+            decoration: InputDecoration(labelText: "Referencia",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _referenciaController,
           ),
           Padding(padding: EdgeInsets.all(12.0),
             child: TextButton(
-              child: Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
+              child: Row(
+                children: [
+                  Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor)),
+                  const SizedBox(height: 5),
+                  Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
+                ],
+              ),
               onPressed: () async {
                 // ApiHelper api = ApiHelper();
                 // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
