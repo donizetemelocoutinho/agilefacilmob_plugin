@@ -191,7 +191,7 @@ class EnderecoHelper{
                 labelText: "Referencia",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _referenciaController,
           ),
-          Padding(padding: EdgeInsets.only(top: 15.0, bottom: 35),
+          Padding(padding: EdgeInsets.only(top: 15.0, bottom: 40),
             child: TextButton(
               style: ButtonStyle(
                 side: MaterialStateProperty.resolveWith<BorderSide>(
