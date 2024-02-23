@@ -192,33 +192,39 @@ class EnderecoHelper{
             controller: _referenciaController,
           ),
           Padding(padding: EdgeInsets.only(top: 15.0, bottom: 35),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(context).primaryColor,
-                  width: 1,
+            child: TextButton(
+              style: ButtonStyle(
+                side: MaterialStateProperty.resolveWith<BorderSide>(
+                      (Set<MaterialState> states) {
+                    return BorderSide(
+                      color: Theme.of(context).primaryColor,
+                      width: 1,
+                    );
+                  },
                 ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: TextButton(
-                child: Row(
-                  children: [
-                    Expanded(child: Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor))),
-                    Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
-                  ],
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
-                onPressed: () async {
-                  // ApiHelper api = ApiHelper();
-                  // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
-                  // if (ret["id"] == 0){
-                  //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
-                  //   print('depois $locations');
-                  // }
-                  List<Location> locations = await locationFromAddress
-                    ("${endereco.logradouro} " + "${endereco.numero} - " + "${endereco.bairro}, " + "${endereco.cidade} - " + "${endereco.uf}");
-                  Helper.Maps(locations[0].latitude, locations[0].longitude);
-                },
               ),
+              child: Row(
+                children: [
+                  Expanded(child: Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor))),
+                  Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
+                ],
+              ),
+              onPressed: () async {
+                // ApiHelper api = ApiHelper();
+                // Map ret = await api.get("common/geo",params: {"uf": endereco.uf,"cidade": endereco.cidade,"logradouro": endereco.logradouro,"numero": endereco.numero});
+                // if (ret["id"] == 0){
+                //   Helper.navigateTo(ret[locations[0]], ret[locations[1]]);
+                //   print('depois $locations');
+                // }
+                List<Location> locations = await locationFromAddress
+                  ("${endereco.logradouro} " + "${endereco.numero} - " + "${endereco.bairro}, " + "${endereco.cidade} - " + "${endereco.uf}");
+                Helper.Maps(locations[0].latitude, locations[0].longitude);
+              },
             ),
           ),
         ],
