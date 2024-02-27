@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class EstadoScreen extends StatefulWidget {
   @override
   _EstadoScreenState createState() => _EstadoScreenState();
-
 }
 
 class _EstadoScreenState extends State<EstadoScreen> {
