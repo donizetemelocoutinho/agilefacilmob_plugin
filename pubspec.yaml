@@ -14,7 +14,7 @@ dependencies:
   http: ^1.1.0
   sqflite: ^2.3.0
   url_launcher: ^6.1.12
-  image_picker: 1.0.0
+  image_picker: ^1.0.7
   uuid: ^3.0.7
   device_info_plus: ^9.0.2
   package_info_plus: ^4.0.2
