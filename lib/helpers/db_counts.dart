@@ -119,6 +119,32 @@ class DBCountsHelper{
     return -1;
   }
 
+  Future<int> updateCounts({
+    required int codloja,
+    required String cpfcnpj,
+    required int codusuario,
+    required String newLinkFoto,
+    required String newCelular,
+    required Map<String, dynamic> newJUsuario,
+  }) async {
+    try {
+      Database db = await DBHelper().db;
+      Map<String, dynamic> values = {
+        loginfotolinkColumn: newLinkFoto,
+        celularColumn: newCelular,
+        jusuarioColumn: convert.jsonEncode(newJUsuario),
+      };
+      return await db.update(
+        table,
+        values,
+        where: "$codlojaColumn = ? AND $cpfcnpjColumn = ? AND $codusuarioColumn = ?",
+        whereArgs: [codloja, cpfcnpj, codusuario],
+      );
+    } catch (e) {
+      print("Erro ao atualizar os registros: $e");
+      return -1;
+    }
+  }
 }
 
 class DBCount{
