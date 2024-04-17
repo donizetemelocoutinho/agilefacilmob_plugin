@@ -206,41 +206,42 @@ class EnderecoHelper{
                 labelText: "Referencia",labelStyle: TextStyle(color: Theme.of(context).primaryColor)),
             controller: _referenciaController,
           ),
-          Visibility(
-            visible: _logradouroController.text != null &&
-                _numeroController.text != null &&
-                _bairroController.text != null &&
-                _cidadeController.text != null &&
-                _ufController.text != null,
-            child: Padding(
-              padding: EdgeInsets.only(top: 15.0, bottom: 40),
-              child: TextButton(
-                style: ButtonStyle(
-                  side: MaterialStateProperty.resolveWith<BorderSide>(
-                        (Set<MaterialState> states) {
-                      return BorderSide(
-                        color: Theme.of(context).primaryColor,
-                        width: 1,
-                      );
-                    },
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+          Padding(
+            padding: EdgeInsets.only(top: 15.0, bottom: 40),
+            child: TextButton(
+              style: ButtonStyle(
+                side: MaterialStateProperty.resolveWith<BorderSide>(
+                      (Set<MaterialState> states) {
+                    return BorderSide(
+                      color: Theme.of(context).primaryColor,
+                      width: 1,
+                    );
+                  },
+                ),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: Row(
-                  children: [
-                    Expanded(child: Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor))),
-                    Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
-                  ],
-                ),
-                onPressed: () async {
+              ),
+              child: Row(
+                children: [
+                  Expanded(child: Text('Localização', style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor))),
+                  Icon(Icons.location_on_outlined,color: Theme.of(context).primaryColor),
+                ],
+              ),
+              onPressed: () async {
+                if (endereco.logradouro != null &&
+                    endereco.numero != null &&
+                    endereco.bairro != null &&
+                    endereco.cidade != null &&
+                    endereco.uf != null) {
                   List<Location> locations = await locationFromAddress("${endereco.logradouro} ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade} - ${endereco.uf}");
                   Helper.Maps(locations[0].latitude, locations[0].longitude);
-                },
-              ),
+                } else {
+                  // Exiba uma mensagem de erro ou tome outra ação, pois algum dos campos do endereço está vazio.
+                }
+              },
             ),
           ),
         ],
