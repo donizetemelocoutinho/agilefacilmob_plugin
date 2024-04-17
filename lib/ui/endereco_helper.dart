@@ -231,11 +231,11 @@ class EnderecoHelper{
                 ],
               ),
               onPressed: () async {
-                if (endereco.logradouro != null &&
-                    endereco.numero != null &&
-                    endereco.bairro != null &&
-                    endereco.cidade != null &&
-                    endereco.uf != null) {
+                if (endereco.logradouro != '' &&
+                    endereco.numero != '' &&
+                    endereco.bairro != '' &&
+                    endereco.cidade != '' &&
+                    endereco.uf != '') {
                   List<Location> locations = await locationFromAddress("${endereco.logradouro} ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade} - ${endereco.uf}");
                   Helper.Maps(locations[0].latitude, locations[0].longitude);
                 } else {
