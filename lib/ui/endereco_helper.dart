@@ -207,11 +207,11 @@ class EnderecoHelper{
             controller: _referenciaController,
           ),
           Visibility(
-            visible: _logradouroController != null &&
-                _numeroController != null &&
-                _bairroController != null &&
-                _cidadeController != null &&
-                _ufController != null,
+            visible: _logradouroController.text != null &&
+                _numeroController.text != null &&
+                _bairroController.text != null &&
+                _cidadeController.text != null &&
+                _ufController.text != null,
             child: Padding(
               padding: EdgeInsets.only(top: 15.0, bottom: 40),
               child: TextButton(
