@@ -34,8 +34,10 @@ class _AclLoginState extends State<AclLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text("Controle de Acesso", style: TextStyle(fontSize: 22,fontFamily: 'Secular',color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         reverse: true,
@@ -118,7 +120,7 @@ class _AclLoginState extends State<AclLogin> {
                           child: Icon(
                             Icons.person_outline_outlined,
                             size: 28,
-                            color: Theme.of(context).secondaryHeaderColor,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         border: InputBorder.none,
