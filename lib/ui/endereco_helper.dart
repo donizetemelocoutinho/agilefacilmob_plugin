@@ -64,7 +64,7 @@ class EnderecoHelper{
                     controller: _cepController,
                     keyboardType: TextInputType.numberWithOptions(decimal: false),
                     onChanged: (value){endereco.cep = value;},
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly, CepInputFormatter()],
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly, CepInputFormatter()],
                   )
                 ),
                 IconButton(
